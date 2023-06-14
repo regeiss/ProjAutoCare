@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View
 {
     init() {
-            UIView.appearance().backgroundColor = UIColor.red
+            // UIView.appearance().backgroundColor = UIColor.red
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.backgroundColor = UIColor.orange
@@ -20,29 +20,37 @@ struct ContentView: View
         }
     // @Binding var showMenu: Bool
     @State private var isShowingSheet = false
+    @State var showSidebar: Bool = false
     
     var body: some View
     {
-        ZStack
+        SideBarStack(sidebarWidth: 125, showSidebar: $showSidebar)
         {
-            Color("backGroundMain").ignoresSafeArea()
-            NavigationStack
+                   // Sidebar content here
+            Text("Destination")
+        } content: {
+            ZStack
             {
-                NavigationLink("Tap me") {
-                    Text("Destination")
-                }
-                .navigationTitle("Ajustes")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading)
-                    { Button { isShowingSheet.toggle()}
-                        label: { Image(systemName: "line.3.horizontal")}}
-                    
-                    ToolbarItem(placement: .navigationBarTrailing)
-                    { Button { isShowingSheet.toggle()}
-                        label: { Image(systemName: "car.2")}}
+                Color("backGroundMain").ignoresSafeArea()
+                NavigationStack
+                {
+                    NavigationLink("Tap me") {
+                        Text("Destination")
+                    }
+                    .navigationTitle("Ajustes")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading)
+                        { Button { showSidebar.toggle()}
+                            label: { Image(systemName: "line.3.horizontal")}}
+                        
+                        ToolbarItem(placement: .navigationBarTrailing)
+                        { Button { isShowingSheet.toggle()}
+                            label: { Image(systemName: "car.2")}}
+                    }
                 }
             }
         }
+ 
     }
     
     //    @Environment(\.modelContext) private var modelContext

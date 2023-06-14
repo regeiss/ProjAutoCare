@@ -19,6 +19,7 @@
 		E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */; };
 		E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */; };
 		E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */; };
+		E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
+		E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5F53E2A3A1B2100F3AFD1 /* Screen */,
 				E1D5F5362A39474200F3AFD1 /* Action */,
 				E1D5F5352A39473A00F3AFD1 /* Model */,
 			);
@@ -209,6 +212,14 @@
 			children = (
 			);
 			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		E1D5F53E2A3A1B2100F3AFD1 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
+				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
