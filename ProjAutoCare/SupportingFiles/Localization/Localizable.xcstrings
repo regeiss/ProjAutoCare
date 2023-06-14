@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Add Item" : {
-
-    },
     "Ajustes" : {
 
     },
@@ -13,7 +10,10 @@
     "Backup" : {
 
     },
-    "Item at %@" : {
+    "Destination" : {
+
+    },
+    "Hello, World!" : {
 
     },
     "Key" : {
@@ -22,10 +22,10 @@
     "Modo escuro" : {
 
     },
-    "Reset Onboarding" : {
+    "Resetar Onboarding" : {
 
     },
-    "Select an item" : {
+    "Tap me" : {
 
     }
   },

@@ -17,6 +17,8 @@
 		E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */; };
 		E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */; };
 		E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */; };
+		E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */; };
+		E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +28,13 @@
 		E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1D5F5162A37E4C400F3AFD1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ProjAutoCare/Code/Config/.swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */,
 				E1D5F50C2A37E4C300F3AFD1 /* ProjAutoCare */,
 				E1D5F50B2A37E4C300F3AFD1 /* Products */,
 			);
@@ -64,10 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				E1D5F5272A37F64200F3AFD1 /* Code */,
-				E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */,
 				E1D5F5162A37E4C400F3AFD1 /* Item.swift */,
 				E1D5F5132A37E4C400F3AFD1 /* Preview Content */,
-				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
 				E1D5F5232A37F28400F3AFD1 /* SupportingFiles */,
 			);
 			path = ProjAutoCare;
@@ -84,6 +87,8 @@
 		E1D5F5232A37F28400F3AFD1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */,
+				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
 				E1D5F5242A37F2F000F3AFD1 /* Localization */,
 			);
 			path = SupportingFiles;
@@ -127,6 +132,7 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5F5372A3947BA00F3AFD1 /* Root */,
 				E1D5F52E2A3935FB00F3AFD1 /* Common */,
 				E1D5F52D2A39359100F3AFD1 /* Settings */,
 			);
@@ -144,6 +150,8 @@
 		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5F5362A39474200F3AFD1 /* Action */,
+				E1D5F5352A39473A00F3AFD1 /* Model */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -151,7 +159,8 @@
 		E1D5F52F2A39370B00F3AFD1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */,
+				E1D5F5392A39481500F3AFD1 /* ViewModifier */,
+				E1D5F5382A39480700F3AFD1 /* Theme */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -163,6 +172,43 @@
 				E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1D5F5352A39473A00F3AFD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1D5F5362A39474200F3AFD1 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E1D5F5372A3947BA00F3AFD1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E1D5F5382A39480700F3AFD1 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		E1D5F5392A39481500F3AFD1 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +310,8 @@
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
+				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
+				E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
 			);
