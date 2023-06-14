@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -54,7 +54,7 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+#Preview
+{ ContentView()
         .modelContainer(for: Item.self, inMemory: true)
 }

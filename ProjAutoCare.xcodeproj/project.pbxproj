@@ -12,6 +12,11 @@
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
 		E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */; };
 		E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5162A37E4C400F3AFD1 /* Item.swift */; };
+		E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */; };
+		E1D5F5262A37F3B900F3AFD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */; };
+		E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */; };
+		E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */; };
+		E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1D5F5162A37E4C400F3AFD1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = ProjAutoCare/Code/Config/.swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +63,12 @@
 		E1D5F50C2A37E4C300F3AFD1 /* ProjAutoCare */ = {
 			isa = PBXGroup;
 			children = (
-				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
+				E1D5F5272A37F64200F3AFD1 /* Code */,
 				E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */,
-				E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */,
 				E1D5F5162A37E4C400F3AFD1 /* Item.swift */,
 				E1D5F5132A37E4C400F3AFD1 /* Preview Content */,
+				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
+				E1D5F5232A37F28400F3AFD1 /* SupportingFiles */,
 			);
 			path = ProjAutoCare;
 			sourceTree = "<group>";
@@ -70,6 +81,90 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E1D5F5232A37F28400F3AFD1 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5242A37F2F000F3AFD1 /* Localization */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E1D5F5242A37F2F000F3AFD1 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		E1D5F5272A37F64200F3AFD1 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F52F2A39370B00F3AFD1 /* Config */,
+				E1D5F52C2A392F5F00F3AFD1 /* Features */,
+				E1D5F5302A39371500F3AFD1 /* Resources */,
+				E1D5F5282A37F64B00F3AFD1 /* Utilities */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		E1D5F5282A37F64B00F3AFD1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5292A37F66F00F3AFD1 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E1D5F5292A37F66F00F3AFD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F52E2A3935FB00F3AFD1 /* Common */,
+				E1D5F52D2A39359100F3AFD1 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E1D5F52D2A39359100F3AFD1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E1D5F52F2A39370B00F3AFD1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E1D5F5302A39371500F3AFD1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */,
+				E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +175,7 @@
 				E1D5F5062A37E4C300F3AFD1 /* Sources */,
 				E1D5F5072A37E4C300F3AFD1 /* Frameworks */,
 				E1D5F5082A37E4C300F3AFD1 /* Resources */,
+				E1D5F5202A37ECD100F3AFD1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -112,6 +208,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = E1D5F5012A37E4C300F3AFD1;
 			productRefGroup = E1D5F50B2A37E4C300F3AFD1 /* Products */;
@@ -128,20 +225,46 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */,
+				E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */,
 				E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */,
+				E1D5F5262A37F3B900F3AFD1 /* Localizable.xcstrings in Resources */,
 				E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E1D5F5202A37ECD100F3AFD1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1D5F5062A37E4C300F3AFD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
+				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +401,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ProjAutoCare/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DLN7FPJ74;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -291,9 +415,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgeiss.ProjAutoCare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,6 +434,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ProjAutoCare/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DLN7FPJ74;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -320,9 +448,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rgeiss.ProjAutoCare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

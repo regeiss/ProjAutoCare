@@ -9,10 +9,12 @@ import SwiftUI
 import SwiftData
 
 @main
-struct ProjAutoCareApp: App {
-
-    var body: some Scene {
-        WindowGroup {
+struct ProjAutoCareApp: App
+{
+    var body: some Scene
+    {
+        WindowGroup
+        {
             ContentView()
         }
         .modelContainer(for: Item.self)

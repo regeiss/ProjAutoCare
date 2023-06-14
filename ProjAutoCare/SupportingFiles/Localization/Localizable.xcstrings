@@ -1,0 +1,33 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Add Item" : {
+
+    },
+    "Ajustes" : {
+
+    },
+    "Alertas" : {
+
+    },
+    "Backup" : {
+
+    },
+    "Item at %@" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Modo escuro" : {
+
+    },
+    "Reset Onboarding" : {
+
+    },
+    "Select an item" : {
+
+    }
+  },
+  "version" : "1.0"
+}
