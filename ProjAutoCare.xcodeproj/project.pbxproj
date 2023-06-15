@@ -20,6 +20,8 @@
 		E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */; };
 		E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */; };
 		E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */; };
+		E1D5F5432A3A757D00F3AFD1 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5422A3A757D00F3AFD1 /* SidebarView.swift */; };
+		E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5442A3A779000F3AFD1 /* Snippets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarStack.swift; sourceTree = "<group>"; };
+		E1D5F5422A3A757D00F3AFD1 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		E1D5F5442A3A779000F3AFD1 /* Snippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				E1D5F5292A37F66F00F3AFD1 /* Extensions */,
+				E1D5F5442A3A779000F3AFD1 /* Snippets.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1D5F5412A3A753600F3AFD1 /* View */,
 				E1D5F53E2A3A1B2100F3AFD1 /* Screen */,
 				E1D5F5362A39474200F3AFD1 /* Action */,
 				E1D5F5352A39473A00F3AFD1 /* Model */,
@@ -220,6 +226,14 @@
 				E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		E1D5F5412A3A753600F3AFD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5422A3A757D00F3AFD1 /* SidebarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +337,8 @@
 				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
+				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
+				E1D5F5432A3A757D00F3AFD1 /* SidebarView.swift in Sources */,
 				E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,

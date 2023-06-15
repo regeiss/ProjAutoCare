@@ -7,7 +7,13 @@
     "Alertas" : {
 
     },
+    "AutoCare" : {
+
+    },
     "Backup" : {
+
+    },
+    "Configurações" : {
 
     },
     "Destination" : {
@@ -19,13 +25,25 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "Login" : {
+
+    },
+    "Mensagens" : {
+
+    },
     "Modo escuro" : {
+
+    },
+    "Perfil" : {
 
     },
     "Resetar Onboarding" : {
 
     },
-    "Tap me" : {
+    "Tap me!!!!!" : {
+
+    },
+    "WerkstadtG v." : {
 
     }
   },
