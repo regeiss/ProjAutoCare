@@ -10,7 +10,8 @@ import SwiftUI
 struct SideBarView: View
 {
     @State var showMenu = false
-    @State var shouldPresentSheet = false
+    @State var showConfigSheet = false
+    @State var showPerfilSheet = false
     
     var body: some View
     {
@@ -44,7 +45,7 @@ struct SideBarView: View
             .onTapGesture
             {
                 showMenu = false
-                // router.toListaPerfil()
+                showPerfilSheet = true 
             }
             HStack
             {
@@ -74,7 +75,7 @@ struct SideBarView: View
             .onTapGesture
             {
                 showMenu = false
-                shouldPresentSheet = true
+                showConfigSheet = true
             }
             Spacer()
             HStack
@@ -86,10 +87,15 @@ struct SideBarView: View
             }.padding([.leading, .bottom])
         }
         .background(Color("sidebar"))
-        .sheet(isPresented: $shouldPresentSheet)
+        .sheet(isPresented: $showConfigSheet)
         {
             SettingsScreen()
         }
+        .sheet(isPresented: $showPerfilSheet)
+        {
+            PerfilScreen()
+        }
+        //})}
     }
 }
 

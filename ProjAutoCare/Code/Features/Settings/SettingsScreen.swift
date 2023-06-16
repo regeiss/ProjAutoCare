@@ -7,19 +7,25 @@
 
 import SwiftUI
 
-struct SettingsScreen: View {
-
+struct SettingsScreen: View
+{
+    @Environment(\.dismiss) var dismiss
     @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
     @AppStorage("contextSet") private var contextSet: Bool = false
     @AppStorage("modoEscuro") private var modoEscuro: Bool = false
     @AppStorage("backup") private var backup: Bool = false
     @AppStorage("alertas") private var alertas: Bool = false
-
-    var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                Form {
-                    Section {
+    
+    var body: some View
+    {
+        NavigationView
+        {
+            VStack(alignment: .leading)
+            {
+                Form
+                {
+                    Section
+                    {
                         Toggle(isOn: $backup) {
                             Text("Backup")
                         }
@@ -30,7 +36,8 @@ struct SettingsScreen: View {
                             Text("Modo escuro")
                         }
                     }
-                    Section {
+                    Section
+                    {
                         Button(action: {needsAppOnboarding = true},
                                label: {
                             Text("Resetar Onboarding")
@@ -46,6 +53,14 @@ struct SettingsScreen: View {
                 .background(Color("backGroundMain"))
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Ajustes", displayMode: .automatic)
+                .toolbar(content: {
+                    ToolbarItem {
+                        Button { dismiss()}
+                    label: { Label("Dismiss", systemImage: "xmark.circle.fill")}
+                    }
+                    
+                }
+                )
                 Spacer()
             }.background(Color("backGroundMain"))
         }

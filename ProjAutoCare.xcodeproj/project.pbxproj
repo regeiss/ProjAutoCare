@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
+		E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
+		E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilScreen.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E16C14F82A3D21CD003EAADA /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E16C14F82A3D21CD003EAADA /* Perfil */,
 				E1D5F5372A3947BA00F3AFD1 /* Root */,
 				E1D5F52E2A3935FB00F3AFD1 /* Common */,
 				E1D5F52D2A39359100F3AFD1 /* Settings */,
@@ -342,6 +353,7 @@
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
+				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
 				E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
