@@ -17,6 +17,7 @@ struct ProjAutoCareApp: App
         WindowGroup
         {
             ContentView()
+                .modifier(DarkModeViewModifier())
         }
         .modelContainer(for: Item.self)
         .onChange(of: scenePhase)

@@ -12,48 +12,54 @@ struct ContentView: View
 {
     init() {
         // UIView.appearance().backgroundColor = UIColor.red
-        let navBarAppearance = UINavigationBarAppearance()
+        // let navBarAppearance = UINavigationBarAppearance()
         // navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.backgroundColor = UIColor(Color("backGroundMain"))
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        // navBarAppearance.backgroundColor = UIColor(Color("backGroundMain"))
+        // UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
 //
     }
     // @Binding var showMenu: Bool
     @State private var isShowingSheet = false
     @State var showSidebar: Bool = false
+    // let sizes = Sizes()
     
     var body: some View
     {
-        
-        SideBarStack(sidebarWidth: 185, showSidebar: $showSidebar)
+        ZStack
         {
-            SideBarView()
-        }
-        content:
-        {
-
+            Color("sidebar").ignoresSafeArea()
+            SideBarStack(sidebarWidth: 200, showSidebar: $showSidebar)
+            {
+                SideBarView()
+            }
+            content:
+            {
                 NavigationStack
                 {
-                    NavigationLink("Tap me!!!!!") {
-                        Text("Destination")
-                    }
-                    .navigationTitle("AutoCare")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading)
-                        { Button { showSidebar.toggle()}
-                            label: { Image(systemName: "line.3.horizontal")}}
-                        
-                        ToolbarItem(placement: .navigationBarTrailing)
-                        { Button { isShowingSheet.toggle()}
-                            label: { Image(systemName: "car.2")}}
+                    ZStack
+                    {
+                        Color("backGroundMain").ignoresSafeArea()
+                        NavigationLink("Tap me!!!!!")
+                        {
+                            Text("Destination")
+                        }
+                        .navigationTitle("AutoCare")
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading)
+                            { Button { showSidebar.toggle()}
+                                label: { Image(systemName: "line.3.horizontal")}}
+                            
+                            ToolbarItem(placement: .navigationBarTrailing)
+                            { Button { isShowingSheet.toggle()}
+                                label: { Image(systemName: "car.2")}}
+                        }
                     }
                 }
-            
-        }.edgesIgnoringSafeArea(.all)
+                
+            }.edgesIgnoringSafeArea(.all)
+        }
     }
 }
-
-
 
 #Preview
 {

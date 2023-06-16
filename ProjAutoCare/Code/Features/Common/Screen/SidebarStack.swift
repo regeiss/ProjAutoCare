@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SideBarStack<SidebarContent: View, Content: View>: View {
-    
+struct SideBarStack<SidebarContent: View, Content: View>: View
+{
     let sidebarContent: SidebarContent
     let mainContent: Content
     let sidebarWidth: CGFloat
@@ -29,7 +29,7 @@ struct SideBarStack<SidebarContent: View, Content: View>: View {
             sidebarContent
                 .frame(width: sidebarWidth, alignment: .center)
                 .offset(x: showSidebar ? 0 : -1 * sidebarWidth, y: 0)
-                .animation(Animation.easeInOut.speed(2))
+                .animation(Animation.easeInOut.speed(2), value: showSidebar)
             mainContent
                 .overlay(
                     Group
@@ -50,10 +50,10 @@ struct SideBarStack<SidebarContent: View, Content: View>: View {
                                 self.showSidebar = false
                             }
                         }
-                    }.background(Color("backGroundMain"))
+                    }
                 )
                 .offset(x: showSidebar ? sidebarWidth : 0, y: 0)
-                .animation(Animation.easeInOut.speed(2))
+                .animation(Animation.easeInOut.speed(2), value: showSidebar)
                 
         }
     }

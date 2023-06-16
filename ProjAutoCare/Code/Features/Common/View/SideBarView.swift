@@ -10,6 +10,7 @@ import SwiftUI
 struct SideBarView: View
 {
     @State var showMenu = false
+    @State var shouldPresentSheet = false
     
     var body: some View
     {
@@ -73,7 +74,7 @@ struct SideBarView: View
             .onTapGesture
             {
                 showMenu = false
-                SettingsScreen()
+                shouldPresentSheet = true
             }
             Spacer()
             HStack
@@ -83,8 +84,12 @@ struct SideBarView: View
                 Text(appBuild ?? "1.0")
                     .foregroundColor(.gray)
             }.padding([.leading, .bottom])
-        }.padding()
-        .background(Color(red: 32/255, green: 32/255, blue: 32/255))
+        }
+        .background(Color("sidebar"))
+        .sheet(isPresented: $shouldPresentSheet)
+        {
+            SettingsScreen()
+        }
     }
 }
 
