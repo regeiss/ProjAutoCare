@@ -12,6 +12,7 @@ struct SideBarView: View
     @State var showMenu = false
     @State var showConfigSheet = false
     @State var showPerfilSheet = false
+    @State var showMensagemSheet = false
     
     var body: some View
     {
@@ -60,7 +61,7 @@ struct SideBarView: View
             .onTapGesture
             {
                 showMenu = false
-                // router.toMenu()
+                showMensagemSheet = true
             }
             HStack
             {
@@ -95,7 +96,10 @@ struct SideBarView: View
         {
             PerfilScreen()
         }
-        //})}
+        .sheet(isPresented: $showMensagemSheet)
+        {
+            MensagemScreen()
+        }
     }
 }
 

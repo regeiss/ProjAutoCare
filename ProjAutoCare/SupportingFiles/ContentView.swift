@@ -10,15 +10,6 @@ import SwiftData
 
 struct ContentView: View
 {
-    init() {
-        // UIView.appearance().backgroundColor = UIColor.red
-        // let navBarAppearance = UINavigationBarAppearance()
-        // navBarAppearance.configureWithOpaqueBackground()
-        // navBarAppearance.backgroundColor = UIColor(Color("backGroundMain"))
-        // UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-//
-    }
-    // @Binding var showMenu: Bool
     @State private var isShowingSheet = false
     @State var showSidebar: Bool = false
     // let sizes = Sizes()
@@ -39,10 +30,7 @@ struct ContentView: View
                     ZStack
                     {
                         Color("backGroundMain").ignoresSafeArea()
-                        NavigationLink("Tap me!!!!!")
-                        {
-                            Text("Destination")
-                        }
+                        MenuInicialScreen()
                         .navigationTitle("AutoCare")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading)
@@ -57,6 +45,9 @@ struct ContentView: View
                 }
                 
             }.edgesIgnoringSafeArea(.all)
+        }.sheet(isPresented: $isShowingSheet)
+        {
+            VeiculoBottomView()
         }
     }
 }
