@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+enum Menu: String {
+    case abastecimento
+    case servico
+    case relatorios
+    case alertas
+    case cadastros 
+}
+
 struct MenuInicialScreen: View
 {
     var body: some View
@@ -19,15 +27,6 @@ struct MenuInicialScreen: View
             Collections(id: 4, name: "Cadastros", image: "config", content: ".")
         ]
         
-        //            let drag = DragGesture()
-        //                .onEnded
-        //            {
-        //                if $0.translation.width < -100
-        //                {
-        //                    withAnimation{ self.showMenu = false}
-        //                }
-        //            }
-        
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
         
         VStack
@@ -37,11 +36,32 @@ struct MenuInicialScreen: View
                 LazyVGrid(columns: columns, alignment: .center, spacing: 5)
                 {
                     ForEach(collections) { item in
+                    NavigationLink(value: item) {
+            Label(item.title, systemImage: item.icon)
+                .foregroundColor(.primary)
+        }
                         ItemMenuInicialView(collection: item)
                     }
                 }.padding([.leading, .trailing])
                 // .gesture(drag)
-            }
+            }.navigationDestination(for: NavigationItem.self) { item in
+        switch item.menu {
+        case .compass:
+            CompassView()
+        case .card:
+            CardReflectionView()
+        case .charts:
+            ChartView()
+        case .radial:
+            RadialLayoutView()
+        case .halfsheet:
+            HalfSheetView()
+        case .gooey:
+            GooeyView()
+        case .actionbutton:
+            ActionButtonView()
+        }
+    }
         }
     }
 }
