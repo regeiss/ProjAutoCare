@@ -7,10 +7,19 @@
 
 import Foundation
 
-struct Collections: Identifiable
+enum Menu: String
+{
+    case abastecimento
+    case servico
+    case relatorio
+    case alerta
+    case cadastro
+}
+
+struct MenuColecao: Identifiable, Hashable
 {
     var id: Int
     var name: String
     var image: String
-    var content: String
+    var menu: Menu
 }

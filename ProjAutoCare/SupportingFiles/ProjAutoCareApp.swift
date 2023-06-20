@@ -19,7 +19,7 @@ struct ProjAutoCareApp: App
             ContentView()
                 .modifier(DarkModeViewModifier())
         }
-        .modelContainer(for: Item.self)
+        .modelContainer(for: AbastecimentoModel.self)
         .onChange(of: scenePhase)
             {
                 switch scenePhase

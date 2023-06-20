@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Abastecimento" : {
+
+    },
     "Ajustes" : {
 
     },
@@ -11,6 +14,9 @@
 
     },
     "Backup" : {
+
+    },
+    "Cadastros" : {
 
     },
     "Configurações" : {
@@ -35,6 +41,9 @@
 
     },
     "Perfil" : {
+
+    },
+    "Relatorio" : {
 
     },
     "Resetar Onboarding" : {

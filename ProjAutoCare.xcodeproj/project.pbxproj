@@ -12,8 +12,16 @@
 		E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14FE2A3DFF21003EAADA /* MensagemScreen.swift */; };
 		E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15022A3E091C003EAADA /* VeiculoBottomView.swift */; };
 		E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */; };
-		E16C150B2A3FC733003EAADA /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150A2A3FC733003EAADA /* Collections.swift */; };
+		E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150A2A3FC733003EAADA /* MenuColecao.swift */; };
 		E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */; };
+		E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */; };
+		E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */; };
+		E16C151B2A41151A003EAADA /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151A2A41151A003EAADA /* CadastroScreen.swift */; };
+		E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */; };
+		E16C15232A411DED003EAADA /* AbastecimentoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15222A411DED003EAADA /* AbastecimentoModel.swift */; };
+		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
+		E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */; };
+		E16C15292A4127EB003EAADA /* AbastecimentoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -25,7 +33,6 @@
 		E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */; };
 		E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */; };
 		E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */; };
-		E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */; };
 		E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */; };
 		E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5422A3A757D00F3AFD1 /* SideBarView.swift */; };
 		E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5442A3A779000F3AFD1 /* Snippets.swift */; };
@@ -37,8 +44,16 @@
 		E16C14FE2A3DFF21003EAADA /* MensagemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensagemScreen.swift; sourceTree = "<group>"; };
 		E16C15022A3E091C003EAADA /* VeiculoBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoBottomView.swift; sourceTree = "<group>"; };
 		E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInicialScreen.swift; sourceTree = "<group>"; };
-		E16C150A2A3FC733003EAADA /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		E16C150A2A3FC733003EAADA /* MenuColecao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColecao.swift; sourceTree = "<group>"; };
 		E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenuInicialView.swift; sourceTree = "<group>"; };
+		E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaScreen.swift; sourceTree = "<group>"; };
+		E16C151A2A41151A003EAADA /* CadastroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
+		E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaScreen.swift; sourceTree = "<group>"; };
+		E16C15222A411DED003EAADA /* AbastecimentoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoModel.swift; sourceTree = "<group>"; };
+		E16C15242A412424003EAADA /* AbastecimentoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoScreen.swift; sourceTree = "<group>"; };
+		E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaDetalheView.swift; sourceTree = "<group>"; };
+		E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAction.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,7 +66,6 @@
 		E1D5F5312A3938B100F3AFD1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		E1D5F53A2A39482700F3AFD1 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarStack.swift; sourceTree = "<group>"; };
 		E1D5F5422A3A757D00F3AFD1 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
 		E1D5F5442A3A779000F3AFD1 /* Snippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippets.swift; sourceTree = "<group>"; };
@@ -119,6 +133,7 @@
 		E16C15042A3F7049003EAADA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				E16C150E2A410AC5003EAADA /* Screen */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -126,6 +141,7 @@
 		E16C15052A3F708E003EAADA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -133,7 +149,7 @@
 		E16C15062A3F7098003EAADA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */,
+				E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,9 +157,107 @@
 		E16C15092A3FC71C003EAADA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E16C150A2A3FC733003EAADA /* Collections.swift */,
+				E16C150A2A3FC733003EAADA /* MenuColecao.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E16C150E2A410AC5003EAADA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E16C15112A410E3B003EAADA /* Abastecimento */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15212A411AB6003EAADA /* View */,
+				E16C15202A411AAB003EAADA /* Action */,
+				E16C151F2A411AA0003EAADA /* Model */,
+				E16C15162A410F24003EAADA /* Screen */,
+			);
+			path = Abastecimento;
+			sourceTree = "<group>";
+		};
+		E16C15122A410E47003EAADA /* Alerta */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alerta;
+			sourceTree = "<group>";
+		};
+		E16C15132A410E52003EAADA /* Relatorio */ = {
+			isa = PBXGroup;
+			children = (
+				E16C151C2A4115A2003EAADA /* Screen */,
+			);
+			path = Relatorio;
+			sourceTree = "<group>";
+		};
+		E16C15142A410E68003EAADA /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15192A4114E9003EAADA /* Screen */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		E16C15152A410E78003EAADA /* Servico */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Servico;
+			sourceTree = "<group>";
+		};
+		E16C15162A410F24003EAADA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */,
+				E16C15242A412424003EAADA /* AbastecimentoScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E16C15192A4114E9003EAADA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E16C151A2A41151A003EAADA /* CadastroScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E16C151C2A4115A2003EAADA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E16C151F2A411AA0003EAADA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15222A411DED003EAADA /* AbastecimentoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E16C15202A411AAB003EAADA /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E16C15212A411AB6003EAADA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E1D5F5012A37E4C300F3AFD1 = {
@@ -231,6 +345,11 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E16C15152A410E78003EAADA /* Servico */,
+				E16C15142A410E68003EAADA /* Cadastro */,
+				E16C15132A410E52003EAADA /* Relatorio */,
+				E16C15122A410E47003EAADA /* Alerta */,
+				E16C15112A410E3B003EAADA /* Abastecimento */,
 				E16C15042A3F7049003EAADA /* Onboarding */,
 				E16C15002A3E0901003EAADA /* Veiculo */,
 				E16C14FB2A3DFE6D003EAADA /* Mensagens */,
@@ -246,7 +365,6 @@
 			isa = PBXGroup;
 			children = (
 				E1D5F5332A39391300F3AFD1 /* SettingsScreen.swift */,
-				E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -301,7 +419,6 @@
 				E16C15092A3FC71C003EAADA /* Model */,
 				E16C15062A3F7098003EAADA /* View */,
 				E16C15052A3F708E003EAADA /* Screen */,
-				E1D5F53C2A3948B500F3AFD1 /* RootScreen.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -434,22 +551,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
+				E16C151B2A41151A003EAADA /* CadastroScreen.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
+				E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
-				E1D5F53D2A3948B500F3AFD1 /* RootScreen.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
-				E16C150B2A3FC733003EAADA /* Collections.swift in Sources */,
+				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
+				E16C15232A411DED003EAADA /* AbastecimentoModel.swift in Sources */,
+				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
+				E16C15292A4127EB003EAADA /* AbastecimentoAction.swift in Sources */,
+				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
 				E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */,
+				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
+				E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
