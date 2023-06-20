@@ -18,6 +18,7 @@ enum AbastecimentoFocusable: Hashable
 
 class AbastecimentoFormInfo: ObservableObject
 {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = AbastecimentoAction()
     
     @Published var kms: String = ""
@@ -107,13 +108,13 @@ class AbastecimentoFormInfo: ObservableObject
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
             { Button {
-                pilot.pop(animated: .random())
+                dismiss()
             }
                 label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                pilot.pop(animated: .random())
+                dismiss()
             }
                 label: { Text("OK")}}
         }
@@ -135,14 +136,6 @@ class AbastecimentoFormInfo: ObservableObject
 //        viewModel.saveObject(veiculo: veiculo, isEdit: isEdit)
     }
 }
-
-@available(iOS 16.0, *)
-struct AbastecimentoScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AbastecimentoScreen(abastecimento: Abastecimento(), isEdit: false)
-    }
-}
-
 
 #Preview {
     AbastecimentoScreen()
