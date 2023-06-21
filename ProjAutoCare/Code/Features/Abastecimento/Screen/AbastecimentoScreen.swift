@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 enum AbastecimentoFocusable: Hashable
 {
@@ -16,35 +17,16 @@ enum AbastecimentoFocusable: Hashable
     case completo
 }
 
-class AbastecimentoFormInfo: ObservableObject
+@available(iOS 16.0, *)
+struct AbastecimentoScreen: View
 {
+    @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = AbastecimentoAction()
-    
-    @Published var kms: String = ""
-    @Published var data: Date = Date()
-    @Published var litros: String = ""
-    @Published var valorLitro: String = ""
-    @Published var completo: Bool = false
-    
-    let regexNumerico: String =  "[0-9[\\b]]+"
-    
-    //    lazy var form = { FormValidation(validationType: .deferred)}()
-    //    lazy var valKMVazio: ValidationContainer = { $km.nonEmptyValidator(form: form, errorMessage: "km deve ser informada")}()
-    //    lazy var valKMNumerico: ValidationContainer = { $km.patternValidator(form: form, pattern: regexNumerico, errorMessage: "km deve ser númerica")}()
-    //    lazy var valLitros: ValidationContainer = { $litros.nonEmptyValidator(form: form, errorMessage: "qtd litros deve ser informada")}()
-    //    lazy var valLitrosNumerico: ValidationContainer = { $litros.patternValidator(form: form, pattern: regexNumerico, errorMessage: "qtd litros deve ser númerica")}()
-    //    lazy var valValorLitro: ValidationContainer = { $valorLitro.nonEmptyValidator(form: form, errorMessage: "valor deve ser informado")}()
-    //    lazy var valValorNumerico: ValidationContainer = { $valorLitro.patternValidator(form: form, pattern: regexNumerico, errorMessage: "valor litro deve ser númerico")}()
-    //    lazy var dataAbastecimento: ValidationContainer = { $data.dateValidator(form: form, before: Date(), errorMessage: "data não pode ser maior que hoje")}()
-}
-
-@available(iOS 16.0, *)struct AbastecimentoScreen: View
-{
     @ObservedObject var formInfo = AbastecimentoFormInfo()
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     
-    var abastecimento: AbastecimentoModel
+    // TODO ver retirada da collection
+    var abastecimento: [AbastecimentoModel]
     var isEdit: Bool
     
     private var valorTotal: String
@@ -99,7 +81,6 @@ class AbastecimentoFormInfo: ObservableObject
                     //                         }.pickerStyle(.automatic)
                 }
             }.scrollContentBackground(.hidden)
-            // .onReceive(pub)  {_ in gravarAbastecimento()}
         }
         .background(Color("backGroundMain"))
         .navigationTitle("Abastecimento")
@@ -119,24 +100,30 @@ class AbastecimentoFormInfo: ObservableObject
                 label: { Text("OK")}}
         }
         // .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
-        
     }
+    
     func save()
     {
-//        let veiculo = Veiculo()
-//
-//        veiculo.name = formInfo.nome
-//        veiculo.marca = formInfo.marca
-//        veiculo.modelo = formInfo.modelo
-//        veiculo.ano = Int(formInfo.ano) ?? 0
-//        veiculo.placa = formInfo.placa
-//        veiculo.chassis = formInfo.chassis
-//        veiculo.ativo = false
-//        veiculo.padrao = false
-//        viewModel.saveObject(veiculo: veiculo, isEdit: isEdit)
+
     }
 }
 
-#Preview {
-    AbastecimentoScreen()
+class AbastecimentoFormInfo: ObservableObject
+{
+    @Published var kms: String = ""
+    @Published var data: Date = Date()
+    @Published var litros: String = ""
+    @Published var valorLitro: String = ""
+    @Published var completo: Bool = false
+    
+    let regexNumerico: String =  "[0-9[\\b]]+"
+    
+    //    lazy var form = { FormValidation(validationType: .deferred)}()
+    //    lazy var valKMVazio: ValidationContainer = { $km.nonEmptyValidator(form: form, errorMessage: "km deve ser informada")}()
+    //    lazy var valKMNumerico: ValidationContainer = { $km.patternValidator(form: form, pattern: regexNumerico, errorMessage: "km deve ser númerica")}()
+    //    lazy var valLitros: ValidationContainer = { $litros.nonEmptyValidator(form: form, errorMessage: "qtd litros deve ser informada")}()
+    //    lazy var valLitrosNumerico: ValidationContainer = { $litros.patternValidator(form: form, pattern: regexNumerico, errorMessage: "qtd litros deve ser númerica")}()
+    //    lazy var valValorLitro: ValidationContainer = { $valorLitro.nonEmptyValidator(form: form, errorMessage: "valor deve ser informado")}()
+    //    lazy var valValorNumerico: ValidationContainer = { $valorLitro.patternValidator(form: form, pattern: regexNumerico, errorMessage: "valor litro deve ser númerico")}()
+    //    lazy var dataAbastecimento: ValidationContainer = { $data.dateValidator(form: form, before: Date(), errorMessage: "data não pode ser maior que hoje")}()
 }

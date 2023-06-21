@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import SwiftData
+
 
 class AbastecimentoAction: ObservableObject
 {
-    
+//    let abastecimento = AbastecimentoModel(backingData: <#BackingData<AbastecimentoModel>#>, id: UUID(), kms: 123444, data: Date(), litros: 23, valorLitro: 5, valorTotal: 45, completo: false, media: 8)
 }

@@ -11,38 +11,38 @@ import SwiftData
 @available(iOS 16.0, *)
 struct AbastecimentoListaScreen: View
 {
-    @Query private var abastecimento: [Abastecimento]
+    @Query private var abastecimento: [AbastecimentoModel]
     @State private var adicao = false
 
     var body: some View
     {
-        Text("Abastecimento")
-       List
-       {
-           ForEach(abastecimentos) { abastecimento in
-               HStack
-               {
-                   AbastecimentoListaDetalheView(abastecimento: abastecimento)
-               }
-           }
-           .onDelete(perform: $abastecimentos.remove(atOffsets:))
-           if abastecimentos.isEmpty
-           {
-               Text("").listRowBackground(Color.clear)
-           }
-       }
-       .background(Color("backGroundMain"))
-       .scrollContentBackground(.hidden)
-       .navigationBarTitle("Abastecimento", displayMode: .automatic)
-       .toolbar { ToolbarItem(placement: .navigationBarTrailing)
-           { Button {
-               adicao = true 
-           }
-               label: { Image(systemName: "plus")}}
-       }
-       .navigationDestination(isPresented: $adicao, destination: {
-            AbastecimetnoScreen()
-        })
+        VStack{
+            List
+            {
+                ForEach(abastecimento) { abastecimento in
+                    HStack
+                    {
+                        AbastecimentoListaDetalheView(abastecimento: abastecimento)
+                    }
+                }
+                // .onDelete(perform: $abastecimento.remove(atOffsets:))
+                if abastecimento.isEmpty
+                {
+                    Text("").listRowBackground(Color.clear)
+                }
+            }
+        }.background(Color("backGroundMain"))
+            .scrollContentBackground(.hidden)
+            .navigationBarTitle("Abastecimento", displayMode: .automatic)
+            .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+                { Button {
+                    adicao = true
+                }
+                    label: { Image(systemName: "plus")}}
+            }
+            .navigationDestination(isPresented: $adicao, destination: {
+                AbastecimentoScreen(abastecimento: abastecimento, isEdit: false)
+            })
     }
 }
 

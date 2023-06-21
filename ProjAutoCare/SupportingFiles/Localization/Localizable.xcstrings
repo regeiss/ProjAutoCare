@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "Abastecimento" : {
 
     },
@@ -19,7 +22,16 @@
     "Cadastros" : {
 
     },
+    "Cancelar" : {
+
+    },
+    "completo" : {
+
+    },
     "Configurações" : {
+
+    },
+    "data" : {
 
     },
     "Dismiss" : {
@@ -31,6 +43,12 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "km" : {
+
+    },
+    "litros" : {
+
+    },
     "Login" : {
 
     },
@@ -38,6 +56,9 @@
 
     },
     "Modo escuro" : {
+
+    },
+    "OK" : {
 
     },
     "Perfil" : {
@@ -50,6 +71,12 @@
 
     },
     "Selecione um veículo" : {
+
+    },
+    "valor litro" : {
+
+    },
+    "Valor total %@" : {
 
     },
     "Veiculo" : {

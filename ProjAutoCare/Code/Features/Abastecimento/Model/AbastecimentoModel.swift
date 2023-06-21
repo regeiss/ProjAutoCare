@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class AbastecimentoModel
+class AbastecimentoModel
 {
     @Attribute(.unique) var id: UUID
     var kms: Int32
