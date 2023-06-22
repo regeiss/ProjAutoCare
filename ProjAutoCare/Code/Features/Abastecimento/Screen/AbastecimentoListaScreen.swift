@@ -41,7 +41,7 @@ struct AbastecimentoListaScreen: View
                     label: { Image(systemName: "plus")}}
             }
             .navigationDestination(isPresented: $adicao, destination: {
-                AbastecimentoScreen(abastecimento: abastecimento, isEdit: false)
+                AbastecimentoScreen(isEdit: false)
             })
     }
 }

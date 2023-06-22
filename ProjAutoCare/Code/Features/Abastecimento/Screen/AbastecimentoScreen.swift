@@ -26,7 +26,7 @@ struct AbastecimentoScreen: View
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     
     // TODO ver retirada da collection
-    var abastecimento: [AbastecimentoModel]
+    // var abastecimento: [AbastecimentoModel]
     var isEdit: Bool
     
     private var valorTotal: String
@@ -104,7 +104,8 @@ struct AbastecimentoScreen: View
     
     func save()
     {
-
+        let abastecimento = AbastecimentoModel(id: UUID(), kms: 156785, data: Date(), litros: 12, valorLitro: 5, valorTotal: 34, completo: true, media: 5)
+        modelContext.insert(abastecimento)
     }
 }
 
