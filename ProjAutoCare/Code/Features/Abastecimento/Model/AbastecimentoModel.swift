@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
+
 class AbastecimentoModel
 {
     @Attribute(.unique) var id: UUID
@@ -19,4 +20,16 @@ class AbastecimentoModel
     var valorTotal: Double
     var completo: Bool
     var media: Double
+    
+    init(id: UUID, kms: Int32, data: Date, litros: Double, valorLitro: Double, valorTotal: Double, completo: Bool, media: Double)
+    {
+        self.id = id
+        self.kms = kms
+        self.data = data
+        self.litros = litros
+        self.valorLitro = valorLitro
+        self.valorTotal = valorTotal
+        self.completo = completo
+        self.media = media
+    }
 }

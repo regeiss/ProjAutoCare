@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */; };
 		E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14FE2A3DFF21003EAADA /* MensagemScreen.swift */; };
@@ -26,7 +27,6 @@
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
 		E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */; };
-		E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F5162A37E4C400F3AFD1 /* Item.swift */; };
 		E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */; };
 		E1D5F5262A37F3B900F3AFD1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */; };
 		E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */; };
@@ -39,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
 		E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilScreen.swift; sourceTree = "<group>"; };
 		E16C14FE2A3DFF21003EAADA /* MensagemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensagemScreen.swift; sourceTree = "<group>"; };
@@ -59,7 +61,6 @@
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E1D5F5162A37E4C400F3AFD1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		E1D5F5252A37F3B900F3AFD1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E1D5F52A2A37F68700F3AFD1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -82,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1432DE52A43CF420025504D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E1432DE62A43CF580025504D /* PersistenceController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		E16C14F82A3D21CD003EAADA /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +272,7 @@
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E15380CF2A43AE3B0017BC51 /* README.md */,
 				E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */,
 				E1D5F50C2A37E4C300F3AFD1 /* ProjAutoCare */,
 				E1D5F50B2A37E4C300F3AFD1 /* Products */,
@@ -281,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				E1D5F5272A37F64200F3AFD1 /* Code */,
-				E1D5F5162A37E4C400F3AFD1 /* Item.swift */,
 				E1D5F5132A37E4C400F3AFD1 /* Preview Content */,
 				E1D5F5232A37F28400F3AFD1 /* SupportingFiles */,
 			);
@@ -345,18 +354,18 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				E16C15152A410E78003EAADA /* Servico */,
-				E16C15142A410E68003EAADA /* Cadastro */,
-				E16C15132A410E52003EAADA /* Relatorio */,
-				E16C15122A410E47003EAADA /* Alerta */,
 				E16C15112A410E3B003EAADA /* Abastecimento */,
-				E16C15042A3F7049003EAADA /* Onboarding */,
-				E16C15002A3E0901003EAADA /* Veiculo */,
-				E16C14FB2A3DFE6D003EAADA /* Mensagens */,
-				E16C14F82A3D21CD003EAADA /* Perfil */,
-				E1D5F5372A3947BA00F3AFD1 /* Root */,
+				E16C15122A410E47003EAADA /* Alerta */,
+				E16C15142A410E68003EAADA /* Cadastro */,
 				E1D5F52E2A3935FB00F3AFD1 /* Common */,
+				E16C14FB2A3DFE6D003EAADA /* Mensagens */,
+				E16C15042A3F7049003EAADA /* Onboarding */,
+				E16C14F82A3D21CD003EAADA /* Perfil */,
+				E16C15132A410E52003EAADA /* Relatorio */,
+				E1D5F5372A3947BA00F3AFD1 /* Root */,
+				E16C15152A410E78003EAADA /* Servico */,
 				E1D5F52D2A39359100F3AFD1 /* Settings */,
+				E16C15002A3E0901003EAADA /* Veiculo */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1432DE52A43CF420025504D /* CoreData */,
 				E1D5F5412A3A753600F3AFD1 /* View */,
 				E1D5F53E2A3A1B2100F3AFD1 /* Screen */,
 				E1D5F5362A39474200F3AFD1 /* Action */,
@@ -553,13 +563,13 @@
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E16C151B2A41151A003EAADA /* CadastroScreen.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
-				E1D5F5172A37E4C400F3AFD1 /* Item.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
+				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
