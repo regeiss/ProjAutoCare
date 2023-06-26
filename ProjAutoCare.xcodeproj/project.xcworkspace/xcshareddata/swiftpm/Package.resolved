@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftuiformvalidator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Open-Bytes/SwiftUIFormValidator.git",
+      "state" : {
+        "revision" : "9124905d89239861261ea6f62c07db43e400f8d1",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}

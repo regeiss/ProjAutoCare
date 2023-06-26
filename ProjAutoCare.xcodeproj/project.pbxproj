@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FA22A473B430044410F /* AbastecimentoViewModel.swift */; };
+		E1013FA62A48F8B80044410F /* AutoCare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1013FA42A48F8B80044410F /* AutoCare.xcdatamodeld */; };
+		E1013FAF2A48FCE30044410F /* Posto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FA92A48FCE30044410F /* Posto+CoreDataClass.swift */; };
+		E1013FB02A48FCE30044410F /* Posto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FAA2A48FCE30044410F /* Posto+CoreDataProperties.swift */; };
+		E1013FB12A48FCE30044410F /* Veiculo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FAB2A48FCE30044410F /* Veiculo+CoreDataClass.swift */; };
+		E1013FB22A48FCE30044410F /* Veiculo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FAC2A48FCE30044410F /* Veiculo+CoreDataProperties.swift */; };
+		E1013FB52A4909910044410F /* Abastecimento+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FB32A4909910044410F /* Abastecimento+CoreDataClass.swift */; };
+		E1013FB62A4909910044410F /* Abastecimento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FB42A4909910044410F /* Abastecimento+CoreDataProperties.swift */; };
+		E1013FB92A49148E0044410F /* FormValidator in Frameworks */ = {isa = PBXBuildFile; productRef = E1013FB82A49148E0044410F /* FormValidator */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */; };
@@ -22,7 +31,7 @@
 		E16C15232A411DED003EAADA /* AbastecimentoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15222A411DED003EAADA /* AbastecimentoModel.swift */; };
 		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
 		E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */; };
-		E16C15292A4127EB003EAADA /* AbastecimentoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */; };
+		E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -39,6 +48,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1013FA22A473B430044410F /* AbastecimentoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoViewModel.swift; sourceTree = "<group>"; };
+		E1013FA52A48F8B80044410F /* AutoCare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AutoCare.xcdatamodel; sourceTree = "<group>"; };
+		E1013FA92A48FCE30044410F /* Posto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Posto+CoreDataClass.swift"; path = "ProjAutoCare/Code/Features/Common/CoreData/Posto+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1013FAA2A48FCE30044410F /* Posto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Posto+CoreDataProperties.swift"; path = "ProjAutoCare/Code/Features/Common/CoreData/Posto+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1013FAB2A48FCE30044410F /* Veiculo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Veiculo+CoreDataClass.swift"; path = "ProjAutoCare/Code/Features/Common/CoreData/Veiculo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1013FAC2A48FCE30044410F /* Veiculo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Veiculo+CoreDataProperties.swift"; path = "ProjAutoCare/Code/Features/Common/CoreData/Veiculo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1013FB32A4909910044410F /* Abastecimento+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abastecimento+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1013FB42A4909910044410F /* Abastecimento+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Abastecimento+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
@@ -55,7 +72,7 @@
 		E16C15222A411DED003EAADA /* AbastecimentoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoModel.swift; sourceTree = "<group>"; };
 		E16C15242A412424003EAADA /* AbastecimentoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoScreen.swift; sourceTree = "<group>"; };
 		E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaDetalheView.swift; sourceTree = "<group>"; };
-		E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAction.swift; sourceTree = "<group>"; };
+		E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoPublisher.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,16 +94,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1013FB92A49148E0044410F /* FormValidator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1013FA12A473B2B0044410F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1013FA22A473B430044410F /* AbastecimentoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E1432DE52A43CF420025504D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				E1432DE62A43CF580025504D /* PersistenceController.swift */,
+				E1013FA42A48F8B80044410F /* AutoCare.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -182,6 +209,7 @@
 		E16C15112A410E3B003EAADA /* Abastecimento */ = {
 			isa = PBXGroup;
 			children = (
+				E1013FA12A473B2B0044410F /* ViewModel */,
 				E16C15212A411AB6003EAADA /* View */,
 				E16C15202A411AAB003EAADA /* Action */,
 				E16C151F2A411AA0003EAADA /* Model */,
@@ -256,7 +284,7 @@
 		E16C15202A411AAB003EAADA /* Action */ = {
 			isa = PBXGroup;
 			children = (
-				E16C15282A4127EB003EAADA /* AbastecimentoAction.swift */,
+				E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -272,6 +300,12 @@
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E1013FB32A4909910044410F /* Abastecimento+CoreDataClass.swift */,
+				E1013FB42A4909910044410F /* Abastecimento+CoreDataProperties.swift */,
+				E1013FA92A48FCE30044410F /* Posto+CoreDataClass.swift */,
+				E1013FAA2A48FCE30044410F /* Posto+CoreDataProperties.swift */,
+				E1013FAB2A48FCE30044410F /* Veiculo+CoreDataClass.swift */,
+				E1013FAC2A48FCE30044410F /* Veiculo+CoreDataProperties.swift */,
 				E15380CF2A43AE3B0017BC51 /* README.md */,
 				E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */,
 				E1D5F50C2A37E4C300F3AFD1 /* ProjAutoCare */,
@@ -481,6 +515,9 @@
 			dependencies = (
 			);
 			name = ProjAutoCare;
+			packageProductDependencies = (
+				E1013FB82A49148E0044410F /* FormValidator */,
+			);
 			productName = ProjAutoCare;
 			productReference = E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */;
 			productType = "com.apple.product-type.application";
@@ -510,6 +547,9 @@
 				"pt-BR",
 			);
 			mainGroup = E1D5F5012A37E4C300F3AFD1;
+			packageReferences = (
+				E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */,
+			);
 			productRefGroup = E1D5F50B2A37E4C300F3AFD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -571,17 +611,25 @@
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
 				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
+				E1013FB52A4909910044410F /* Abastecimento+CoreDataClass.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
+				E1013FB12A48FCE30044410F /* Veiculo+CoreDataClass.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
 				E16C15232A411DED003EAADA /* AbastecimentoModel.swift in Sources */,
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
-				E16C15292A4127EB003EAADA /* AbastecimentoAction.swift in Sources */,
+				E1013FA62A48F8B80044410F /* AutoCare.xcdatamodeld in Sources */,
+				E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */,
+				E1013FB62A4909910044410F /* Abastecimento+CoreDataProperties.swift in Sources */,
 				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
+				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
 				E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */,
+				E1013FB22A48FCE30044410F /* Veiculo+CoreDataProperties.swift in Sources */,
+				E1013FAF2A48FCE30044410F /* Posto+CoreDataClass.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */,
+				E1013FB02A48FCE30044410F /* Posto+CoreDataProperties.swift in Sources */,
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
 				E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */,
 			);
@@ -797,6 +845,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Open-Bytes/SwiftUIFormValidator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1013FB82A49148E0044410F /* FormValidator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */;
+			productName = FormValidator;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E1013FA42A48F8B80044410F /* AutoCare.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1013FA52A48F8B80044410F /* AutoCare.xcdatamodel */,
+			);
+			currentVersion = E1013FA52A48F8B80044410F /* AutoCare.xcdatamodel */;
+			path = AutoCare.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E1D5F5022A37E4C300F3AFD1 /* Project object */;
 }

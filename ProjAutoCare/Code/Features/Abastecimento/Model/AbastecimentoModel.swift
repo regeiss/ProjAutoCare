@@ -6,14 +6,11 @@
 //
 
 import Foundation
-import SwiftData
 
-@Model
-
-class AbastecimentoModel
+class AbastecimentoModel: Identifiable
 {
-    @Attribute(.unique) var id: UUID
-    var kms: Int32
+    var id: UUID
+    var km: Int32
     var data: Date
     var litros: Double
     var valorLitro: Double
@@ -21,10 +18,10 @@ class AbastecimentoModel
     var completo: Bool
     var media: Double
     
-    init(id: UUID, kms: Int32, data: Date, litros: Double, valorLitro: Double, valorTotal: Double, completo: Bool, media: Double)
+    init(id: UUID, km: Int32, data: Date, litros: Double, valorLitro: Double, valorTotal: Double, completo: Bool, media: Double)
     {
         self.id = id
-        self.kms = kms
+        self.km = km
         self.data = data
         self.litros = litros
         self.valorLitro = valorLitro

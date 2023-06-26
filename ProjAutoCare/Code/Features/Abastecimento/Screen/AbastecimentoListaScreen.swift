@@ -11,22 +11,24 @@ import SwiftData
 @available(iOS 16.0, *)
 struct AbastecimentoListaScreen: View
 {
-    @Query private var abastecimento: [AbastecimentoModel]
+    @Environment(\.modelContext) var modelContext
     @State private var adicao = false
-
+    @State var viewModel = AbastecimentoViewModel()
+    
     var body: some View
     {
-        VStack{
+        VStack
+        {
             List
             {
-                ForEach(abastecimento) { abastecimento in
+                ForEach(viewModel.abastecimento) { abastecimento in
                     HStack
                     {
-                        AbastecimentoListaDetalheView(abastecimento: abastecimento)
+                        AbastecimentoListaDetalheView(abastecimento: viewModel.abastecimento)
                     }
                 }
                 // .onDelete(perform: $abastecimento.remove(atOffsets:))
-                if abastecimento.isEmpty
+                if viewModel.abastecimento.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }
@@ -43,6 +45,10 @@ struct AbastecimentoListaScreen: View
             .navigationDestination(isPresented: $adicao, destination: {
                 AbastecimentoScreen(isEdit: false)
             })
+            .onAppear {
+                viewModel.modelContext = modelContext
+                viewModel.fetch()
+            }
     }
 }
 
