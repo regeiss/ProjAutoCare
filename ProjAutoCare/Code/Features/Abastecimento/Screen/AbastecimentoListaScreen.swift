@@ -21,10 +21,10 @@ struct AbastecimentoListaScreen: View
         {
             List
             {
-                ForEach(viewModel.abastecimento) { abastecimento in
+                ForEach(viewModel.abastecimentosLista) { abastecimento in
                     HStack
                     {
-                        AbastecimentoListaDetalheView(abastecimento: viewModel.abastecimento)
+                        AbastecimentoListaDetalheView(abastecimento: viewModel.abastecimentoLista)
                     }
                 }
                 // .onDelete(perform: $abastecimento.remove(atOffsets:))
@@ -43,7 +43,7 @@ struct AbastecimentoListaScreen: View
                     label: { Image(systemName: "plus")}}
             }
             .navigationDestination(isPresented: $adicao, destination: {
-                AbastecimentoScreen(isEdit: false)
+                AbastecimentoScreen()
             })
             .onAppear {
                 viewModel.modelContext = modelContext

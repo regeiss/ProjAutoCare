@@ -2,7 +2,7 @@
 //  Posto+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 25/06/23.
+//  Created by Roberto Edgar Geiss on 26/06/23.
 //
 //
 
@@ -16,9 +16,10 @@ extension Posto {
         return NSFetchRequest<Posto>(entityName: "Posto")
     }
 
+    @NSManaged public var bandeira: String?
     @NSManaged public var id: UUID?
     @NSManaged public var nome: String?
-    @NSManaged public var bandeira: String?
+    @NSManaged public var padrao: Bool
 
 }
 
