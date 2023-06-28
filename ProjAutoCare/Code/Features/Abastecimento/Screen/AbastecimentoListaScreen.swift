@@ -24,11 +24,11 @@ struct AbastecimentoListaScreen: View
                 ForEach(viewModel.abastecimentosLista) { abastecimento in
                     HStack
                     {
-                        AbastecimentoListaDetalheView(abastecimento: viewModel.abastecimentoLista)
+                        AbastecimentoListaDetalheView(abastecimento: abastecimento)
                     }
                 }
                 // .onDelete(perform: $abastecimento.remove(atOffsets:))
-                if viewModel.abastecimento.isEmpty
+                if $viewModel.abastecimentosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }
@@ -45,10 +45,6 @@ struct AbastecimentoListaScreen: View
             .navigationDestination(isPresented: $adicao, destination: {
                 AbastecimentoScreen()
             })
-            .onAppear {
-                viewModel.modelContext = modelContext
-                viewModel.fetch()
-            }
     }
 }
 

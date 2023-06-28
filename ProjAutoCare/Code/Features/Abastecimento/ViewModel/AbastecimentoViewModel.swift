@@ -22,7 +22,7 @@ class AbastecimentoViewModel: ObservableObject
         }
     }
 
-    func add(abastecimento: AbastecimentoModel)
+    func add(abastecimento: AbastecimentoDTO)
     {
         AbastecimentoPublisher.shared.add(abastecimento: abastecimento)
     }

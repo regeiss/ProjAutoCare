@@ -43,6 +43,7 @@ class AbastecimentoFormInfo: ObservableObject
 @available(iOS 16.0, *)
 struct AbastecimentoScreen: View
 {
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var errorHandling: ErrorHandling
     var appState = AppState.shared
     
@@ -68,13 +69,13 @@ struct AbastecimentoScreen: View
     
     var body: some View
     {
-        NavigationView
-        {
+//        NavigationStack
+//        {
             VStack
             {
                 Form
                 {
-                    Section()
+                    Section
                     {
                         TextField("km", text: $formInfo.km)
                             // .focused($abastecimentoInFocus, equals: .km)
@@ -103,29 +104,44 @@ struct AbastecimentoScreen: View
                             }
                         }.pickerStyle(.automatic)
                     }
-                }
+                }.scrollContentBackground(.hidden)
                 // .onReceive(pub)  {_ in gravarAbastecimento()}
             }// .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-        }
+            .background(Color("backGroundMain"))
+            .navigationTitle("Abastecimento")
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading)
+                { Button {
+                    dismiss()
+                }
+                    label: { Text("Cancelar")}}
+                ToolbarItem(placement: .navigationBarTrailing)
+                { Button {
+                    gravarAbastecimento()
+                    dismiss()
+                }
+                    label: { Text("OK")}}
+            }
+       // }
     }
     
     private func saveAbastecimento() throws
     {
-//        var postoPicker: Posto?
-//        var veiculoAtual: Veiculo?
-//        
-//        if posto == nil
-//        {
-//            postoPicker = appState.postoPadrao
-//            
-//        }
-//        else
-//        {
-//            postoPicker = posto
-//        }
-//
+        var postoPicker: Posto?
+        var veiculoAtual: Veiculo?
+        
+        if posto == nil
+        {
+            postoPicker = appState.postoPadrao
+            
+        }
+        else
+        {
+            postoPicker = posto
+        }
+
 //        if appState.veiculoAtivo == nil
 //        {
 //            veiculoAtual = viewModelVeiculo.carrosLista.first
@@ -134,36 +150,37 @@ struct AbastecimentoScreen: View
 //        {
 //            veiculoAtual = appState.carroAtivo
 //        }
-//
-//        let uab = AbastecimentoModel(id: UUID(),
-//                                          km: (Int32(formInfo.km) ?? 0),
-//                                          data: formInfo.data,
-//                                          litros: (Double(formInfo.litros) ?? 0),
-//                                          valorLitro: (Double(formInfo.valorLitro) ?? 0),
-//                                          valorTotal: (Decimal((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))),
-//                                          completo:  Bool(formInfo.completo),
-//                                          media: calculaMedia(kmAtual: Int32(formInfo.km) ?? 0, litros: Double(formInfo.litros) ?? 0),
+
+        let uab = AbastecimentoDTO(id: UUID(),
+                                          km: (Int32(formInfo.km) ?? 0),
+                                          data: formInfo.data,
+                                          litros: (Double(formInfo.litros) ?? 0),
+                                          valorLitro: (Double(formInfo.valorLitro) ?? 0),
+                                          valorTotal: (Decimal((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))),
+                                          completo:  Bool(formInfo.completo),
+                                          media: calculaMedia(kmAtual: Int32(formInfo.km) ?? 0, litros: Double(formInfo.litros) ?? 0)
 //                                          doPosto: postoPicker!,
 //                                          doCarro: veiculoAtual!)
-//        
-//            viewModel.add(abastecimento: uab)
+        )
+        
+            viewModel.add(abastecimento: uab)
     }
     
     private func gravarAbastecimento()
     {
-//        let valid = formInfo.form.triggerValidation()
-//        if valid
-//        {
-//            do
-//            {
-//                try saveAbastecimento()
-//            }
-//
-//            catch
-//            {
-//                self.errorHandling.handle(error: error)
-//            }
-//        }
+        let valid = true //  formInfo.form.triggerValidation()
+        if valid
+        {
+            do
+            {
+                try saveAbastecimento()
+            }
+
+            catch
+            {
+                self.errorHandling.handle(error: error)
+            }
+        }
     }
 
     private func calculaMedia(kmAtual: Int32, litros: Double) -> Double

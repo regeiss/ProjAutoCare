@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AbastecimentoListaDetalheView: View
 {
-    var abastecimento: AbastecimentoModel
+    var abastecimento: Abastecimento
     
     var body: some View
     {
-        Text(abastecimento.id.uuidString)
+        Text(abastecimento.id?.uuidString ?? "N/A")
     }
 }

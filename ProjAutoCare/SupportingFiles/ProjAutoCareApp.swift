@@ -29,6 +29,7 @@ struct ProjAutoCareApp: App
             {
             case .active:
                 print("active")
+                getCoreDataDBPath()
             case .inactive:
                 print("inactive")
             case .background:

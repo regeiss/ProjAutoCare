@@ -53,7 +53,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         }
     }
 
-    func add(abastecimento: AbastecimentoModel)
+    func add(abastecimento: AbastecimentoDTO)
     {
         let newAbastecimento = Abastecimento(context: publisherContext)
         newAbastecimento.id = abastecimento.id
@@ -62,7 +62,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         newAbastecimento.litros = abastecimento.litros
         newAbastecimento.data = abastecimento.data
         newAbastecimento.valorLitro = abastecimento.valorLitro
-        newAbastecimento.valorTotal = abastecimento.litros * abastecimento.valorLitro
+        newAbastecimento.valorTotal = Decimal(abastecimento.litros * abastecimento.valorLitro) as NSDecimalNumber
         newAbastecimento.media = abastecimento.media
 //        newAbastecimento.doPosto = abastecimento.doPosto
 //        newAbastecimento.doCarro = abastecimento.doCarro

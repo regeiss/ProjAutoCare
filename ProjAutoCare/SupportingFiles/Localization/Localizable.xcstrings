@@ -13,10 +13,16 @@
     "Alertas" : {
 
     },
+    "An error has occurred!" : {
+
+    },
     "AutoCare" : {
 
     },
     "Backup" : {
+
+    },
+    "bandeira" : {
 
     },
     "Cadastros" : {
@@ -31,10 +37,37 @@
     "Configurações" : {
 
     },
+    "Could not digest the fetched data. (error.localizedDescription)" : {
+
+    },
     "data" : {
 
     },
     "Dismiss" : {
+
+    },
+    "Error" : {
+
+    },
+    "EWrro" : {
+
+    },
+    "Faca isso" : {
+
+    },
+    "Failed to create a new Quake object." : {
+
+    },
+    "Failed to execute a batch delete request." : {
+
+    },
+    "Failed to execute a batch insert request." : {
+
+    },
+    "Failed to execute a persistent history change request." : {
+
+    },
+    "Found and will discard a quake missing a valid code, magnitude, place, or time." : {
 
     },
     "Hello, World!" : {
@@ -58,10 +91,28 @@
     "Modo escuro" : {
 
     },
+    "Nenhum" : {
+
+    },
+    "nome" : {
+
+    },
+    "Ok" : {
+
+    },
     "OK" : {
 
     },
     "Perfil" : {
+
+    },
+    "Posto:" : {
+
+    },
+    "Postos" : {
+
+    },
+    "Received unexpected error. (error.localizedDescription)" : {
 
     },
     "Relatorio" : {
@@ -73,10 +124,10 @@
     "Selecione um veículo" : {
 
     },
-    "valor litro" : {
+    "Valor total %@" : {
 
     },
-    "Valor total %@" : {
+    "valorLitro" : {
 
     },
     "Veiculo" : {

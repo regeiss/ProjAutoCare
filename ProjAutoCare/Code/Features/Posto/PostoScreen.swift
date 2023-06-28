@@ -72,13 +72,13 @@ struct PostoScreen: View
                 ToolbarItem(placement: .navigationBarLeading)
                 { Button {
                     save()
-                    pilot.pop(animated: .random())
+                    // pilot.pop(animated: .random())
                 }
                     label: { Text("Cancelar")}}
                 ToolbarItem(placement: .navigationBarTrailing)
                 { Button {
                     save()
-                    pilot.pop(animated: .random())
+                    // pilot.pop(animated: .random())
                 }
                 label: { Text("OK").disabled(isSaveDisabled)}
                 }
