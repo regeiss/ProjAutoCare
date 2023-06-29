@@ -7,9 +7,24 @@
 
 import SwiftUI
 
-struct CadastroDetalheView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct CadastroDetalheView: View 
+{
+    var titulo: String
+    
+    var body: some View 
+    {
+        ZStack(alignment: .trailing)
+        {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.gray)
+                .frame(height: 100)
+
+            Text(titulo)
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.black)
+                .foregroundColor(.white)
+                .padding()
+        }
     }
 }
 
