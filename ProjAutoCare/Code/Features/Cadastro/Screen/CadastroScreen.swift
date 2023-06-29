@@ -9,31 +9,36 @@ import SwiftUI
 
 struct CadastroScreen: View 
 {
+    @State var categoria = false 
+    @State var servico = false
+    @State var veiculo = false
+    @State var posto = false 
+
     var body: some View 
     {
         VStack(alignment: .leading)
         {
             VStack()
             {
-                MenuRow(titulo: "Categorias")
+                MenCadastroDetalheViewuRow(titulo: "Categorias")
                     .onTapGesture
                     {
-                        router.toListaCategoria()
+                        categoria = true 
                     }
-                MenuRow(titulo: "Serviços")
+                CadastroDetalheView(titulo: "Serviços")
                     .onTapGesture
                     {
-                        router.toListaServico()
+                        servico = true 
                     }
-                MenuRow(titulo: "Carros")
+                CadastroDetalheView(titulo: "Carros")
                     .onTapGesture
                     {
-                        router.toListaCarro()
+                        veiculo = true 
                     }
-                MenuRow(titulo: "Postos")
+                CadastroDetalheView(titulo: "Postos")
                     .onTapGesture
                     {
-                        router.toListaPosto()
+                        posto = true 
                     }
                 
             }.padding()
