@@ -4,6 +4,9 @@
     "" : {
 
     },
+    " km/l" : {
+
+    },
     "Abastecimento" : {
 
     },
@@ -43,6 +46,9 @@
     "data" : {
 
     },
+    "Data: " : {
+
+    },
     "Dismiss" : {
 
     },
@@ -70,6 +76,9 @@
     "Found and will discard a quake missing a valid code, magnitude, place, or time." : {
 
     },
+    "gas" : {
+
+    },
     "Hello, World!" : {
 
     },
@@ -80,6 +89,9 @@
 
     },
     "litros" : {
+
+    },
+    "Litros: " : {
 
     },
     "Login" : {
@@ -95,6 +107,9 @@
 
     },
     "nome" : {
+
+    },
+    "Odômetro: " : {
 
     },
     "Ok" : {
@@ -122,6 +137,9 @@
 
     },
     "Selecione um veículo" : {
+
+    },
+    "Total: " : {
 
     },
     "Valor total %@" : {

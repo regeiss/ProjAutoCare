@@ -2,7 +2,7 @@
 //  Abastecimento+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 27/06/23.
+//  Created by Roberto Edgar Geiss on 28/06/23.
 //
 //
 
@@ -23,10 +23,10 @@ extension Abastecimento {
     @NSManaged public var litros: Double
     @NSManaged public var media: Double
     @NSManaged public var valorLitro: Double
-    @NSManaged public var valorTotal: NSDecimalNumber?
+    @NSManaged public var valorTotal: Double
 
 }
 
-extension Abastecimento: Identifiable {
+extension Abastecimento : Identifiable {
 
 }

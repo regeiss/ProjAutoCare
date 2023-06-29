@@ -11,9 +11,9 @@ import SwiftData
 @available(iOS 16.0, *)
 struct AbastecimentoListaScreen: View
 {
-    @Environment(\.modelContext) var modelContext
+    @StateObject var viewModel = AbastecimentoViewModel()
     @State private var adicao = false
-    @State var viewModel = AbastecimentoViewModel()
+    @State private var edicao = false
     
     var body: some View
     {
@@ -27,25 +27,34 @@ struct AbastecimentoListaScreen: View
                         AbastecimentoListaDetalheView(abastecimento: abastecimento)
                     }
                 }
-                // .onDelete(perform: $abastecimento.remove(atOffsets:))
+                .onDelete(perform: delete)
                 if $viewModel.abastecimentosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }
             }
         }.background(Color("backGroundMain"))
-            .scrollContentBackground(.hidden)
-            .navigationBarTitle("Abastecimento", displayMode: .automatic)
-            .toolbar { ToolbarItem(placement: .navigationBarTrailing)
-                { Button {
-                    adicao = true
-                }
-                    label: { Image(systemName: "plus")}}
+        .scrollContentBackground(.hidden)
+        .navigationBarTitle("Abastecimento", displayMode: .automatic)
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                adicao = true
             }
-            .navigationDestination(isPresented: $adicao, destination: {
-                AbastecimentoScreen()
-            })
+                label: { Image(systemName: "plus")}}
+        }
+        .navigationDestination(isPresented: $adicao, destination: {
+            AbastecimentoScreen(isEdit: false)
+        })
     }
+    
+    func delete(at offsets: IndexSet)
+     {
+         for offset in offsets
+         {
+             let abastecimento = viewModel.abastecimentosLista[offset]
+             viewModel.delete(abastecimento: abastecimento)
+         }
+     }
 }
 
 #Preview {
