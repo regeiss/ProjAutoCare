@@ -66,7 +66,3 @@ struct SettingsScreen: View
         }
     }
 }
-
-#Preview {
-    SettingsScreen()
-}

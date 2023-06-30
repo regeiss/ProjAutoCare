@@ -33,7 +33,3 @@ struct VeiculoBottomView: View
         }.presentationDetents([.medium])
     }
 }
-
-#Preview {
-    VeiculoBottomView()
-}

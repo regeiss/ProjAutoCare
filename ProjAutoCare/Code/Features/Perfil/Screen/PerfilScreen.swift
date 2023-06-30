@@ -39,7 +39,3 @@ struct PerfilScreen: View
         }
     }
 }
-
-#Preview {
-    PerfilScreen()
-}

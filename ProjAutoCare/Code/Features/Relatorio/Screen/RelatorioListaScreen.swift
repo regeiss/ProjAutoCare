@@ -12,7 +12,3 @@ struct RelatorioListaScreen: View {
         Text("Relatorio")
     }
 }
-
-#Preview {
-    RelatorioListaScreen()
-}

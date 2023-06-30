@@ -12,7 +12,6 @@ struct PostoListaScreen: View
 {
     @StateObject private var viewModel = PostoViewModel()
     @State private var adicao = false
-    @State private var edicao = false
     
     var body: some View
     {
@@ -45,6 +44,7 @@ struct PostoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             PostoScreen(posto: Posto(), isEdit: false)
         })
+
     }
     
     func deletePostos(at offsets: IndexSet)

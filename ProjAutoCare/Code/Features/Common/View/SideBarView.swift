@@ -102,7 +102,3 @@ struct SideBarView: View
         }
     }
 }
-
-#Preview {
-    SideBarView()
-}

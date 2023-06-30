@@ -43,7 +43,3 @@ struct MensagemScreen: View
         }
     }
 }
-
-#Preview {
-    MensagemScreen()
-}

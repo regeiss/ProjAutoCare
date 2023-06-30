@@ -49,9 +49,6 @@ struct CadastroScreen: View
             }.padding()
             Spacer()
         }.navigationTitle("Cadastros")
+            .background(Color("backGroundMain"))
     }
-}
-
-#Preview {
-    CadastroScreen()
 }

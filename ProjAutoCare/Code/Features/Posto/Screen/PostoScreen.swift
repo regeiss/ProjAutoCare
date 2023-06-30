@@ -45,6 +45,7 @@ struct PostoScreen: View
                 Section
                 {
                     TextField("nome", text: $formInfo.nome)
+                        .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
                         .focused($postoInFocus, equals: .nome)
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
@@ -85,18 +86,20 @@ struct PostoScreen: View
     
     func save()
     {
-        let valid = formInfo.manager.triggerValidation()
+        let valid = true // formInfo.manager.triggerValidation()
         if valid
         {
             if isEdit
             {
                 posto.nome = formInfo.nome
                 viewModel.update(posto: posto)
+                print("update")
             }
             else
             {
-                let nvp = PostoDTO(id: UUID(), nome: formInfo.nome, bandeira: formInfo.bandeira, padrao: false)
-                viewModel.add(posto: nvp)
+                let postoNovo = PostoDTO(id: UUID(), nome: formInfo.nome, bandeira: formInfo.bandeira, padrao: false)
+                viewModel.add(posto: postoNovo)
+                print("novo")
             }
         }
     }

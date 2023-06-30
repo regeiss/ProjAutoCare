@@ -51,6 +51,3 @@ struct MenuInicialScreen: View
         }
     }
 }
-    #Preview {
-        MenuInicialScreen()
-    }
