@@ -27,6 +27,7 @@ class PostoFormInfo: ObservableObject
 @available(iOS 16.0, *)
 struct PostoScreen: View
 {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = PostoViewModel()
     @ObservedObject var formInfo = PostoFormInfo()
     @FocusState private var postoInFocus: PostoFocusable?
@@ -37,51 +38,47 @@ struct PostoScreen: View
     
     var body: some View
     {
-        NavigationView
+        VStack
         {
-            VStack
+            Form
             {
-                Form
+                Section
                 {
-                    Section
-                    {
-                        TextField("nome", text: $formInfo.nome)
-                            .validation(formInfo.nomeVazio)
-                            .focused($postoInFocus, equals: .nome)
-                            .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
-                        
-                        TextField("bandeira", text: $formInfo.bandeira)
-                    }
-                }
-                .scrollContentBackground(.hidden)
-                .onReceive(formInfo.manager.$allValid) { isValid in
-                    self.isSaveDisabled = !isValid}
-            }.onAppear
-            {
-                if isEdit
-                {
-                    formInfo.nome = posto.nome ?? ""
-                    formInfo.bandeira = posto.bandeira ?? ""
+                    TextField("nome", text: $formInfo.nome)
+                        .validation(formInfo.nomeVazio)
+                        .focused($postoInFocus, equals: .nome)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
+                    
+                    TextField("bandeira", text: $formInfo.bandeira)
                 }
             }
-            .background(Color("backGroundMain"))
-            .navigationTitle("Postos")
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading)
-                { Button {
-                    save()
-                    // pilot.pop(animated: .random())
-                }
-                    label: { Text("Cancelar")}}
-                ToolbarItem(placement: .navigationBarTrailing)
-                { Button {
-                    save()
-                    // pilot.pop(animated: .random())
-                }
-                label: { Text("OK").disabled(isSaveDisabled)}
-                }
+            .scrollContentBackground(.hidden)
+            .onReceive(formInfo.manager.$allValid) { isValid in
+                self.isSaveDisabled = !isValid}
+        }.onAppear
+        {
+            if isEdit
+            {
+                formInfo.nome = posto.nome ?? ""
+                formInfo.bandeira = posto.bandeira ?? ""
+            }
+        }
+        .background(Color("backGroundMain"))
+        .navigationTitle("Postos")
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading)
+            { Button {
+                dismiss()
+            }
+                label: { Text("Cancelar")}}
+            ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                save()
+                dismiss()
+            }
+            label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
     }

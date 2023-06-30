@@ -19,7 +19,6 @@ struct ItemMenuInicialView: View
                 .fill(Color.gray)
                 .frame(height: colecao.name == "Abastecimento" ? 150 : height)
                 .opacity(0.8)
-                // .onTapGesture { screenRouter(indice: collection.id)}
             
             Text(colecao.name)
                 .font(.system(.largeTitle, design: .rounded))
@@ -27,7 +26,6 @@ struct ItemMenuInicialView: View
                 .foregroundColor(.orange)
                 .offset(x: 1.0, y: 10)
                 .padding()
-                // .onTapGesture { screenRouter(indice: collection.id)}
             
             //                if collection.name == "Abastecimento"
             //                {

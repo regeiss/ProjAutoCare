@@ -48,6 +48,8 @@
 		E1AD0CDE2A4DD573006D64D8 /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CDD2A4DD573006D64D8 /* PerfilModel.swift */; };
 		E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CDF2A4DD57C006D64D8 /* PerfilAction.swift */; };
 		E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */; };
+		E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */; };
+		E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -105,6 +107,8 @@
 		E1AD0CDD2A4DD573006D64D8 /* PerfilModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilModel.swift; sourceTree = "<group>"; };
 		E1AD0CDF2A4DD57C006D64D8 /* PerfilAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAction.swift; sourceTree = "<group>"; };
 		E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroDetalheView.swift; sourceTree = "<group>"; };
+		E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroModel.swift; sourceTree = "<group>"; };
+		E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoListaScreen.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				E1013FC72A4A57FB0044410F /* PostoScreen.swift */,
+				E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 		E16C15142A410E68003EAADA /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
+				E1AD0CE42A4E464A006D64D8 /* Model */,
 				E1AD0CE12A4DD598006D64D8 /* View */,
 				E16C15192A4114E9003EAADA /* Screen */,
 			);
@@ -443,6 +449,14 @@
 				E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E1AD0CE42A4E464A006D64D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E1D5F5012A37E4C300F3AFD1 = {
@@ -791,9 +805,11 @@
 				E1013FB62A4909910044410F /* Abastecimento+CoreDataProperties.swift in Sources */,
 				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
+				E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
 				E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */,
 				E1013FB22A48FCE30044410F /* Veiculo+CoreDataProperties.swift in Sources */,
+				E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */,
 				E1013FCF2A4A5E160044410F /* PostoModel.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */,
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,

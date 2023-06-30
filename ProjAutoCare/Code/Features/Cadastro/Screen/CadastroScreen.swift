@@ -16,34 +16,39 @@ struct CadastroScreen: View
 
     var body: some View 
     {
+        let cadastroMenu = [
+            CadastroColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
+            CadastroColecao(id: 1, name: "Serviços", image: "service", menu: .servico),
+            CadastroColecao(id: 2, name: "Veículos", image: "report", menu: .veiculo),
+            CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
+            CadastroColecao(id: 4, name: "Diversos", image: "config", menu: .diversos)
+        ]
         VStack(alignment: .leading)
         {
-            VStack()
+            VStack
             {
-                MenCadastroDetalheViewuRow(titulo: "Categorias")
-                    .onTapGesture
-                    {
-                        categoria = true 
+                ForEach(cadastroMenu) { item in
+                    NavigationLink(value: item) {
+                        
+                        CadastroDetalheView(colecao: item)
                     }
-                CadastroDetalheView(titulo: "Serviços")
-                    .onTapGesture
-                    {
-                        servico = true 
-                    }
-                CadastroDetalheView(titulo: "Carros")
-                    .onTapGesture
-                    {
-                        veiculo = true 
-                    }
-                CadastroDetalheView(titulo: "Postos")
-                    .onTapGesture
-                    {
-                        posto = true 
-                    }
-                
+                }.padding([.leading, .trailing])
+            }.navigationDestination(for: CadastroColecao.self) { item in
+                switch item.menu {
+                case .categoria:
+                    AbastecimentoListaScreen()
+                case .servico:
+                    AbastecimentoListaScreen()
+                case .veiculo:
+                    RelatorioListaScreen()
+                case .posto:
+                    PostoListaScreen()
+                case .diversos:
+                    CadastroScreen()
+                }
             }.padding()
             Spacer()
-        }
+        }.navigationTitle("Cadastros")
     }
 }
 

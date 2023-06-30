@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CadastroDetalheView: View 
 {
-    var titulo: String
+    var colecao: CadastroColecao
     
     var body: some View 
     {
@@ -19,15 +19,11 @@ struct CadastroDetalheView: View
                 .fill(Color.gray)
                 .frame(height: 100)
 
-            Text(titulo)
+            Text(colecao.name)
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.black)
                 .foregroundColor(.white)
                 .padding()
         }
     }
-}
-
-#Preview {
-    CadastroDetalheView()
 }

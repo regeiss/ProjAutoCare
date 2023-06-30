@@ -56,7 +56,3 @@ struct AbastecimentoListaScreen: View
          }
      }
 }
-
-#Preview {
-    AbastecimentoListaScreen()
-}
