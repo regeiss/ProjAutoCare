@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+@available(iOS 17.0, *)
 @main
 struct ProjAutoCareApp: App
 {
@@ -23,22 +24,22 @@ struct ProjAutoCareApp: App
                 .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
                 .modifier(DarkModeViewModifier())
         }
-//        .onChange(of: scenePhase)
-//        {
-//            switch scenePhase
-//            {
-//            case .active:
-//                print("active")
-//                getCoreDataDBPath()
-//            case .inactive:
-//                print("inactive")
-//            case .background:
-//                print("background")
-//                saveContext()
-//            @unknown default:
-//                fatalError()
-//            }
-//        }
+        .onChange(of: scenePhase)
+        {
+            switch scenePhase
+            {
+            case .active:
+                print("active")
+                getCoreDataDBPath()
+            case .inactive:
+                print("inactive")
+            case .background:
+                print("background")
+                saveContext()
+            @unknown default:
+                fatalError()
+            }
+        }
     }
     
     func saveContext()

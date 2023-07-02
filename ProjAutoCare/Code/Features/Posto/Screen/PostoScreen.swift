@@ -93,13 +93,11 @@ struct PostoScreen: View
             {
                 posto.nome = formInfo.nome
                 viewModel.update(posto: posto)
-                print("update")
             }
             else
             {
                 let postoNovo = PostoDTO(id: UUID(), nome: formInfo.nome, bandeira: formInfo.bandeira, padrao: false)
                 viewModel.add(posto: postoNovo)
-                print("novo")
             }
         }
     }

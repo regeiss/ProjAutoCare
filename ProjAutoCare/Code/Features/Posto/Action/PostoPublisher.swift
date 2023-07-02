@@ -150,7 +150,6 @@ class PostoPublisher: NSObject, ObservableObject
             fatalError("Erro moc \(error.localizedDescription)")
         }
     }
-
 }
 
 extension PostoPublisher: NSFetchedResultsControllerDelegate
@@ -163,6 +162,3 @@ extension PostoPublisher: NSFetchedResultsControllerDelegate
         self.postoCVS.value = postos
     }
 }
-
-
-

@@ -28,15 +28,10 @@ class AbastecimentoFormInfo: ObservableObject
     
     let regexNumerico: String =  "[0-9[\\b]]+"
     
-    @Published
-    var manager = FormManager(validationType: .immediate)
-    
-    // 3
+    @Published var manager = FormManager(validationType: .immediate)
     @FormField(validator: NonEmptyValidator(message: "This field is required!"))
     var firstName: String = ""
-    
-    // 4
-    lazy var firstNameValidation = _firstName.validation(manager: manager)
+    lazy var nameValidation = _firstName.validation(manager: manager)
     
 }
 

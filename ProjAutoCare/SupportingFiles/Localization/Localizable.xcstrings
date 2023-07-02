@@ -19,6 +19,9 @@
     "An error has occurred!" : {
 
     },
+    "ano" : {
+
+    },
     "AutoCare" : {
 
     },
@@ -32,6 +35,12 @@
 
     },
     "Cancelar" : {
+
+    },
+    "car" : {
+
+    },
+    "chassis" : {
 
     },
     "completo" : {
@@ -97,7 +106,13 @@
     "Login" : {
 
     },
+    "marca" : {
+
+    },
     "Mensagens" : {
+
+    },
+    "modelo" : {
 
     },
     "Modo escuro" : {
@@ -119,6 +134,9 @@
 
     },
     "Perfil" : {
+
+    },
+    "placa" : {
 
     },
     "Posto:" : {

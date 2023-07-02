@@ -1,0 +1,111 @@
+//
+//  VeiculoScreen.swift
+//  ProjAutoCare
+//
+//  Created by Roberto Edgar Geiss on 01/07/23.
+//
+import SwiftUI
+import CoreData
+import FormValidator
+
+enum VeiculoFocusable: Hashable
+{
+    case nome
+    case marca
+    case modelo
+    case placa
+    case chassis
+    case ano
+}
+
+class VeiculoFormInfo: ObservableObject
+{
+    @Published var nome: String = ""
+    @Published var marca: String = ""
+    @Published var modelo: String = ""
+    @Published var placa: String = ""
+    @Published var chassis: String = ""
+    @Published var ano: String = ""
+    
+    let regexNumerico: String =  "[0-9[\\b]]+"
+    
+    @Published var manager = FormManager(validationType: .immediate)
+    @FormField(validator: NonEmptyValidator(message: "This field is required!"))
+    var firstName: String = ""
+    lazy var nameValidation = _firstName.validation(manager: manager)
+
+}
+
+struct VeiculoScreen: View
+{
+    @StateObject private var viewModel = VeiculoViewModel()
+
+       @ObservedObject var formInfo = VeiculoFormInfo()
+       @State var isSaveDisabled: Bool = true
+       @FocusState private var veiculoInFocus: VeiculoFocusable?
+       // controle do tipo de edição
+       var isEdit: Bool
+       var veiculo: Veiculo
+
+       var body: some View
+       {
+           VStack
+           {
+               Form
+               {
+                   Section()
+                   {
+                       TextField("nome", text: $formInfo.nome)
+                           .validation(formInfo.nameValidation)
+                           .focused($veiculoInFocus, equals: .nome)
+                           .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
+                       TextField("marca", text: $formInfo.marca)
+                       TextField("modelo", text: $formInfo.modelo)
+                       TextField("placa", text: $formInfo.placa)
+                       TextField("chassis", text: $formInfo.chassis)
+                       TextField("ano", text: $formInfo.ano)
+                   }
+               }
+                .onAppear() { if isEdit {
+                                         formInfo.nome = veiculo.nome ?? ""
+                                         formInfo.marca = veiculo.marca ?? ""
+                                         formInfo.modelo = veiculo.modelo ?? ""
+                                         formInfo.placa = veiculo.placa ?? ""
+                                         formInfo.chassis = veiculo.chassis ?? ""
+                                         formInfo.ano = String(veiculo.ano)
+                }}
+           }// .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
+       }
+
+       private func gravarVeiculo()
+       {
+           let valid = true // formInfo.form.triggerValidation()
+           if valid
+           {
+               if isEdit
+               {
+                   veiculo.nome = formInfo.nome
+                   veiculo.marca = formInfo.marca
+                   veiculo.modelo = formInfo.modelo
+                   veiculo.placa = formInfo.placa
+                   veiculo.chassis = formInfo.chassis
+                   veiculo.ano = Int16(formInfo.ano) ?? 1990
+                   viewModel.update(veiculo: veiculo)
+               }
+               else
+               {
+                   let veiculo = VeiculoDTO(id: UUID(),
+                                         nome: formInfo.nome,
+                                         marca: formInfo.marca,
+                                         modelo: formInfo.modelo,
+                                         placa: formInfo.placa,
+                                         chassis: formInfo.chassis,
+                                         ativo: false,
+                                         padrao: false,
+                                         ano: Int16(formInfo.ano) ?? 0)
+                   viewModel.add(veiculo: veiculo)
+               }
+           }
+       }
+   }
+
