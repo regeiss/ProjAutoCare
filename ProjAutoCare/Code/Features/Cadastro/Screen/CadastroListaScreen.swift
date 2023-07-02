@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CadastroScreen: View 
+struct CadastroListaScreen: View 
 {
     @State var categoria = false 
     @State var servico = false
@@ -40,11 +40,11 @@ struct CadastroScreen: View
                 case .servico:
                     AbastecimentoListaScreen()
                 case .veiculo:
-                    RelatorioListaScreen()
+                    VeiculoListaScreen()
                 case .posto:
                     PostoListaScreen()
                 case .diversos:
-                    CadastroScreen()
+                    CadastroListaScreen()
                 }
             }.padding()
             Spacer()

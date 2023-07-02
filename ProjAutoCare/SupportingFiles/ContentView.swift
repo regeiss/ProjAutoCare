@@ -30,7 +30,7 @@ struct ContentView: View
                     {
                         Color("backGroundMain").ignoresSafeArea()
                         MenuInicialScreen()
-                        .navigationTitle("AutoCare")
+                            .navigationTitle("AutoCare").foregroundColor(.white) // Color("titleForeGround"))
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading)
                             { Button { showSidebar.toggle()}

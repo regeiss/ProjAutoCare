@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-struct VeiculoListaView: View
+struct VeiculoListaScreen: View
 {
     @StateObject private var viewModel = VeiculoViewModel()
     @State private var adicao = false
@@ -34,7 +34,7 @@ struct VeiculoListaView: View
         }
         .background(Color("backGroundMain"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Abastecimento", displayMode: .automatic)
+        .navigationBarTitle("Veículo", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true
@@ -42,7 +42,7 @@ struct VeiculoListaView: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            AbastecimentoScreen(isEdit: false)
+            VeiculoScreen(isEdit: false, veiculo: Veiculo())
         })
     }
     
@@ -55,5 +55,4 @@ struct VeiculoListaView: View
         }
     }
 }
-
 

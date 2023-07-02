@@ -13,6 +13,9 @@
     "Ajustes" : {
 
     },
+    "Alerta" : {
+
+    },
     "Alertas" : {
 
     },
@@ -157,6 +160,12 @@
     "Selecione um veículo" : {
 
     },
+    "Servico" : {
+
+    },
+    "Serviço" : {
+
+    },
     "Total: " : {
 
     },
@@ -167,6 +176,9 @@
 
     },
     "Veiculo" : {
+
+    },
+    "Veículo" : {
 
     },
     "WerkstadtG v." : {

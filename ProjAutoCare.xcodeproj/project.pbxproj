@@ -34,7 +34,7 @@
 		E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */; };
 		E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */; };
 		E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */; };
-		E16C151B2A41151A003EAADA /* CadastroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151A2A41151A003EAADA /* CadastroScreen.swift */; };
+		E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */; };
 		E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */; };
 		E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15222A411DED003EAADA /* AbastecimentoDTO.swift */; };
 		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
@@ -65,10 +65,13 @@
 		E1FB3F3D2A507B9900776408 /* VeiculoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F3C2A507B9900776408 /* VeiculoModel.swift */; };
 		E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F3E2A507D4C00776408 /* VeiculoAction.swift */; };
 		E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */; };
-		E1FB3F432A507DEB00776408 /* VeiculoListaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F422A507DEB00776408 /* VeiculoListaView.swift */; };
+		E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */; };
 		E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F442A50F24B00776408 /* Veiculo+CoreDataClass.swift */; };
 		E1FB3F472A50F24B00776408 /* Veiculo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F452A50F24B00776408 /* Veiculo+CoreDataProperties.swift */; };
 		E1FB3F492A50F5DF00776408 /* VeiculoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F482A50F5DF00776408 /* VeiculoListaDetalheView.swift */; };
+		E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */; };
+		E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */; };
+		E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F512A51D04600776408 /* AlertaListaScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +102,7 @@
 		E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenuInicialView.swift; sourceTree = "<group>"; };
 		E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaScreen.swift; sourceTree = "<group>"; };
-		E16C151A2A41151A003EAADA /* CadastroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroScreen.swift; sourceTree = "<group>"; };
+		E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroListaScreen.swift; sourceTree = "<group>"; };
 		E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaScreen.swift; sourceTree = "<group>"; };
 		E16C15222A411DED003EAADA /* AbastecimentoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoDTO.swift; sourceTree = "<group>"; };
 		E16C15242A412424003EAADA /* AbastecimentoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoScreen.swift; sourceTree = "<group>"; };
@@ -131,10 +134,13 @@
 		E1FB3F3C2A507B9900776408 /* VeiculoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoModel.swift; sourceTree = "<group>"; };
 		E1FB3F3E2A507D4C00776408 /* VeiculoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoAction.swift; sourceTree = "<group>"; };
 		E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoScreen.swift; sourceTree = "<group>"; };
-		E1FB3F422A507DEB00776408 /* VeiculoListaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoListaView.swift; sourceTree = "<group>"; };
+		E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoListaScreen.swift; sourceTree = "<group>"; };
 		E1FB3F442A50F24B00776408 /* Veiculo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1FB3F452A50F24B00776408 /* Veiculo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1FB3F482A50F5DF00776408 /* VeiculoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoListaDetalheView.swift; sourceTree = "<group>"; };
+		E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoScreen.swift; sourceTree = "<group>"; };
+		E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoListaScreen.swift; sourceTree = "<group>"; };
+		E1FB3F512A51D04600776408 /* AlertaListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaListaScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,11 +282,11 @@
 		E16C15002A3E0901003EAADA /* Veiculo */ = {
 			isa = PBXGroup;
 			children = (
-				E1FB3F3B2A507ABB00776408 /* Screen */,
-				E1FB3F3A2A507AAF00776408 /* Model */,
 				E1FB3F392A507AA500776408 /* Action */,
-				E1013FC32A4A577F0044410F /* ViewModel */,
+				E1FB3F3A2A507AAF00776408 /* Model */,
+				E1FB3F3B2A507ABB00776408 /* Screen */,
 				E16C15012A3E090A003EAADA /* View */,
+				E1013FC32A4A577F0044410F /* ViewModel */,
 			);
 			path = Veiculo;
 			sourceTree = "<group>";
@@ -289,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				E16C15022A3E091C003EAADA /* VeiculoBottomView.swift */,
-				E1FB3F422A507DEB00776408 /* VeiculoListaView.swift */,
 				E1FB3F482A50F5DF00776408 /* VeiculoListaDetalheView.swift */,
 			);
 			path = View;
@@ -350,6 +355,7 @@
 		E16C15122A410E47003EAADA /* Alerta */ = {
 			isa = PBXGroup;
 			children = (
+				E1FB3F502A51D03800776408 /* Screen */,
 				E1FB3F362A5078A800776408 /* Model */,
 			);
 			path = Alerta;
@@ -376,6 +382,8 @@
 		E16C15152A410E78003EAADA /* Servico */ = {
 			isa = PBXGroup;
 			children = (
+				E1FB3F4B2A51CA5B00776408 /* View */,
+				E1FB3F4A2A51CA4D00776408 /* Screen */,
 			);
 			path = Servico;
 			sourceTree = "<group>";
@@ -392,7 +400,7 @@
 		E16C15192A4114E9003EAADA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E16C151A2A41151A003EAADA /* CadastroScreen.swift */,
+				E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -709,7 +717,32 @@
 		E1FB3F3B2A507ABB00776408 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */,
 				E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E1FB3F4A2A51CA4D00776408 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */,
+				E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E1FB3F4B2A51CA5B00776408 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1FB3F502A51D03800776408 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E1FB3F512A51D04600776408 /* AlertaListaScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -819,12 +852,13 @@
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1FB3F3D2A507B9900776408 /* VeiculoModel.swift in Sources */,
 				E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */,
-				E16C151B2A41151A003EAADA /* CadastroScreen.swift in Sources */,
+				E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */,
 				E1013FD42A4A60E40044410F /* Posto+CoreDataClass.swift in Sources */,
 				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E1FB3F382A5078C600776408 /* AlertaModel.swift in Sources */,
 				E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */,
+				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
 				E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */,
 				E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */,
 				E1AD0CDC2A4DD56A006D64D8 /* PerfilView.swift in Sources */,
@@ -845,6 +879,7 @@
 				E1013FB52A4909910044410F /* Abastecimento+CoreDataClass.swift in Sources */,
 				E1013FBE2A4A55230044410F /* ErrorHandler.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
+				E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
@@ -866,8 +901,9 @@
 				E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */,
 				E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */,
 				E1013FCF2A4A5E160044410F /* PostoModel.swift in Sources */,
+				E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */,
-				E1FB3F432A507DEB00776408 /* VeiculoListaView.swift in Sources */,
+				E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */,
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,
 				E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */,

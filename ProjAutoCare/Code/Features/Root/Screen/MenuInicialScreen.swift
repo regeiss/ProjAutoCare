@@ -38,13 +38,13 @@ struct MenuInicialScreen: View
                     case .abastecimento:
                         AbastecimentoListaScreen()
                     case .servico:
-                        AbastecimentoListaScreen()
+                        ServicoListaScreen()
                     case .relatorio:
                         RelatorioListaScreen()
                     case .alerta:
-                        AbastecimentoListaScreen()
+                        AlertaListaScreen()
                     case .cadastro:
-                        CadastroScreen()
+                        CadastroListaScreen()
                     }
                 }
             }

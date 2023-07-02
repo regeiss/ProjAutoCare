@@ -33,68 +33,93 @@ class VeiculoFormInfo: ObservableObject
     @FormField(validator: NonEmptyValidator(message: "This field is required!"))
     var firstName: String = ""
     lazy var nameValidation = _firstName.validation(manager: manager)
-
+    
 }
 
 struct VeiculoScreen: View
 {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = VeiculoViewModel()
-
-       @ObservedObject var formInfo = VeiculoFormInfo()
-       @State var isSaveDisabled: Bool = true
-       @FocusState private var veiculoInFocus: VeiculoFocusable?
-       // controle do tipo de edição
-       var isEdit: Bool
-       var veiculo: Veiculo
-
-       var body: some View
-       {
-           VStack
-           {
-               Form
-               {
-                   Section()
-                   {
-                       TextField("nome", text: $formInfo.nome)
-                           .validation(formInfo.nameValidation)
-                           .focused($veiculoInFocus, equals: .nome)
-                           .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
-                       TextField("marca", text: $formInfo.marca)
-                       TextField("modelo", text: $formInfo.modelo)
-                       TextField("placa", text: $formInfo.placa)
-                       TextField("chassis", text: $formInfo.chassis)
-                       TextField("ano", text: $formInfo.ano)
-                   }
-               }
-                .onAppear() { if isEdit {
-                                         formInfo.nome = veiculo.nome ?? ""
-                                         formInfo.marca = veiculo.marca ?? ""
-                                         formInfo.modelo = veiculo.modelo ?? ""
-                                         formInfo.placa = veiculo.placa ?? ""
-                                         formInfo.chassis = veiculo.chassis ?? ""
-                                         formInfo.ano = String(veiculo.ano)
-                }}
-           }// .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
-       }
-
-       private func gravarVeiculo()
-       {
-           let valid = true // formInfo.form.triggerValidation()
-           if valid
-           {
-               if isEdit
-               {
-                   veiculo.nome = formInfo.nome
-                   veiculo.marca = formInfo.marca
-                   veiculo.modelo = formInfo.modelo
-                   veiculo.placa = formInfo.placa
-                   veiculo.chassis = formInfo.chassis
-                   veiculo.ano = Int16(formInfo.ano) ?? 1990
-                   viewModel.update(veiculo: veiculo)
-               }
-               else
-               {
-                   let veiculo = VeiculoDTO(id: UUID(),
+    @ObservedObject var formInfo = VeiculoFormInfo()
+    @State var isSaveDisabled: Bool = true
+    @FocusState private var veiculoInFocus: VeiculoFocusable?
+    // controle do tipo de edição
+    var isEdit: Bool
+    var veiculo: Veiculo
+    
+    var body: some View
+    {
+        VStack
+        {
+            Form
+            {
+                Section
+                {
+                    TextField("nome", text: $formInfo.nome)
+                        .validation(formInfo.nameValidation)
+                        .focused($veiculoInFocus, equals: .nome)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
+                    TextField("marca", text: $formInfo.marca)
+                    TextField("modelo", text: $formInfo.modelo)
+                    TextField("placa", text: $formInfo.placa)
+                    TextField("chassis", text: $formInfo.chassis)
+                    TextField("ano", text: $formInfo.ano)
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .onReceive(formInfo.manager.$allValid) { isValid in
+                self.isSaveDisabled = !isValid}
+            .onAppear
+            {
+                if isEdit
+                {
+                    formInfo.nome = veiculo.nome ?? ""
+                    formInfo.marca = veiculo.marca ?? ""
+                    formInfo.modelo = veiculo.modelo ?? ""
+                    formInfo.placa = veiculo.placa ?? ""
+                    formInfo.chassis = veiculo.chassis ?? ""
+                    formInfo.ano = String(veiculo.ano)
+                }
+            }
+            .background(Color("backGroundMain"))
+            .navigationTitle("Postos")
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading)
+                { Button {
+                    dismiss()
+                }
+                    label: { Text("Cancelar")}}
+                ToolbarItem(placement: .navigationBarTrailing)
+                { Button {
+                    save()
+                    dismiss()
+                }
+                label: { Text("OK").disabled(isSaveDisabled)}
+                }
+            }
+        }
+    }
+    
+    func save()
+    {
+        let valid = true // formInfo.form.triggerValidation()
+        if valid
+        {
+            if isEdit
+            {
+                veiculo.nome = formInfo.nome
+                veiculo.marca = formInfo.marca
+                veiculo.modelo = formInfo.modelo
+                veiculo.placa = formInfo.placa
+                veiculo.chassis = formInfo.chassis
+                veiculo.ano = Int16(formInfo.ano) ?? 1990
+                viewModel.update(veiculo: veiculo)
+            }
+            else
+            {
+                let veiculo = VeiculoDTO(id: UUID(),
                                          nome: formInfo.nome,
                                          marca: formInfo.marca,
                                          modelo: formInfo.modelo,
@@ -103,9 +128,8 @@ struct VeiculoScreen: View
                                          ativo: false,
                                          padrao: false,
                                          ano: Int16(formInfo.ano) ?? 0)
-                   viewModel.add(veiculo: veiculo)
-               }
-           }
-       }
-   }
-
+                viewModel.add(veiculo: veiculo)
+            }
+        }
+    }
+}
