@@ -81,7 +81,7 @@ struct VeiculoScreen: View
                     formInfo.ano = String(veiculo.ano)
                 }
             }
-            .background(Color("backGroundMain"))
+            .background(Color("backGroundColor"))
             .navigationTitle("Postos")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarBackButtonHidden()
@@ -94,7 +94,7 @@ struct VeiculoScreen: View
                 ToolbarItem(placement: .navigationBarTrailing)
                 { Button {
                     save()
-                    dismiss()
+                    //dismiss()
                 }
                 label: { Text("OK").disabled(isSaveDisabled)}
                 }

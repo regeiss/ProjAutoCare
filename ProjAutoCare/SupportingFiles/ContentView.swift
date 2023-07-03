@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ContentView: View
 {
+    init()
+    {
+       ToolBarTheme.navigationBarColors(background: UIColor(Color("backGroundColor")), titleColor: UIColor(Color("titleForeGroundColor")))
+    }
     @State private var isShowingSheet = false
     @State var showSidebar: Bool = false
     // let sizes = Sizes()
@@ -28,7 +32,7 @@ struct ContentView: View
                 {
                     ZStack
                     {
-                        Color("backGroundMain").ignoresSafeArea()
+                        Color("backGroundColor").ignoresSafeArea()
                         MenuInicialScreen()
                             .navigationTitle("AutoCare").foregroundColor(.white) // Color("titleForeGround"))
                         .toolbar {

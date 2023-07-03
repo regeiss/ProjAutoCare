@@ -27,7 +27,7 @@ struct MensagemScreen: View
  
                     }
                 }
-                .background(Color("backGroundMain"))
+                .background(Color("backGroundColor"))
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Mensagens", displayMode: .automatic)
                 .toolbar(content: {
@@ -39,7 +39,7 @@ struct MensagemScreen: View
                 }
                 )
                 Spacer()
-            }.background(Color("backGroundMain"))
+            }.background(Color("backGroundColor"))
         }
     }
 }

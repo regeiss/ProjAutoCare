@@ -7,26 +7,14 @@
 
 import Foundation
 
-class AbastecimentoDTO: Identifiable
+struct AbastecimentoDTO: Identifiable
 {
-    var id: UUID
-    var quilometragem: Int32
-    var data: Date
-    var litros: Double
-    var valorLitro: Double
-    var valorTotal: Double
-    var completo: Bool
-    var media: Double
-    
-    init(id: UUID, quilometragem: Int32, data: Date, litros: Double, valorLitro: Double, valorTotal: Double, completo: Bool, media: Double)
-    {
-        self.id = id
-        self.quilometragem = quilometragem
-        self.data = data
-        self.litros = litros
-        self.valorLitro = valorLitro
-        self.valorTotal = valorTotal
-        self.completo = completo
-        self.media = media
-    }
+    let id: UUID
+    let quilometragem: Int32
+    let data: Date
+    let litros: Double
+    let valorLitro: Double
+    let valorTotal: Double
+    let completo: Bool
+    let media: Double
 }

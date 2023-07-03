@@ -11,7 +11,7 @@ class AppState
 {
     var ultimaKM: Int32
     var veiculoAtivo: Veiculo?
- //   var perfilAtivo: Perfil?
+    var perfilAtivo: Perfil?
     var postoPadrao: Posto?
     
     static var shared = AppState()

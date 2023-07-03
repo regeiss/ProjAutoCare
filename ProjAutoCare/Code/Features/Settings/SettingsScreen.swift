@@ -50,7 +50,7 @@ struct SettingsScreen: View
                         .cornerRadius(10)
                     }
                 }
-                .background(Color("backGroundMain"))
+                .background(Color("backGroundColor"))
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Ajustes", displayMode: .automatic)
                 .toolbar(content: {
@@ -62,7 +62,7 @@ struct SettingsScreen: View
                 }
                 )
                 Spacer()
-            }.background(Color("backGroundMain"))
+            }.background(Color("backGroundColor"))
         }
     }
 }

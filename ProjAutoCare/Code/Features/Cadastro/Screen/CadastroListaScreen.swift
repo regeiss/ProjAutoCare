@@ -36,9 +36,9 @@ struct CadastroListaScreen: View
             }.navigationDestination(for: CadastroColecao.self) { item in
                 switch item.menu {
                 case .categoria:
-                    AbastecimentoListaScreen()
+                    CategoriaListaScreen()
                 case .servico:
-                    AbastecimentoListaScreen()
+                    ServicoListaScreen()
                 case .veiculo:
                     VeiculoListaScreen()
                 case .posto:
@@ -49,6 +49,6 @@ struct CadastroListaScreen: View
             }.padding()
             Spacer()
         }.navigationTitle("Cadastros")
-            .background(Color("backGroundMain"))
+            .background(Color("backGroundColor"))
     }
 }

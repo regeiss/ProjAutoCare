@@ -11,7 +11,7 @@ import FormValidator
 
 enum AbastecimentoFocusable: Hashable
 {
-    case km
+    case quilometros
     case data
     case litros
     case valorLitro
@@ -102,7 +102,7 @@ struct AbastecimentoScreen: View
             }.scrollContentBackground(.hidden)
             // .onReceive(pub)  {_ in gravarAbastecimento()}
         }// .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
-        .background(Color("backGroundMain"))
+        .background(Color("backGroundColor"))
         .navigationTitle("Abastecimento")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()

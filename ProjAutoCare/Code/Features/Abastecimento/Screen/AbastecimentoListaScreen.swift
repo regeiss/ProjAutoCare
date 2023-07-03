@@ -31,7 +31,7 @@ struct AbastecimentoListaScreen: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
-        }.background(Color("backGroundMain"))
+        }.background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .navigationBarTitle("Abastecimento", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)

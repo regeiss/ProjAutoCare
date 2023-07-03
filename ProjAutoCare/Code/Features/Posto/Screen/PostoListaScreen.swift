@@ -32,7 +32,7 @@ struct PostoListaScreen: View
                 }
             }
         }
-        .background(Color("backGroundMain"))
+        .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .navigationBarTitle("Postos", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)

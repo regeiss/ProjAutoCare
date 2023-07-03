@@ -64,7 +64,7 @@ struct PostoScreen: View
                 formInfo.bandeira = posto.bandeira ?? ""
             }
         }
-        .background(Color("backGroundMain"))
+        .background(Color("backGroundColor"))
         .navigationTitle("Postos")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()
@@ -77,7 +77,7 @@ struct PostoScreen: View
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                dismiss()
+                // dismiss()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }

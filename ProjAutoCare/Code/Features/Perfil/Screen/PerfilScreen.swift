@@ -23,7 +23,7 @@ struct PerfilScreen: View
 
                     }
                 }
-                .background(Color("backGroundMain"))
+                .background(Color("backGroundColor"))
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Perfil", displayMode: .automatic)
                 .toolbar(content: {
@@ -35,7 +35,7 @@ struct PerfilScreen: View
                 }
                 )
                 Spacer()
-            }.background(Color("backGroundMain"))
+            }.background(Color("backGroundColor"))
         }
     }
 }

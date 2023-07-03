@@ -32,7 +32,7 @@ struct VeiculoListaScreen: View
                 }
             }
         }
-        .background(Color("backGroundMain"))
+        .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .navigationBarTitle("Veículo", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
