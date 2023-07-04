@@ -152,7 +152,7 @@ struct AbastecimentoScreen: View
                                    litros: (Double(formInfo.litros) ?? 0),
                                    valorLitro: (Double(formInfo.valorLitro) ?? 0),
                                    valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
-                                   completo:  Bool(formInfo.completo),
+                                   completo: Bool(formInfo.completo),
                                    media: calculaMedia(kmAtual: Int32(formInfo.quilometragem) ?? 0, litros: Double(formInfo.litros) ?? 0)
                                    //                                          doPosto: postoPicker!,
                                    //                                          doCarro: veiculoAtual!)

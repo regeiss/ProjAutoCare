@@ -12,6 +12,7 @@ struct PostoListaScreen: View
 {
     @StateObject private var viewModel = PostoViewModel()
     @State private var adicao = false
+    @State private var edicao = false
     
     var body: some View
     {
@@ -22,7 +23,7 @@ struct PostoListaScreen: View
                 ForEach(viewModel.postosLista) { posto in
                     HStack
                     {
-                        PostoListaDetalheView(posto: posto)
+                        PostoListaDetalheView(edicao: $edicao, posto: posto)
                     }
                 }
                 .onDelete(perform: deletePostos)

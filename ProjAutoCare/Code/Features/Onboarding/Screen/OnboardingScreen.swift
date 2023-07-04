@@ -12,29 +12,6 @@ struct OnboardingScreen: View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
-//
-//  OnBoardingView.swift
-//  projetoCarro
-//
-//  Created by Roberto Edgar Geiss on 13/12/22.
-//
-
-import SwiftUI
-
-struct OnboardingData: Hashable, Identifiable
-{
-    let id: Int
-    let backgroundImage: String
-    let objectImage: String
-    let primaryText: String
-    let secondaryText: String
-
-    static let list: [OnboardingData] = [
-        OnboardingData(id: 0, backgroundImage: "onboarding-bg-1", objectImage: "onboarding-object-1", primaryText: "Get healthy and live peacfully", secondaryText: "Living a happier, more satisfied life is within reach."),
-        OnboardingData(id: 1, backgroundImage: "onboarding-bg-2", objectImage: "onboarding-object-2", primaryText: "Predict weather", secondaryText: "Predict weather trends and conditions with current solar activity."),
-        OnboardingData(id: 2, backgroundImage: "onboarding-bg-3", objectImage: "onboarding-object-3", primaryText: "Get air quality information", secondaryText: "Immediate, accurate air quality data to help you create healthier.")
-    ]
-}
 
 struct OnBoardingView: View
 {
@@ -42,7 +19,7 @@ struct OnBoardingView: View
     
     var body: some View
     {
-        TabView(selection: $currentTab, content:  {
+        TabView(selection: $currentTab, content: {
             ForEach(OnboardingData.list) { viewData in
                 OnboardingTabView(data: viewData)
                     .tag(viewData.id)
@@ -75,8 +52,6 @@ struct OnboardingTabView: View
                     .offset(x: 0, y: 150)
                     .scaleEffect(isAnimating ? 1 : 0.9)
             }
-            
-            Spacer()
             Spacer()
             
             Text(data.primaryText)
@@ -96,7 +71,7 @@ struct OnboardingTabView: View
             Button(action: {
                 // Add action for button
             }, label: {
-                Text("Get Started")
+                Text("Inicie aqui")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(.horizontal, 50)
@@ -127,7 +102,6 @@ struct OnboardingTabView: View
 
 struct OnboardingButton: View
 {
-    
     // #1
     @AppStorage("needsAppOnboarding") var needsAppOnboarding: Bool = true
     

@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct PostoListaDetalheView: View
 {
-    @State var edicao = false
+    @Binding var edicao: Bool
+    // @State var edicaoLinha: Bool
     var posto: Posto
     
     var body: some View
@@ -17,10 +19,12 @@ struct PostoListaDetalheView: View
         HStack
         {
             Text(posto.nome ?? "")
+            
             Text(posto.bandeira ?? "")
         }
         .onTapGesture {
             edicao = true
+            print(posto)
         }
         .navigationDestination(isPresented: $edicao, destination: {
             PostoScreen(posto: posto, isEdit: true)

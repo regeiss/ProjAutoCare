@@ -77,7 +77,7 @@ struct PostoScreen: View
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                // dismiss()
+                dismiss()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }
@@ -90,6 +90,7 @@ struct PostoScreen: View
         if valid
         {
             if isEdit
+                
             {
                 posto.nome = formInfo.nome
                 viewModel.update(posto: posto)

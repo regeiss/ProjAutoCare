@@ -24,10 +24,15 @@ struct DarkModeViewModifier: ViewModifier
     }
 }
 
+class MenuButtonSpecs: ObservableObject
+{
+    
+}
+
 class ToolBarTheme
 {
-    static func navigationBarColors(background : UIColor?,
-       titleColor : UIColor? = nil, tintColor : UIColor? = nil )
+    static func navigationBarColors(background: UIColor?,
+       titleColor: UIColor? = nil, tintColor: UIColor? = nil )
     {
         let navigationAppearance = UINavigationBarAppearance()
         navigationAppearance.configureWithOpaqueBackground()

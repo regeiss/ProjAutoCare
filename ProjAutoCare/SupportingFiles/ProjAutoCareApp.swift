@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-@available(iOS 17.0, *)
+@available(iOS 16.0, *)
 @main
 struct ProjAutoCareApp: App
 {
@@ -25,8 +25,8 @@ struct ProjAutoCareApp: App
                 .modifier(DarkModeViewModifier())
         }
         .onChange(of: scenePhase)
-        {
-            switch scenePhase
+        { phase in
+            switch phase
             {
             case .active:
                 print("active")

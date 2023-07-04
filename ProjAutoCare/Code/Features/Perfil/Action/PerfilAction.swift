@@ -168,4 +168,3 @@ extension PerfilPublisher: NSFetchedResultsControllerDelegate
         self.perfilCVS.value = perfis
     }
 }
-

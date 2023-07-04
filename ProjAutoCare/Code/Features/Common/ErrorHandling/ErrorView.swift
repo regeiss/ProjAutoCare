@@ -52,7 +52,7 @@ struct HandleErrorsByShowingAlertViewModifier: ViewModifier
 
 struct ErrorView: View
 {
-    //let errorWrapper: ErrorWrapper
+    // let errorWrapper: ErrorWrapper
     
     @Environment(\.dismiss) private var dismiss
     
@@ -65,9 +65,9 @@ struct ErrorView: View
                 Text("An error has occurred!")
                     .font(.title)
                     .padding(.bottom)
-                Text("EWrro")   //errorWrapper.error.localizedDescription)
+                Text("Wrro")   // errorWrapper.error.localizedDescription)
                     .font(.headline)
-                Text("Faca isso") //errorWrapper.guidance)
+                Text("Faca isso") // errorWrapper.guidance)
                     .font(.caption)
                     .padding(.top)
                 Spacer()
@@ -90,4 +90,3 @@ extension View
         modifier(HandleErrorsByShowingAlertViewModifier())
     }
 }
-

@@ -48,6 +48,8 @@
 		E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */; };
 		E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */; };
 		E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */; };
+		E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */; };
+		E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -120,6 +122,8 @@
 		E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroDetalheView.swift; sourceTree = "<group>"; };
 		E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroModel.swift; sourceTree = "<group>"; };
 		E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoListaScreen.swift; sourceTree = "<group>"; };
+		E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModifierConfig.swift; path = ProjAutoCare/Code/Features/Onboarding/Model/ViewModifierConfig.swift; sourceTree = SOURCE_ROOT; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 		E16C15042A3F7049003EAADA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				E1CE3C452A547AF500B2C51D /* Model */,
 				E16C150E2A410AC5003EAADA /* Screen */,
 			);
 			path = Onboarding;
@@ -490,6 +495,14 @@
 			isa = PBXGroup;
 			children = (
 				E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1CE3C452A547AF500B2C51D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -683,6 +696,7 @@
 		E1D5F5392A39481500F3AFD1 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -907,6 +921,7 @@
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
 				E1013FC82A4A57FB0044410F /* PostoScreen.swift in Sources */,
 				E1013FD92A4A650C0044410F /* PostoPublisher.swift in Sources */,
+				E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
 				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
@@ -921,6 +936,7 @@
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
 				E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */,
+				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
 				E1E409CE2A52580C00034DBA /* Perfil+CoreDataProperties.swift in Sources */,
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
