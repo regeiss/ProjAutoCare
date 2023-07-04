@@ -29,7 +29,6 @@ struct MenuInicialScreen: View
                 {
                     ForEach(colecaoMenu) { item in
                         NavigationLink(value: item) {
-                            
                             ItemMenuInicialView(colecao: item)
                         }
                     }.padding([.leading, .trailing])

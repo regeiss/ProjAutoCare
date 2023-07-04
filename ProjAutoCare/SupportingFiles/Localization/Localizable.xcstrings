@@ -28,9 +28,6 @@
     "ano" : {
 
     },
-    "ativo" : {
-
-    },
     "AutoCare" : {
 
     },
@@ -71,6 +68,9 @@
 
     },
     "Dismiss" : {
+
+    },
+    "email" : {
 
     },
     "Error" : {
@@ -146,6 +146,9 @@
 
     },
     "Perfil" : {
+
+    },
+    "Perfis" : {
 
     },
     "placa" : {

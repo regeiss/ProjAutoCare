@@ -16,13 +16,13 @@ struct CadastroDetalheView: View
         ZStack(alignment: .trailing)
         {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.gray)
+                .fill(Color("BotaoMenuColor"))
                 .frame(height: 100)
 
             Text(colecao.name)
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.black)
-                .foregroundColor(.white)
+                .foregroundColor(Color("TextoBotaoMenuColor"))
                 .padding()
         }
     }

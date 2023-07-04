@@ -44,7 +44,6 @@ struct PostoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             PostoScreen(posto: Posto(), isEdit: false)
         })
-
     }
     
     func deletePostos(at offsets: IndexSet)

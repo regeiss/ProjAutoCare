@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VeiculoListaDetalheView: View
 {
+    @State var edicao = false
     var veiculo: Veiculo
     
     var body: some View
@@ -17,14 +18,18 @@ struct VeiculoListaDetalheView: View
         {
             Label("car", systemImage: "car")
                 .labelStyle(.iconOnly)
-            VStack
+            
+            HStack
             {
-                HStack
-                {
-                    Text(String(veiculo.nome ?? ""))
-                    Spacer()
-                }
+                Text(String(veiculo.nome ?? ""))
+                Text(String(veiculo.placa ?? ""))
             }
+            .onTapGesture {
+                edicao = true
+            }
+            .navigationDestination(isPresented: $edicao, destination: {
+                VeiculoScreen(veiculo: veiculo, isEdit: true)
+            })
         }
     }
 }

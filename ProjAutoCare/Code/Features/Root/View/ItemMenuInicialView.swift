@@ -16,14 +16,14 @@ struct ItemMenuInicialView: View
         ZStack(alignment: .bottomTrailing)
         {
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.gray)
+                .fill(Color("BotaoMenuColor"))
                 .frame(height: colecao.name == "Abastecimento" ? 150 : height)
                 .opacity(0.8)
             
             Text(colecao.name)
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.heavy)
-                .foregroundColor(.orange)
+                .foregroundColor(Color("TextoBotaoMenuColor"))
                 .offset(x: 1.0, y: 10)
                 .padding()
             

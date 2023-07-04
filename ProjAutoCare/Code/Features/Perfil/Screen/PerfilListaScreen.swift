@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct PerfilListaScreen: View
 {
     @StateObject private var viewModel = PerfilViewModel()
+    @State private var adicao = false
     
     var body: some View
     {
@@ -20,23 +22,27 @@ struct PerfilListaScreen: View
                 ForEach(viewModel.perfilLista, id: \.self) { perfil in
                     HStack
                     {
-                        Text(String(perfil.nome ?? ""))
-                        Spacer()
-                        Text(perfil.ativo ? "ativo" : " ").foregroundColor(.blue)
-                    }.onTapGesture
-                    {
-                        editPerfil(perfil: perfil)
+                        PerfilListaDetalheView(perfil: perfil)
                     }
                 }.onDelete(perform: deletePerfil)
-                
+                if viewModel.perfilLista.isEmpty
+                {
+                    Text("").listRowBackground(Color.clear)
+                }
             }
-            Spacer()
         }
-    }
-    
-    func editPerfil(perfil: Perfil)
-    {
-        // router.toPerfil(perfil: perfil, isEdit: true)
+        .background(Color("backGroundColor"))
+        .scrollContentBackground(.hidden)
+        .navigationBarTitle("Perfis", displayMode: .automatic)
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                adicao = true
+            }
+                label: { Image(systemName: "plus")}}
+        }
+        .navigationDestination(isPresented: $adicao, destination: {
+            PerfilScreen(perfil: Perfil(), isEdit: false)
+        })
     }
     
     func deletePerfil(at offsets: IndexSet)

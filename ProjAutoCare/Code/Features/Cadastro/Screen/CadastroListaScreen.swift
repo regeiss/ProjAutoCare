@@ -21,7 +21,7 @@ struct CadastroListaScreen: View
             CadastroColecao(id: 1, name: "Serviços", image: "service", menu: .servico),
             CadastroColecao(id: 2, name: "Veículos", image: "report", menu: .veiculo),
             CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
-            CadastroColecao(id: 4, name: "Diversos", image: "config", menu: .diversos)
+            CadastroColecao(id: 4, name: "Perfil", image: "config", menu: .perfil)
         ]
         VStack(alignment: .leading)
         {
@@ -43,8 +43,8 @@ struct CadastroListaScreen: View
                     VeiculoListaScreen()
                 case .posto:
                     PostoListaScreen()
-                case .diversos:
-                    CadastroListaScreen()
+                case .perfil:
+                    PerfilListaScreen()
                 }
             }.padding()
             Spacer()

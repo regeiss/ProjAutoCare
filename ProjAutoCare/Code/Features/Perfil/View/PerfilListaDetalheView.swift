@@ -1,29 +1,29 @@
 //
-//  PostoListaDetalheView.swift
+//  PerfilListaDetalheView.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 26/06/23.
+//  Created by Roberto Edgar Geiss on 29/06/23.
 //
 
 import SwiftUI
 
-struct PostoListaDetalheView: View
+struct PerfilListaDetalheView: View
 {
     @State var edicao = false
-    var posto: Posto
+    var perfil: Perfil
     
     var body: some View
     {
         HStack
         {
-            Text(posto.nome ?? "")
-            Text(posto.bandeira ?? "")
+            Text(perfil.nome ?? "")
+            Text(perfil.email ?? "")
         }
         .onTapGesture {
             edicao = true
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            PostoScreen(posto: posto, isEdit: true)
+            PerfilScreen(perfil: perfil, isEdit: true)
         })
     }
 }

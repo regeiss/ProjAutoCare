@@ -13,7 +13,7 @@ enum Cadastro: String
     case servico
     case veiculo
     case posto
-    case diversos
+    case perfil
 }
 
 struct CadastroColecao: Identifiable, Hashable

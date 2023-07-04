@@ -94,7 +94,7 @@ struct SideBarView: View
         }
         .sheet(isPresented: $showPerfilSheet)
         {
-            PerfilScreen()
+            PerfilScreen(perfil: Perfil(), isEdit: false)
         }
         .sheet(isPresented: $showMensagemSheet)
         {

@@ -44,8 +44,8 @@ struct VeiculoScreen: View
     @State var isSaveDisabled: Bool = true
     @FocusState private var veiculoInFocus: VeiculoFocusable?
     // controle do tipo de edição
-    var isEdit: Bool
     var veiculo: Veiculo
+    var isEdit: Bool
     
     var body: some View
     {
