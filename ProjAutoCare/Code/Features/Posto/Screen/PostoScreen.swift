@@ -90,9 +90,9 @@ struct PostoScreen: View
         if valid
         {
             if isEdit
-                
             {
                 posto.nome = formInfo.nome
+                posto.bandeira = formInfo.bandeira
                 viewModel.update(posto: posto)
             }
             else

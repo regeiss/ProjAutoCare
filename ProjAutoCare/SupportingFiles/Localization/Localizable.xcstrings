@@ -76,9 +76,6 @@
     "Error" : {
 
     },
-    "EWrro" : {
-
-    },
     "Faca isso" : {
 
     },
@@ -94,6 +91,9 @@
     "Failed to execute a persistent history change request." : {
 
     },
+    "Finish Setup" : {
+
+    },
     "Found and will discard a quake missing a valid code, magnitude, place, or time." : {
 
     },
@@ -101,6 +101,9 @@
 
     },
     "Hello, World!" : {
+
+    },
+    "Inicie aqui" : {
 
     },
     "Key" : {
@@ -191,6 +194,9 @@
 
     },
     "WerkstadtG v." : {
+
+    },
+    "Wrro" : {
 
     }
   },

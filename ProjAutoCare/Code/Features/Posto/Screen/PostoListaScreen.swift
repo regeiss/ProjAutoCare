@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @available(iOS 16.0, *)
 struct PostoListaScreen: View
@@ -23,7 +24,15 @@ struct PostoListaScreen: View
                 ForEach(viewModel.postosLista) { posto in
                     HStack
                     {
-                        PostoListaDetalheView(edicao: $edicao, posto: posto)
+                        NavigationLink(value: posto) { PostoListaDetalheView(posto: posto)}
+                        
+//                        PostoListaDetalheView(posto: posto)
+//                            .onTapGesture
+//                                edicao = true
+//                            }
+//                            .navigationDestination(isPresented: $edicao, destination: {
+//                                PostoScreen(posto: posto, isEdit: true)
+//                            })
                     }
                 }
                 .onDelete(perform: deletePostos)
@@ -32,6 +41,9 @@ struct PostoListaScreen: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
+        }
+        .navigationDestination(for: Posto.self) { posto in
+            PostoScreen(posto: posto, isEdit: true)
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
