@@ -10,8 +10,9 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct VeiculoListaScreen: View
 {
-    @StateObject private var viewModel = VeiculoViewModel()
+    @StateObject var viewModel = VeiculoViewModel()
     @State private var adicao = false
+    @State private var edicao = false
     
     var body: some View
     {
@@ -22,9 +23,8 @@ struct VeiculoListaScreen: View
                 ForEach(viewModel.veiculosLista, id: \.self) { veiculo in
                     HStack
                     {
-                        VeiculoListaDetalheView(veiculo: veiculo)
+                        VeiculoListaDetalheView(viewModel: viewModel, veiculo: veiculo)
                     }
-                    
                 }.onDelete(perform: deleteVeiculos)
                 if $viewModel.veiculosLista.isEmpty
                 {
@@ -42,7 +42,7 @@ struct VeiculoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            VeiculoScreen(veiculo: Veiculo(), isEdit: false)
+            VeiculoScreen(viewModel: viewModel, veiculo: Veiculo(), isEdit: false)
         })
     }
     

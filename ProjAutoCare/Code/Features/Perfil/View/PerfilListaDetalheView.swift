@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct PerfilListaDetalheView: View
 {
+    @ObservedObject var viewModel: PerfilViewModel
     @State var edicao = false
     var perfil: Perfil
     
@@ -23,7 +25,7 @@ struct PerfilListaDetalheView: View
             edicao = true
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            PerfilScreen(perfil: perfil, isEdit: true)
+            PerfilScreen(viewModel: viewModel, perfil: perfil, isEdit: true)
         })
     }
 }

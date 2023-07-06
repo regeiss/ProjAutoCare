@@ -22,6 +22,7 @@ class PerfilFormInfo: ObservableObject
     @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
+    
     var email: String = ""
 }
 
@@ -29,7 +30,7 @@ class PerfilFormInfo: ObservableObject
 struct PerfilScreen: View
 {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = PerfilViewModel()
+    @ObservedObject var viewModel: PerfilViewModel
     @ObservedObject var formInfo = PerfilFormInfo()
     @FocusState private var perfilInFocus: PostoFocusable?
     @State var isSaveDisabled = true
@@ -55,8 +56,8 @@ struct PerfilScreen: View
                 }
             }
             .scrollContentBackground(.hidden)
-//            .onReceive(formInfo.manager.$allValid) { isValid in
-//                self.isSaveDisabled = !isValid}
+            .onReceive(formInfo.manager.$allValid) { isValid in
+                self.isSaveDisabled = !isValid}
         }.onAppear
         {
             if isEdit
@@ -78,7 +79,7 @@ struct PerfilScreen: View
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                // dismiss()
+                dismiss()
             }
             label: { Text("OK")}
             }
@@ -87,12 +88,13 @@ struct PerfilScreen: View
     
     func save()
     {
-        let valid = true // formInfo.manager.triggerValidation()
+        let valid = formInfo.manager.triggerValidation()
         if valid
         {
             if isEdit
             {
                 perfil.nome = formInfo.nome
+                perfil.email = formInfo.email
                 viewModel.update(perfil: perfil)
             }
             else

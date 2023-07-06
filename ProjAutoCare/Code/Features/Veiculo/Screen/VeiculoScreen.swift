@@ -33,17 +33,17 @@ class VeiculoFormInfo: ObservableObject
     @FormField(validator: NonEmptyValidator(message: "This field is required!"))
     var firstName: String = ""
     lazy var nameValidation = _firstName.validation(manager: manager)
-    
 }
 
+@available(iOS 16.0, *)
 struct VeiculoScreen: View
 {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = VeiculoViewModel()
+    @ObservedObject var viewModel: VeiculoViewModel
     @ObservedObject var formInfo = VeiculoFormInfo()
-    @State var isSaveDisabled: Bool = true
     @FocusState private var veiculoInFocus: VeiculoFocusable?
-    // controle do tipo de edição
+    @State var isSaveDisabled: Bool = true
+    
     var veiculo: Veiculo
     var isEdit: Bool
     
@@ -94,7 +94,7 @@ struct VeiculoScreen: View
                 ToolbarItem(placement: .navigationBarTrailing)
                 { Button {
                     save()
-                    // dismiss()
+                    dismiss()
                 }
                 label: { Text("OK").disabled(isSaveDisabled)}
                 }
@@ -104,7 +104,7 @@ struct VeiculoScreen: View
     
     func save()
     {
-        let valid = true // formInfo.form.triggerValidation()
+        let valid = true // = formInfo.manager.triggerValidation()
         if valid
         {
             if isEdit

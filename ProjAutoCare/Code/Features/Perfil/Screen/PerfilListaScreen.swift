@@ -10,8 +10,9 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct PerfilListaScreen: View
 {
-    @StateObject private var viewModel = PerfilViewModel()
+    @StateObject var viewModel = PerfilViewModel()
     @State private var adicao = false
+    @State private var edicao = false
     
     var body: some View
     {
@@ -22,7 +23,7 @@ struct PerfilListaScreen: View
                 ForEach(viewModel.perfilLista) { perfil in
                     HStack
                     {
-                        PerfilListaDetalheView(perfil: perfil)
+                        PerfilListaDetalheView(viewModel: viewModel, perfil: perfil)
                     }
                 }.onDelete(perform: deletePerfil)
                 if viewModel.perfilLista.isEmpty
@@ -41,7 +42,7 @@ struct PerfilListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            PerfilScreen(perfil: Perfil(), isEdit: false)
+            PerfilScreen(viewModel: viewModel, perfil: Perfil(), isEdit: false)
         })
     }
     

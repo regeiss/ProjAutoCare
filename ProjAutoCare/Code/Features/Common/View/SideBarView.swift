@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SideBarView: View
 {
+    @StateObject var viewModel = PerfilViewModel()
     @State var showMenu = false
     @State var showConfigSheet = false
     @State var showPerfilSheet = false
@@ -94,7 +95,7 @@ struct SideBarView: View
         }
         .sheet(isPresented: $showPerfilSheet)
         {
-            PerfilScreen(perfil: Perfil(), isEdit: false)
+            PerfilListaScreen()
         }
         .sheet(isPresented: $showMensagemSheet)
         {

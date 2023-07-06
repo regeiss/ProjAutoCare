@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VeiculoListaDetalheView: View
 {
+    @ObservedObject var viewModel: VeiculoViewModel
     @State var edicao = false
     var veiculo: Veiculo
     
@@ -28,7 +29,7 @@ struct VeiculoListaDetalheView: View
                 edicao = true
             }
             .navigationDestination(isPresented: $edicao, destination: {
-                VeiculoScreen(veiculo: veiculo, isEdit: true)
+                VeiculoScreen(viewModel: viewModel, veiculo: veiculo, isEdit: true)
             })
         }
     }
