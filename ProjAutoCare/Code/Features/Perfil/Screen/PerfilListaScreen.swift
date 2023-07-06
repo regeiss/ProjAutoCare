@@ -19,7 +19,7 @@ struct PerfilListaScreen: View
         {
             List
             {
-                ForEach(viewModel.perfilLista, id: \.self) { perfil in
+                ForEach(viewModel.perfilLista) { perfil in
                     HStack
                     {
                         PerfilListaDetalheView(perfil: perfil)

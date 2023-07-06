@@ -13,6 +13,7 @@ struct ContentView: View
     {
        ToolBarTheme.navigationBarColors(background: UIColor(Color("backGroundColor")), titleColor: UIColor(Color("titleForeGroundColor")))
     }
+    
     @State private var isShowingSheet = false
     @State var showSidebar: Bool = false
     // let sizes = Sizes()
@@ -35,18 +36,17 @@ struct ContentView: View
                         Color("backGroundColor").ignoresSafeArea()
                         MenuInicialScreen()
                             .navigationTitle("AutoCare").foregroundColor(.white) // Color("titleForeGround"))
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading)
-                            { Button { showSidebar.toggle()}
-                                label: { Image(systemName: "line.3.horizontal")}}
-                            
-                            ToolbarItem(placement: .navigationBarTrailing)
-                            { Button { isShowingSheet.toggle()}
-                                label: { Image(systemName: "car.2")}}
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarLeading)
+                                { Button { showSidebar.toggle()}
+                                    label: { Image(systemName: "line.3.horizontal")}}
+                                
+                                ToolbarItem(placement: .navigationBarTrailing)
+                                { Button { isShowingSheet.toggle()}
+                                    label: { Image(systemName: "car.2")}}
                         }
                     }
                 }
-                
             }.edgesIgnoringSafeArea(.all)
         }.sheet(isPresented: $isShowingSheet)
         {

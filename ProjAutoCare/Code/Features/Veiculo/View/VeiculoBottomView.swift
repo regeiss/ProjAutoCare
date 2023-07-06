@@ -19,8 +19,8 @@ struct VeiculoBottomView: View
         {
             VStack(alignment: .leading)
             {
-                ForEach(viewModel.veiculosLista, id: \.self) { veiculo in
-                    ZStack
+                ForEach(viewModel.veiculosLista) { veiculo in
+                    ZStack(alignment: .top)
                     {
                         HStack
                         {
@@ -32,13 +32,13 @@ struct VeiculoBottomView: View
                                 Text(String(veiculo.nome ?? ""))
                                 Text(" "); Text(String(veiculo.placa ?? ""))
                                 Text(" "); Text(String(veiculo.ano))
-                            }
+                            }.padding()
                         }// .onTapGesture() { marcarCarroComoAtivo(ativoID: carros.objectID)}
                         Spacer()
                     }
                 }
             }
-            .background(Color("backGroundColor"))
+            // .background(Color("backGroundColor"))
             .scrollContentBackground(.hidden)
             .navigationBarTitle("Selecione um veículo", displayMode: .inline )
             .toolbar(content: {

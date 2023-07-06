@@ -21,14 +21,17 @@ class PostoFormInfo: ObservableObject
     @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
+    
+    @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var bandeira: String = ""
+    lazy var bandeiraVazio = _bandeira.validation(manager: manager)
 }
 
 @available(iOS 16.0, *)
 struct PostoScreen: View
 {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = PostoViewModel()
+    @ObservedObject var viewModel: PostoViewModel
     @ObservedObject var formInfo = PostoFormInfo()
     @FocusState private var postoInFocus: PostoFocusable?
     @State var isSaveDisabled: Bool = true
@@ -51,6 +54,7 @@ struct PostoScreen: View
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
                     
                     TextField("bandeira", text: $formInfo.bandeira)
+                        .validation(formInfo.bandeiraVazio)
                 }
             }
             .scrollContentBackground(.hidden)
@@ -86,7 +90,7 @@ struct PostoScreen: View
     
     func save()
     {
-        let valid = true // formInfo.manager.triggerValidation()
+        let valid = formInfo.manager.triggerValidation()
         if valid
         {
             if isEdit

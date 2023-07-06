@@ -11,7 +11,7 @@ import CoreData
 @available(iOS 16.0, *)
 struct PostoListaScreen: View
 {
-    @StateObject private var viewModel = PostoViewModel()
+    @StateObject var viewModel = PostoViewModel()
     @State private var adicao = false
     @State private var edicao = false
     
@@ -24,15 +24,7 @@ struct PostoListaScreen: View
                 ForEach(viewModel.postosLista) { posto in
                     HStack
                     {
-                        NavigationLink(value: posto) { PostoListaDetalheView(posto: posto)}
-                        
-//                        PostoListaDetalheView(posto: posto)
-//                            .onTapGesture
-//                                edicao = true
-//                            }
-//                            .navigationDestination(isPresented: $edicao, destination: {
-//                                PostoScreen(posto: posto, isEdit: true)
-//                            })
+                        PostoListaDetalheView(viewModel: viewModel, posto: posto)
                     }
                 }
                 .onDelete(perform: deletePostos)
@@ -41,9 +33,6 @@ struct PostoListaScreen: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
-        }
-        .navigationDestination(for: Posto.self) { posto in
-            PostoScreen(posto: posto, isEdit: true)
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
@@ -55,7 +44,7 @@ struct PostoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            PostoScreen(posto: Posto(), isEdit: false)
+            PostoScreen(viewModel: viewModel, posto: Posto(), isEdit: false)
         })
     }
     
