@@ -23,7 +23,9 @@ class PerfilFormInfo: ObservableObject
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
     
+    @FormField(validator: EmailValidator(message: "Informe um email válido!"))
     var email: String = ""
+    lazy var emailInvalido = _email.validation(manager: manager)
 }
 
 @available(iOS 16.0, *)
@@ -53,6 +55,9 @@ struct PerfilScreen: View
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.perfilInFocus = .nome}}
                     
                     TextField("email", text: $formInfo.email)
+                        .autocorrectionDisabled(true)
+                        .validation(formInfo.emailInvalido)
+                        .keyboardType(.emailAddress)
                 }
             }
             .scrollContentBackground(.hidden)
@@ -67,7 +72,7 @@ struct PerfilScreen: View
             }
         }
         .background(Color("backGroundColor"))
-        .navigationTitle("Postos")
+        .navigationTitle("Perfis")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -81,7 +86,7 @@ struct PerfilScreen: View
                 save()
                 dismiss()
             }
-            label: { Text("OK")}
+            label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
     }
