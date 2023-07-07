@@ -20,19 +20,19 @@ enum VeiculoFocusable: Hashable
 
 class VeiculoFormInfo: ObservableObject
 {
-    @Published var nome: String = ""
-    @Published var marca: String = ""
-    @Published var modelo: String = ""
-    @Published var placa: String = ""
-    @Published var chassis: String = ""
-    @Published var ano: String = ""
+    @Published var manager = FormManager(validationType: .deferred)
+    @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
+    var nome: String = ""
+    lazy var nomeVazio = _nome.validation(manager: manager)
+    
+    var marca: String = ""
+    var modelo: String = ""
+    var placa: String = ""
+    var chassis: String = ""
+    var ano: String = ""
     
     let regexNumerico: String =  "[0-9[\\b]]+"
     
-    @Published var manager = FormManager(validationType: .immediate)
-    @FormField(validator: NonEmptyValidator(message: "This field is required!"))
-    var firstName: String = ""
-    lazy var nameValidation = _firstName.validation(manager: manager)
 }
 
 @available(iOS 16.0, *)
@@ -56,7 +56,7 @@ struct VeiculoScreen: View
                 Section
                 {
                     TextField("nome", text: $formInfo.nome)
-                        .validation(formInfo.nameValidation)
+                        .validation(formInfo.nomeVazio)
                         .focused($veiculoInFocus, equals: .nome)
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
                     TextField("marca", text: $formInfo.marca)
@@ -82,7 +82,7 @@ struct VeiculoScreen: View
                 }
             }
             .background(Color("backGroundColor"))
-            .navigationTitle("Postos")
+            .navigationTitle("Veículos")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarBackButtonHidden()
             .toolbar {
@@ -104,7 +104,7 @@ struct VeiculoScreen: View
     
     func save()
     {
-        let valid = true // = formInfo.manager.triggerValidation()
+        let valid = formInfo.manager.triggerValidation()
         if valid
         {
             if isEdit

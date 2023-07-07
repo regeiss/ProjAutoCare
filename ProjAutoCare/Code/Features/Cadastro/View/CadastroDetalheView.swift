@@ -17,12 +17,13 @@ struct CadastroDetalheView: View
         {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color("BotaoMenuColor"))
-                .frame(height: 100)
+                .frame(height: 110)
 
             Text(colecao.name)
                 .font(.system(.largeTitle, design: .rounded))
-                .fontWeight(.black)
+                .fontWeight(.heavy)
                 .foregroundColor(Color("TextoBotaoMenuColor"))
+                .offset(x: 1.0, y: 10)
                 .padding()
         }
     }
