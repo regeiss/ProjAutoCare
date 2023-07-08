@@ -40,6 +40,7 @@
 		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
 		E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */; };
 		E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */; };
+		E1AC4F122A58E2DF00016186 /* WelcomeSheet in Frameworks */ = {isa = PBXBuildFile; productRef = E1AC4F112A58E2DF00016186 /* WelcomeSheet */; };
 		E1AD0CD42A4CFF13006D64D8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CD32A4CFF13006D64D8 /* DateExtensions.swift */; };
 		E1AD0CDA2A4DD556006D64D8 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CD92A4DD556006D64D8 /* PerfilViewModel.swift */; };
 		E1AD0CDC2A4DD56A006D64D8 /* PerfilListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CDB2A4DD56A006D64D8 /* PerfilListaDetalheView.swift */; };
@@ -161,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1013FB92A49148E0044410F /* FormValidator in Frameworks */,
+				E1AC4F122A58E2DF00016186 /* WelcomeSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +818,7 @@
 			name = ProjAutoCare;
 			packageProductDependencies = (
 				E1013FB82A49148E0044410F /* FormValidator */,
+				E1AC4F112A58E2DF00016186 /* WelcomeSheet */,
 			);
 			productName = ProjAutoCare;
 			productReference = E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */;
@@ -848,6 +851,7 @@
 			mainGroup = E1D5F5012A37E4C300F3AFD1;
 			packageReferences = (
 				E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */,
+				E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */,
 			);
 			productRefGroup = E1D5F50B2A37E4C300F3AFD1 /* Products */;
 			projectDirPath = "";
@@ -1189,6 +1193,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MAJKFL/Welcome-Sheet";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1196,6 +1208,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */;
 			productName = FormValidator;
+		};
+		E1AC4F112A58E2DF00016186 /* WelcomeSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */;
+			productName = WelcomeSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 

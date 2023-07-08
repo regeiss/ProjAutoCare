@@ -66,6 +66,21 @@ struct SideBarView: View
             }
             HStack
             {
+                Image(systemName: "shippingbox.and.arrow.backward")
+                    .foregroundColor(.gray)
+                    .imageScale(.large)
+                Text("Versões ant.")
+                    .foregroundColor(.gray)
+                    .font(.headline)
+            }
+            .padding(.top, 30)
+            .onTapGesture
+            {
+                showMenu = false
+                showMensagemSheet = true
+            }
+            HStack
+            {
                 Image(systemName: "gearshape")
                     .foregroundColor(.gray)
                     .imageScale(.large)
