@@ -13,7 +13,7 @@ struct CadastroListaScreen: View
     @State var servico = false
     @State var veiculo = false
     @State var posto = false 
-
+    
     var body: some View 
     {
         let cadastroMenu = [
@@ -23,32 +23,36 @@ struct CadastroListaScreen: View
             CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
             CadastroColecao(id: 4, name: "Perfil", image: "config", menu: .perfil)
         ]
+        
+        let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
+        
         VStack(alignment: .leading)
         {
-            VStack
+            ScrollView(.vertical)
             {
-                ForEach(cadastroMenu) { item in
-                    NavigationLink(value: item) {
-                        
-                        CadastroDetalheView(colecao: item)
+                LazyVGrid(columns: columns, alignment: .center, spacing: 5)
+                {
+                    ForEach(cadastroMenu) { item in
+                        NavigationLink(value: item) {
+                            CadastroDetalheView(colecao: item)
+                        }
+                    }.padding([.leading, .trailing])
+                }.navigationDestination(for: CadastroColecao.self) { item in
+                    switch item.menu {
+                    case .categoria:
+                        CategoriaListaScreen()
+                    case .servico:
+                        ServicoListaScreen()
+                    case .veiculo:
+                        VeiculoListaScreen()
+                    case .posto:
+                        PostoListaScreen()
+                    case .perfil:
+                        PerfilListaScreen()
                     }
-                }.padding([.leading, .trailing])
-            }.navigationDestination(for: CadastroColecao.self) { item in
-                switch item.menu {
-                case .categoria:
-                    CategoriaListaScreen()
-                case .servico:
-                    ServicoListaScreen()
-                case .veiculo:
-                    VeiculoListaScreen()
-                case .posto:
-                    PostoListaScreen()
-                case .perfil:
-                    PerfilListaScreen()
-                }
-            }.padding()
-            Spacer()
-        }.navigationTitle("Cadastros")
+                }.padding()
+            }.navigationTitle("Cadastros")
             .background(Color("backGroundColor"))
+        }
     }
 }

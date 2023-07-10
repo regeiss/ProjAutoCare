@@ -1,41 +1,37 @@
 //
-//  ServicoScreen.swift
+//  CategoriaScreen.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 02/07/23.
+//  Created by Roberto Edgar Geiss on 09/07/23.
 //
 
 import SwiftUI
 import CoreData
 import FormValidator
 
-enum ServicoFocusable: Hashable
+enum CategoriaFocusable: Hashable
 {
     case nome
 }
 
-class ServicoFormInfo: ObservableObject
+class CategoriaFormInfo: ObservableObject
 {
     @Published var manager = FormManager(validationType: .deferred)
     @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
-    
-    //        @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
-    //        var bandeira: String = ""
-    //        lazy var bandeiraVazio = _bandeira.validation(manager: manager)
 }
 
 @available(iOS 16.0, *)
-struct ServicoScreen: View
+struct CategoriaScreen: View
 {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: ServicoViewModel
-    @ObservedObject var formInfo = ServicoFormInfo()
-    @FocusState private var servicoInFocus: ServicoFocusable?
+    @ObservedObject var viewModel: CategoriaViewModel
+    @ObservedObject var formInfo = CategoriaFormInfo()
+    @FocusState private var categoriaInFocus: CategoriaFocusable?
     @State var isSaveDisabled: Bool = true
     
-    var servico: Servico
+    var categoria: Categoria
     var isEdit: Bool
     
     var body: some View
@@ -49,8 +45,8 @@ struct ServicoScreen: View
                     TextField("nome", text: $formInfo.nome)
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
-                        .focused($servicoInFocus, equals: .nome)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.servicoInFocus = .nome}}
+                        .focused($categoriaInFocus, equals: .nome)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.categoriaInFocus = .nome}}
                 }
             }
             .scrollContentBackground(.hidden)
@@ -60,12 +56,11 @@ struct ServicoScreen: View
         {
             if isEdit
             {
-                formInfo.nome = servico.nome ?? ""
-//                formInfo.bandeira = servico.bandeira ?? ""
+                formInfo.nome = categoria.nome ?? ""
             }
         }
         .background(Color("backGroundColor"))
-        .navigationTitle("Serviço")
+        .navigationTitle("Posto")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -91,14 +86,14 @@ struct ServicoScreen: View
         {
             if isEdit
             {
-                servico.nome = formInfo.nome
+                categoria.nome = formInfo.nome
                 // servico.bandeira = formInfo.bandeira
-                viewModel.update(servico: servico)
+                viewModel.update(categoria: categoria)
             }
             else
             {
-                let servicoNovo = ServicoDTO(id: UUID(), nome: formInfo.nome)
-                viewModel.add(servico: servicoNovo)
+                let categoriaNovo = CategoriaDTO(id: UUID(), nome: formInfo.nome)
+                viewModel.add(categoria: categoriaNovo)
             }
         }
     }

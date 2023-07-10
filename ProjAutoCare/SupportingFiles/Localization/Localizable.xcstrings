@@ -46,7 +46,7 @@
     "car" : {
 
     },
-    "Categorias" : {
+    "Categoria" : {
 
     },
     "chassis" : {
@@ -157,6 +157,9 @@
     "placa" : {
 
     },
+    "Posto" : {
+
+    },
     "Posto:" : {
 
     },
@@ -173,9 +176,6 @@
 
     },
     "Selecione um veículo" : {
-
-    },
-    "Servico" : {
 
     },
     "Serviço" : {
