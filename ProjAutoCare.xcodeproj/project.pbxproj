@@ -64,6 +64,8 @@
 		E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */; };
 		E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */; };
 		E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */; };
+		E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */; };
+		E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -151,6 +153,8 @@
 		E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoListaScreen.swift; sourceTree = "<group>"; };
 		E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModifierConfig.swift; path = ProjAutoCare/Code/Features/Onboarding/Model/ViewModifierConfig.swift; sourceTree = SOURCE_ROOT; };
+		E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioModel.swift; sourceTree = "<group>"; };
+		E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaDetalheView.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -406,7 +410,9 @@
 		E16C15132A410E52003EAADA /* Relatorio */ = {
 			isa = PBXGroup;
 			children = (
+				E1CE3C4A2A5C952100B2C51D /* Model */,
 				E16C151C2A4115A2003EAADA /* Screen */,
+				E1CE3C4D2A5C954300B2C51D /* View */,
 			);
 			path = Relatorio;
 			sourceTree = "<group>";
@@ -592,6 +598,22 @@
 				E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E1CE3C4A2A5C952100B2C51D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1CE3C4D2A5C954300B2C51D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E1D5F5012A37E4C300F3AFD1 = {
@@ -1009,6 +1031,7 @@
 				E1FB3F382A5078C600776408 /* AlertaModel.swift in Sources */,
 				E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */,
 				E1E409C82A5240B600034DBA /* CategoriaListaScreen.swift in Sources */,
+				E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */,
 				E1AC4F182A5B07D800016186 /* Categoria+CoreDataProperties.swift in Sources */,
 				E1AC4F332A5B808900016186 /* CategoriaListaDetalheView.swift in Sources */,
 				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
@@ -1031,6 +1054,7 @@
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
 				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
+				E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */,
 				E1AD0CDA2A4DD556006D64D8 /* PerfilViewModel.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1AD0CDE2A4DD573006D64D8 /* PerfilModel.swift in Sources */,
