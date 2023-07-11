@@ -15,6 +15,9 @@ struct ContentView: View
        ToolBarTheme.navigationBarColors(background: UIColor(Color("backGroundColor")), titleColor: UIColor(Color("titleForeGroundColor")))
     }
     
+    var appState = AppState.shared
+    @State private var veiculoAtual: Veiculo?
+    @State private var perfilPadrao: Perfil?
     @State private var isShowingSheet = false
     @State var showSidebar: Bool = false
     @State private var showSheet = false
@@ -114,7 +117,11 @@ struct ContentView: View
                                 ToolbarItem(placement: .navigationBarLeading)
                                 { Button { showSidebar.toggle()}
                                     label: { Image(systemName: "line.3.horizontal")}}
-                                
+                                ToolbarItem(placement: .navigation)
+                                { Text(veiculoAtual?.nome ?? "N/A")
+                                    }
+                                ToolbarItem(placement: .navigation)
+                                {Text(perfilPadrao?.nome ?? "N/S")}
                                 ToolbarItem(placement: .navigationBarTrailing)
                                 { Button { isShowingSheet.toggle()}
                                     label: { Image(systemName: "car.2")}}

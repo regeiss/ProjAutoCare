@@ -21,6 +21,6 @@ extension Categoria {
 
 }
 
-extension Categoria : Identifiable {
+extension Categoria: Identifiable {
 
 }

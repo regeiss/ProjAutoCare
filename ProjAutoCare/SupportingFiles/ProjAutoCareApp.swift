@@ -14,6 +14,7 @@ struct ProjAutoCareApp: App
 {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.managedObjectContext) private var moc: NSManagedObjectContext
+    @AppStorage("contextSet") private var contextSet: Bool = false
     static let persistenceController = PersistenceController.shared
     
     var body: some Scene
@@ -42,6 +43,23 @@ struct ProjAutoCareApp: App
         }
     }
     
+    func prepareAppContext()
+     {
+         guard contextSet == false
+         else { return }
+         
+         let viewModelPerfil = PerfilViewModel()
+         let viewModelVeiculo = VeiculoViewModel()
+         let viewModelPosto = PostoViewModel()
+         
+         // Inserir perfil padrão
+         viewModelPerfil.inserePadrao()
+         viewModelVeiculo.inserePadrao()
+         viewModelPosto.inserePadrao()
+         
+         contextSet = true
+     }
+
     func saveContext()
     {
         let context = moc

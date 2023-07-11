@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import CoreData
 import Combine
 
@@ -23,7 +21,6 @@ class CategoriaViewModel: ObservableObject
             self.categoriaLista = categoriaLista
         }
     }
-
     
     func add(categoria: CategoriaDTO)
     {
