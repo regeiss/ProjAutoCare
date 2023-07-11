@@ -36,9 +36,25 @@ struct AbastecimentoListaDetalheView: View
                       Text("Odômetro: "); Text(String(abastecimento.km).toQuilometrosFormat())
                       Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
                   }
-//                  HStack{Text(abastecimento.nomePosto); Spacer()}
-//                  HStack{Text(abastecimento.nomeCarro); Spacer()}
+                  HStack{Text(abastecimento.nomePosto); Spacer()}
+                  HStack{Text(abastecimento.nomeCarro); Spacer()}
               }.padding(.all, 2)
           }.padding([.top, .bottom], 2)
     }
+}
+
+extension Abastecimento
+{
+    @objc
+    var nomePosto: String
+    {
+        self.doPosto?.nome ?? "não informado"
+    }
+    
+    @objc
+    var nomeCarro: String
+    {
+        self.doVeiculo?.nome ?? "não informado"
+    }
+    
 }

@@ -2,12 +2,13 @@
 //  Abastecimento+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 28/06/23.
+//  Created by Roberto Edgar Geiss on 10/07/23.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension Abastecimento {
 
@@ -23,10 +24,11 @@ extension Abastecimento {
     @NSManaged public var media: Double
     @NSManaged public var valorLitro: Double
     @NSManaged public var valorTotal: Double
+    @NSManaged public var doPosto: Posto?
+    @NSManaged public var doVeiculo: Veiculo?
 
 }
 
-extension Abastecimento: Identifiable
-{
+extension Abastecimento : Identifiable {
 
 }

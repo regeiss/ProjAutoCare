@@ -2,7 +2,7 @@
 //  Posto+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 26/06/23.
+//  Created by Roberto Edgar Geiss on 10/07/23.
 //
 //
 
@@ -20,9 +20,27 @@ extension Posto {
     @NSManaged public var id: UUID?
     @NSManaged public var nome: String?
     @NSManaged public var padrao: Bool
+    @NSManaged public var doAbastecimento: NSSet?
 
 }
 
-extension Posto: Identifiable {
+// MARK: Generated accessors for doAbastecimento
+extension Posto {
+
+    @objc(addDoAbastecimentoObject:)
+    @NSManaged public func addToDoAbastecimento(_ value: Abastecimento)
+
+    @objc(removeDoAbastecimentoObject:)
+    @NSManaged public func removeFromDoAbastecimento(_ value: Abastecimento)
+
+    @objc(addDoAbastecimento:)
+    @NSManaged public func addToDoAbastecimento(_ values: NSSet)
+
+    @objc(removeDoAbastecimento:)
+    @NSManaged public func removeFromDoAbastecimento(_ values: NSSet)
+
+}
+
+extension Posto : Identifiable {
 
 }

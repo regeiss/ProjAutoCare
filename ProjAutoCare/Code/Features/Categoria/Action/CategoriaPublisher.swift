@@ -57,8 +57,7 @@ class CategoriaPublisher: NSObject, ObservableObject
         }
     }
 
-    func add(categoria
-             : CategoriaDTO)
+    func add(categoria: CategoriaDTO)
     {
         let novaCategoria = Categoria(context: backgroundContext)
         novaCategoria.id = categoria.id
@@ -112,7 +111,6 @@ class CategoriaPublisher: NSObject, ObservableObject
 
     func inserePadrao()
     {
-
         let novaCategoria = Categoria(context: backgroundContext)
         novaCategoria.id = UUID()
         novaCategoria.nome = "Nenhum"
@@ -141,4 +139,3 @@ extension CategoriaPublisher: NSFetchedResultsControllerDelegate
         self.categoriaCVS.value = categoria
     }
 }
-

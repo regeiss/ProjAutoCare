@@ -11,7 +11,7 @@ import FormValidator
 
 enum AbastecimentoFocusable: Hashable
 {
-    case quilometros
+    case quilometragem
     case data
     case litros
     case valorLitro
@@ -20,19 +20,18 @@ enum AbastecimentoFocusable: Hashable
 
 class AbastecimentoFormInfo: ObservableObject
 {
-    @Published var quilometragem: String = ""
-    @Published var data: Date = Date()
-    @Published var litros: String = ""
-    @Published var valorLitro: String = ""
-    @Published var completo: Bool = false
-    
-    let regexNumerico: String =  "[0-9[\\b]]+"
-    
     @Published var manager = FormManager(validationType: .immediate)
     @FormField(validator: NonEmptyValidator(message: "This field is required!"))
     var firstName: String = ""
     lazy var nameValidation = _firstName.validation(manager: manager)
     
+    var quilometragem: String = ""
+    var data: Date = Date()
+    var litros: String = ""
+    var valorLitro: String = ""
+    var completo: Bool = false
+    
+    let regexNumerico: String =  "[0-9[\\b]]+"
 }
 
 @available(iOS 16.0, *)
@@ -73,9 +72,9 @@ struct AbastecimentoScreen: View
                 Section
                 {
                     TextField("km", text: $formInfo.quilometragem)
-                    // .focused($abastecimentoInFocus, equals: .km)
-                    // .keyboardType(.numbersAndPunctuation)
-                    // .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.abastecimentoInFocus = .km}}
+                    .focused($abastecimentoInFocus, equals: .quilometragem)
+                    .keyboardType(.numbersAndPunctuation)
+                    .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.abastecimentoInFocus = .quilometragem}}
                     DatePicker("data", selection: $formInfo.data)
                         .frame(maxHeight: 400)
                         .focused($abastecimentoInFocus, equals: .data)
@@ -101,7 +100,7 @@ struct AbastecimentoScreen: View
                 }
             }.scrollContentBackground(.hidden)
             // .onReceive(pub)  {_ in gravarAbastecimento()}
-        }// .onReceive(formInfo.form.$allValid) { isValid in self.isSaveDisabled = !isValid}
+        }.onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
         .navigationTitle("Abastecimento")
         .navigationBarTitleDisplayMode(.automatic)
@@ -137,33 +136,33 @@ struct AbastecimentoScreen: View
             postoPicker = posto
         }
         
-        //        if appState.veiculoAtivo == nil
-        //        {
-        //            veiculoAtual = viewModelVeiculo.carrosLista.first
-        //        }
-        //        else
-        //        {
-        //            veiculoAtual = appState.carroAtivo
-        //        }
+                if appState.veiculoAtivo == nil
+                {
+                    veiculoAtual = viewModelVeiculo.veiculosLista.first
+                }
+                else
+                {
+                    veiculoAtual = appState.veiculoAtivo
+                }
         
         let uab = AbastecimentoDTO(id: UUID(),
-                                   quilometragem: (Int32(formInfo.quilometragem) ?? 0),
-                                   data: formInfo.data,
-                                   litros: (Double(formInfo.litros) ?? 0),
-                                   valorLitro: (Double(formInfo.valorLitro) ?? 0),
-                                   valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
-                                   completo: Bool(formInfo.completo),
-                                   media: calculaMedia(kmAtual: Int32(formInfo.quilometragem) ?? 0, litros: Double(formInfo.litros) ?? 0)
-                                   //                                          doPosto: postoPicker!,
-                                   //                                          doCarro: veiculoAtual!)
-        )
-        
-        viewModel.add(abastecimento: uab)
+                       quilometragem: (Int32(formInfo.quilometragem) ?? 0),
+                       data: formInfo.data,
+                       litros: (Double(formInfo.litros) ?? 0),
+                       valorLitro: (Double(formInfo.valorLitro) ?? 0),
+                       valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
+                       completo: Bool(formInfo.completo),
+                       media: calculaMedia(kmAtual: Int32(formInfo.quilometragem) ?? 0,
+                       litros: Double(formInfo.litros) ?? 0),
+                       doPosto: postoPicker!,
+                       doVeiculo: veiculoAtual!)
+         
+             viewModel.add(abastecimento: uab)
     }
     
     private func gravarAbastecimento()
     {
-        let valid = true //  formInfo.form.triggerValidation()
+        let valid = formInfo.manager.triggerValidation()
         if valid
         {
             do

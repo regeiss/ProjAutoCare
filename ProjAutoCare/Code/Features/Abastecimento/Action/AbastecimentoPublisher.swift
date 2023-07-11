@@ -55,17 +55,17 @@ class AbastecimentoPublisher: NSObject, ObservableObject
 
     func add(abastecimento: AbastecimentoDTO)
     {
-        let newAbastecimento = Abastecimento(context: publisherContext)
-        newAbastecimento.id = abastecimento.id
-        newAbastecimento.km = abastecimento.quilometragem
-        newAbastecimento.completo = abastecimento.completo
-        newAbastecimento.litros = abastecimento.litros
-        newAbastecimento.data = abastecimento.data
-        newAbastecimento.valorLitro = abastecimento.valorLitro
-        newAbastecimento.valorTotal = (abastecimento.litros * abastecimento.valorLitro)
-        newAbastecimento.media = abastecimento.media
-//        newAbastecimento.doPosto = abastecimento.doPosto
-//        newAbastecimento.doCarro = abastecimento.doCarro
+        let novoAbastecimento = Abastecimento(context: publisherContext)
+        novoAbastecimento.id = abastecimento.id
+        novoAbastecimento.km = abastecimento.quilometragem
+        novoAbastecimento.completo = abastecimento.completo
+        novoAbastecimento.litros = abastecimento.litros
+        novoAbastecimento.data = abastecimento.data
+        novoAbastecimento.valorLitro = abastecimento.valorLitro
+        novoAbastecimento.valorTotal = (abastecimento.litros * abastecimento.valorLitro)
+        novoAbastecimento.media = abastecimento.media
+        novoAbastecimento.doPosto = abastecimento.doPosto
+        novoAbastecimento.doVeiculo = abastecimento.doVeiculo
         
         publisherContext.performAndWait
         {

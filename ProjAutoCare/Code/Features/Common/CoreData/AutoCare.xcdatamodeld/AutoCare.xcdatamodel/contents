@@ -9,6 +9,8 @@
         <attribute name="media" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="valorLitro" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="valorTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="doPosto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Posto" inverseName="doAbastecimento" inverseEntity="Posto"/>
+        <relationship name="doVeiculo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Veiculo" inverseName="doAbastecimento" inverseEntity="Veiculo"/>
     </entity>
     <entity name="Categoria" representedClassName="Categoria" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -26,6 +28,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="padrao" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="doAbastecimento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Abastecimento" inverseName="doPosto" inverseEntity="Abastecimento"/>
     </entity>
     <entity name="Servico" representedClassName="Servico" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -41,5 +44,6 @@
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="padrao" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="placa" optional="YES" attributeType="String"/>
+        <relationship name="doAbastecimento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Abastecimento" inverseName="doVeiculo" inverseEntity="Abastecimento"/>
     </entity>
 </model>
