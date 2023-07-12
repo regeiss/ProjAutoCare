@@ -31,6 +31,7 @@ struct ProjAutoCareApp: App
             {
             case .active:
                 print("active")
+                prepareAppContext()
                 getCoreDataDBPath()
             case .inactive:
                 print("inactive")

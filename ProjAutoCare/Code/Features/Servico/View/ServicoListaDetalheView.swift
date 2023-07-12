@@ -28,7 +28,3 @@ struct ServicoListaDetalheView: View
         })
     }
 }
-
-//#Preview {
-//    ServicoListaDetalheView()
-//}

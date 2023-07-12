@@ -44,7 +44,7 @@ extension String
         
         guard let date = dateFormatter.date(from: self)
         else {return nil}
-        dateFormatter.dateStyle = style
+        dateFormatter.dateStyle = .short
         return dateFormatter.string(from: date)
     }
 }

@@ -116,4 +116,3 @@ extension ServicoPublisher: NSFetchedResultsControllerDelegate
         self.servicoCVS.value = servicos
     }
 }
-

@@ -130,10 +130,32 @@ struct ContentView: View
                 }
             }.edgesIgnoringSafeArea(.all)
         }
+        .onAppear { loadViewData()}
         .welcomeSheet(isPresented: $showSheet, pages: pages)
         .sheet(isPresented: $isShowingSheet)
         {
             VeiculoBottomView()
         }
     }
+    
+    func setAppVars()
+     {
+         let viewModelPerfil = PerfilViewModel()
+         let viewModelVeiculo = VeiculoViewModel()
+         let viewModelPosto = PostoViewModel()
+         
+         viewModelVeiculo.selecionarVeiculoAtivo()
+         viewModelPosto.selecionarPostoPadrao()
+         viewModelPerfil.selecionarPerfilAtivo()
+     }
+     
+     func loadViewData()
+     {
+         setAppVars()
+         veiculoAtual = appState.veiculoAtivo
+         perfilPadrao = appState.perfilAtivo
+         print(perfilPadrao?.id?.uuidString as Any)
+         print(veiculoAtual?.nome as Any)
+
+     }
 }

@@ -57,7 +57,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
     {
         let novoAbastecimento = Abastecimento(context: publisherContext)
         novoAbastecimento.id = abastecimento.id
-        novoAbastecimento.km = abastecimento.quilometragem
+        novoAbastecimento.quilometragem = abastecimento.quilometragem
         novoAbastecimento.completo = abastecimento.completo
         novoAbastecimento.litros = abastecimento.litros
         novoAbastecimento.data = abastecimento.data

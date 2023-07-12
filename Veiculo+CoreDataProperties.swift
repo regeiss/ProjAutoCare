@@ -46,6 +46,6 @@ extension Veiculo {
 
 }
 
-extension Veiculo : Identifiable {
+extension Veiculo: Identifiable {
 
 }
