@@ -22,8 +22,7 @@ struct AbastecimentoListaDetalheView: View
               {
                   HStack
                   {
-                      Text("Data: ")
-                      Text((abastecimento.data ?? Date()).formatted(date: .omitted, time: .omitted))
+                      Text("Data: "); Text((abastecimento.data ?? Date()).formatted(date: .numeric, time: .omitted))
                       Spacer()
                       if abastecimento.media > 0 {
                           Text(String(format: "%.3f", abastecimento.media)); Text(" km/l")}
@@ -38,8 +37,8 @@ struct AbastecimentoListaDetalheView: View
                       Text("Odômetro: "); Text(String(abastecimento.quilometragem).toQuilometrosFormat())
                       Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
                   }
-                  HStack{Text(abastecimento.nomePosto); Spacer()}
-                  HStack{Text(abastecimento.nomeCarro); Spacer()}
+//                  HStack{Text(abastecimento.nomePosto); Spacer()}
+//                  HStack{Text(abastecimento.nomeCarro); Spacer()}
               }.padding(.all, 2)
           }.padding([.top, .bottom], 2)
     }

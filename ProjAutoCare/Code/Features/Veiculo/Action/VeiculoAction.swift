@@ -163,47 +163,47 @@ class VeiculoPublisher: NSObject, ObservableObject
         // Desmarcar o ativo
         logger.log("Context has changed, marcando veiculo atual")
 
-//        let entityDescription = NSEntityDescription.entity(forEntityName: "Veiculo", in: publisherContext)
-//        let batchUpdateRequest = NSBatchUpdateRequest(entity: entityDescription!)
-//        
-//        batchUpdateRequest.resultType = .updatedObjectIDsResultType
-//        batchUpdateRequest.propertiesToUpdate = ["ativo": NSNumber(value: false)]
-//        
-//        do
-//        {
-//            let batchUpdateResult = try publisherContext.execute(batchUpdateRequest) as NSBatchUpdateResult
-//            
-//            let objectIDs = batchUpdateResult.result as [NSManagedObjectID]
-//            
-//            for objectID in objectIDs
-//            {
-//                // Turn Managed Objects into Faults
-//                let managedObject = publisherContext.object(with: objectID)
-//                publisherContext.refresh(managedObject, mergeChanges: false)
-//            }
-//
-//            try self.veiculoFetchController.performFetch()
-//            
-//        }
-//        catch
-//        {
-//            let updateError = error as NSError
-//            print("\(updateError), \(updateError.userInfo)")
-//        }
-//        //
-//        do
-//        {
-//            let object = try publisherContext.existingObject(with: ativoID)
-//            logger.log("Context has changed, buscando veiculo atual")
-//            object.setValue(true, forKey: "ativo")
-//            update(veiculo: object as Veiculo)
-//
-//            appState.veiculoAtivo = object as? Veiculo
-//        }
-//        catch
-//        {
-//            fatalError("Erro moc \(error.localizedDescription)")
-//        }
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Veiculo", in: publisherContext)
+        let batchUpdateRequest = NSBatchUpdateRequest(entity: entityDescription!)
+        
+        batchUpdateRequest.resultType = .updatedObjectIDsResultType
+        batchUpdateRequest.propertiesToUpdate = ["ativo": NSNumber(value: false)]
+        
+        do
+        {
+            let batchUpdateResult = try publisherContext.execute(batchUpdateRequest) as! NSBatchUpdateResult
+            
+            let objectIDs = batchUpdateResult.result as! [NSManagedObjectID]
+            
+            for objectID in objectIDs
+            {
+                // Turn Managed Objects into Faults
+                let managedObject = publisherContext.object(with: objectID)
+                publisherContext.refresh(managedObject, mergeChanges: false)
+            }
+
+            try self.veiculoFetchController.performFetch()
+            
+        }
+        catch
+        {
+            let updateError = error as NSError
+            print("\(updateError), \(updateError.userInfo)")
+        }
+        //
+        do
+        {
+            let object = try publisherContext.existingObject(with: ativoID)
+            logger.log("Context has changed, buscando veiculo atual")
+            object.setValue(true, forKey: "ativo")
+            update(veiculo: object as! Veiculo)
+
+            appState.veiculoAtivo = object as? Veiculo
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
     }
 }
 

@@ -10,8 +10,9 @@ import SwiftUI
 struct VeiculoBottomView: View
 {
     @Environment(\.dismiss) var dismiss
-    var appState = AppState.shared
     @StateObject private var viewModel = VeiculoViewModel()
+    @State private var veiculoAtual: Veiculo?
+    var appState = AppState.shared
     
     var body: some View
     {
@@ -33,10 +34,10 @@ struct VeiculoBottomView: View
                                 Text(" "); Text(String(veiculo.placa ?? ""))
                                 Text(" "); Text(String(veiculo.ano))
                             }.padding()
-                        }// .onTapGesture() { marcarCarroComoAtivo(ativoID: carros.objectID)}
-                        Spacer()
+                        }.onTapGesture { marcarVeiculoComoAtivo(ativoID: veiculo.objectID)}
                     }
                 }
+                Spacer()
             }
             // .background(Color("backGroundColor"))
             .scrollContentBackground(.hidden)
@@ -50,5 +51,11 @@ struct VeiculoBottomView: View
             }
             )
         }.presentationDetents([.medium])
+    }
+    
+    func marcarVeiculoComoAtivo(ativoID: NSManagedObjectID)
+    {
+        viewModel.marcarVeiculoAtivo(ativoID: ativoID)
+        veiculoAtual = appState.veiculoAtivo
     }
 }

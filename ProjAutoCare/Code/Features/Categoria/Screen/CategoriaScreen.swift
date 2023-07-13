@@ -60,7 +60,7 @@ struct CategoriaScreen: View
             }
         }
         .background(Color("backGroundColor"))
-        .navigationTitle("Posto")
+        .navigationTitle("Categoria")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()
         .toolbar {

@@ -5,3 +5,4 @@ disabled_rules:
 - vertical_whitespace
 - trailing_whitespace
 - statement_position
+- force_cast 

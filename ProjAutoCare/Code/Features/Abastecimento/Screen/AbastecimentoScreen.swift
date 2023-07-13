@@ -27,8 +27,8 @@ class AbastecimentoFormInfo: ObservableObject
     
     var quilometragem: String = ""
     var data: Date = Date()
-    var litros: String = ""
-    var valorLitro: String = ""
+    @Published var litros: String = ""
+    @Published var valorLitro: String = ""
     var completo: Bool = false
     
     let regexNumerico: String =  "[0-9[\\b]]+"
@@ -51,8 +51,6 @@ struct AbastecimentoScreen: View
     
     var appState = AppState.shared
     var isEdit: Bool
-    
-    let pub = NotificationCenter.default.publisher(for: Notification.Name("Save"))
     
     private var valorTotal: String
     {
@@ -99,11 +97,10 @@ struct AbastecimentoScreen: View
                     }.pickerStyle(.automatic)
                 }
             }.scrollContentBackground(.hidden)
-            // .onReceive(pub)  {_ in gravarAbastecimento()}
         }.onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
         .navigationTitle("Abastecimento")
-        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
