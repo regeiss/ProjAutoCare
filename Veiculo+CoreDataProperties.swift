@@ -2,7 +2,7 @@
 //  Veiculo+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 10/07/23.
+//  Created by Roberto Edgar Geiss on 13/07/23.
 //
 //
 
@@ -26,6 +26,8 @@ extension Veiculo {
     @NSManaged public var padrao: Bool
     @NSManaged public var placa: String?
     @NSManaged public var doAbastecimento: NSSet?
+    @NSManaged public var doPerfil: Perfil?
+    @NSManaged public var doItemServico: NSSet?
 
 }
 
@@ -46,6 +48,23 @@ extension Veiculo {
 
 }
 
-extension Veiculo: Identifiable {
+// MARK: Generated accessors for doItemServico
+extension Veiculo {
+
+    @objc(addDoItemServicoObject:)
+    @NSManaged public func addToDoItemServico(_ value: ItemServico)
+
+    @objc(removeDoItemServicoObject:)
+    @NSManaged public func removeFromDoItemServico(_ value: ItemServico)
+
+    @objc(addDoItemServico:)
+    @NSManaged public func addToDoItemServico(_ values: NSSet)
+
+    @objc(removeDoItemServico:)
+    @NSManaged public func removeFromDoItemServico(_ values: NSSet)
+
+}
+
+extension Veiculo : Identifiable {
 
 }

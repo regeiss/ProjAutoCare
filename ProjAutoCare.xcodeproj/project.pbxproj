@@ -66,6 +66,12 @@
 		E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */; };
 		E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */; };
 		E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */; };
+		E1D2E90F2A60747000551892 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E90E2A60747000551892 /* Sizes.swift */; };
+		E1D2E9112A60748900551892 /* CommonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9102A60748900551892 /* CommonAction.swift */; };
+		E1D2E9162A607D6E00551892 /* ItemServicoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9152A607D6E00551892 /* ItemServicoModel.swift */; };
+		E1D2E9182A607EEA00551892 /* ItemServicoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9172A607EEA00551892 /* ItemServicoAction.swift */; };
+		E1D2E91F2A608BFC00551892 /* ItemServico+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E91D2A608BFC00551892 /* ItemServico+CoreDataClass.swift */; };
+		E1D2E9202A608BFC00551892 /* ItemServico+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E91E2A608BFC00551892 /* ItemServico+CoreDataProperties.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
@@ -155,6 +161,12 @@
 		E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModifierConfig.swift; path = ProjAutoCare/Code/Features/Onboarding/Model/ViewModifierConfig.swift; sourceTree = SOURCE_ROOT; };
 		E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioModel.swift; sourceTree = "<group>"; };
 		E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaDetalheView.swift; sourceTree = "<group>"; };
+		E1D2E90E2A60747000551892 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sizes.swift; path = ProjAutoCare/Code/Features/Relatorio/View/Sizes.swift; sourceTree = SOURCE_ROOT; };
+		E1D2E9102A60748900551892 /* CommonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonAction.swift; path = ProjAutoCare/Code/Features/Relatorio/View/CommonAction.swift; sourceTree = SOURCE_ROOT; };
+		E1D2E9152A607D6E00551892 /* ItemServicoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemServicoModel.swift; sourceTree = "<group>"; };
+		E1D2E9172A607EEA00551892 /* ItemServicoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemServicoAction.swift; sourceTree = "<group>"; };
+		E1D2E91D2A608BFC00551892 /* ItemServico+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemServico+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1D2E91E2A608BFC00551892 /* ItemServico+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemServico+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -430,11 +442,11 @@
 		E16C15152A410E78003EAADA /* Servico */ = {
 			isa = PBXGroup;
 			children = (
-				E1AC4F242A5B66AB00016186 /* ViewMode */,
 				E1AC4F212A5B0BF600016186 /* Action */,
 				E1AC4F1E2A5B0A3C00016186 /* Model */,
-				E1FB3F4B2A51CA5B00776408 /* View */,
 				E1FB3F4A2A51CA4D00776408 /* Screen */,
+				E1FB3F4B2A51CA5B00776408 /* View */,
+				E1AC4F242A5B66AB00016186 /* ViewModel */,
 			);
 			path = Servico;
 			sourceTree = "<group>";
@@ -512,12 +524,12 @@
 			path = Action;
 			sourceTree = "<group>";
 		};
-		E1AC4F242A5B66AB00016186 /* ViewMode */ = {
+		E1AC4F242A5B66AB00016186 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E1AC4F252A5B66BC00016186 /* ServicoViewModel.swift */,
 			);
-			path = ViewMode;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E1AC4F292A5B756800016186 /* Action */ = {
@@ -616,9 +628,36 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E1D2E9122A607C0900551892 /* ItemServico */ = {
+			isa = PBXGroup;
+			children = (
+				E1D2E9142A607D4D00551892 /* Model */,
+				E1D2E9132A607D3C00551892 /* Action */,
+			);
+			path = ItemServico;
+			sourceTree = "<group>";
+		};
+		E1D2E9132A607D3C00551892 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E1D2E9172A607EEA00551892 /* ItemServicoAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E1D2E9142A607D4D00551892 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1D2E9152A607D6E00551892 /* ItemServicoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E1D2E91D2A608BFC00551892 /* ItemServico+CoreDataClass.swift */,
+				E1D2E91E2A608BFC00551892 /* ItemServico+CoreDataProperties.swift */,
 				E1AC4F132A5B07D800016186 /* Categoria+CoreDataClass.swift */,
 				E1AC4F142A5B07D800016186 /* Categoria+CoreDataProperties.swift */,
 				E1AC4F152A5B07D800016186 /* Servico+CoreDataClass.swift */,
@@ -714,6 +753,7 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E1D2E9122A607C0900551892 /* ItemServico */,
 				E16C15112A410E3B003EAADA /* Abastecimento */,
 				E16C15122A410E47003EAADA /* Alerta */,
 				E16C15142A410E68003EAADA /* Cadastro */,
@@ -784,6 +824,7 @@
 		E1D5F5362A39474200F3AFD1 /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				E1D2E9102A60748900551892 /* CommonAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -854,6 +895,7 @@
 		E1E409CF2A53A91000034DBA /* Sizes */ = {
 			isa = PBXGroup;
 			children = (
+				E1D2E90E2A60747000551892 /* Sizes.swift */,
 			);
 			path = Sizes;
 			sourceTree = "<group>";
@@ -1034,6 +1076,7 @@
 				E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */,
 				E1AC4F182A5B07D800016186 /* Categoria+CoreDataProperties.swift in Sources */,
 				E1AC4F332A5B808900016186 /* CategoriaListaDetalheView.swift in Sources */,
+				E1D2E9202A608BFC00551892 /* ItemServico+CoreDataProperties.swift in Sources */,
 				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
 				E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */,
 				E1AC4F1A2A5B07D800016186 /* Servico+CoreDataProperties.swift in Sources */,
@@ -1042,6 +1085,7 @@
 				E1AC4F282A5B6E8900016186 /* ServicoListaDetalheView.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1013FBB2A4A518A0044410F /* AppState.swift in Sources */,
+				E1D2E91F2A608BFC00551892 /* ItemServico+CoreDataClass.swift in Sources */,
 				E1AC4F232A5B0C0B00016186 /* ServicoPublisher.swift in Sources */,
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
 				E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */,
@@ -1059,12 +1103,14 @@
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1AD0CDE2A4DD573006D64D8 /* PerfilModel.swift in Sources */,
 				E1013FB52A4909910044410F /* Abastecimento+CoreDataClass.swift in Sources */,
+				E1D2E90F2A60747000551892 /* Sizes.swift in Sources */,
 				E1013FBE2A4A55230044410F /* ErrorHandler.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
 				E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
+				E1D2E9112A60748900551892 /* CommonAction.swift in Sources */,
 				E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */,
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
@@ -1072,6 +1118,7 @@
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
 				E1AC4F2F2A5B7D0B00016186 /* CategoriaScreen.swift in Sources */,
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
+				E1D2E9182A607EEA00551892 /* ItemServicoAction.swift in Sources */,
 				E1FB3F472A50F24B00776408 /* Veiculo+CoreDataProperties.swift in Sources */,
 				E1AD0CD42A4CFF13006D64D8 /* DateExtensions.swift in Sources */,
 				E1AC4F202A5B0A4A00016186 /* ServicoModel.swift in Sources */,
@@ -1082,6 +1129,7 @@
 				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
 				E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
+				E1D2E9162A607D6E00551892 /* ItemServicoModel.swift in Sources */,
 				E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */,
 				E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,

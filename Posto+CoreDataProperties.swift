@@ -2,7 +2,7 @@
 //  Posto+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 10/07/23.
+//  Created by Roberto Edgar Geiss on 13/07/23.
 //
 //
 
@@ -41,6 +41,6 @@ extension Posto {
 
 }
 
-extension Posto: Identifiable {
+extension Posto : Identifiable {
 
 }

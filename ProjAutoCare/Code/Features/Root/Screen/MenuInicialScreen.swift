@@ -9,8 +9,19 @@ import SwiftUI
 
 struct MenuInicialScreen: View
 {
+    @Binding var showSidebar: Bool
+    
     var body: some View
     {
+        let drag = DragGesture()
+            .onEnded
+        {
+            if $0.translation.width < -100
+            {
+                withAnimation{ showSidebar = false}
+            }
+        }
+        
         let colecaoMenu = [
             MenuColecao(id: 0, name: "Abastecimento", image: "gasStation", menu: .abastecimento),
             MenuColecao(id: 1, name: "Serviço", image: "service", menu: .servico),
@@ -32,7 +43,9 @@ struct MenuInicialScreen: View
                             ItemMenuInicialView(colecao: item)
                         }
                     }.padding([.leading, .trailing])
-                }.navigationDestination(for: MenuColecao.self) { item in
+                }
+                .gesture(drag)
+                .navigationDestination(for: MenuColecao.self) { item in
                     switch item.menu {
                     case .abastecimento:
                         AbastecimentoListaScreen()

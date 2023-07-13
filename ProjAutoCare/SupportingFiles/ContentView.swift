@@ -96,6 +96,15 @@ struct ContentView: View
     
     var body: some View
     {
+        let drag = DragGesture()
+            .onEnded
+            {
+                if $0.translation.width < -100
+                {
+                    withAnimation{ self.showSidebar = false}
+                    print("drag")
+                }
+            }
         ZStack
         {
             Color("sidebar").ignoresSafeArea()
@@ -110,7 +119,7 @@ struct ContentView: View
                     ZStack
                     {
                         Color("backGroundColor").ignoresSafeArea()
-                        MenuInicialScreen()
+                        MenuInicialScreen(showSidebar: $showSidebar)
                             .navigationTitle("AutoCare").foregroundColor(Color("titleForeGroundColor"))
                             .navigationBarTitleDisplayMode(.large)
                             .toolbar {
@@ -128,7 +137,9 @@ struct ContentView: View
                         }
                     }
                 }
-            }.edgesIgnoringSafeArea(.all)
+            }
+            .edgesIgnoringSafeArea(.all)
+            .gesture(drag)
         }
         .onAppear { loadViewData()}
         .welcomeSheet(isPresented: $showSheet, pages: pages)
