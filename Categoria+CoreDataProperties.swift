@@ -18,24 +18,24 @@ extension Categoria {
 
     @NSManaged public var id: UUID?
     @NSManaged public var nome: String?
-    @NSManaged public var doServico: NSSet?
+    @NSManaged public var temServicos: NSSet?
 
 }
 
-// MARK: Generated accessors for doServico
+// MARK: Generated accessors for temServicos
 extension Categoria {
 
-    @objc(addDoServicoObject:)
-    @NSManaged public func addToDoServico(_ value: Servico)
+    @objc(addTemServicosObject:)
+    @NSManaged public func addToTemServicos(_ value: Servico)
 
-    @objc(removeDoServicoObject:)
-    @NSManaged public func removeFromDoServico(_ value: Servico)
+    @objc(removeTemServicosObject:)
+    @NSManaged public func removeFromTemServicos(_ value: Servico)
 
-    @objc(addDoServico:)
-    @NSManaged public func addToDoServico(_ values: NSSet)
+    @objc(addTemServicos:)
+    @NSManaged public func addToTemServicos(_ values: NSSet)
 
-    @objc(removeDoServico:)
-    @NSManaged public func removeFromDoServico(_ values: NSSet)
+    @objc(removeTemServicos:)
+    @NSManaged public func removeFromTemServicos(_ values: NSSet)
 
 }
 

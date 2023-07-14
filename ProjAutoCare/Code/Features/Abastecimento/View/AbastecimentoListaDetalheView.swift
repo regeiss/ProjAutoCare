@@ -49,7 +49,7 @@ extension Abastecimento
     @objc
     var nomePosto: String
     {
-        self.doPosto?.nome ?? "não informado"
+        self.noPosto?.nome ?? "não informado"
     }
     
     @objc

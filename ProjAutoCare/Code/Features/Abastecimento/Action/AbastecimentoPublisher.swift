@@ -64,7 +64,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         novoAbastecimento.valorLitro = abastecimento.valorLitro
         novoAbastecimento.valorTotal = (abastecimento.litros * abastecimento.valorLitro)
         novoAbastecimento.media = abastecimento.media
-        novoAbastecimento.doPosto = abastecimento.doPosto
+        novoAbastecimento.noPosto = abastecimento.noPosto
         novoAbastecimento.doVeiculo = abastecimento.doVeiculo
         
         publisherContext.performAndWait

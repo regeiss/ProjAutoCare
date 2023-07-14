@@ -18,25 +18,25 @@ extension Servico {
 
     @NSManaged public var id: UUID?
     @NSManaged public var nome: String?
-    @NSManaged public var doItemServico: NSSet?
     @NSManaged public var daCategoria: Categoria?
+    @NSManaged public var daManutencao: NSSet?
 
 }
 
-// MARK: Generated accessors for doItemServico
+// MARK: Generated accessors for daManutencao
 extension Servico {
 
-    @objc(addDoItemServicoObject:)
-    @NSManaged public func addToDoItemServico(_ value: ItemServico)
+    @objc(addDaManutencaoObject:)
+    @NSManaged public func addToDaManutencao(_ value: ServicoEfetuado)
 
-    @objc(removeDoItemServicoObject:)
-    @NSManaged public func removeFromDoItemServico(_ value: ItemServico)
+    @objc(removeDaManutencaoObject:)
+    @NSManaged public func removeFromDaManutencao(_ value: ServicoEfetuado)
 
-    @objc(addDoItemServico:)
-    @NSManaged public func addToDoItemServico(_ values: NSSet)
+    @objc(addDaManutencao:)
+    @NSManaged public func addToDaManutencao(_ values: NSSet)
 
-    @objc(removeDoItemServico:)
-    @NSManaged public func removeFromDoItemServico(_ values: NSSet)
+    @objc(removeDaManutencao:)
+    @NSManaged public func removeFromDaManutencao(_ values: NSSet)
 
 }
 

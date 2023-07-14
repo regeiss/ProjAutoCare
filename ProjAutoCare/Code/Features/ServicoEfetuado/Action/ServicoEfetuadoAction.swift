@@ -10,11 +10,11 @@ import Combine
 import OSLog
 import SwiftUI
 
-class ItemServicoPublisher: NSObject, ObservableObject
+class ServicoEfetuadoPublisher: NSObject, ObservableObject
 {
-    static let shared = ItemServicoPublisher()
-    var itemServicoCVS = CurrentValueSubject<[ItemServico], Never>([])
-    private let itemServicoFetchController: NSFetchedResultsController<ItemServico>
+    static let shared = ServicoEfetuadoPublisher()
+    var servicoEfetuadoCVS = CurrentValueSubject<[ServicoEfetuado], Never>([])
+    private let servicoEfetuadoFetchController: NSFetchedResultsController<ServicoEfetuado>
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
 
     var backgroundContext: NSManagedObjectContext = {
@@ -26,12 +26,12 @@ class ItemServicoPublisher: NSObject, ObservableObject
 
     private override init()
     {
-        let fetchRequest: NSFetchRequest<ItemServico> = ItemServico.fetchRequest()
+        let fetchRequest: NSFetchRequest<ServicoEfetuado> = ServicoEfetuado.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor]
 
-        itemServicoFetchController = NSFetchedResultsController(
+        servicoEfetuadoFetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: backgroundContext,
             sectionNameKeyPath: nil, cacheName: nil
@@ -39,12 +39,12 @@ class ItemServicoPublisher: NSObject, ObservableObject
 
         super.init()
 
-        itemServicoFetchController.delegate = self
+        servicoEfetuadoFetchController.delegate = self
 
         do
         {
-            try itemServicoFetchController.performFetch()
-            itemServicoCVS.value = itemServicoFetchController.fetchedObjects ?? []
+            try servicoEfetuadoFetchController.performFetch()
+            servicoEfetuadoCVS.value = servicoEfetuadoFetchController.fetchedObjects ?? []
         }
         catch
         {
@@ -52,16 +52,16 @@ class ItemServicoPublisher: NSObject, ObservableObject
         }
     }
 
-    func add(itemServico: NovoItemServico)
+    func add(servicoEfetuado: ServicoEfetuadoDTO)
     {
-        let newItemServico = ItemServico(context: backgroundContext)
-        newItemServico.id = itemServico.id
-        newItemServico.km = itemServico.km
-        newItemServico.data = itemServico.data
-        newItemServico.custo = itemServico.custo
-        newItemServico.nome = itemServico.nome
-        newItemServico.observacoes = itemServico.observacoes
-        newItemServico.doServico = itemServico.doServico
+        let novoServicoEfetuado = ServicoEfetuado(context: backgroundContext)
+        novoServicoEfetuado.id = servicoEfetuado.id
+        novoServicoEfetuado.quilometragem = servicoEfetuado.quilometragem
+        novoServicoEfetuado.data = servicoEfetuado.data
+        novoServicoEfetuado.custo = servicoEfetuado.custo
+        novoServicoEfetuado.nome = servicoEfetuado.nome
+        novoServicoEfetuado.observacoes = servicoEfetuado.observacoes
+        novoServicoEfetuado.doServico = servicoEfetuado.doServico
         
         backgroundContext.performAndWait
         {
@@ -76,7 +76,7 @@ class ItemServicoPublisher: NSObject, ObservableObject
         }
     }
 
-    func update(itemServico: ItemServico)
+    func update(itemServico: ServicoEfetuado)
     {
         backgroundContext.performAndWait
         {
@@ -97,7 +97,7 @@ class ItemServicoPublisher: NSObject, ObservableObject
         calendar.timeZone = NSTimeZone.local
         let currentDate = calendar.startOfDay(for: Date())
 
-        let fetchRequest: NSFetchRequest<ItemServico> = ItemServico.fetchRequest()
+        let fetchRequest: NSFetchRequest<ServicoEfetuado> = ServicoEfetuado.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -116,7 +116,7 @@ class ItemServicoPublisher: NSObject, ObservableObject
         }
         else if tipo == "Mês atual"
         {
-            print(Date().startOfMonth)     // "2018-02-01 08:00:00 +0000\n"
+            print(Date().startOfMonth)
             print(Date().endOfMonth)
             let inicioMesAtual = Date().startOfMonth
             let finalMesAtual = Date().endOfMonth
@@ -125,18 +125,18 @@ class ItemServicoPublisher: NSObject, ObservableObject
         }
         
         // TODO: verificar quebras de secao
-        let itemServicoFilteredFC = NSFetchedResultsController(
+        let servicoEfetuadoFC = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: backgroundContext,
             sectionNameKeyPath: nil, cacheName: nil)
         
-        itemServicoFilteredFC.delegate = self
+        servicoEfetuadoFC.delegate = self
         
         do
         {
             logger.log("Context has changed - filter, reloading servicos")
-            try itemServicoFilteredFC.performFetch()
-            itemServicoCVS.value = itemServicoFilteredFC.fetchedObjects ?? []
+            try servicoEfetuadoFC.performFetch()
+            servicoEfetuadoCVS.value = servicoEfetuadoFC.fetchedObjects ?? []
         }
         catch
         {
@@ -145,11 +145,11 @@ class ItemServicoPublisher: NSObject, ObservableObject
 
     }
     
-    func delete(itemServico: ItemServico)
+    func delete(servicoEfetuado: ServicoEfetuado)
     {
         backgroundContext.performAndWait
         {
-            backgroundContext.delete(itemServico)
+            backgroundContext.delete(servicoEfetuado)
             do
             {
                 try self.backgroundContext.save()
@@ -162,14 +162,14 @@ class ItemServicoPublisher: NSObject, ObservableObject
     }
 }
 
-extension ItemServicoPublisher: NSFetchedResultsControllerDelegate
+extension ServicoEfetuadoPublisher: NSFetchedResultsControllerDelegate
 {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
     {
-        guard let servicos = controller.fetchedObjects as? [ItemServico]
+        guard let servicoEfetuado = controller.fetchedObjects as? [ServicoEfetuado]
         else { return}
         logger.log("Context has changed, reloading servicos")
-        self.itemServicoCVS.value = servicos
+        self.servicoEfetuadoCVS.value = servicoEfetuado
     }
 }
 

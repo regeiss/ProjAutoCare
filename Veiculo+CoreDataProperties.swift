@@ -26,8 +26,8 @@ extension Veiculo {
     @NSManaged public var padrao: Bool
     @NSManaged public var placa: String?
     @NSManaged public var doAbastecimento: NSSet?
-    @NSManaged public var doPerfil: Perfil?
-    @NSManaged public var doItemServico: NSSet?
+    @NSManaged public var fazManutencao: NSSet?
+    @NSManaged public var pertenceA: Perfil?
 
 }
 
@@ -48,20 +48,20 @@ extension Veiculo {
 
 }
 
-// MARK: Generated accessors for doItemServico
+// MARK: Generated accessors for fazManutencao
 extension Veiculo {
 
-    @objc(addDoItemServicoObject:)
-    @NSManaged public func addToDoItemServico(_ value: ItemServico)
+    @objc(addFazManutencaoObject:)
+    @NSManaged public func addToFazManutencao(_ value: ServicoEfetuado)
 
-    @objc(removeDoItemServicoObject:)
-    @NSManaged public func removeFromDoItemServico(_ value: ItemServico)
+    @objc(removeFazManutencaoObject:)
+    @NSManaged public func removeFromFazManutencao(_ value: ServicoEfetuado)
 
-    @objc(addDoItemServico:)
-    @NSManaged public func addToDoItemServico(_ values: NSSet)
+    @objc(addFazManutencao:)
+    @NSManaged public func addToFazManutencao(_ values: NSSet)
 
-    @objc(removeDoItemServico:)
-    @NSManaged public func removeFromDoItemServico(_ values: NSSet)
+    @objc(removeFazManutencao:)
+    @NSManaged public func removeFromFazManutencao(_ values: NSSet)
 
 }
 

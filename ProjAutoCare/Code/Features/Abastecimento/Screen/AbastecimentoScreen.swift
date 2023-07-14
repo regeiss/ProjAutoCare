@@ -151,7 +151,7 @@ struct AbastecimentoScreen: View
                        completo: Bool(formInfo.completo),
                        media: calculaMedia(kmAtual: Int32(formInfo.quilometragem) ?? 0,
                        litros: Double(formInfo.litros) ?? 0),
-                       doPosto: postoPicker!,
+                       noPosto: postoPicker!,
                        doVeiculo: veiculoAtual!)
          
              viewModel.add(abastecimento: uab)

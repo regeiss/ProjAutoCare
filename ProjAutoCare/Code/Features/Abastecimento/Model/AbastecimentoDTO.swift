@@ -17,6 +17,6 @@ struct AbastecimentoDTO: Identifiable
     let valorTotal: Double
     let completo: Bool
     let media: Double
-    let doPosto: Posto
+    let noPosto: Posto
     let doVeiculo: Veiculo
 }

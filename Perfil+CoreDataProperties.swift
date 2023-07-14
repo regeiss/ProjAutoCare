@@ -21,24 +21,24 @@ extension Perfil {
     @NSManaged public var id: UUID?
     @NSManaged public var nome: String?
     @NSManaged public var padrao: Bool
-    @NSManaged public var doVeiculo: NSSet?
+    @NSManaged public var eProprietario: NSSet?
 
 }
 
-// MARK: Generated accessors for doVeiculo
+// MARK: Generated accessors for eProprietario
 extension Perfil {
 
-    @objc(addDoVeiculoObject:)
-    @NSManaged public func addToDoVeiculo(_ value: Veiculo)
+    @objc(addEProprietarioObject:)
+    @NSManaged public func addToEProprietario(_ value: Veiculo)
 
-    @objc(removeDoVeiculoObject:)
-    @NSManaged public func removeFromDoVeiculo(_ value: Veiculo)
+    @objc(removeEProprietarioObject:)
+    @NSManaged public func removeFromEProprietario(_ value: Veiculo)
 
-    @objc(addDoVeiculo:)
-    @NSManaged public func addToDoVeiculo(_ values: NSSet)
+    @objc(addEProprietario:)
+    @NSManaged public func addToEProprietario(_ values: NSSet)
 
-    @objc(removeDoVeiculo:)
-    @NSManaged public func removeFromDoVeiculo(_ values: NSSet)
+    @objc(removeEProprietario:)
+    @NSManaged public func removeFromEProprietario(_ values: NSSet)
 
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemServico: Identifiable
+struct ServicoEfetuadoDTO: Identifiable
 {
     let id: UUID
     let idcarro: UUID
