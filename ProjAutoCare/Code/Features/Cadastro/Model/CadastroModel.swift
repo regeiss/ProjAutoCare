@@ -11,6 +11,7 @@ enum Cadastro: String
 {
     case categoria
     case servico
+    case servicoEfetuado
     case veiculo
     case posto
     case perfil

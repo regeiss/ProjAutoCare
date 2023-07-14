@@ -124,7 +124,7 @@ class ServicoEfetuadoPublisher: NSObject, ObservableObject
             fetchRequest.predicate = mesAtualPredicate
         }
         
-        // TODO: verificar quebras de secao
+        // Verificar quebras de secao
         let servicoEfetuadoFC = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: backgroundContext,
@@ -172,6 +172,3 @@ extension ServicoEfetuadoPublisher: NSFetchedResultsControllerDelegate
         self.servicoEfetuadoCVS.value = servicoEfetuado
     }
 }
-
-
-

@@ -37,7 +37,7 @@ struct RelatorioListaScreen: View
                             RelatorioListaDetalheView(colecao: item)
                         }
                     }.padding([.leading, .trailing])
-                }.navigationDestination(for: CadastroColecao.self) { item in
+                }.navigationDestination(for: RelatorioColecao.self) { item in
                     switch item.menu {
                     case .categoria:
                         CategoriaListaScreen()
