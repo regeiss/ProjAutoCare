@@ -168,7 +168,7 @@ extension ServicoEfetuadoPublisher: NSFetchedResultsControllerDelegate
     {
         guard let servicoEfetuado = controller.fetchedObjects as? [ServicoEfetuado]
         else { return}
-        logger.log("Context has changed, reloading servicos")
+        logger.log("Context has changed, reloading servicos efetuados")
         self.servicoEfetuadoCVS.value = servicoEfetuado
     }
 }

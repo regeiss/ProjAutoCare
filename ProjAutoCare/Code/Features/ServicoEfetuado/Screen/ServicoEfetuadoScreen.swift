@@ -24,14 +24,13 @@ class ServicoEfetuadoFormInfo: ObservableObject
 {
     @Published var manager = FormManager(validationType: .deferred)
     @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
-    var nome: String = ""
-    lazy var nomeVazio = _nome.validation(manager: manager)
-    
-    var idservico: UUID = UUID()
-    var idcarro: UUID = UUID()
     var quilometragem: String = ""
+    lazy var kmNaoInformado = _quilometragem.validation(manager: manager)
+    
+    var idservicoEfetuado: UUID = UUID()
+    var idcarro: UUID = UUID()
     var data: Date = Date()
-    // var nome: String = ""
+    var nome: String = ""
     var custo: String = ""
     var observacoes: String = ""
     
@@ -55,71 +54,68 @@ struct ServicoEfetuadoScreen: View
     
     var body: some View
     {
-        NavigationView
+        VStack
         {
-            VStack
+            Form
             {
-                Form
+                Section
                 {
-                    Section
+                    Picker("Serviço:", selection: $servico)
                     {
-                        Picker("Serviço:", selection: $servico)
-                        {
-                            ForEach(viewModelServico.servicoLista) { (servico: Servico) in
-                                Text(servico.nome!).tag(servico as Servico?)
-                            }
-                        }.pickerStyle(.automatic)
-                        // .onAppear() { servico = pservico?.id}
-                        TextField("km", text: $formInfo.quilometragem)
-                            .keyboardType(.numbersAndPunctuation)
-                            .focused($itemServicoInFocus, equals: .quilometragem)
-                            .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.itemServicoInFocus = .quilometragem}}
-                        // .validation(formInfo.valValorNumerico)
-                        DatePicker("data", selection: $formInfo.data)
-                            .frame(maxHeight: 400)
-                        TextField("nome", text: $formInfo.nome)
-                        // .validation(formInfo.valNomeVazio)
-                        TextField("custo", text: $formInfo.custo)
-                        //  .validation(formInfo.validacaoCusto)
-                        //     .validation(formInfo.valValorNumerico)
-                            .keyboardType(.numbersAndPunctuation)
-                        TextField("observações", text: $formInfo.observacoes)
-                    }
-                }.scrollContentBackground(.hidden)
-                    .onReceive(formInfo.manager.$allValid) { isValid in
-                        self.isSaveDisabled = !isValid}
-            }.onAppear
+                        ForEach(viewModelServico.servicoLista) { (servico: Servico) in
+                            Text(servico.nome!).tag(servico as Servico?)
+                        }
+                    }.pickerStyle(.automatic)
+                        .onAppear() { servico = viewModelServico.servicoLista.first}
+                    TextField("km", text: $formInfo.quilometragem)
+                        .keyboardType(.numbersAndPunctuation)
+                        .focused($itemServicoInFocus, equals: .quilometragem)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.itemServicoInFocus = .quilometragem}}
+                        .validation(formInfo.kmNaoInformado)
+                    DatePicker("data", selection: $formInfo.data)
+                        .frame(maxHeight: 400)
+                    TextField("nome", text: $formInfo.nome)
+                    // .validation(formInfo.valNomeVazio)
+                    TextField("custo", text: $formInfo.custo)
+                    //  .validation(formInfo.validacaoCusto)
+                    //     .validation(formInfo.valValorNumerico)
+                        .keyboardType(.numbersAndPunctuation)
+                    TextField("observações", text: $formInfo.observacoes)
+                }
+            }.scrollContentBackground(.hidden)
+                .onReceive(formInfo.manager.$allValid) { isValid in
+                    self.isSaveDisabled = !isValid}
+        }.onAppear
+        {
+            if isEdit
             {
-                if isEdit
-                {
-                    formInfo.nome = servicoEfetuado.nome ?? ""
-                    //                formInfo.bandeira = servico.bandeira ?? ""
-                }
-            }
-            .background(Color("backGroundColor"))
-            .navigationTitle("Serviço")
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading)
-                { Button {
-                    dismiss()
-                }
-                    label: { Text("Cancelar")}}
-                ToolbarItem(placement: .navigationBarTrailing)
-                { Button {
-                    save()
-                    dismiss()
-                }
-                label: { Text("OK").disabled(isSaveDisabled)}
-                }
+                formInfo
+                formInfo.quilometragem = (String(servicoEfetuado.quilometragem).toQuilometrosFormat())
+                formInfo.nome = servicoEfetuado.nome ?? ""
+                formInfo.data = servicoEfetuado.data ?? Date()
+                formInfo.custo = (String(servicoEfetuado.custo).toCurrencyFormat())
+                formInfo.observacoes = servicoEfetuado.observacoes ?? ""
+                
             }
         }
-    }
-    
-    private func gravarItemServico()
-    {
-
+        .background(Color("backGroundColor"))
+        .navigationTitle("Serviço efetuado")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading)
+            { Button {
+                dismiss()
+            }
+                label: { Text("Cancelar")}}
+            ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                save()
+                dismiss()
+            }
+            label: { Text("OK").disabled(isSaveDisabled)}
+            }
+        }
     }
     
     func save()
@@ -127,24 +123,16 @@ struct ServicoEfetuadoScreen: View
         let valid = formInfo.manager.triggerValidation()
         if valid
         {
-            if isEdit
-            {
-                servicoEfetuado.nome = formInfo.nome
-                // servico.bandeira = formInfo.bandeira
-                viewModel.update(servicoEfetuado: servicoEfetuado)
-            }
-            else
-            {
-                let servicoEfetuado = ServicoEfetuadoDTO(id: UUID(),
+            
+            let servicoEfetuado = ServicoEfetuadoDTO(id: UUID(),
                                                      idcarro: formInfo.idcarro,
                                                      quilometragem: (Int32(formInfo.quilometragem) ?? 0),
                                                      data: formInfo.data,
                                                      nome: formInfo.nome,
                                                      custo: (Double(formInfo.custo) ?? 0),
                                                      observacoes: formInfo.observacoes,
-                                                   doServico: servico!)
-                viewModel.add(servicoEfetuado: servicoEfetuado)
-            }
+                                                     doServico: servico!)
+            viewModel.add(servicoEfetuado: servicoEfetuado)
         }
     }
 }

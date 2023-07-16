@@ -17,7 +17,7 @@ class ServicoEfetuadoViewModel: ObservableObject
 
     init(servicoEfetuadoPublisher: AnyPublisher<[ServicoEfetuado], Never> = ServicoEfetuadoPublisher.shared.servicoEfetuadoCVS.eraseToAnyPublisher())
     {
-        bag = servicoEfetuadoPublisher.sink { [unowned self] servicoLista in
+        bag = servicoEfetuadoPublisher.sink { [unowned self] servicoEfetuadoLista in
             self.servicoEfetuadoLista = servicoEfetuadoLista
         }
         
