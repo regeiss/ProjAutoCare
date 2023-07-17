@@ -29,6 +29,6 @@ extension Abastecimento {
 
 }
 
-extension Abastecimento : Identifiable {
+extension Abastecimento: Identifiable {
 
 }

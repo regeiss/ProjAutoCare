@@ -62,7 +62,7 @@ struct ContentView: View
 
                     WelcomeSheetPageRow(imageSystemName: "rectangle.grid.2x2.fill",
                                         accentColor: .init(red: 0.00, green: 0.70, blue: 1.00),
-                                        title: "Easy Organizing", content: "Create lists to match your needs and categorize reminders with tags. Collaborate with others by sharing lists and assigning individual tasks."),
+                                        title: "Easy Organizing", content: "Create lists to match your needs and categorize reminders with tags"),
 
                     WelcomeSheetPageRow(imageSystemName: "lightbulb.fill",
                                         accentColor: .orange,

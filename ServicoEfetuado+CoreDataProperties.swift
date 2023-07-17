@@ -27,6 +27,6 @@ extension ServicoEfetuado {
 
 }
 
-extension ServicoEfetuado : Identifiable {
+extension ServicoEfetuado: Identifiable {
 
 }

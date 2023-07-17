@@ -22,7 +22,7 @@ class VeiculoViewModel: ObservableObject
          }
      }
 
-     func selecionarVeiculoAtivo()
+     func selecionarVeiculoAtivo() 
      {
          VeiculoPublisher.shared.selecionarVeiculoAtivo()
      }

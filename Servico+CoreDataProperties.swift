@@ -40,6 +40,6 @@ extension Servico {
 
 }
 
-extension Servico : Identifiable {
+extension Servico: Identifiable {
 
 }

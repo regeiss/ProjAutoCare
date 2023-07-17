@@ -42,6 +42,6 @@ extension Perfil {
 
 }
 
-extension Perfil : Identifiable {
+extension Perfil: Identifiable {
 
 }

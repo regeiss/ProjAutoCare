@@ -41,6 +41,6 @@ extension Posto {
 
 }
 
-extension Posto : Identifiable {
+extension Posto: Identifiable {
 
 }

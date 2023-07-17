@@ -12,7 +12,6 @@ import FormValidator
 enum ServicoEfetuadoFocusable: Hashable
 {
     case idservico
-    case idcarro
     case quilometragem
     case data
     case nome
@@ -28,7 +27,6 @@ class ServicoEfetuadoFormInfo: ObservableObject
     lazy var kmNaoInformado = _quilometragem.validation(manager: manager)
     
     var idservicoEfetuado: UUID = UUID()
-    var idcarro: UUID = UUID()
     var data: Date = Date()
     var nome: String = ""
     var custo: String = ""
@@ -45,10 +43,12 @@ struct ServicoEfetuadoScreen: View
     @ObservedObject var formInfo = ServicoEfetuadoFormInfo()
     @FocusState private var itemServicoInFocus: ServicoEfetuadoFocusable?
     @StateObject private var viewModelServico = ServicoViewModel()
+    @StateObject private var viewModelVeiculo = VeiculoViewModel()
     
     @State var isSaveDisabled: Bool = true
     @State var servico: Servico?
     
+    var appState = AppState.shared
     var servicoEfetuado: ServicoEfetuado
     var isEdit: Bool
     
@@ -66,7 +66,7 @@ struct ServicoEfetuadoScreen: View
                             Text(servico.nome!).tag(servico as Servico?)
                         }
                     }.pickerStyle(.automatic)
-                        .onAppear() { servico = viewModelServico.servicoLista.first}
+                        .onAppear { servico = viewModelServico.servicoLista.first}
                     TextField("km", text: $formInfo.quilometragem)
                         .keyboardType(.numbersAndPunctuation)
                         .focused($itemServicoInFocus, equals: .quilometragem)
@@ -89,7 +89,7 @@ struct ServicoEfetuadoScreen: View
         {
             if isEdit
             {
-                formInfo
+                
                 formInfo.quilometragem = (String(servicoEfetuado.quilometragem).toQuilometrosFormat())
                 formInfo.nome = servicoEfetuado.nome ?? ""
                 formInfo.data = servicoEfetuado.data ?? Date()
@@ -121,18 +121,27 @@ struct ServicoEfetuadoScreen: View
     func save()
     {
         let valid = formInfo.manager.triggerValidation()
+        
         if valid
         {
-            
-            let servicoEfetuado = ServicoEfetuadoDTO(id: UUID(),
-                                                     idcarro: formInfo.idcarro,
-                                                     quilometragem: (Int32(formInfo.quilometragem) ?? 0),
-                                                     data: formInfo.data,
-                                                     nome: formInfo.nome,
-                                                     custo: (Double(formInfo.custo) ?? 0),
-                                                     observacoes: formInfo.observacoes,
-                                                     doServico: servico!)
-            viewModel.add(servicoEfetuado: servicoEfetuado)
+            if isEdit
+            {
+                servicoEfetuado.nome = formInfo.nome
+                servicoEfetuado.custo = (Double(formInfo.custo) ?? 0)
+                viewModel.update(servicoEfetuado: servicoEfetuado)
+            }
+            else
+            {
+                let servicoEfetuado = ServicoEfetuadoDTO(id: UUID(),
+                                                         quilometragem: (Int32(formInfo.quilometragem) ?? 0),
+                                                         data: formInfo.data,
+                                                         nome: formInfo.nome,
+                                                         custo: (Double(formInfo.custo) ?? 0),
+                                                         observacoes: formInfo.observacoes,
+                                                         doServico: servico!,
+                                                         doVeiculo: appState.veiculoAtivo!)
+                viewModel.add(servicoEfetuado: servicoEfetuado)
+            }
         }
     }
 }
