@@ -49,3 +49,44 @@ import Foundation
 //            }
 //        }
 //    }
+public protocol Coordinator: AnyObject {
+    func navigate(to route: Route)
+}
+
+public protocol Route { }
+
+public protocol NavigationContext {
+    func setInitialView<T: View>(view: T)
+    func push<T: View>(view: T, animated: Bool)
+    func pop(animated: Bool)
+    func present<T: View>(view: T, animated: Bool)
+    func dismiss(animated: Bool)
+}
+
+public class MyNavController: UINavigationController, NavigationContext {
+
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    public func setInitialView<T: View>(view: T) {
+        let vc = UIHostingController(rootView: view)
+        viewControllers = [vc]
+    }
+    
+    public func push<T: View>(view: T, animated: Bool) {
+        let vc = UIHostingController(rootView:: view)
+        pushViewController(vc, animated: animated)
+    }
+    
+    public func present<T: View>(view: T, animated: Bool) {
+        let vc = UIHostingController(rootView: view)
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .automatic 
+        present(vc, animated: animated)
+    }
+}
