@@ -5,9 +5,16 @@
 //  Created by Roberto Edgar Geiss on 14/07/23.
 //
 
+import Foundation
 import SwiftUI
 import CoreData
 import FormValidator
+
+enum Regex: String {
+    case password = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"
+    case email = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+    case numeric = "[0-9[\\b]]+"
+}
 
 enum ServicoEfetuadoFocusable: Hashable
 {
@@ -21,8 +28,20 @@ enum ServicoEfetuadoFocusable: Hashable
 
 class ServicoEfetuadoFormInfo: ObservableObject
 {
-    @Published var manager = FormManager(validationType: .deferred)
-    @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
+    @Published var manager = FormManager(validationType: .immediate)
+    // let regexNumerico: String =  #"[0-9[\\b]]+"#
+    // let regexNumerico = try! NSRegularExpression(pattern: "[0-9[\\b]]+")
+    
+    @FormField(validator: {
+         CompositeValidator(
+                 validators: [
+                     NonEmptyValidator(message: "Preencha este campo!"),
+                     CountValidator(count: 6, type: .greaterThanOrEquals, message: "Tamanho minímo 6.") //,
+                     // PatternValidator(pattern: Regex.numeric.rawValue, message: "Deve ser númerico")
+                 ],
+                 type: .all,
+                 strategy: .all)
+    })
     var quilometragem: String = ""
     lazy var kmNaoInformado = _quilometragem.validation(manager: manager)
     
@@ -32,7 +51,6 @@ class ServicoEfetuadoFormInfo: ObservableObject
     var custo: String = ""
     var observacoes: String = ""
     
-    let regexNumerico: String =  "[0-9[\\b]]+"
 }
 
 @available(iOS 16.0, *)
@@ -126,8 +144,11 @@ struct ServicoEfetuadoScreen: View
         {
             if isEdit
             {
+                servicoEfetuado.quilometragem = Int32(formInfo.quilometragem) ?? 0
+                servicoEfetuado.data = formInfo.data
                 servicoEfetuado.nome = formInfo.nome
                 servicoEfetuado.custo = (Double(formInfo.custo) ?? 0)
+                servicoEfetuado.observacoes = formInfo.observacoes
                 viewModel.update(servicoEfetuado: servicoEfetuado)
             }
             else

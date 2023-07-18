@@ -49,6 +49,9 @@ import Foundation
 //            }
 //        }
 //    }
+import SwiftUI
+import UIKit
+
 public protocol Coordinator: AnyObject {
     func navigate(to route: Route)
 }
@@ -64,6 +67,14 @@ public protocol NavigationContext {
 }
 
 public class MyNavController: UINavigationController, NavigationContext {
+    public func pop(animated: Bool) {
+        
+    }
+    
+    public func dismiss(animated: Bool) {
+        
+    }
+    
 
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -79,7 +90,7 @@ public class MyNavController: UINavigationController, NavigationContext {
     }
     
     public func push<T: View>(view: T, animated: Bool) {
-        let vc = UIHostingController(rootView:: view)
+        let vc = UIHostingController(rootView: view)
         pushViewController(vc, animated: animated)
     }
     
