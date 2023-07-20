@@ -9,6 +9,7 @@ import Foundation
 
 class AppState
 {
+    var regexNumerico: NSRegularExpression
     var ultimaKM: Int32
     var veiculoAtivo: Veiculo?
     var perfilAtivo: Perfil?
@@ -18,6 +19,7 @@ class AppState
     
     private init()
     {
+        regexNumerico = try! NSRegularExpression(pattern: "[0-9[\\b]]+")
         ultimaKM = 1
     }
 }

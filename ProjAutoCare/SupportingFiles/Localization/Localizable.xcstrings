@@ -16,9 +16,6 @@
     "Ajustes" : {
 
     },
-    "Alerta" : {
-
-    },
     "Alertas" : {
 
     },
@@ -181,7 +178,13 @@
     "Relatórios" : {
 
     },
+    "Request Permission" : {
+
+    },
     "Resetar Onboarding" : {
+
+    },
+    "Schedule Notification" : {
 
     },
     "Selecione um veículo" : {

@@ -36,12 +36,13 @@ class ServicoEfetuadoFormInfo: ObservableObject
          CompositeValidator(
                  validators: [
                      NonEmptyValidator(message: "Preencha este campo!"),
-                     CountValidator(count: 6, type: .greaterThanOrEquals, message: "Tamanho minímo 6.") //,
-                     // PatternValidator(pattern: Regex.numeric.rawValue, message: "Deve ser númerico")
+                     CountValidator(count: 6, type: .greaterThanOrEquals, message: "Tamanho minímo 6."),
+                     PatternValidator(pattern: AppState.shared.regexNumerico, message: "Deve ser númerico")
                  ],
                  type: .all,
                  strategy: .all)
     })
+    
     var quilometragem: String = ""
     lazy var kmNaoInformado = _quilometragem.validation(manager: manager)
     
@@ -50,7 +51,6 @@ class ServicoEfetuadoFormInfo: ObservableObject
     var nome: String = ""
     var custo: String = ""
     var observacoes: String = ""
-    
 }
 
 @available(iOS 16.0, *)
