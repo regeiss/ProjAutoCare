@@ -29,8 +29,6 @@ enum ServicoEfetuadoFocusable: Hashable
 class ServicoEfetuadoFormInfo: ObservableObject
 {
     @Published var manager = FormManager(validationType: .immediate)
-    // let regexNumerico: String =  #"[0-9[\\b]]+"#
-    // let regexNumerico = try! NSRegularExpression(pattern: "[0-9[\\b]]+")
     
     @FormField(validator: {
          CompositeValidator(

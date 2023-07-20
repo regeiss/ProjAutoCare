@@ -14,7 +14,7 @@ struct RelatorioListaScreen: View
     @State var veiculo = false
     @State var posto = false
     
-    var body: some View
+    var body: some View 
     {
         let cadastroMenu = [
             RelatorioColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
