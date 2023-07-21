@@ -42,7 +42,7 @@ struct ServicoEfetuadoListaSCreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            ServicoEfetuadoScreen(viewModel: viewModel, servicoEfetuado: ServicoEfetuado(), isEdit: false)
+            ServicoEfetuadoScreen(viewModel: viewModel, servicoEfetuado: ServicoEfetuado(), isEdit: false, isAdd: true)
         })
     }
     

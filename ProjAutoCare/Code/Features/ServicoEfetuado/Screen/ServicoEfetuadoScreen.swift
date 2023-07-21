@@ -10,12 +10,6 @@ import SwiftUI
 import CoreData
 import FormValidator
 
-enum Regex: String {
-    case password = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"
-    case email = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
-    case numeric = "[0-9[\\b]]+"
-}
-
 enum ServicoEfetuadoFocusable: Hashable
 {
     case idservico
@@ -45,9 +39,27 @@ class ServicoEfetuadoFormInfo: ObservableObject
     lazy var kmNaoInformado = _quilometragem.validation(manager: manager)
     
     var idservicoEfetuado: UUID = UUID()
+    
+    @DateFormField(message: "Date can not be in the future!")
     var data: Date = Date()
+    lazy var validacaoData = _data.validation(manager: manager, before: Date())
+    
+    @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var nome: String = ""
+    lazy var nomeVazio = _nome.validation(manager: manager)
+    
+    @FormField(validator: {
+         CompositeValidator(
+                 validators: [
+                     NonEmptyValidator(message: "Preencha este campo!"),
+                     PatternValidator(pattern: AppState.shared.regexNumerico, message: "Deve ser númerico")
+                 ],
+                 type: .all,
+                 strategy: .all)
+    })
     var custo: String = ""
+    lazy var custoNaoInformado = _custo.validation(manager: manager)
+    
     var observacoes: String = ""
 }
 
@@ -67,6 +79,7 @@ struct ServicoEfetuadoScreen: View
     var appState = AppState.shared
     var servicoEfetuado: ServicoEfetuado
     var isEdit: Bool
+    var isAdd: Bool
     
     var body: some View
     {
@@ -82,20 +95,23 @@ struct ServicoEfetuadoScreen: View
                             Text(servico.nome!).tag(servico as Servico?)
                         }
                     }.pickerStyle(.automatic)
-                        .onAppear { servico = viewModelServico.servicoLista.first}
+                        .onAppear {
+                            if isAdd
+                            {servico = viewModelServico.servicoLista.first}
+                        }
                     TextField("km", text: $formInfo.quilometragem)
                         .keyboardType(.numbersAndPunctuation)
                         .focused($itemServicoInFocus, equals: .quilometragem)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.itemServicoInFocus = .quilometragem}}
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) { self.itemServicoInFocus = .quilometragem}}
                         .validation(formInfo.kmNaoInformado)
                     DatePicker("data", selection: $formInfo.data)
                         .frame(maxHeight: 400)
+                        .validation(formInfo.validacaoData)
                     TextField("nome", text: $formInfo.nome)
-                    // .validation(formInfo.valNomeVazio)
+                        .validation(formInfo.nomeVazio)
                     TextField("custo", text: $formInfo.custo)
-                    //  .validation(formInfo.validacaoCusto)
-                    //     .validation(formInfo.valValorNumerico)
                         .keyboardType(.numbersAndPunctuation)
+                        .validation(formInfo.custoNaoInformado)
                     TextField("observações", text: $formInfo.observacoes)
                 }
             }.scrollContentBackground(.hidden)
@@ -105,7 +121,7 @@ struct ServicoEfetuadoScreen: View
         {
             if isEdit
             {
-                
+                servico = servicoEfetuado.doServico
                 formInfo.quilometragem = (String(servicoEfetuado.quilometragem).toQuilometrosFormat())
                 formInfo.nome = servicoEfetuado.nome ?? ""
                 formInfo.data = servicoEfetuado.data ?? Date()
@@ -142,11 +158,13 @@ struct ServicoEfetuadoScreen: View
         {
             if isEdit
             {
+                servicoEfetuado.doServico = servico
                 servicoEfetuado.quilometragem = Int32(formInfo.quilometragem) ?? 0
                 servicoEfetuado.data = formInfo.data
                 servicoEfetuado.nome = formInfo.nome
                 servicoEfetuado.custo = (Double(formInfo.custo) ?? 0)
                 servicoEfetuado.observacoes = formInfo.observacoes
+                servicoEfetuado.doVeiculo = appState.veiculoAtivo!
                 viewModel.update(servicoEfetuado: servicoEfetuado)
             }
             else
