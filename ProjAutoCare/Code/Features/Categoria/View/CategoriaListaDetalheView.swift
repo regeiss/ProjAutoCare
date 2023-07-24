@@ -11,7 +11,7 @@ import SwiftUI
     struct CategoriaListaDetalheView: View
     {
         @ObservedObject var viewModel: CategoriaViewModel
-        @State var edicao: Bool = false
+        @State var consulta: Bool = false
         var categoria: Categoria
         
         var body: some View
@@ -21,10 +21,10 @@ import SwiftUI
                 Text(categoria.nome ?? "")
             }
             .onTapGesture {
-                edicao = true
+                consulta = true
             }
-            .navigationDestination(isPresented: $edicao, destination: {
-                CategoriaScreen(viewModel: viewModel, categoria: categoria, isEdit: true)
+            .navigationDestination(isPresented: $consulta, destination: {
+                CategoriaReadScreen(viewModel: viewModel, categoria: categoria)
             })
         }
     }

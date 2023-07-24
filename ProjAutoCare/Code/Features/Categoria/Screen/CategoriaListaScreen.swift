@@ -14,7 +14,7 @@ struct CategoriaListaScreen: View
 {
     @StateObject var viewModel = CategoriaViewModel()
     @State private var adicao = false
-    @State private var edicao = false
+    
     
     var body: some View
     {
@@ -45,7 +45,7 @@ struct CategoriaListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            CategoriaScreen(viewModel: viewModel, categoria: Categoria(), isEdit: false)
+            CategoriaAddScreen(viewModel: viewModel, categoria: Categoria())
         })
     }
     
