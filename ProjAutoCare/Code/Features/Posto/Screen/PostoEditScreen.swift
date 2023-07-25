@@ -1,24 +1,22 @@
 //
-//  CategoriaEditScreen.swift
+//  PostoEditScreen.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 23/07/23.
+//  Created by Roberto Edgar Geiss on 24/07/23.
 //
 
 import SwiftUI
-import CoreData
-import FormValidator
 
-struct CategoriaEditScreen: View
+struct PostoEditScreen: View
 {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: CategoriaViewModel
-    @StateObject var formInfo = CategoriaFormInfo()
-    @FocusState private var categoriaInFocus: CategoriaFocusable?
+    @ObservedObject var viewModel: PostoViewModel
+    @StateObject var formInfo = PostoFormInfo()
+    @FocusState private var postoInFocus: PostoFocusable?
     @State var isSaveDisabled: Bool = true
     @State var lista = false
     
-    var categoria: Categoria
+    var posto: Posto
     
     var body: some View
     {
@@ -31,8 +29,11 @@ struct CategoriaEditScreen: View
                     TextField("nome", text: $formInfo.nome)
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
-                        .focused($categoriaInFocus, equals: .nome)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.categoriaInFocus = .nome}}
+                        .focused($postoInFocus, equals: .nome)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
+                    
+                    TextField("bandeira", text: $formInfo.bandeira)
+                        .validation(formInfo.bandeiraVazio)
                 }
             }
             .scrollContentBackground(.hidden)
@@ -40,10 +41,11 @@ struct CategoriaEditScreen: View
                 self.isSaveDisabled = !isValid}
         }.onAppear
         {
-            formInfo.nome = categoria.nome ?? ""
+            formInfo.nome = posto.nome ?? ""
+            formInfo.bandeira = posto.bandeira ?? ""
         }
         .background(Color("backGroundColor"))
-        .navigationTitle("Categoria")
+        .navigationTitle("Postos")
         .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -61,8 +63,7 @@ struct CategoriaEditScreen: View
             }
         }
         .navigationDestination(isPresented: $lista, destination: {
-            CategoriaListaScreen()
-        })
+            PostoListaScreen()})
     }
     
     func save()
@@ -70,8 +71,9 @@ struct CategoriaEditScreen: View
         let valid = formInfo.manager.triggerValidation()
         if valid
         {
-            categoria.nome = formInfo.nome
-            viewModel.update(categoria: categoria)
+            posto.nome = formInfo.nome
+            posto.bandeira = formInfo.bandeira
+            viewModel.update(posto: posto)
         }
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct PostoListaDetalheView: View
 {
     @ObservedObject var viewModel: PostoViewModel
-    @State var edicao: Bool = false
+    @State var consulta: Bool = false
     var posto: Posto
     
     var body: some View
@@ -22,10 +22,10 @@ struct PostoListaDetalheView: View
             Text(posto.bandeira ?? "")
         }
         .onTapGesture {
-            edicao = true
+            consulta = true
         }
-        .navigationDestination(isPresented: $edicao, destination: {
-            PostoScreen(viewModel: viewModel, posto: posto, isEdit: true)
+        .navigationDestination(isPresented: $consulta, destination: {
+            PostoReadScreen(viewModel: viewModel, posto: posto)
         })
     }
 }

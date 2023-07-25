@@ -24,6 +24,18 @@
 		E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FD32A4A60E40044410F /* Posto+CoreDataProperties.swift */; };
 		E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FD62A4A61AD0044410F /* PostoListaDetalheView.swift */; };
 		E1013FD92A4A650C0044410F /* PostoPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013FD82A4A650C0044410F /* PostoPublisher.swift */; };
+		E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77992A6F377500FF7800 /* PostoReadScreen.swift */; };
+		E10A779C2A6F379900FF7800 /* PostoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A779B2A6F379900FF7800 /* PostoEditScreen.swift */; };
+		E10A779E2A6F37AF00FF7800 /* PostoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A779D2A6F37AF00FF7800 /* PostoAddScreen.swift */; };
+		E10A77A02A6F4DF500FF7800 /* PerfilAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A779F2A6F4DF500FF7800 /* PerfilAddScreen.swift */; };
+		E10A77A22A6F4E0500FF7800 /* PerfilEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77A12A6F4E0500FF7800 /* PerfilEditScreen.swift */; };
+		E10A77A42A6F4E1E00FF7800 /* PerfilReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77A32A6F4E1E00FF7800 /* PerfilReadScreen.swift */; };
+		E10A77A62A6F4E4500FF7800 /* VeiculoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77A52A6F4E4500FF7800 /* VeiculoAddScreen.swift */; };
+		E10A77A82A6F4EEB00FF7800 /* VeiculoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77A72A6F4EEB00FF7800 /* VeiculoEditScreen.swift */; };
+		E10A77AA2A6F4F3900FF7800 /* VeiculoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77A92A6F4F3900FF7800 /* VeiculoReadScreen.swift */; };
+		E10A77AC2A6F4F5E00FF7800 /* ServicoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */; };
+		E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */; };
+		E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */; };
@@ -126,6 +138,18 @@
 		E1013FD32A4A60E40044410F /* Posto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Posto+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1013FD62A4A61AD0044410F /* PostoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoListaDetalheView.swift; sourceTree = "<group>"; };
 		E1013FD82A4A650C0044410F /* PostoPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoPublisher.swift; sourceTree = "<group>"; };
+		E10A77992A6F377500FF7800 /* PostoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoReadScreen.swift; sourceTree = "<group>"; };
+		E10A779B2A6F379900FF7800 /* PostoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoEditScreen.swift; sourceTree = "<group>"; };
+		E10A779D2A6F37AF00FF7800 /* PostoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoAddScreen.swift; sourceTree = "<group>"; };
+		E10A779F2A6F4DF500FF7800 /* PerfilAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAddScreen.swift; sourceTree = "<group>"; };
+		E10A77A12A6F4E0500FF7800 /* PerfilEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilEditScreen.swift; sourceTree = "<group>"; };
+		E10A77A32A6F4E1E00FF7800 /* PerfilReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilReadScreen.swift; sourceTree = "<group>"; };
+		E10A77A52A6F4E4500FF7800 /* VeiculoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoAddScreen.swift; sourceTree = "<group>"; };
+		E10A77A72A6F4EEB00FF7800 /* VeiculoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoEditScreen.swift; sourceTree = "<group>"; };
+		E10A77A92A6F4F3900FF7800 /* VeiculoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoReadScreen.swift; sourceTree = "<group>"; };
+		E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoAddScreen.swift; sourceTree = "<group>"; };
+		E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEditScreen.swift; sourceTree = "<group>"; };
+		E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoReadScreen.swift; sourceTree = "<group>"; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
@@ -266,8 +290,11 @@
 		E1013FC92A4A5BBA0044410F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E1013FC72A4A57FB0044410F /* PostoScreen.swift */,
+				E10A779D2A6F37AF00FF7800 /* PostoAddScreen.swift */,
+				E10A779B2A6F379900FF7800 /* PostoEditScreen.swift */,
 				E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */,
+				E10A77992A6F377500FF7800 /* PostoReadScreen.swift */,
+				E1013FC72A4A57FB0044410F /* PostoScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -346,6 +373,9 @@
 			children = (
 				E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */,
 				E1E409C92A5256A300034DBA /* PerfilListaScreen.swift */,
+				E10A779F2A6F4DF500FF7800 /* PerfilAddScreen.swift */,
+				E10A77A12A6F4E0500FF7800 /* PerfilEditScreen.swift */,
+				E10A77A32A6F4E1E00FF7800 /* PerfilReadScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -928,11 +958,11 @@
 		E1E409C62A52408B00034DBA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E1E409C72A5240B600034DBA /* CategoriaListaScreen.swift */,
-				E1AC4F2E2A5B7D0B00016186 /* CategoriaScreen.swift */,
 				E1F9862E2A6D70040099C57D /* CategoriaAddScreen.swift */,
 				E1F986302A6D70160099C57D /* CategoriaEditScreen.swift */,
+				E1E409C72A5240B600034DBA /* CategoriaListaScreen.swift */,
 				E1F986322A6D70280099C57D /* CategoriaReadScreen.swift */,
+				E1AC4F2E2A5B7D0B00016186 /* CategoriaScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -972,8 +1002,11 @@
 		E1FB3F3B2A507ABB00776408 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E10A77A52A6F4E4500FF7800 /* VeiculoAddScreen.swift */,
+				E10A77A72A6F4EEB00FF7800 /* VeiculoEditScreen.swift */,
 				E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */,
 				E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */,
+				E10A77A92A6F4F3900FF7800 /* VeiculoReadScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -981,8 +1014,11 @@
 		E1FB3F4A2A51CA4D00776408 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */,
+				E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */,
+				E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */,
 				E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */,
+				E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */,
+				E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1127,6 +1163,7 @@
 				E1AC4F1A2A5B07D800016186 /* Servico+CoreDataProperties.swift in Sources */,
 				E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */,
 				E1AD0CDC2A4DD56A006D64D8 /* PerfilListaDetalheView.swift in Sources */,
+				E10A77A42A6F4E1E00FF7800 /* PerfilReadScreen.swift in Sources */,
 				E1AC4F282A5B6E8900016186 /* ServicoListaDetalheView.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1013FBB2A4A518A0044410F /* AppState.swift in Sources */,
@@ -1134,13 +1171,16 @@
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
 				E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
+				E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */,
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
 				E1AC4F192A5B07D800016186 /* Servico+CoreDataClass.swift in Sources */,
 				E1013FC82A4A57FB0044410F /* PostoScreen.swift in Sources */,
 				E1013FD92A4A650C0044410F /* PostoPublisher.swift in Sources */,
 				E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
+				E10A779C2A6F379900FF7800 /* PostoEditScreen.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
+				E10A77A62A6F4E4500FF7800 /* VeiculoAddScreen.swift in Sources */,
 				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
 				E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */,
 				E1AD0CDA2A4DD556006D64D8 /* PerfilViewModel.swift in Sources */,
@@ -1150,9 +1190,12 @@
 				E1D2E90F2A60747000551892 /* Sizes.swift in Sources */,
 				E1013FBE2A4A55230044410F /* ErrorHandler.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
+				E10A779E2A6F37AF00FF7800 /* PostoAddScreen.swift in Sources */,
 				E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */,
+				E10A77A02A6F4DF500FF7800 /* PerfilAddScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
 				E1D871592A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift in Sources */,
+				E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
 				E1D2E9112A60748900551892 /* CommonAction.swift in Sources */,
@@ -1168,6 +1211,7 @@
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
 				E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */,
 				E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */,
+				E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */,
 				E1FB3F472A50F24B00776408 /* Veiculo+CoreDataProperties.swift in Sources */,
 				E1AD0CD42A4CFF13006D64D8 /* DateExtensions.swift in Sources */,
 				E1AC4F202A5B0A4A00016186 /* ServicoModel.swift in Sources */,
@@ -1180,6 +1224,8 @@
 				E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
 				E1D2E9162A607D6E00551892 /* ServicoEfetuadoModel.swift in Sources */,
+				E10A77AA2A6F4F3900FF7800 /* VeiculoReadScreen.swift in Sources */,
+				E10A77A22A6F4E0500FF7800 /* PerfilEditScreen.swift in Sources */,
 				E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */,
 				E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */,
 				E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */,
@@ -1194,9 +1240,11 @@
 				E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomView.swift in Sources */,
 				E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */,
+				E10A77AC2A6F4F5E00FF7800 /* ServicoAddScreen.swift in Sources */,
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
 				E1AC4F262A5B66BC00016186 /* ServicoViewModel.swift in Sources */,
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,
+				E10A77A82A6F4EEB00FF7800 /* VeiculoEditScreen.swift in Sources */,
 				E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */,
 				E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */,
 				E1AC4F1D2A5B086C00016186 /* CategoriaModel.swift in Sources */,

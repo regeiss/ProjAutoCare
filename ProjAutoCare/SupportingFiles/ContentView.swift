@@ -102,7 +102,6 @@ struct ContentView: View
                 if $0.translation.width < -100
                 {
                     withAnimation{ self.showSidebar = false}
-                    print("drag")
                 }
             }
         ZStack
