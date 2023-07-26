@@ -17,8 +17,6 @@ struct PostoAddScreen: View
     @FocusState private var postoInFocus: PostoFocusable?
     @State var isSaveDisabled: Bool = true
     
-    var posto: Posto
-    
     var body: some View
     {
         VStack

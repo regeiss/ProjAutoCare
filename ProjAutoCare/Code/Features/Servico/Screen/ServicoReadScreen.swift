@@ -7,8 +7,51 @@
 
 import SwiftUI
 
-struct ServicoReadScreen: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ServicoReadScreen: View
+{
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var viewModel: ServicoViewModel
+    @ObservedObject var formInfo = ServicoFormInfo()
+    @State private var edicao = false
+    
+    var servico: Servico
+    
+    var body: some View
+    {
+        VStack
+        {
+            Form
+            {
+                Section
+                {
+                    TextField("nome", text: $formInfo.nome)
+                }.disabled(true)
+            }
+            .scrollContentBackground(.hidden)
+        }.onAppear
+        {
+            formInfo.nome = servico.nome ?? ""
+            // formInfo.bandeira = servico.bandeira ?? ""
+        }
+        .background(Color("backGroundColor"))
+        .navigationTitle("Serviço")
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading)
+            { Button {
+                dismiss()
+            }
+                label: { Text("Cancelar")}}
+            ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                dismiss()
+            }
+            label: { Text("OK")}
+            }
+        }
+        .navigationDestination(isPresented: $edicao, destination: {
+            ServicoEditScreen(viewModel: viewModel, servico: servico)
+        })
     }
 }

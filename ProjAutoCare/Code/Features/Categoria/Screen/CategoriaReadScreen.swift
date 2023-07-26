@@ -13,7 +13,7 @@ struct CategoriaReadScreen: View
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: CategoriaViewModel
     @ObservedObject var formInfo = CategoriaFormInfo()
-    @State private var edicao = false
+    @State var edicao = false
     
     var categoria: Categoria
     

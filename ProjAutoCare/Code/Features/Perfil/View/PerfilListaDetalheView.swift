@@ -25,7 +25,7 @@ struct PerfilListaDetalheView: View
             edicao = true
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            PerfilScreen(viewModel: viewModel, perfil: perfil, isEdit: true)
+            PerfilReadScreen(viewModel: viewModel, perfil: perfil)
         })
     }
 }

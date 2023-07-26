@@ -45,7 +45,7 @@ struct PostoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            PostoAddScreen(viewModel: viewModel, posto: Posto())
+            PostoAddScreen(viewModel: viewModel)
         })
     }
     

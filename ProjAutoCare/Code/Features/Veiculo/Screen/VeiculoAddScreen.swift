@@ -17,8 +17,6 @@ struct VeiculoAddScreen: View
     @FocusState private var veiculoInFocus: VeiculoFocusable?
     @State var isSaveDisabled: Bool = true
     
-    var veiculo: Veiculo
-    
     var body: some View
     {
         VStack

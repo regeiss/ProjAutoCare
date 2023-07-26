@@ -45,7 +45,7 @@ struct CategoriaListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            CategoriaAddScreen(viewModel: viewModel, categoria: Categoria())
+            CategoriaAddScreen(viewModel: viewModel)
         })
     }
     

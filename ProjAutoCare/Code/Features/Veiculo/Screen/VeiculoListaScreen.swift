@@ -42,7 +42,7 @@ struct VeiculoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            VeiculoAddScreen(viewModel: viewModel, veiculo: Veiculo())
+            VeiculoAddScreen(viewModel: viewModel)
         })
     }
     

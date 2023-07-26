@@ -14,12 +14,9 @@ struct PerfilAddScreen: View
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: PerfilViewModel
     @StateObject var formInfo = PerfilFormInfo()
-    @FocusState private var perfilInFocus: PostoFocusable?
+    @FocusState private var perfilInFocus: PerfilFocusable?
     @State var isSaveDisabled = true
     @State var lista = false
-    
-    var perfil: Perfil
-    
     
     var body: some View
     {
@@ -44,10 +41,6 @@ struct PerfilAddScreen: View
             .scrollContentBackground(.hidden)
             .onReceive(formInfo.manager.$allValid) { isValid in
                 self.isSaveDisabled = !isValid}
-        }.onAppear
-        {
-            formInfo.nome = perfil.nome ?? ""
-            formInfo.email = perfil.email ?? ""
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Perfis")

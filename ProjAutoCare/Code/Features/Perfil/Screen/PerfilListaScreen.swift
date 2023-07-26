@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 @available(iOS 16.0, *)
 struct PerfilListaScreen: View
 {
     @StateObject var viewModel = PerfilViewModel()
     @State private var adicao = false
-    @State private var edicao = false
     
     var body: some View
     {
@@ -42,7 +42,7 @@ struct PerfilListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            PerfilScreen(viewModel: viewModel, perfil: Perfil(), isEdit: false)
+            PerfilAddScreen(viewModel: viewModel)
         })
     }
     

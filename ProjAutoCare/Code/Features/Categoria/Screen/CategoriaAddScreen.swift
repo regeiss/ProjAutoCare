@@ -17,8 +17,6 @@ struct CategoriaAddScreen: View
     @FocusState private var categoriaInFocus: CategoriaFocusable?
     @State var isSaveDisabled: Bool = true
     
-    var categoria: Categoria
-    
     var body: some View
     {
         VStack
