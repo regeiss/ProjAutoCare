@@ -7,24 +7,25 @@
 
 import SwiftUI
 
-    @available(iOS 16.0, *)
-    struct CategoriaListaDetalheView: View
+@available(iOS 16.0, *)
+struct CategoriaListaDetalheView: View
+{
+    @ObservedObject var viewModel: CategoriaViewModel
+    @State var consulta = false
+    
+    var categoria: Categoria
+    
+    var body: some View
     {
-        @ObservedObject var viewModel: CategoriaViewModel
-        @State var consulta: Bool = false
-        var categoria: Categoria
-        
-        var body: some View
+        HStack
         {
-            HStack
-            {
-                Text(categoria.nome ?? "")
-            }
-            .onTapGesture {
-                consulta = true
-            }
-            .navigationDestination(isPresented: $consulta, destination: {
-                CategoriaReadScreen(viewModel: viewModel, categoria: categoria)
-            })
+            Text(categoria.nome ?? "")
         }
+        .onTapGesture {
+            consulta = true
+        }
+        .navigationDestination(isPresented: $consulta, destination: {
+            CategoriaReadScreen(viewModel: viewModel, categoria: categoria)
+        })
     }
+}

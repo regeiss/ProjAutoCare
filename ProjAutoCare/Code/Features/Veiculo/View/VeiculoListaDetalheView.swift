@@ -10,7 +10,8 @@ import SwiftUI
 struct VeiculoListaDetalheView: View
 {
     @ObservedObject var viewModel: VeiculoViewModel
-    @State var edicao = false
+    @State var consulta = false
+    
     var veiculo: Veiculo
     
     var body: some View
@@ -26,10 +27,10 @@ struct VeiculoListaDetalheView: View
                 Text(String(veiculo.placa ?? ""))
             }
             .onTapGesture {
-                edicao = true
+                consulta = true
             }
-            .navigationDestination(isPresented: $edicao, destination: {
-                VeiculoScreen(viewModel: viewModel, veiculo: veiculo, isEdit: true)
+            .navigationDestination(isPresented: $consulta, destination: {
+                VeiculoReadScreen(viewModel: viewModel, veiculo: veiculo)
             })
         }
     }

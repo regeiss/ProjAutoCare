@@ -62,7 +62,7 @@ struct VeiculoEditScreen: View
                 ToolbarItem(placement: .navigationBarTrailing)
                 { Button {
                     save()
-                    dismiss()
+                    lista = true 
                 }
                 label: { Text("OK").disabled(isSaveDisabled)}
                 }

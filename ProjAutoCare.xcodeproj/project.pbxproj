@@ -371,11 +371,11 @@
 		E16C14FD2A3DFE88003EAADA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */,
-				E1E409C92A5256A300034DBA /* PerfilListaScreen.swift */,
 				E10A779F2A6F4DF500FF7800 /* PerfilAddScreen.swift */,
 				E10A77A12A6F4E0500FF7800 /* PerfilEditScreen.swift */,
+				E1E409C92A5256A300034DBA /* PerfilListaScreen.swift */,
 				E10A77A32A6F4E1E00FF7800 /* PerfilReadScreen.swift */,
+				E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";

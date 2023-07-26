@@ -17,11 +17,11 @@ struct HandleErrorsByShowingAlertViewModifier: ViewModifier
     {
         content
             .environmentObject(errorHandling)
-            // Applying the alert for error handling using a background element
-            // is a workaround, if the alert would be applied directly,
-            // other .alert modifiers inside of content would not work anymore
-            // TODO: Alterar o alert para uma sheet
-            // TODO: Revisar o código e tratar os erros de acordo.
+        // Applying the alert for error handling using a background element
+        // is a workaround, if the alert would be applied directly,
+        // other .alert modifiers inside of content would not work anymore
+        // Alterar o alert para uma sheet
+        // Revisar o código e tratar os erros de acordo.
             .background(
                 EmptyView()
                     .alert(item: $errorHandling.currentAlert) { currentAlert in
@@ -32,21 +32,6 @@ struct HandleErrorsByShowingAlertViewModifier: ViewModifier
                         )
                     }
             )
-        
-//        content
-//            .environmentObject(errorHandling)
-//        // Applying the alert for error handling using a background element
-//        // is a workaround, if the alert would be applied directly,
-//        // other .alert modifiers inside of content would not work anymore
-//        // TODO: Alterar o alert para uma sheet
-//        // TODO: Revisar o código e tratar os erros de acordo.
-//            .background(
-//                EmptyView()
-//                    .sheet(isPresented: $showingSheet)
-//                {
-//                    ErrorView()
-//                }
-//            )
     }
 }
 

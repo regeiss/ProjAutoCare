@@ -6,9 +6,79 @@
 //
 
 import SwiftUI
+import CoreData
+import FormValidator
 
-struct PerfilAddScreen: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct PerfilAddScreen: View
+{
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var viewModel: PerfilViewModel
+    @StateObject var formInfo = PerfilFormInfo()
+    @FocusState private var perfilInFocus: PostoFocusable?
+    @State var isSaveDisabled = true
+    @State var lista = false
+    
+    var perfil: Perfil
+    
+    
+    var body: some View
+    {
+        VStack(alignment: .leading)
+        {
+            Form
+            {
+                Section
+                {
+                    TextField("nome", text: $formInfo.nome)
+                        .autocorrectionDisabled(true)
+                        .validation(formInfo.nomeVazio)
+                        .focused($perfilInFocus, equals: .nome)
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.perfilInFocus = .nome}}
+                    
+                    TextField("email", text: $formInfo.email)
+                        .autocorrectionDisabled(true)
+                        .validation(formInfo.emailInvalido)
+                        .keyboardType(.emailAddress)
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .onReceive(formInfo.manager.$allValid) { isValid in
+                self.isSaveDisabled = !isValid}
+        }.onAppear
+        {
+            formInfo.nome = perfil.nome ?? ""
+            formInfo.email = perfil.email ?? ""
+        }
+        .background(Color("backGroundColor"))
+        .navigationTitle("Perfis")
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading)
+            { Button {
+                dismiss()
+            }
+                label: { Text("Cancelar")}}
+            ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                save()
+                lista = true
+            }
+            label: { Text("OK").disabled(isSaveDisabled)}
+            }
+        }
+        .navigationDestination(isPresented: $lista, destination: {
+            PerfilListaScreen()
+        })
+    }
+    
+    func save()
+    {
+        let valid = formInfo.manager.triggerValidation()
+        if valid
+        {
+            let perfilNovo = PerfilDTO(id: UUID(), nome: formInfo.nome, email: formInfo.email, ativo: false, padrao: false)
+            viewModel.add(perfil: perfilNovo)
+        }
     }
 }

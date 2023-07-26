@@ -31,7 +31,7 @@ struct PostoAddScreen: View
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
                         .focused($postoInFocus, equals: .nome)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.postoInFocus = .nome}}
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) { self.postoInFocus = .nome}}
                     
                     TextField("bandeira", text: $formInfo.bandeira)
                         .validation(formInfo.bandeiraVazio)

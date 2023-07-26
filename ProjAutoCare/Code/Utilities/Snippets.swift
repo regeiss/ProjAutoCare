@@ -85,19 +85,19 @@ public class MyNavController: UINavigationController, NavigationContext {
     }
 
     public func setInitialView<T: View>(view: T) {
-        let vc = UIHostingController(rootView: view)
-        viewControllers = [vc]
+        let vwc = UIHostingController(rootView: view)
+        viewControllers = [vwc]
     }
     
     public func push<T: View>(view: T, animated: Bool) {
-        let vc = UIHostingController(rootView: view)
-        pushViewController(vc, animated: animated)
+        let vwc = UIHostingController(rootView: view)
+        pushViewController(vwc, animated: animated)
     }
     
     public func present<T: View>(view: T, animated: Bool) {
-        let vc = UIHostingController(rootView: view)
-        vc.modalTransitionStyle = .coverVertical
-        vc.modalPresentationStyle = .automatic 
-        present(vc, animated: animated)
+        let vwc = UIHostingController(rootView: view)
+        vwc.modalTransitionStyle = .coverVertical
+        vwc.modalPresentationStyle = .automatic
+        present(vwc, animated: animated)
     }
 }

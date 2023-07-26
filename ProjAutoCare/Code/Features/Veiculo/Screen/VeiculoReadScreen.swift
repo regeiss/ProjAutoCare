@@ -31,7 +31,7 @@ struct VeiculoReadScreen: View
                     TextField("placa", text: $formInfo.placa)
                     TextField("chassis", text: $formInfo.chassis)
                     TextField("ano", text: $formInfo.ano)
-                }
+                }.disabled(true)
             }
             .scrollContentBackground(.hidden)
             .onAppear
