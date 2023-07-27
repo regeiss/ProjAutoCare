@@ -5,7 +5,6 @@
 //  Created by Roberto Edgar Geiss on 14/07/23.
 //
 
-import Foundation
 import Combine
 import CoreData
 

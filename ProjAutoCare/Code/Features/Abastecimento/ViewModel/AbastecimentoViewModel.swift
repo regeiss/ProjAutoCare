@@ -5,9 +5,7 @@
 //  Created by Roberto Edgar Geiss on 24/06/23.
 //
 
-import Foundation
 import Combine
-import CoreData
 
 class AbastecimentoViewModel: ObservableObject
 {

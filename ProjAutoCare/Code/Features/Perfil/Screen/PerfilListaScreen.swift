@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 @available(iOS 16.0, *)
 struct PerfilListaScreen: View

@@ -5,9 +5,7 @@
 //  Created by Roberto Edgar Geiss on 14/07/23.
 //
 
-import Foundation
 import SwiftUI
-import CoreData
 import FormValidator
 
 enum ServicoEfetuadoFocusable: Hashable

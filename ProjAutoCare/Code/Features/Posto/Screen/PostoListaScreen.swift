@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
-import Combine
 
 @available(iOS 16.0, *)
 struct PostoListaScreen: View

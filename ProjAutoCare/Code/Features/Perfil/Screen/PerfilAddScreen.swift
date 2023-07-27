@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 import FormValidator
 
 struct PerfilAddScreen: View

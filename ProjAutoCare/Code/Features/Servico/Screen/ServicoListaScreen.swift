@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ServicoListaScreen: View
 {
@@ -43,7 +42,7 @@ struct ServicoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            ServicoScreen(viewModel: viewModel, servico: Servico(), isEdit: false)
+            ServicoAddScreen(viewModel: viewModel)
         })
     }
     

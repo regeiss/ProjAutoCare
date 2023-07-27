@@ -5,11 +5,9 @@
 //  Created by Roberto Edgar Geiss on 01/07/23.
 //
 
-import Foundation
 import CoreData
 import Combine
 import OSLog
-import SwiftUI
 
 class VeiculoPublisher: NSObject, ObservableObject
 {
