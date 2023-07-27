@@ -36,6 +36,7 @@
 		E10A77AC2A6F4F5E00FF7800 /* ServicoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */; };
 		E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */; };
 		E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */; };
+		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C14F92A3D21E1003EAADA /* PerfilScreen.swift */; };
@@ -150,6 +151,7 @@
 		E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoAddScreen.swift; sourceTree = "<group>"; };
 		E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEditScreen.swift; sourceTree = "<group>"; };
 		E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoReadScreen.swift; sourceTree = "<group>"; };
+		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 				E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */,
 				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
 				E1D5F5242A37F2F000F3AFD1 /* Localization */,
+				E12B2CCC2A71FB04007ED15B /* Todos.md */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 			files = (
 				E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */,
 				E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */,
+				E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */,
 				E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */,
 				E1D5F5262A37F3B900F3AFD1 /* Localizable.xcstrings in Resources */,
 				E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */,
