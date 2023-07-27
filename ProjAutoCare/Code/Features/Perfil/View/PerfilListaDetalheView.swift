@@ -21,9 +21,7 @@ struct PerfilListaDetalheView: View
             Text(perfil.nome ?? "")
             Text(perfil.email ?? "")
         }
-        .onTapGesture {
-            edicao = true
-        }
+        .onTapGesture { edicao = true }
         .navigationDestination(isPresented: $edicao, destination: {
             PerfilReadScreen(viewModel: viewModel, perfil: perfil)
         })

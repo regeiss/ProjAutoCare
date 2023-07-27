@@ -8,7 +8,6 @@
 import CoreData
 import Combine
 import OSLog
-import SwiftUI
 
 class ServicoEfetuadoPublisher: NSObject, ObservableObject
 {
