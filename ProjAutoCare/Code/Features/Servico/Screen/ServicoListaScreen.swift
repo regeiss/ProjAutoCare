@@ -34,7 +34,7 @@ struct ServicoListaScreen: View
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Serviço", displayMode: .automatic)
+        .navigationBarTitle("Serviço", displayMode: .large)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true

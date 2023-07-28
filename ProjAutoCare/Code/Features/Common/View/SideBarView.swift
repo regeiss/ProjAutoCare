@@ -97,9 +97,9 @@ struct SideBarView: View
             Spacer()
             HStack
             {
-                let appBuild = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-                Text("WerkstadtG v.")
-                Text(appBuild ?? "1.0")
+                Text(Bundle.main.copyright)
+                    .font(.system(size: 10, weight: .thin))
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.gray)
             }.padding([.leading, .bottom])
         }
@@ -117,4 +117,18 @@ struct SideBarView: View
             MensagemScreen()
         }
     }
+}
+
+extension Bundle
+{
+    public var appName: String           { getInfo("CFBundleName") }
+    public var displayName: String       { getInfo("CFBundleDisplayName") }
+    public var language: String          { getInfo("CFBundleDevelopmentRegion") }
+    public var identifier: String        { getInfo("CFBundleIdentifier") }
+    public var copyright: String         { getInfo("NSHumanReadableCopyright").replacingOccurrences(of: "\\\\n", with: "\n") }
+    
+    public var appBuild: String          { getInfo("CFBundleVersion") }
+    public var appVersionLong: String    { getInfo("CFBundleShortVersionString") }
+    
+    fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
 }

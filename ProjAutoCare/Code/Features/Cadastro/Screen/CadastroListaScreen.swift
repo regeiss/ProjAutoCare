@@ -55,6 +55,7 @@ struct CadastroListaScreen: View
                     }
                 }.padding()
             }.navigationTitle("Cadastros")
+            .navigationBarTitleDisplayMode(.large)
             .background(Color("backGroundColor"))
         }
     }

@@ -4,8 +4,7 @@ Coisas a fazer
 
 ## Overview
 
-Revisar os imports das telas de edicao
-Revisar os imports dos publishers
+Ver picker do servico
 
 ### Section header
 

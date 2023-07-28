@@ -43,7 +43,7 @@ struct ServicoEditScreen: View
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Serviço")
-        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)

@@ -11,4 +11,5 @@ struct ServicoDTO: Identifiable
 {
     let id: UUID
     let nome: String
+    let daCategoria: Categoria
 }
