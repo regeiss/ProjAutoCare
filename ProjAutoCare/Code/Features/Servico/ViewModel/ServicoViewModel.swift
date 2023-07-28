@@ -20,6 +20,11 @@ class ServicoViewModel: ObservableObject
         }
     }
 
+    func inserePadrao()
+    {
+        ServicoPublisher.shared.inserePadrao()
+    }
+    
     func add(servico: ServicoDTO)
     {
         ServicoPublisher.shared.add(servico: servico)

@@ -40,7 +40,7 @@ struct VeiculoAddScreen: View
                 self.isSaveDisabled = !isValid}
             .background(Color("backGroundColor"))
             .navigationTitle("Veículos")
-            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading)

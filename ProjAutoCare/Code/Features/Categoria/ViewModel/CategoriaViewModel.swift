@@ -25,6 +25,11 @@ class CategoriaViewModel: ObservableObject
         CategoriaPublisher.shared.add(categoria: categoria)
     }
 
+    func inserePadrao()
+    {
+        CategoriaPublisher.shared.inserePadrao()
+    }
+    
     func update(categoria: Categoria)
     {
         CategoriaPublisher.shared.update(categoria: categoria)

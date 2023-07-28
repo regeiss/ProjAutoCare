@@ -40,7 +40,7 @@ struct PostoAddScreen: View
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Postos")
-        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)

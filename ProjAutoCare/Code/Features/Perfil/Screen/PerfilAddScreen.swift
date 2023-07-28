@@ -43,7 +43,7 @@ struct PerfilAddScreen: View
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Perfis")
-        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)

@@ -44,7 +44,7 @@ struct VeiculoReadScreen: View
             }
             .background(Color("backGroundColor"))
             .navigationTitle("Veículos")
-            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading)
