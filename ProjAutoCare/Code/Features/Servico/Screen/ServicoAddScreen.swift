@@ -14,7 +14,6 @@ struct ServicoAddScreen: View
     @ObservedObject var viewModelCategoria = CategoriaViewModel()
     @ObservedObject var formInfo = ServicoFormInfo()
     @FocusState private var servicoInFocus: ServicoFocusable?
-    @StateObject private var viewModelCategoria = CategoriaViewModel()
     @State var isSaveDisabled: Bool = true
     @State var categoria: Categoria?
     
@@ -32,11 +31,8 @@ struct ServicoAddScreen: View
                             Text(categoria.nome!).tag(categoria as Categoria?)
                         }
                     }.pickerStyle(.automatic)
-                        .onAppear {
-                            
-                            categoria = viewModelCategoria.categoriaLista.first
-                        }
-                    
+                        .onAppear { categoria = viewModelCategoria.categoriaLista.first}
+    
                     TextField("nome", text: $formInfo.nome)
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)

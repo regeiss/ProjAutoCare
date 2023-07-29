@@ -44,7 +44,7 @@ struct MenuInicialScreen: View
                         }
                     }.padding([.leading, .trailing])
                 }
-                .gesture(drag)
+                //.gesture(drag)
                 .navigationDestination(for: MenuColecao.self) { item in
                     switch item.menu {
                     case .abastecimento:

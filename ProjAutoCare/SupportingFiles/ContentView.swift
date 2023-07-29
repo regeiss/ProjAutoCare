@@ -103,6 +103,7 @@ struct ContentView: View
                 {
                     withAnimation{ self.showSidebar = false}
                 }
+                print("drag1")
             }
         ZStack
         {

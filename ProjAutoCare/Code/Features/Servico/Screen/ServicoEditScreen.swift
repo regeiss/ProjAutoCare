@@ -11,10 +11,12 @@ struct ServicoEditScreen: View
 {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: ServicoViewModel
+    @ObservedObject var viewModelCategoria = CategoriaViewModel()
     @ObservedObject var formInfo = ServicoFormInfo()
     @FocusState private var servicoInFocus: ServicoFocusable?
     @State var isSaveDisabled: Bool = true
     @State var lista = false
+    @State var categoria: Categoria?
     
     var servico: Servico
     
@@ -26,6 +28,13 @@ struct ServicoEditScreen: View
             {
                 Section
                 {
+                    Picker("Categoria:", selection: $categoria)
+                    {
+                        ForEach(viewModelCategoria.categoriaLista) { (categoria: Categoria) in
+                            Text(categoria.nome!).tag(categoria as Categoria?)
+                        }
+                    }.pickerStyle(.automatic)
+                        .onAppear { categoria = servico.daCategoria}
                     TextField("nome", text: $formInfo.nome)
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
@@ -39,7 +48,6 @@ struct ServicoEditScreen: View
         }.onAppear
         {
             formInfo.nome = servico.nome ?? ""
-//                formInfo.bandeira = servico.bandeira ?? ""
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Serviço")
@@ -55,8 +63,8 @@ struct ServicoEditScreen: View
             { Button {
                 save()
                 lista = true
-            }
-            label: { Text("OK").disabled(isSaveDisabled)}
+                }
+                label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
         .navigationDestination(isPresented: $lista, destination: {
@@ -69,7 +77,7 @@ struct ServicoEditScreen: View
         if valid
         {
             servico.nome = formInfo.nome
-            // servico.bandeira = formInfo.bandeira
+            servico.daCategoria = categoria
             viewModel.update(servico: servico)
         }
     }
