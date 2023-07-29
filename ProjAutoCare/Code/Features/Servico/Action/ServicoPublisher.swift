@@ -57,7 +57,7 @@ class ServicoPublisher: NSObject, ObservableObject
         newServico.id = servico.id
         // newServico.idperiodicidade = servico.idperiodicidade
         newServico.nome = servico.nome
-        // newServico.daCategoria = servico.daCategoria
+        newServico.daCategoria = servico.daCategoria
         
         backgroundContext.performAndWait
         {
@@ -92,6 +92,25 @@ class ServicoPublisher: NSObject, ObservableObject
         backgroundContext.performAndWait
         {
             backgroundContext.delete(servico)
+            do
+            {
+                try self.backgroundContext.save()
+            }
+            catch
+            {
+                fatalError("Erro moc \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func inserePadrao()
+    {
+        let novoServico = Servico(context: backgroundContext)
+        novoServico.id = UUID()
+        novoServico.nome = "Nenhum"
+
+        backgroundContext.performAndWait
+        {
             do
             {
                 try self.backgroundContext.save()

@@ -52,11 +52,14 @@ struct ProjAutoCareApp: App
          let viewModelPerfil = PerfilViewModel()
          let viewModelVeiculo = VeiculoViewModel()
          let viewModelPosto = PostoViewModel()
-         
-         // Inserir perfil padrão
+         let viewModelCategoria = CategoriaViewModel()
+         let viewModelServico = ServicoViewModel()
+        
          viewModelPerfil.inserePadrao()
          viewModelVeiculo.inserePadrao()
          viewModelPosto.inserePadrao()
+         viewModelCategoria.inserePadrao()
+         viewModelServico.inserePadrao()
          
          contextSet = true
      }

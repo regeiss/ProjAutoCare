@@ -11,6 +11,7 @@ struct ServicoAddScreen: View
 {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: ServicoViewModel
+    @ObservedObject var viewModelCategoria = CategoriaViewModel()
     @ObservedObject var formInfo = ServicoFormInfo()
     @FocusState private var servicoInFocus: ServicoFocusable?
     @StateObject private var viewModelCategoria = CategoriaViewModel()
@@ -27,19 +28,20 @@ struct ServicoAddScreen: View
                 {
                     Picker("Categoria:", selection: $categoria)
                     {
-                        Text("Nenhum").tag(Posto?.none)
                         ForEach(viewModelCategoria.categoriaLista) { (categoria: Categoria) in
                             Text(categoria.nome!).tag(categoria as Categoria?)
                         }
-                    }
-                    .pickerStyle(.automatic)
-                    .onAppear {
-                            categoria = viewModelCategoria.categoriaLista.first}
+                    }.pickerStyle(.automatic)
+                        .onAppear {
+                            
+                            categoria = viewModelCategoria.categoriaLista.first
+                        }
+                    
                     TextField("nome", text: $formInfo.nome)
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
                         .focused($servicoInFocus, equals: .nome)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.servicoInFocus = .nome}}
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) { self.servicoInFocus = .nome}}
                 }
             }
             .scrollContentBackground(.hidden)

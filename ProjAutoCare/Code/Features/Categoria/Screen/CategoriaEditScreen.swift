@@ -43,7 +43,7 @@ struct CategoriaEditScreen: View
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Categoria")
-        .navigationBarTitleDisplayMode(.automatic)
+        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
