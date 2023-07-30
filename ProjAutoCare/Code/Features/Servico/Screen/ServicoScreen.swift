@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 import FormValidator
 
 enum ServicoFocusable: Hashable
@@ -20,8 +19,4 @@ class ServicoFormInfo: ObservableObject
     @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
-    
-    //        @FormField(validator: NonEmptyValidator(message: "Preencha este campo!"))
-    //        var bandeira: String = ""
-    //        lazy var bandeiraVazio = _bandeira.validation(manager: manager)
 }

@@ -4,7 +4,8 @@ Coisas a fazer
 
 ## Overview
 
-Ver picker do servico
+Tratar drag da sidebar
+Estudar integracao com Firebase
 
 ### Section header
 

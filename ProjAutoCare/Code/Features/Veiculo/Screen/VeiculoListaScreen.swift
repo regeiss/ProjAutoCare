@@ -25,7 +25,11 @@ struct VeiculoListaScreen: View
                     {
                         VeiculoListaDetalheView(viewModel: viewModel, veiculo: veiculo)
                     }
-                }.onDelete(perform: deleteVeiculos)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
+                }
                 if $viewModel.veiculosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -44,14 +48,5 @@ struct VeiculoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             VeiculoAddScreen(viewModel: viewModel)
         })
-    }
-    
-    func deleteVeiculos(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let veiculo = viewModel.veiculosLista[offset]
-            viewModel.delete(veiculo: veiculo)
-        }
     }
 }

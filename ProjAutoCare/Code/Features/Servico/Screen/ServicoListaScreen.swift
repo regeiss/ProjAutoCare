@@ -24,8 +24,12 @@ struct ServicoListaScreen: View
                     {
                         ServicoListaDetalheView(viewModel: viewModel, servico: servico)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(servico: servico)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
                 }
-                .onDelete(perform: deleteServico)
+
                 if viewModel.servicoLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -44,14 +48,5 @@ struct ServicoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             ServicoAddScreen(viewModel: viewModel)
         })
-    }
-    
-    func deleteServico(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let servico = viewModel.servicoLista[offset]
-            viewModel.delete(servico: servico)
-        }
     }
 }

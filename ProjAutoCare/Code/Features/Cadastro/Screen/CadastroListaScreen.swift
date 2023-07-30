@@ -45,7 +45,7 @@ struct CadastroListaScreen: View
                     case .servico:
                         ServicoListaScreen()
                     case .servicoEfetuado:
-                        ServicoEfetuadoListaSCreen()
+                        ServicoEfetuadoListaScreen()
                     case .veiculo:
                         VeiculoListaScreen()
                     case .posto:

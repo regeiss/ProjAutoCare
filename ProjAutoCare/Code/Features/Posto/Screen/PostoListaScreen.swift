@@ -25,8 +25,11 @@ struct PostoListaScreen: View
                     {
                         PostoListaDetalheView(viewModel: viewModel, posto: posto)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(posto: posto)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
                 }
-                .onDelete(perform: deletePostos)
                 if viewModel.postosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -45,14 +48,5 @@ struct PostoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             PostoAddScreen(viewModel: viewModel)
         })
-    }
-    
-    func deletePostos(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let posto = viewModel.postosLista[offset]
-            viewModel.delete(posto: posto)
-        }
     }
 }

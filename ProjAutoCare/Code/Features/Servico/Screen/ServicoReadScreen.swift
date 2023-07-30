@@ -31,7 +31,6 @@ struct ServicoReadScreen: View
         }.onAppear
         {
             formInfo.nome = servico.nome ?? ""
-            // formInfo.bandeira = servico.bandeira ?? ""
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Serviço")
@@ -45,9 +44,9 @@ struct ServicoReadScreen: View
                 label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
-                dismiss()
+                edicao = true 
             }
-            label: { Text("OK")}
+            label: { Text("Editar")}
             }
         }
         .navigationDestination(isPresented: $edicao, destination: {

@@ -85,7 +85,7 @@
 		E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9172A607EEA00551892 /* ServicoEfetuadoAction.swift */; };
 		E1D2E9252A61AB9100551892 /* ServicoEfetuadoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9242A61AB9100551892 /* ServicoEfetuadoScreen.swift */; };
 		E1D2E9272A61B1C500551892 /* ServicoEfetuadoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9262A61B1C500551892 /* ServicoEfetuadoViewModel.swift */; };
-		E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaSCreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaSCreen.swift */; };
+		E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */; };
 		E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
@@ -200,7 +200,7 @@
 		E1D2E9172A607EEA00551892 /* ServicoEfetuadoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoAction.swift; sourceTree = "<group>"; };
 		E1D2E9242A61AB9100551892 /* ServicoEfetuadoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoScreen.swift; sourceTree = "<group>"; };
 		E1D2E9262A61B1C500551892 /* ServicoEfetuadoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoViewModel.swift; sourceTree = "<group>"; };
-		E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaSCreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaSCreen.swift; sourceTree = "<group>"; };
+		E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaScreen.swift; sourceTree = "<group>"; };
 		E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaDetalheView.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
@@ -714,7 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				E1D2E9242A61AB9100551892 /* ServicoEfetuadoScreen.swift */,
-				E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaSCreen.swift */,
+				E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -858,7 +858,6 @@
 		E1D5F52E2A3935FB00F3AFD1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E1E409CF2A53A91000034DBA /* Sizes */,
 				E1013FBC2A4A550E0044410F /* ErrorHandling */,
 				E1432DE52A43CF420025504D /* CoreData */,
 				E1D5F5412A3A753600F3AFD1 /* View */,
@@ -925,6 +924,7 @@
 		E1D5F5392A39481500F3AFD1 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				E1E409CF2A53A91000034DBA /* Sizes */,
 				E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */,
 			);
 			path = ViewModifier;
@@ -1204,7 +1204,7 @@
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
 				E1D2E9112A60748900551892 /* CommonAction.swift in Sources */,
 				E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */,
-				E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaSCreen.swift in Sources */,
+				E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */,
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
 				E1F986312A6D70160099C57D /* CategoriaEditScreen.swift in Sources */,

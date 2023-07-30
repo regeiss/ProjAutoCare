@@ -24,7 +24,11 @@ struct PerfilListaScreen: View
                     {
                         PerfilListaDetalheView(viewModel: viewModel, perfil: perfil)
                     }
-                }.onDelete(perform: deletePerfil)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(perfil: perfil)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
+                }
                 if viewModel.perfilLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -43,14 +47,5 @@ struct PerfilListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             PerfilAddScreen(viewModel: viewModel)
         })
-    }
-    
-    func deletePerfil(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let perfil = viewModel.perfilLista[offset]
-            viewModel.delete(perfil: perfil)
-        }
     }
 }

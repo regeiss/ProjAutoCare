@@ -24,8 +24,12 @@ struct AbastecimentoListaScreen: View
                     {
                         AbastecimentoListaDetalheView(abastecimento: abastecimento)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
                 }
-                .onDelete(perform: delete)
+                
                 if $viewModel.abastecimentosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -44,13 +48,4 @@ struct AbastecimentoListaScreen: View
             AbastecimentoScreen(isEdit: false)
         })
     }
-    
-    func delete(at offsets: IndexSet)
-     {
-         for offset in offsets
-         {
-             let abastecimento = viewModel.abastecimentosLista[offset]
-             viewModel.delete(abastecimento: abastecimento)
-         }
-     }
 }

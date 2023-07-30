@@ -26,8 +26,11 @@ struct CategoriaListaScreen: View
                     {
                         CategoriaListaDetalheView(viewModel: viewModel, categoria: categoria)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(categoria: categoria)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
                 }
-                .onDelete(perform: deleteCategoria)
                 if viewModel.categoriaLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -46,14 +49,5 @@ struct CategoriaListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             CategoriaAddScreen(viewModel: viewModel)
         })
-    }
-    
-    func deleteCategoria(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let categoria = viewModel.categoriaLista[offset]
-            viewModel.delete(categoria: categoria)
-        }
     }
 }

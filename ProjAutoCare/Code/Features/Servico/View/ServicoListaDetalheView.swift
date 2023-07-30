@@ -23,13 +23,8 @@ struct ServicoListaDetalheView: View
         .onTapGesture {
             edicao = true
         }
-        .swipeActions(allowsFullSwipe: false) {
-          Button(role: .destructive) { print("swipe") } label: {
-            Label("Delete", systemImage: "trash")
-          }
-        }
         .navigationDestination(isPresented: $edicao, destination: {
-            ServicoEditScreen(viewModel: viewModel, servico: servico)
+            ServicoReadScreen(viewModel: viewModel, servico: servico)
         })
     }
 }

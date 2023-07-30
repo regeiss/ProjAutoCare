@@ -39,7 +39,9 @@ struct ServicoEditScreen: View
                         .autocorrectionDisabled(true)
                         .validation(formInfo.nomeVazio)
                         .focused($servicoInFocus, equals: .nome)
-                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.servicoInFocus = .nome}}
+                        .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50)
+                            {self.servicoInFocus = .nome
+                                formInfo.nome = servico.nome ?? ""}}
                 }
             }
             .scrollContentBackground(.hidden)

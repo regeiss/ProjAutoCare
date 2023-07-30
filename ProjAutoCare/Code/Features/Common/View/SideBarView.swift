@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SideBarView: View
 {
+    @Environment(\.dismiss) private var dismiss
     @StateObject var viewModel = PerfilViewModel()
     @State var showMenu = false
     @State var showConfigSheet = false
@@ -17,6 +18,15 @@ struct SideBarView: View
     
     var body: some View
     {
+        let drag = DragGesture()
+            .onEnded
+            {
+                if $0.translation.width < -100
+                {
+                    withAnimation{ dismiss()}
+                }
+            }
+        
         VStack(alignment: .leading)
         {
             HStack
@@ -103,6 +113,7 @@ struct SideBarView: View
                     .foregroundColor(.gray)
             }.padding([.leading, .bottom])
         }
+        .gesture(drag)
         .background(Color("sidebar"))
         .sheet(isPresented: $showConfigSheet)
         {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServicoEfetuadoListaSCreen: View
+struct ServicoEfetuadoListaScreen: View
 {
     @StateObject var viewModel = ServicoEfetuadoViewModel()
     @State private var adicao = false
@@ -24,8 +24,11 @@ struct ServicoEfetuadoListaSCreen: View
                     {
                         ServicoEfetuadoListaDetalheView(viewModel: viewModel, servicoEfetuado: servicoEfetuado)
                     }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                      Button(role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
+                        { Label("Delete", systemImage: "trash")}
+                    }
                 }
-                .onDelete(perform: deleteServicoEfetuado)
                 if viewModel.servicoEfetuadoLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
@@ -44,14 +47,5 @@ struct ServicoEfetuadoListaSCreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             ServicoEfetuadoScreen(viewModel: viewModel, servicoEfetuado: ServicoEfetuado(), isEdit: false, isAdd: true)
         })
-    }
-    
-    func deleteServicoEfetuado(at offsets: IndexSet)
-    {
-        for offset in offsets
-        {
-            let servicoEfetuado = viewModel.servicoEfetuadoLista[offset]
-            viewModel.delete(servicoEfetuado: servicoEfetuado)
-        }
     }
 }
