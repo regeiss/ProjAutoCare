@@ -107,10 +107,12 @@ struct SideBarView: View
             Spacer()
             HStack
             {
-                Text(Bundle.main.copyright)
-                    .font(.system(size: 10, weight: .thin))
+                let versaoApp = Bundle.main.appName! + " - " + Bundle.main.appVersion! + Bundle.main.buildNumber!
+                
+                Text(versaoApp)
+                    .font(.system(size: 11, weight: .thin))
                     .multilineTextAlignment(.center)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.white)
             }.padding([.leading, .bottom])
         }
         .gesture(drag)
@@ -130,15 +132,16 @@ struct SideBarView: View
     }
 }
 
-extension Bundle
-{
-    public var appName: String           { getInfo("CFBundleName") }
-    public var displayName: String       { getInfo("CFBundleDisplayName") }
-    public var language: String          { getInfo("CFBundleDevelopmentRegion") }
-    public var identifier: String        { getInfo("CFBundleIdentifier") }
-    public var copyright: String         { getInfo("NSHumanReadableCopyright").replacingOccurrences(of: "\\\\n", with: "\n") }
-    public var appBuild: String          { getInfo("CFBundleVersion") }
-    public var appVersionLong: String    { getInfo("CFBundleShortVersionString") }
+extension Bundle {
+    var appName: String? {
+        return object(forInfoDictionaryKey: "CFBundleName") as? String
+    }
     
-    fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
+    var appVersion: String? {
+        return object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+    
+    var buildNumber: String? {
+        return object(forInfoDictionaryKey: "CFBundleVersion") as? String
+    }
 }

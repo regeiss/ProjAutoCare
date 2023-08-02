@@ -9,11 +9,10 @@ import Foundation
 
 enum Relatorio: String
 {
-    case categoria
+    case combustivel
     case servico
-    case veiculo
-    case posto
-    case perfil
+    case consumo
+    case graficos
 }
 
 struct RelatorioColecao: Identifiable, Hashable

@@ -52,10 +52,19 @@
     "chassis" : {
 
     },
+    "Combustível" : {
+
+    },
     "completo" : {
 
     },
     "Configurações" : {
+
+    },
+    "Consumo" : {
+
+    },
+    "Consumo médio" : {
 
     },
     "Could not digest the fetched data. (error.localizedDescription)" : {
@@ -74,6 +83,9 @@
 
     },
     "Dismiss" : {
+
+    },
+    "Distância total " : {
 
     },
     "Editar" : {
@@ -109,6 +121,9 @@
     "gas" : {
 
     },
+    "Gráficos" : {
+
+    },
     "Green" : {
 
     },
@@ -136,6 +151,9 @@
     "marca" : {
 
     },
+    "Melhor consumo " : {
+
+    },
     "Mensagens" : {
 
     },
@@ -143,6 +161,9 @@
 
     },
     "Modo escuro" : {
+
+    },
+    "Mount" : {
 
     },
     "Nenhum" : {
@@ -167,6 +188,9 @@
 
     },
     "Perfis" : {
+
+    },
+    "Pior consumo " : {
 
     },
     "placa" : {
@@ -196,6 +220,9 @@
     "Schedule Notification" : {
 
     },
+    "Selecione as datas" : {
+
+    },
     "Selecione um veículo" : {
 
     },
@@ -205,16 +232,25 @@
     "Serviço efetuado" : {
 
     },
+    "Serviço Efetuado" : {
+
+    },
     "Serviço:" : {
 
     },
     "Total: " : {
 
     },
+    "Type" : {
+
+    },
     "Valor total %@" : {
 
     },
     "valorLitro" : {
+
+    },
+    "Value" : {
 
     },
     "Veículo" : {

@@ -138,17 +138,6 @@ struct ContentView: View
             VeiculoBottomView()
         }
     }
-    
-    func setAppVars()
-     {
-         let viewModelPerfil = PerfilViewModel()
-         let viewModelVeiculo = VeiculoViewModel()
-         let viewModelPosto = PostoViewModel()
-         
-         viewModelVeiculo.selecionarVeiculoAtivo()
-         viewModelPosto.selecionarPostoPadrao()
-         viewModelPerfil.selecionarPerfilAtivo()
-     }
      
      func loadViewData()
      {
@@ -158,5 +147,17 @@ struct ContentView: View
          print(perfilPadrao?.id?.uuidString as Any)
          print(veiculoAtual?.nome as Any)
 
+     }
+    
+    // TODO: Tratar a insercao dos itens padrao
+    func setAppVars()
+     {
+         let viewModelPerfil = PerfilViewModel()
+         let viewModelVeiculo = VeiculoViewModel()
+         let viewModelPosto = PostoViewModel()
+         
+         viewModelVeiculo.selecionarVeiculoAtivo()
+         viewModelPosto.selecionarPostoPadrao()
+         viewModelPerfil.selecionarPerfilAtivo()
      }
 }

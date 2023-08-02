@@ -6,6 +6,7 @@ Coisas a fazer
 
 Tratar drag da sidebar
 Estudar integracao com Firebase
+Tratar o version number - ok
 
 ### Section header
 

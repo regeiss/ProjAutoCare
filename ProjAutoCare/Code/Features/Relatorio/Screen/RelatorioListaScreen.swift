@@ -17,11 +17,10 @@ struct RelatorioListaScreen: View
     var body: some View 
     {
         let cadastroMenu = [
-            RelatorioColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
+            RelatorioColecao(id: 0, name: "Combustível", image: "gasStation", menu: .combustivel),
             RelatorioColecao(id: 1, name: "Serviços", image: "service", menu: .servico),
-            RelatorioColecao(id: 2, name: "Veículos", image: "report", menu: .veiculo),
-            RelatorioColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
-            RelatorioColecao(id: 4, name: "Perfil", image: "config", menu: .perfil)
+            RelatorioColecao(id: 2, name: "Consumo", image: "report", menu: .consumo),
+            RelatorioColecao(id: 3, name: "Gráficos", image: "alertas", menu: .graficos),
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
@@ -39,16 +38,14 @@ struct RelatorioListaScreen: View
                     }.padding([.leading, .trailing])
                 }.navigationDestination(for: RelatorioColecao.self) { item in
                     switch item.menu {
-                    case .categoria:
-                        CategoriaListaScreen()
+                    case .combustivel:
+                        RelatorioCombustivelScreen()
                     case .servico:
-                        ServicoListaScreen()
-                    case .veiculo:
-                        VeiculoListaScreen()
-                    case .posto:
-                        PostoListaScreen()
-                    case .perfil:
-                        PerfilListaScreen()
+                        RelatorioServicoScreen()
+                    case .graficos:
+                        RelatorioGraficosScreen()
+                    case .consumo:
+                        RelatorioConsumoScreen()
                     }
                 }.padding()
             }.navigationTitle("Relatórios")
