@@ -51,6 +51,8 @@ struct AbastecimentoScreen: View
     var appState = AppState.shared
     var isEdit: Bool
     
+    let loc = Locale(identifier: "pt_BR")
+    
     private var valorTotal: String
     {
         let formatter = NumberFormatter()
@@ -75,6 +77,7 @@ struct AbastecimentoScreen: View
                     DatePicker("data", selection: $formInfo.data)
                         .frame(maxHeight: 400)
                         .focused($abastecimentoInFocus, equals: .data)
+                        .environment(\.locale, Locale.init(identifier: "pt-BR"))
                     TextField("litros", text: $formInfo.litros)
                         .focused($abastecimentoInFocus, equals: .litros)
                         .keyboardType(.numbersAndPunctuation)

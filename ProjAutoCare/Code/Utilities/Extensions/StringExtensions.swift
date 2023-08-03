@@ -35,7 +35,7 @@ extension String
         return ""
     }
     
-    func toShortDateFormat(date: Date) -> String?
+    func toShortDateFormat() -> String?
     {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt_BR")

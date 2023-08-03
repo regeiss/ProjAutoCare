@@ -17,6 +17,9 @@ struct MountPrice: Identifiable {
 
 struct RelatorioGraficosScreen: View
 {
+    @State var filtroPeriodo: [String: String] = ["Periodo": ""]
+    @State private var isShowingSheet = false
+    
     let data: [MountPrice] = [
         MountPrice(mount: "jan/22", value: 5, type: "A"),
         MountPrice(mount: "feb/22", value: 4, type: "A"),
@@ -39,20 +42,39 @@ struct RelatorioGraficosScreen: View
         VStack
         {
             List {
-                  Chart {
-                      ForEach(data) {
-                          AreaMark(
-                              x: .value("Mount", $0.mount),
-                              y: .value("Value", $0.value)
-                          )
-                          .foregroundStyle(by: .value("Type", "Series \($0.type)"))
-                      }
-                  }
-                  .frame(height: 250)
-              }.scrollContentBackground(.hidden)
+                Chart {
+                    ForEach(data) {
+                        AreaMark(
+                            x: .value("Mount", $0.mount),
+                            y: .value("Value", $0.value)
+                        )
+                        .foregroundStyle(by: .value("Type", "Series \($0.type)"))
+                    }
+                }
+                .frame(height: 250)
+            }.scrollContentBackground(.hidden)
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Gráficos")
         .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction)
+            {
+                Button(action: {
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+        } .toolbarTitleMenu { // ADD THIS!
+            Button("Save") {
+                print("save document")
+            }.buttonStyle(.borderedProminent)
+            
+            Button("Delete") {
+                print("delete document")
+            }.buttonStyle(.borderedProminent)
+
+            Image(systemName: "bus")
+        }
     }
 }

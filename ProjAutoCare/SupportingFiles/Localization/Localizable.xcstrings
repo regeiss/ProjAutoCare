@@ -139,6 +139,9 @@
     "km" : {
 
     },
+    "Limpar seleção" : {
+
+    },
     "litros" : {
 
     },
@@ -155,6 +158,9 @@
 
     },
     "Mensagens" : {
+
+    },
+    "Mês atual" : {
 
     },
     "modelo" : {
@@ -217,7 +223,13 @@
     "Resetar Onboarding" : {
 
     },
+    "Save" : {
+
+    },
     "Schedule Notification" : {
+
+    },
+    "Selecionar" : {
 
     },
     "Selecione as datas" : {
@@ -242,6 +254,12 @@
 
     },
     "Type" : {
+
+    },
+    "Últimos 15 dias" : {
+
+    },
+    "Últimos 30 dias" : {
 
     },
     "Valor total %@" : {

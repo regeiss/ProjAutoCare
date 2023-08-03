@@ -128,6 +128,7 @@ struct ServicoEfetuadoScreen: View
                 
             }
         }
+        
         .background(Color("backGroundColor"))
         .navigationTitle("Serviço efetuado")
         .navigationBarTitleDisplayMode(.large)

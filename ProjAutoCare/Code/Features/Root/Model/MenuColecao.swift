@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Menu: String
+enum MenuGeral: String
 {
     case abastecimento
     case servico
@@ -21,5 +21,5 @@ struct MenuColecao: Identifiable, Hashable
     var id: Int
     var name: String
     var image: String
-    var menu: Menu
+    var menu: MenuGeral
 }

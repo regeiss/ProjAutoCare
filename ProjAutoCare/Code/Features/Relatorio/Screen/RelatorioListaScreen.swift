@@ -20,7 +20,7 @@ struct RelatorioListaScreen: View
             RelatorioColecao(id: 0, name: "Combustível", image: "gasStation", menu: .combustivel),
             RelatorioColecao(id: 1, name: "Serviços", image: "service", menu: .servico),
             RelatorioColecao(id: 2, name: "Consumo", image: "report", menu: .consumo),
-            RelatorioColecao(id: 3, name: "Gráficos", image: "alertas", menu: .graficos),
+            RelatorioColecao(id: 3, name: "Gráficos", image: "alertas", menu: .graficos)
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]

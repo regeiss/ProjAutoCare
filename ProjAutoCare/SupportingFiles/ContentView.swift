@@ -131,6 +131,7 @@ struct ContentView: View
             }
             .edgesIgnoringSafeArea(.all)
         }
+        .environment(\.locale, Locale(identifier: "pt_BR"))
         .onAppear { loadViewData()}
         .welcomeSheet(isPresented: $showSheet, pages: pages)
         .sheet(isPresented: $isShowingSheet)
