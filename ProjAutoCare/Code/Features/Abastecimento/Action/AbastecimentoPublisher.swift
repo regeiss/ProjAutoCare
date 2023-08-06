@@ -108,6 +108,60 @@ class AbastecimentoPublisher: NSObject, ObservableObject
             }
         }
     }
+    
+    func filter(tipo: String)
+        {
+            var calendar = Calendar.current
+            calendar.timeZone = NSTimeZone.local
+            let currentDate = calendar.startOfDay(for: Date())
+
+            let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+            let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
+            
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            
+            if tipo == "Últimos 15 dias"
+            {
+                let ultimos15Dias = calendar.date(byAdding: .day, value: -15, to: currentDate)
+                let ultimos15DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos15Dias! as NSDate, Date() as NSDate)
+                fetchRequest.predicate = ultimos15DiasPredicate
+            }
+            else if tipo == "Últimos 30 dias"
+            {
+                let ultimos30Dias = calendar.date(byAdding: .day, value: -30, to: currentDate)
+                let ultimos30DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos30Dias! as NSDate, Date() as NSDate)
+                fetchRequest.predicate = ultimos30DiasPredicate
+            }
+            else if tipo == "Mês atual"
+            {
+                print(Date().startOfMonth)     // "2018-02-01 08:00:00 +0000\n"
+                print(Date().endOfMonth)
+                let inicioMesAtual = Date().startOfMonth
+                let finalMesAtual = Date().endOfMonth
+                let mesAtualPredicate = NSPredicate(format: "(data >= %@) AND (data < %@)", inicioMesAtual as NSDate, finalMesAtual as NSDate)
+                fetchRequest.predicate = mesAtualPredicate
+            }
+            
+            // TODO: verificar quebras de secao
+            let abastecimentoFilteredFC = NSFetchedResultsController(
+                fetchRequest: fetchRequest,
+                managedObjectContext: publisherContext,
+                sectionNameKeyPath: nil, cacheName: nil)
+            
+            abastecimentoFilteredFC.delegate = self
+            
+            do
+            {
+                logger.log("Context has changed - filter, reloading servicos")
+                try abastecimentoFilteredFC.performFetch()
+                abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+            }
+            catch
+            {
+                fatalError("Erro moc \(error.localizedDescription)")
+            }
+
+        }
 }
 
 extension AbastecimentoPublisher: NSFetchedResultsControllerDelegate
