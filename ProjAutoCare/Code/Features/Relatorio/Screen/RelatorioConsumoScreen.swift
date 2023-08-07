@@ -9,10 +9,12 @@ import SwiftUI
 
 struct RelatorioConsumoScreen: View
 {
-    private var consumoMedio: Double = 0
-    private var piorConsumo: Double = 0
-    private var melhorConsumo: Double = 0
-    private var distanciaTotal: Double = 0
+    @StateObject private var viewModel = AbastecimentoViewModel()
+    
+    @State private var mediaConsumo: Double = 0
+    @State private var piorConsumo: Double = 0
+    @State private var melhorConsumo: Double = 0
+    @State private var distanciaTotal: Int32 = 0
 
     var body: some View
     {
@@ -24,25 +26,25 @@ struct RelatorioConsumoScreen: View
                 {
                     Text("Consumo médio")
                     Spacer()
-                    Text(String(consumoMedio))
+                    Text(String(mediaConsumo).toMediaConsumoFormat())
                 }
                 HStack
                 {
                     Text("Pior consumo ")
                     Spacer()
-                    Text(String(consumoMedio))
+                    Text(String(piorConsumo).toMediaConsumoFormat())
                 }
                 HStack
                 {
                     Text("Melhor consumo ")
                     Spacer()
-                    Text(String(consumoMedio))
+                    Text(String(melhorConsumo).toMediaConsumoFormat())
                 }
                 HStack
                 {
                     Text("Distância total ")
                     Spacer()
-                    Text(String(consumoMedio))
+                    Text(String(distanciaTotal).toQuilometrosFormat())
                 }
             }
             .padding([.leading, .trailing], 5)
@@ -51,5 +53,11 @@ struct RelatorioConsumoScreen: View
         .background(Color("backGroundColor"))
         .navigationTitle("Consumo")
         .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            distanciaTotal = viewModel.getDistanciaPercorrida()
+            melhorConsumo = viewModel.getMelhorConsumo()
+            mediaConsumo = viewModel.getMediaConsumo()
+            piorConsumo = viewModel.getPiorConsumo()
+        }
     }
 }

@@ -17,29 +17,29 @@ class AbastecimentoPublisher: NSObject, ObservableObject
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
     
     var publisherContext: NSManagedObjectContext = {
-         let context = PersistenceController.shared.container.viewContext
-             context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
-             context.automaticallyMergesChangesFromParent = true
-         return context
-         }()
+        let context = PersistenceController.shared.container.viewContext
+        context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        context.automaticallyMergesChangesFromParent = true
+        return context
+    }()
     
     private override init()
     {
         let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
-
+        
         fetchRequest.sortDescriptors = [sortDescriptor]
-
+        
         abastecimentoFetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: publisherContext,
             sectionNameKeyPath: #keyPath(Abastecimento.data), cacheName: nil
         )
-
+        
         super.init()
-
+        
         abastecimentoFetchController.delegate = self
-
+        
         do
         {
             try abastecimentoFetchController.performFetch()
@@ -50,7 +50,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
             NSLog("Erro: could not fetch objects")
         }
     }
-
+    
     func add(abastecimento: AbastecimentoDTO)
     {
         let novoAbastecimento = Abastecimento(context: publisherContext)
@@ -77,7 +77,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
             }
         }
     }
-
+    
     func update(abastecimento: Abastecimento)
     {
         publisherContext.performAndWait
@@ -92,7 +92,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
             }
         }
     }
-
+    
     func delete(abastecimento: Abastecimento)
     {
         publisherContext.performAndWait
@@ -110,58 +110,180 @@ class AbastecimentoPublisher: NSObject, ObservableObject
     }
     
     func filter(tipo: String)
+    {
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        let currentDate = calendar.startOfDay(for: Date())
+        
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if tipo == "Últimos 15 dias"
         {
-            var calendar = Calendar.current
-            calendar.timeZone = NSTimeZone.local
-            let currentDate = calendar.startOfDay(for: Date())
-
-            let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
-            let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
-            
-            fetchRequest.sortDescriptors = [sortDescriptor]
-            
-            if tipo == "Últimos 15 dias"
-            {
-                let ultimos15Dias = calendar.date(byAdding: .day, value: -15, to: currentDate)
-                let ultimos15DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos15Dias! as NSDate, Date() as NSDate)
-                fetchRequest.predicate = ultimos15DiasPredicate
-            }
-            else if tipo == "Últimos 30 dias"
-            {
-                let ultimos30Dias = calendar.date(byAdding: .day, value: -30, to: currentDate)
-                let ultimos30DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos30Dias! as NSDate, Date() as NSDate)
-                fetchRequest.predicate = ultimos30DiasPredicate
-            }
-            else if tipo == "Mês atual"
-            {
-                print(Date().startOfMonth)     // "2018-02-01 08:00:00 +0000\n"
-                print(Date().endOfMonth)
-                let inicioMesAtual = Date().startOfMonth
-                let finalMesAtual = Date().endOfMonth
-                let mesAtualPredicate = NSPredicate(format: "(data >= %@) AND (data < %@)", inicioMesAtual as NSDate, finalMesAtual as NSDate)
-                fetchRequest.predicate = mesAtualPredicate
-            }
-            
-            // TODO: verificar quebras de secao
-            let abastecimentoFilteredFC = NSFetchedResultsController(
-                fetchRequest: fetchRequest,
-                managedObjectContext: publisherContext,
-                sectionNameKeyPath: nil, cacheName: nil)
-            
-            abastecimentoFilteredFC.delegate = self
-            
-            do
-            {
-                logger.log("Context has changed - filter, reloading servicos")
-                try abastecimentoFilteredFC.performFetch()
-                abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
-            }
-            catch
-            {
-                fatalError("Erro moc \(error.localizedDescription)")
-            }
-
+            let ultimos15Dias = calendar.date(byAdding: .day, value: -15, to: currentDate)
+            let ultimos15DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos15Dias! as NSDate, Date() as NSDate)
+            fetchRequest.predicate = ultimos15DiasPredicate
         }
+        else if tipo == "Últimos 30 dias"
+        {
+            let ultimos30Dias = calendar.date(byAdding: .day, value: -30, to: currentDate)
+            let ultimos30DiasPredicate = NSPredicate(format: "(data >= %@) AND (data <= %@)", ultimos30Dias! as NSDate, Date() as NSDate)
+            fetchRequest.predicate = ultimos30DiasPredicate
+        }
+        else if tipo == "Mês atual"
+        {
+            print(Date().startOfMonth)
+            print(Date().endOfMonth)
+            let inicioMesAtual = Date().startOfMonth
+            let finalMesAtual = Date().endOfMonth
+            let mesAtualPredicate = NSPredicate(format: "(data >= %@) AND (data < %@)", inicioMesAtual as NSDate, finalMesAtual as NSDate)
+            fetchRequest.predicate = mesAtualPredicate
+        }
+        
+        // TODO: verificar quebras de secao
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+    
+    func getDistanciaPercorrida() -> Int32
+    {
+        var kmPercorrida: Int32 = 0
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "quilometragem", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+            
+            let kmInicial = abastecimentoCVS.value.first?.quilometragem  ?? 0
+            let kmFinal = abastecimentoCVS.value.last?.quilometragem  ?? 0
+            kmPercorrida = kmFinal - kmInicial
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        return kmPercorrida
+    }
+    
+    func getMediaConsumo() -> Double
+    {
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "media", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        var mediaConsumo: Double {
+            abastecimentoCVS.value.map { Double($0.media)}.reduce(0, +) / Double(abastecimentoCVS.value.count)
+        }
+        
+        return mediaConsumo
+    }
+    
+    func getMelhorConsumo() -> Double
+    {
+        var melhorConsumo: Double = 0
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "media", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        melhorConsumo = abastecimentoCVS.value.last?.media ?? 0
+        
+        return melhorConsumo
+    }
+    
+    func getPiorConsumo() -> Double
+    {
+        var piorConsumo: Double = 0
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "media", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading abastecimento")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        piorConsumo = abastecimentoCVS.value.first?.media ?? 0
+        
+        return piorConsumo
+    }
 }
 
 extension AbastecimentoPublisher: NSFetchedResultsControllerDelegate
@@ -173,18 +295,5 @@ extension AbastecimentoPublisher: NSFetchedResultsControllerDelegate
         logger.log("Context has changed, reloading abastecimento")
         
         self.abastecimentoCVS.value = abastecimentos
-    }
-}
-
-extension Date
-{
-    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents
-    {
-        return calendar.dateComponents(Set(components), from: self)
-    }
-
-    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int
-    {
-        return calendar.component(component, from: self)
     }
 }

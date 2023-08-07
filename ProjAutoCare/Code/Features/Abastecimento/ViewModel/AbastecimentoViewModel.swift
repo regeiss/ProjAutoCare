@@ -34,4 +34,24 @@ class AbastecimentoViewModel: ObservableObject
     {
         AbastecimentoPublisher.shared.filter(tipo: tipo)
     }
+    
+    func getDistanciaPercorrida() -> Int32
+    {
+        AbastecimentoPublisher.shared.getDistanciaPercorrida()
+    }
+    
+    func getMelhorConsumo() -> Double
+    {
+        AbastecimentoPublisher.shared.getMelhorConsumo()
+    }
+    
+    func getPiorConsumo() -> Double
+    {
+        AbastecimentoPublisher.shared.getPiorConsumo()
+    }
+    
+    func getMediaConsumo() -> Double
+    {
+        AbastecimentoPublisher.shared.getMediaConsumo()
+    }
 }

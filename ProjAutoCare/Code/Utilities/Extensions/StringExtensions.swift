@@ -21,6 +21,18 @@ extension String
         return ""
     }
     
+    func toMediaConsumoFormat() -> String
+    {
+        if let doubleValue = Double(self)
+        {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.locale = Locale(identifier: "pt_BR")
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            numberFormatter.maximumFractionDigits = 2
+            return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? ""
+        }
+        return ""
+    }
     func toQuilometrosFormat() -> String
     {
         if let int32Value = Int32(self)
