@@ -73,6 +73,12 @@
     "custo" : {
 
     },
+    "Custo por dia " : {
+
+    },
+    "Custo por quilometro " : {
+
+    },
     "data" : {
 
     },
@@ -154,6 +160,12 @@
     "marca" : {
 
     },
+    "Média custo litro " : {
+
+    },
+    "Média custo/km " : {
+
+    },
     "Melhor consumo " : {
 
     },
@@ -176,6 +188,9 @@
 
     },
     "nome" : {
+
+    },
+    "Nro de tanques " : {
 
     },
     "observações" : {
@@ -206,6 +221,9 @@
 
     },
     "Postos" : {
+
+    },
+    "Quilometros dia " : {
 
     },
     "Received unexpected error. (error.localizedDescription)" : {

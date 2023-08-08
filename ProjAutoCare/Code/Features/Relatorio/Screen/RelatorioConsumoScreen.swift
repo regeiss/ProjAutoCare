@@ -15,7 +15,13 @@ struct RelatorioConsumoScreen: View
     @State private var piorConsumo: Double = 0
     @State private var melhorConsumo: Double = 0
     @State private var distanciaTotal: Int32 = 0
-
+    @State private var totalTanques: Int = 0
+    @State private var mediaCustoKM: Double = 0
+    @State private var mediaCustoLitro: Double = 0
+    @State private var custoDia: Double = 0
+    @State private var kmDia: Double = 0
+    @State private var custoKM: Double = 0
+    
     var body: some View
     {
         VStack
@@ -46,6 +52,42 @@ struct RelatorioConsumoScreen: View
                     Spacer()
                     Text(String(distanciaTotal).toQuilometrosFormat())
                 }
+                HStack
+                {
+                    Text("Nro de tanques ")
+                    Spacer()
+                    Text(String(totalTanques).toQuilometrosFormat())
+                }
+                HStack
+                {
+                    Text("Média custo/km ")
+                    Spacer()
+                    Text(String(distanciaTotal))
+                }
+                HStack
+                {
+                    Text("Média custo litro ")
+                    Spacer()
+                    Text(String(mediaCustoLitro))
+                }
+                HStack
+                {
+                    Text("Custo por dia ")
+                    Spacer()
+                    Text(String(distanciaTotal).toQuilometrosFormat())
+                }
+                HStack
+                {
+                    Text("Quilometros dia ")
+                    Spacer()
+                    Text(String(distanciaTotal).toQuilometrosFormat())
+                }
+                HStack
+                {
+                    Text("Custo por quilometro ")
+                    Spacer()
+                    Text(String(distanciaTotal).toQuilometrosFormat())
+                }
             }
             .padding([.leading, .trailing], 5)
             .scrollContentBackground(.hidden)
@@ -58,6 +100,8 @@ struct RelatorioConsumoScreen: View
             melhorConsumo = viewModel.getMelhorConsumo()
             mediaConsumo = viewModel.getMediaConsumo()
             piorConsumo = viewModel.getPiorConsumo()
+            totalTanques = viewModel.getTotalTanques()
+            mediaCustoLitro = viewModel.getMediaValorLitro()
         }
     }
 }

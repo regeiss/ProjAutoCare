@@ -284,6 +284,68 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         return piorConsumo
     }
+    
+    func getTotalTanques() -> Int
+    {
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let completo = true
+        let completoPredicate = NSPredicate(format: "(completo == true)")
+        fetchRequest.predicate = completoPredicate
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        return Int(abastecimentoCVS.value.count)
+    }
+
+    func getMediaValorLitro() -> Double
+    {
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading servicos")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        var mediaCustoLitro: Double {
+            abastecimentoCVS.value.map { Double($0.valorLitro)}.reduce(0, +) / Double(abastecimentoCVS.value.count)
+        }
+        print(mediaCustoLitro)
+        return mediaCustoLitro
+    }
 }
 
 extension AbastecimentoPublisher: NSFetchedResultsControllerDelegate
