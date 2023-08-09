@@ -10,6 +10,9 @@
     " km/l" : {
 
     },
+    " litros" : {
+
+    },
     "Abastecimento" : {
 
     },
@@ -223,7 +226,7 @@
     "Postos" : {
 
     },
-    "Quilometros dia " : {
+    "Quilometros por dia " : {
 
     },
     "Received unexpected error. (error.localizedDescription)" : {

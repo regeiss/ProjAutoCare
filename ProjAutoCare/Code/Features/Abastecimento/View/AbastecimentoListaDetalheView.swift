@@ -41,7 +41,7 @@ struct AbastecimentoListaDetalheView: View
                     Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
                 }
                 HStack{Text(abastecimento.nomePosto); Spacer()}
-                HStack{Text(abastecimento.nomeCarro); Spacer()}
+                // HStack{Text(abastecimento.nomeCarro); Spacer()}
             }
             .padding(.all, 2)
             

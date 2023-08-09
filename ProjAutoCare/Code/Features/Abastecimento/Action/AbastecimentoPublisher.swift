@@ -33,7 +33,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         abastecimentoFetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: publisherContext,
-            sectionNameKeyPath: #keyPath(Abastecimento.data), cacheName: nil
+            sectionNameKeyPath: nil, cacheName: nil
         )
         
         super.init()
@@ -152,7 +152,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -178,7 +177,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
             
@@ -209,7 +207,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -241,7 +238,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -271,7 +267,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading abastecimento")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -303,7 +298,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -330,7 +324,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading servicos")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -357,7 +350,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         return mediaCusto
     }
     
-    func getCustoPorDia() -> Int
+    func getCustoPorDia() -> Double
     {
         var calendar = Calendar(identifier: .gregorian)
         let timezone = TimeZone(secondsFromGMT: 0)!
@@ -377,7 +370,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         
         do
         {
-            logger.log("Context has changed - filter, reloading abastecimento")
             try abastecimentoFilteredFC.performFetch()
             abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
@@ -389,8 +381,50 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         primeiraData = abastecimentoCVS.value.first?.data ?? Date()
         
         let numeroDias = calendar.numberOfDaysBetween(primeiraData, and: Date())
+        let distancia = getDistanciaPercorrida()
+        let custoKM = getMediaCustoKM()
+        let distanciaPorDia = distancia / Int32(numeroDias)
+        let custoPorDia = Double(distanciaPorDia) * custoKM
         
-        return numeroDias
+        return custoPorDia
+    }
+    
+    func getKMPorDia() -> Int32
+    {
+        var calendar = Calendar(identifier: .gregorian)
+        let timezone = TimeZone(secondsFromGMT: 0)!
+        calendar.timeZone = timezone
+        
+        var primeiraData: Date = Date()
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "media", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        primeiraData = abastecimentoCVS.value.first?.data ?? Date()
+        
+        let numeroDias = calendar.numberOfDaysBetween(primeiraData, and: Date())
+        let distancia = getDistanciaPercorrida()
+        let custoKM = getMediaCustoKM()
+        let distanciaPorDia = distancia / Int32(numeroDias)
+        
+        return distanciaPorDia
     }
 }
 
@@ -400,7 +434,6 @@ extension AbastecimentoPublisher: NSFetchedResultsControllerDelegate
     {
         guard let abastecimentos = controller.fetchedObjects as? [Abastecimento]
         else { return }
-        logger.log("Context has changed, reloading abastecimento")
         
         self.abastecimentoCVS.value = abastecimentos
     }

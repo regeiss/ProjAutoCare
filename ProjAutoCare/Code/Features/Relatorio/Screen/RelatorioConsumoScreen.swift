@@ -19,7 +19,7 @@ struct RelatorioConsumoScreen: View
     @State private var mediaCustoKM: Double = 0
     @State private var mediaCustoLitro: Double = 0
     @State private var custoDia: Double = 0
-    @State private var kmDia: Double = 0
+    @State private var kmPorDia: Int32 = 0
     @State private var custoKM: Double = 0
     
     var body: some View
@@ -56,31 +56,31 @@ struct RelatorioConsumoScreen: View
                 {
                     Text("Nro de tanques ")
                     Spacer()
-                    Text(String(totalTanques).toQuilometrosFormat())
+                    Text(String(totalTanques))
                 }
                 HStack
                 {
                     Text("Média custo/km ")
                     Spacer()
-                    Text(String(distanciaTotal))
+                    Text(String(mediaCustoKM).toCurrencyFormat())
                 }
                 HStack
                 {
                     Text("Média custo litro ")
                     Spacer()
-                    Text(String(mediaCustoLitro))
+                    Text(String(mediaCustoLitro).toCurrencyFormat())
                 }
                 HStack
                 {
                     Text("Custo por dia ")
                     Spacer()
-                    Text(String(custoDia).toQuilometrosFormat())
+                    Text(String(custoDia).toCurrencyFormat())
                 }
                 HStack
                 {
-                    Text("Quilometros dia ")
+                    Text("Quilometros por dia ")
                     Spacer()
-                    Text(String(distanciaTotal).toQuilometrosFormat())
+                    Text(String(kmPorDia).toQuilometrosFormat())
                 }
                 HStack
                 {
@@ -104,7 +104,7 @@ struct RelatorioConsumoScreen: View
             mediaCustoLitro = viewModel.getMediaValorLitro()
             mediaCustoKM = viewModel.getMediaCustoKM()
             custoDia = Double(viewModel.getCustoPorDia())
-            print("Dias \(custoDia)")
+            kmPorDia = viewModel.getKMPorDia()
         }
     }
 }

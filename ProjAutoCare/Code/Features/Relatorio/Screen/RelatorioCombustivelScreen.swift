@@ -29,12 +29,13 @@ struct RelatorioCombustivelScreen: View
                         {
                             HStack
                             {
-                                Text(String(abastecimento.quilometragem).toQuilometrosFormat())
+                                Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
                                 Spacer()
                             }
                             HStack
                             {
-                                Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
+                                Text(String(abastecimento.litros))
+                                Text(" litros")
                                 Spacer()
                                 Text(String(abastecimento.valorTotal).toCurrencyFormat())
                             }
