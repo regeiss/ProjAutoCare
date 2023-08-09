@@ -74,7 +74,7 @@ struct RelatorioConsumoScreen: View
                 {
                     Text("Custo por dia ")
                     Spacer()
-                    Text(String(distanciaTotal).toQuilometrosFormat())
+                    Text(String(custoDia).toQuilometrosFormat())
                 }
                 HStack
                 {
@@ -86,7 +86,7 @@ struct RelatorioConsumoScreen: View
                 {
                     Text("Custo por quilometro ")
                     Spacer()
-                    Text(String(distanciaTotal).toQuilometrosFormat())
+                    Text(String(mediaCustoKM).toCurrencyFormat())
                 }
             }
             .padding([.leading, .trailing], 5)
@@ -102,6 +102,9 @@ struct RelatorioConsumoScreen: View
             piorConsumo = viewModel.getPiorConsumo()
             totalTanques = viewModel.getTotalTanques()
             mediaCustoLitro = viewModel.getMediaValorLitro()
+            mediaCustoKM = viewModel.getMediaCustoKM()
+            custoDia = Double(viewModel.getCustoPorDia())
+            print("Dias \(custoDia)")
         }
     }
 }

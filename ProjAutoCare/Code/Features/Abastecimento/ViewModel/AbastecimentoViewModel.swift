@@ -64,4 +64,14 @@ class AbastecimentoViewModel: ObservableObject
     {
         AbastecimentoPublisher.shared.getMediaValorLitro()
     }
+    
+    func getMediaCustoKM() -> Double
+    {
+        AbastecimentoPublisher.shared.getMediaCustoKM()
+    }
+    
+    func getCustoPorDia() -> Int
+    {
+        AbastecimentoPublisher.shared.getCustoPorDia()
+    }
 }

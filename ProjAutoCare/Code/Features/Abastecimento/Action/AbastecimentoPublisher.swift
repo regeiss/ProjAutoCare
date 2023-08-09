@@ -26,7 +26,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
     private override init()
     {
         let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "data", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -291,7 +291,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        let completo = true
         let completoPredicate = NSPredicate(format: "(completo == true)")
         fetchRequest.predicate = completoPredicate
         
@@ -345,6 +344,53 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         }
         print(mediaCustoLitro)
         return mediaCustoLitro
+    }
+    
+    func getMediaCustoKM() -> Double
+    {
+        let consumoMedio = getMediaConsumo()
+        let mediaValorLitro = getMediaValorLitro()
+        
+        let media = 1 / consumoMedio
+        let mediaCusto = media * mediaValorLitro
+        
+        return mediaCusto
+    }
+    
+    func getCustoPorDia() -> Int
+    {
+        var calendar = Calendar(identifier: .gregorian)
+        let timezone = TimeZone(secondsFromGMT: 0)!
+        calendar.timeZone = timezone
+        
+        var primeiraData: Date = Date()
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "media", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
+        do
+        {
+            logger.log("Context has changed - filter, reloading abastecimento")
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+        
+        primeiraData = abastecimentoCVS.value.first?.data ?? Date()
+        
+        let numeroDias = calendar.numberOfDaysBetween(primeiraData, and: Date())
+        
+        return numeroDias
     }
 }
 
