@@ -125,10 +125,8 @@ struct ServicoEfetuadoScreen: View
                 formInfo.data = servicoEfetuado.data ?? Date()
                 formInfo.custo = (String(servicoEfetuado.custo).toCurrencyFormat())
                 formInfo.observacoes = servicoEfetuado.observacoes ?? ""
-                
             }
         }
-        
         .background(Color("backGroundColor"))
         .navigationTitle("Serviço efetuado")
         .navigationBarTitleDisplayMode(.large)

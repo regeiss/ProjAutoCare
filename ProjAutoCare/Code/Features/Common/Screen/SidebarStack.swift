@@ -24,6 +24,15 @@ struct SideBarStack<SidebarContent: View, Content: View>: View
     
     var body: some View
     {
+        let drag = DragGesture()
+                   .onEnded
+               {
+                   if $0.translation.width < -100
+                   {
+                       withAnimation { self.showSidebar = false}
+                   }
+               }
+        
         ZStack(alignment: .leading)
         {
             sidebarContent
@@ -54,7 +63,7 @@ struct SideBarStack<SidebarContent: View, Content: View>: View
                 )
                 .offset(x: showSidebar ? sidebarWidth : 0, y: 0)
                 .animation(Animation.easeInOut.speed(2), value: showSidebar)
-                
         }
+        .gesture(drag)
     }
 }

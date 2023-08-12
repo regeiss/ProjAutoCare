@@ -22,7 +22,10 @@ struct RelatorioCombustivelScreen: View
         {
             List
             {
-                Section(header: Text(textoFiltro).foregroundColor(.white), footer: Text("Total: " + String(viewModel.abastecimentosLista.map{$0.valorTotal}.reduce(0, +)).toCurrencyFormat()).foregroundColor(.white))
+                Section(header: Text(textoFiltro).foregroundColor(.white), 
+                        footer: Text("Total: " + String(viewModel.abastecimentosLista.map{$0.valorTotal}.reduce(0, +)).toCurrencyFormat()).foregroundColor(.white) +
+                                Text("    Litros: " + String(viewModel.abastecimentosLista.map{$0.litros}.reduce(0, +))).foregroundColor(.white)
+                )
                 {
                     ForEach(viewModel.abastecimentosLista, id: \.self) { abastecimento in
                         VStack

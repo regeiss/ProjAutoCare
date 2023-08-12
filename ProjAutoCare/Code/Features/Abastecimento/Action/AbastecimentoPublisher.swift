@@ -26,7 +26,7 @@ class AbastecimentoPublisher: NSObject, ObservableObject
     private override init()
     {
         let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "data", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         

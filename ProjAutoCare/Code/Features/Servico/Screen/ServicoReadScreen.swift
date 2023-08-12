@@ -11,8 +11,10 @@ struct ServicoReadScreen: View
 {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: ServicoViewModel
+    @ObservedObject var viewModelCategoria = CategoriaViewModel()
     @ObservedObject var formInfo = ServicoFormInfo()
     @State private var edicao = false
+    @State var categoria: Categoria?
     
     var servico: Servico
     
@@ -24,6 +26,14 @@ struct ServicoReadScreen: View
             {
                 Section
                 {
+                    Picker("Categoria:", selection: $categoria)
+                    {
+                        ForEach(viewModelCategoria.categoriaLista) { (categoria: Categoria) in
+                            Text(categoria.nome!).tag(categoria as Categoria?)
+                        }
+                    }.pickerStyle(.automatic)
+                        .onAppear { categoria = servico.daCategoria}
+                    
                     TextField("nome", text: $formInfo.nome)
                 }.disabled(true)
             }

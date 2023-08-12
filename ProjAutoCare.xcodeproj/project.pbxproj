@@ -85,6 +85,7 @@
 		E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */; };
 		E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */; };
 		E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */; };
+		E1CFD7BA2A86B19B0098AFC0 /* AbastecimentoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CFD7B92A86B19B0098AFC0 /* AbastecimentoAddScreen.swift */; };
 		E1D2E90F2A60747000551892 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E90E2A60747000551892 /* Sizes.swift */; };
 		E1D2E9112A60748900551892 /* CommonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9102A60748900551892 /* CommonAction.swift */; };
 		E1D2E9162A607D6E00551892 /* ServicoEfetuadoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9152A607D6E00551892 /* ServicoEfetuadoModel.swift */; };
@@ -207,6 +208,7 @@
 		E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModifierConfig.swift; path = ProjAutoCare/Code/Features/Onboarding/Model/ViewModifierConfig.swift; sourceTree = SOURCE_ROOT; };
 		E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioModel.swift; sourceTree = "<group>"; };
 		E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaDetalheView.swift; sourceTree = "<group>"; };
+		E1CFD7B92A86B19B0098AFC0 /* AbastecimentoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAddScreen.swift; sourceTree = "<group>"; };
 		E1D2E90E2A60747000551892 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sizes.swift; path = ProjAutoCare/Code/Features/Relatorio/View/Sizes.swift; sourceTree = SOURCE_ROOT; };
 		E1D2E9102A60748900551892 /* CommonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonAction.swift; path = ProjAutoCare/Code/Features/Relatorio/View/CommonAction.swift; sourceTree = SOURCE_ROOT; };
 		E1D2E9152A607D6E00551892 /* ServicoEfetuadoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoModel.swift; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 			children = (
 				E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */,
 				E16C15242A412424003EAADA /* AbastecimentoScreen.swift */,
+				E1CFD7B92A86B19B0098AFC0 /* AbastecimentoAddScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -531,10 +534,10 @@
 		E16C151C2A4115A2003EAADA /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */,
+				E169CDEF2A78774000157E93 /* RelatorioCombustivelScreen.swift */,
 				E1FD05392A77318000B867B6 /* RelatorioConsumoScreen.swift */,
 				E169CDED2A78766E00157E93 /* RelatorioGraficosScreen.swift */,
-				E169CDEF2A78774000157E93 /* RelatorioCombustivelScreen.swift */,
+				E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */,
 				E169CDF12A7877F400157E93 /* RelatorioServicoScreen.swift */,
 				E1398DA42A7AC8AC003C3E6F /* teste.swift */,
 			);
@@ -1182,6 +1185,7 @@
 				E1E409C82A5240B600034DBA /* CategoriaListaScreen.swift in Sources */,
 				E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */,
 				E1AC4F182A5B07D800016186 /* Categoria+CoreDataProperties.swift in Sources */,
+				E1CFD7BA2A86B19B0098AFC0 /* AbastecimentoAddScreen.swift in Sources */,
 				E1AC4F332A5B808900016186 /* CategoriaListaDetalheView.swift in Sources */,
 				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
 				E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */,
