@@ -26,10 +26,10 @@ struct VeiculoListaScreen: View
                         VeiculoListaDetalheView(viewModel: viewModel, veiculo: veiculo)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                      Button(role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
-                        { Label("Delete", systemImage: "trash")}
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
                     }
                 }
+                
                 if $viewModel.veiculosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)

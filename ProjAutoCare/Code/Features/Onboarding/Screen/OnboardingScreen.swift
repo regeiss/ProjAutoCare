@@ -110,16 +110,11 @@ struct OnboardingButton: View
         GeometryReader { proxy in
             LazyHStack
             {
-                Button(action: {
+                Button("Finish Setup", action: {
                     
                     // #2
                     needsAppOnboarding = false
-                }) {
-                    Text("Finish Setup")
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 15)
-                    .font(Font.title2.bold().lowercaseSmallCaps())
-                }
+                })
                 .background(Color.white)
                 .foregroundColor(.black)
                 .cornerRadius(40)

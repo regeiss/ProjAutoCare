@@ -27,10 +27,10 @@ struct CategoriaListaScreen: View
                         CategoriaListaDetalheView(viewModel: viewModel, categoria: categoria)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                      Button(role: .destructive, action: { viewModel.delete(categoria: categoria)})
-                        { Label("Delete", systemImage: "trash")}
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(categoria: categoria)})
                     }
                 }
+            
                 if viewModel.categoriaLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)

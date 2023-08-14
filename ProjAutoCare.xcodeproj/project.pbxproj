@@ -36,6 +36,7 @@
 		E10A77AC2A6F4F5E00FF7800 /* ServicoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */; };
 		E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */; };
 		E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */; };
+		E10CE26C2A899C200022670F /* AbastecimentoPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE26B2A899C200022670F /* AbastecimentoPublisher+Extension.swift */; };
 		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
 		E1398DA52A7AC8AC003C3E6F /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1398DA42A7AC8AC003C3E6F /* teste.swift */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
@@ -159,6 +160,7 @@
 		E10A77AB2A6F4F5E00FF7800 /* ServicoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoAddScreen.swift; sourceTree = "<group>"; };
 		E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEditScreen.swift; sourceTree = "<group>"; };
 		E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoReadScreen.swift; sourceTree = "<group>"; };
+		E10CE26B2A899C200022670F /* AbastecimentoPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbastecimentoPublisher+Extension.swift"; sourceTree = "<group>"; };
 		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
 		E1398DA42A7AC8AC003C3E6F /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */,
+				E10CE26B2A899C200022670F /* AbastecimentoPublisher+Extension.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -1235,6 +1238,7 @@
 				E1D2E9112A60748900551892 /* CommonAction.swift in Sources */,
 				E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */,
 				E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */,
+				E10CE26C2A899C200022670F /* AbastecimentoPublisher+Extension.swift in Sources */,
 				E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */,
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,

@@ -25,11 +25,10 @@ struct ServicoListaScreen: View
                         ServicoListaDetalheView(viewModel: viewModel, servico: servico)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                      Button(role: .destructive, action: { viewModel.delete(servico: servico)})
-                        { Label("Delete", systemImage: "trash")}
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(servico: servico)})
                     }
                 }
-
+                
                 if viewModel.servicoLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)

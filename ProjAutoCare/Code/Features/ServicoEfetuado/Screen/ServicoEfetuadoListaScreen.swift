@@ -23,16 +23,15 @@ struct ServicoEfetuadoListaScreen: View
                     HStack
                     {
                         ServicoEfetuadoListaDetalheView(viewModel: viewModel, servicoEfetuado: servicoEfetuado)
-                    }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                      Button(role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
-                        { Label("Delete", systemImage: "trash")}
+                    }                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
                     }
                 }
-                if viewModel.servicoEfetuadoLista.isEmpty
-                {
-                    Text("").listRowBackground(Color.clear)
-                }
+            }
+            
+            if viewModel.servicoEfetuadoLista.isEmpty
+            {
+                Text("").listRowBackground(Color.clear)
             }
         }
         .background(Color("backGroundColor"))

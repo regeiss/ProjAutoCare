@@ -20,7 +20,7 @@ struct AbastecimentoAddScreen: View
     @State var isSaveDisabled: Bool = true
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     @State var posto: Posto?
-    
+
     var appState = AppState.shared
     var isEdit: Bool
     
@@ -58,16 +58,19 @@ struct AbastecimentoAddScreen: View
                     TextField("litros", text: $formInfo.litros)
                         .focused($abastecimentoInFocus, equals: .litros)
                         .keyboardType(.numbersAndPunctuation)
+                        .validation(formInfo.litrosNaoInformado)
                     
                     TextField("valorLitro", text: $formInfo.valorLitro)
                         .focused($abastecimentoInFocus, equals: .litros)
                         .keyboardType(.numbersAndPunctuation)
+                        .validation(formInfo.valorNaoInformado)
                     
                     Text("Valor total \(valorTotal)")
                     Toggle(isOn: $formInfo.completo)
                     {
                         Text("completo")
                     }.focused($abastecimentoInFocus, equals: .completo)
+                    
                     
                     Picker("Posto:", selection: $posto)
                     {
@@ -85,18 +88,16 @@ struct AbastecimentoAddScreen: View
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
-            { Button {
-                dismiss()
-            }
-                label: { Text("Cancelar")}}
+            { Button("Cancelar") {
+                dismiss()}
+                }
             ToolbarItem(placement: .navigationBarTrailing)
-            { Button {
-                gravarAbastecimento()
-                dismiss()
+            { 
+                Button("OK") {
+                    gravarAbastecimento()
+                    dismiss()}.disabled(isSaveDisabled)
             }
-                label: { Text("OK")}}
         }
-        // }
     }
     
     private func saveAbastecimento() throws

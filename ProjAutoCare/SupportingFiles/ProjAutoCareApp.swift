@@ -26,8 +26,8 @@ struct ProjAutoCareApp: App
                 .modifier(DarkModeViewModifier())
         }
         .onChange(of: scenePhase)
-        { phase in
-            switch phase
+        { scenePhase in
+            switch scenePhase
             {
             case .active:
                 print("active")

@@ -50,8 +50,7 @@ struct CategoriaAddScreen: View
                 save()
                 dismiss()
             }
-            label: { Text("OK").disabled(isSaveDisabled)}
-            }
+                label: { Text("OK").disabled(isSaveDisabled)}}
         }
     }
     

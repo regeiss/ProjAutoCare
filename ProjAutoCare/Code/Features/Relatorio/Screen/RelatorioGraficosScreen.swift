@@ -60,10 +60,8 @@ struct RelatorioGraficosScreen: View
         .toolbar {
             ToolbarItem(placement: .primaryAction)
             {
-                Button(action: {
-                }) {
-                    Image(systemName: "plus")
-                }
+                Button("plus", systemImage: "plus", action: {
+                })
             }
         } .toolbarTitleMenu { // ADD THIS!
             Button("Save") {

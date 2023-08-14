@@ -26,10 +26,10 @@ struct PostoListaScreen: View
                         PostoListaDetalheView(viewModel: viewModel, posto: posto)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                      Button(role: .destructive, action: { viewModel.delete(posto: posto)})
-                        { Label("Delete", systemImage: "trash")}
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(posto: posto)})
                     }
                 }
+                
                 if viewModel.postosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)

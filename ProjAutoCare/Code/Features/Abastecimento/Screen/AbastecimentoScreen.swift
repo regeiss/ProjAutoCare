@@ -53,11 +53,21 @@ class AbastecimentoFormInfo: ObservableObject
                  type: .all,
                  strategy: .all)
     })
-    var custo: String = ""
-    lazy var custoNaoInformado = _custo.validation(manager: manager)
+    var valorLitro: String = ""
+    lazy var valorNaoInformado = _valorLitro.validation(manager: manager)
     
-    @Published var litros: String = ""
-    @Published var valorLitro: String = ""
+    @FormField(validator: {
+         CompositeValidator(
+                 validators: [
+                     NonEmptyValidator(message: "Preencha este campo!"),
+                     PatternValidator(pattern: AppState.shared.regexNumerico, message: "Deve ser númerico")
+                 ],
+                 type: .all,
+                 strategy: .all)
+    })
+    var litros: String = ""
+    lazy var litrosNaoInformado = _litros.validation(manager: manager)
+    
     var completo: Bool = false
     
     let regexNumerico: String =  "[0-9[\\b]]+"
