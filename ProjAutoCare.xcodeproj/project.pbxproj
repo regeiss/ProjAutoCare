@@ -37,8 +37,13 @@
 		E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */; };
 		E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */; };
 		E10CE26C2A899C200022670F /* AbastecimentoPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE26B2A899C200022670F /* AbastecimentoPublisher+Extension.swift */; };
+		E10CE2762A8AE7660022670F /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE2752A8AE7660022670F /* DashboardScreen.swift */; };
+		E10CE2782A8AE9300022670F /* GaugesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE2772A8AE9300022670F /* GaugesView.swift */; };
+		E10CE27A2A8AEAA00022670F /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE2792A8AEAA00022670F /* RemindersView.swift */; };
+		E10CE27C2A8AEB340022670F /* LogEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27B2A8AEB340022670F /* LogEntriesView.swift */; };
+		E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27D2A8AEC090022670F /* DashBoardModel.swift */; };
+		E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27F2A8AEC180022670F /* DashboardAction.swift */; };
 		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
-		E1398DA52A7AC8AC003C3E6F /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1398DA42A7AC8AC003C3E6F /* teste.swift */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E169CDEE2A78766E00157E93 /* RelatorioGraficosScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169CDED2A78766E00157E93 /* RelatorioGraficosScreen.swift */; };
@@ -161,8 +166,13 @@
 		E10A77AD2A6F4F6C00FF7800 /* ServicoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEditScreen.swift; sourceTree = "<group>"; };
 		E10A77AF2A6F4F8000FF7800 /* ServicoReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoReadScreen.swift; sourceTree = "<group>"; };
 		E10CE26B2A899C200022670F /* AbastecimentoPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbastecimentoPublisher+Extension.swift"; sourceTree = "<group>"; };
+		E10CE2752A8AE7660022670F /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
+		E10CE2772A8AE9300022670F /* GaugesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugesView.swift; sourceTree = "<group>"; };
+		E10CE2792A8AEAA00022670F /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		E10CE27B2A8AEB340022670F /* LogEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntriesView.swift; sourceTree = "<group>"; };
+		E10CE27D2A8AEC090022670F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
+		E10CE27F2A8AEC180022670F /* DashboardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAction.swift; sourceTree = "<group>"; };
 		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
-		E1398DA42A7AC8AC003C3E6F /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
@@ -347,6 +357,76 @@
 			isa = PBXGroup;
 			children = (
 				E1013FD82A4A650C0044410F /* PostoPublisher.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E10CE26D2A8AE5BF0022670F /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE26F2A8AE5E20022670F /* Screen */,
+				E10CE26E2A8AE5D00022670F /* View */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		E10CE26E2A8AE5D00022670F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F5422A3A757D00F3AFD1 /* SideBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E10CE26F2A8AE5E20022670F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E10CE2702A8AE6970022670F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE2742A8AE6C00022670F /* Action */,
+				E10CE2732A8AE6B70022670F /* Model */,
+				E10CE2722A8AE6AB0022670F /* Screen */,
+				E10CE2712A8AE6A20022670F /* View */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		E10CE2712A8AE6A20022670F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE2772A8AE9300022670F /* GaugesView.swift */,
+				E10CE2792A8AEAA00022670F /* RemindersView.swift */,
+				E10CE27B2A8AEB340022670F /* LogEntriesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E10CE2722A8AE6AB0022670F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE2752A8AE7660022670F /* DashboardScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E10CE2732A8AE6B70022670F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE27D2A8AEC090022670F /* DashBoardModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E10CE2742A8AE6C00022670F /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E10CE27F2A8AEC180022670F /* DashboardAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -541,7 +621,6 @@
 				E169CDED2A78766E00157E93 /* RelatorioGraficosScreen.swift */,
 				E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */,
 				E169CDF12A7877F400157E93 /* RelatorioServicoScreen.swift */,
-				E1398DA42A7AC8AC003C3E6F /* teste.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -855,6 +934,7 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E10CE2702A8AE6970022670F /* Dashboard */,
 				E16C15112A410E3B003EAADA /* Abastecimento */,
 				E16C15122A410E47003EAADA /* Alerta */,
 				E16C15142A410E68003EAADA /* Cadastro */,
@@ -869,6 +949,7 @@
 				E16C15152A410E78003EAADA /* Servico */,
 				E1D2E9122A607C0900551892 /* ServicoEfetuado */,
 				E1D5F52D2A39359100F3AFD1 /* Settings */,
+				E10CE26D2A8AE5BF0022670F /* Sidebar */,
 				E16C15002A3E0901003EAADA /* Veiculo */,
 			);
 			path = Features;
@@ -960,7 +1041,6 @@
 		E1D5F53E2A3A1B2100F3AFD1 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E1D5F53F2A3A1B3100F3AFD1 /* SidebarStack.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -968,7 +1048,6 @@
 		E1D5F5412A3A753600F3AFD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1D5F5422A3A757D00F3AFD1 /* SideBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1176,6 +1255,7 @@
 			files = (
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1FB3F3D2A507B9900776408 /* VeiculoModel.swift in Sources */,
+				E10CE27A2A8AEAA00022670F /* RemindersView.swift in Sources */,
 				E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */,
 				E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */,
 				E1013FD42A4A60E40044410F /* Posto+CoreDataClass.swift in Sources */,
@@ -1192,7 +1272,6 @@
 				E1AC4F332A5B808900016186 /* CategoriaListaDetalheView.swift in Sources */,
 				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
 				E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */,
-				E1398DA52A7AC8AC003C3E6F /* teste.swift in Sources */,
 				E1AC4F1A2A5B07D800016186 /* Servico+CoreDataProperties.swift in Sources */,
 				E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */,
 				E1AD0CDC2A4DD56A006D64D8 /* PerfilListaDetalheView.swift in Sources */,
@@ -1206,7 +1285,9 @@
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
 				E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
+				E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */,
 				E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */,
+				E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */,
 				E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */,
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
 				E1AC4F192A5B07D800016186 /* Servico+CoreDataClass.swift in Sources */,
@@ -1226,11 +1307,13 @@
 				E1D2E90F2A60747000551892 /* Sizes.swift in Sources */,
 				E169CDEE2A78766E00157E93 /* RelatorioGraficosScreen.swift in Sources */,
 				E1013FBE2A4A55230044410F /* ErrorHandler.swift in Sources */,
+				E10CE2782A8AE9300022670F /* GaugesView.swift in Sources */,
 				E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */,
 				E10A779E2A6F37AF00FF7800 /* PostoAddScreen.swift in Sources */,
 				E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */,
 				E10A77A02A6F4DF500FF7800 /* PerfilAddScreen.swift in Sources */,
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
+				E10CE2762A8AE7660022670F /* DashboardScreen.swift in Sources */,
 				E1D871592A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift in Sources */,
 				E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
@@ -1263,6 +1346,7 @@
 				E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
 				E1D2E9162A607D6E00551892 /* ServicoEfetuadoModel.swift in Sources */,
+				E10CE27C2A8AEB340022670F /* LogEntriesView.swift in Sources */,
 				E10A77AA2A6F4F3900FF7800 /* VeiculoReadScreen.swift in Sources */,
 				E10A77A22A6F4E0500FF7800 /* PerfilEditScreen.swift in Sources */,
 				E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */,

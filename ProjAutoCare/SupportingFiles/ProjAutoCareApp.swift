@@ -15,6 +15,8 @@ struct ProjAutoCareApp: App
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.managedObjectContext) private var moc: NSManagedObjectContext
     @AppStorage("contextSet") private var contextSet: Bool = false
+    
+    
     static let persistenceController = PersistenceController.shared
     
     var body: some Scene
@@ -26,17 +28,15 @@ struct ProjAutoCareApp: App
                 .modifier(DarkModeViewModifier())
         }
         .onChange(of: scenePhase)
-        { scenePhase in
+        {
             switch scenePhase
             {
             case .active:
-                print("active")
                 prepareAppContext()
                 getCoreDataDBPath()
             case .inactive:
                 print("inactive")
             case .background:
-                print("background")
                 saveContext()
             @unknown default:
                 fatalError()
