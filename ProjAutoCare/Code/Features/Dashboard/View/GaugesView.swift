@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct GaugesView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct GaugesView: View 
+{
+    var body: some View 
+    {
+        Text("Lembretes")
+        
+        HStack
+        {
+            StyledGauge(current: 10)
+            Spacer()
+            StyledGauge(current: 40)
+            Spacer()
+            StyledGauge(current: 90)
+        }
+        .padding()
+        .background(Color("formBackgroundColor"))
+        .cornerRadius(12)
     }
 }
-
-//#Preview {
-//    GaugesView()
-//}

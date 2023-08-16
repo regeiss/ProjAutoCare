@@ -86,6 +86,10 @@
 		E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */; };
 		E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */; };
 		E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */; };
+		E1B203D22A8C399C008834EE /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203D02A8C399C008834EE /* Registro+CoreDataClass.swift */; };
+		E1B203D32A8C399C008834EE /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203D12A8C399C008834EE /* Registro+CoreDataProperties.swift */; };
+		E1B203DA2A8C3DCD008834EE /* RegistroDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */; };
+		E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */; };
 		E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38272A830F4E00272059 /* CalendarExtensions.swift */; };
 		E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */; };
 		E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */; };
@@ -215,6 +219,10 @@
 		E1AD0CE22A4DD5AA006D64D8 /* CadastroDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroDetalheView.swift; sourceTree = "<group>"; };
 		E1AD0CE52A4E4660006D64D8 /* CadastroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroModel.swift; sourceTree = "<group>"; };
 		E1AD0CE72A4E52D6006D64D8 /* PostoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoListaScreen.swift; sourceTree = "<group>"; };
+		E1B203D02A8C399C008834EE /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1B203D12A8C399C008834EE /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroDTO.swift; sourceTree = "<group>"; };
+		E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroPublisher.swift; sourceTree = "<group>"; };
 		E1CC38272A830F4E00272059 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		E1CE3C462A547C7E00B2C51D /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		E1CE3C482A548E3700B2C51D /* ViewModifierConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModifierConfig.swift; path = ProjAutoCare/Code/Features/Onboarding/Model/ViewModifierConfig.swift; sourceTree = SOURCE_ROOT; };
@@ -754,6 +762,47 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E1B203D42A8C3C6E008834EE /* Registro */ = {
+			isa = PBXGroup;
+			children = (
+				E1B203D82A8C3DB7008834EE /* Model */,
+				E1B203D52A8C3C80008834EE /* Action */,
+				E1B203D72A8C3CC2008834EE /* View */,
+				E1B203D62A8C3CB6008834EE /* ViewModel */,
+			);
+			path = Registro;
+			sourceTree = "<group>";
+		};
+		E1B203D52A8C3C80008834EE /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E1B203D62A8C3CB6008834EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1B203D72A8C3CC2008834EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1B203D82A8C3DB7008834EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E1CE3C452A547AF500B2C51D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +884,8 @@
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E1B203D02A8C399C008834EE /* Registro+CoreDataClass.swift */,
+				E1B203D12A8C399C008834EE /* Registro+CoreDataProperties.swift */,
 				E1D871562A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift */,
 				E1D871572A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift */,
 				E1AC4F132A5B07D800016186 /* Categoria+CoreDataClass.swift */,
@@ -934,12 +985,13 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				E10CE2702A8AE6970022670F /* Dashboard */,
+				E1B203D42A8C3C6E008834EE /* Registro */,
 				E16C15112A410E3B003EAADA /* Abastecimento */,
 				E16C15122A410E47003EAADA /* Alerta */,
 				E16C15142A410E68003EAADA /* Cadastro */,
 				E1E409C52A52408000034DBA /* Categoria */,
 				E1D5F52E2A3935FB00F3AFD1 /* Common */,
+				E10CE2702A8AE6970022670F /* Dashboard */,
 				E16C14FB2A3DFE6D003EAADA /* Mensagem */,
 				E16C15042A3F7049003EAADA /* Onboarding */,
 				E16C14F82A3D21CD003EAADA /* Perfil */,
@@ -1255,6 +1307,7 @@
 			files = (
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1FB3F3D2A507B9900776408 /* VeiculoModel.swift in Sources */,
+				E1B203D22A8C399C008834EE /* Registro+CoreDataClass.swift in Sources */,
 				E10CE27A2A8AEAA00022670F /* RemindersView.swift in Sources */,
 				E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */,
 				E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */,
@@ -1280,6 +1333,7 @@
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1013FBB2A4A518A0044410F /* AppState.swift in Sources */,
 				E1FD053A2A77318000B867B6 /* RelatorioConsumoScreen.swift in Sources */,
+				E1B203DA2A8C3DCD008834EE /* RegistroDTO.swift in Sources */,
 				E169CDF22A7877F400157E93 /* RelatorioServicoScreen.swift in Sources */,
 				E1AC4F232A5B0C0B00016186 /* ServicoPublisher.swift in Sources */,
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
@@ -1299,6 +1353,7 @@
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
 				E10A77A62A6F4E4500FF7800 /* VeiculoAddScreen.swift in Sources */,
 				E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */,
+				E1B203D32A8C399C008834EE /* Registro+CoreDataProperties.swift in Sources */,
 				E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */,
 				E1AD0CDA2A4DD556006D64D8 /* PerfilViewModel.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
@@ -1368,6 +1423,7 @@
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
 				E1AC4F262A5B66BC00016186 /* ServicoViewModel.swift in Sources */,
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,
+				E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */,
 				E10A77A82A6F4EEB00FF7800 /* VeiculoEditScreen.swift in Sources */,
 				E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */,
 				E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */,

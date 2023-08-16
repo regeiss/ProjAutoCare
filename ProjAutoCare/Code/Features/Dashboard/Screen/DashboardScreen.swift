@@ -11,19 +11,18 @@ struct DashboardScreen: View
 {
     var body: some View 
     {
-        HStack
+        VStack
         {
-            StyledGauge(current: 10)
-            Spacer()
-            StyledGauge(current: 10)
-            Spacer()
-            StyledGauge(current: 10)
+            GaugesView()
+            RemindersView()
+            LogEntriesView()
         }
         .padding()
         .background(Color("backGroundColor"))
+        .scrollContentBackground(.hidden)
     }
 }
 
-//#Preview {
-//    DashboardScreen()
-//}
+#Preview {
+    DashboardScreen()
+}

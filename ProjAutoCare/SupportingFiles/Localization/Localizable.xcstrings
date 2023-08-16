@@ -13,6 +13,9 @@
     " litros" : {
 
     },
+    "%lld" : {
+
+    },
     "Abastecimento" : {
 
     },
@@ -101,6 +104,9 @@
 
     },
     "email" : {
+
+    },
+    "Entradas recentes" : {
 
     },
     "Error" : {
@@ -266,6 +272,9 @@
 
     },
     "Serviço:" : {
+
+    },
+    "Speed" : {
 
     },
     "Total: " : {

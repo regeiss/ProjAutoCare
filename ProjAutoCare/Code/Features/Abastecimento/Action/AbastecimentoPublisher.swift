@@ -65,6 +65,8 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         novoAbastecimento.noPosto = abastecimento.noPosto
         novoAbastecimento.doVeiculo = abastecimento.doVeiculo
         
+        
+        
         publisherContext.performAndWait
         {
             do

@@ -11,24 +11,36 @@ struct RemindersView: View
 {
     var body: some View
     {
-        VStack
+        let gradient = Gradient(colors: [.blue, .green, .pink])
+        
+        HStack
         {
-            Gauge(value: 16) {
-            
-                Text("Speed")
-            }
-            Gauge(value: 36) {
+            VStack
+            {
+                Gauge(value: 0.86) 
+                {
+                    Text("Speed").foregroundColor(.white)
+                }
+                .gaugeStyle(.linearCapacity)
+                .tint(gradient)
                 
-                Text("Speed")
-            }
-            Gauge(value: 56) {
+                Gauge(value: 0.36)
+                {
+                    Text("Speed").foregroundColor(.white)
+                }
+                .gaugeStyle(.linearCapacity)
+                .tint(gradient)
                 
-                Text("Speed")
+                Gauge(value: 0.56) 
+                {
+                    Text("Speed").foregroundColor(.white)
+                }
+                .gaugeStyle(.linearCapacity)
+                .tint(gradient)
             }
-        }.padding()
+        }
+        .padding()
+        .background(Color("formBackgroundColor"))
+        .cornerRadius(12)
     }
 }
-
-//#Preview {
-//    RemindersView()
-//}
