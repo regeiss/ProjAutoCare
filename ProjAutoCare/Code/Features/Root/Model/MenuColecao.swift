@@ -14,6 +14,7 @@ enum MenuGeral: String
     case relatorio
     case alerta
     case cadastro
+    case dashboard 
 }
 
 struct MenuColecao: Identifiable, Hashable

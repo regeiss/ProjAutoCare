@@ -7,14 +7,27 @@
 
 import SwiftUI
 
-struct LogEntriesView: View 
+struct LogEntriesView: View
 {
-    var body: some View 
+    @StateObject var viewModel = RegistroViewModel()
+    
+    var body: some View
     {
-        Text("Entradas recentes")
+        VStack
+        {
+            List
+            {
+                ForEach(viewModel.registrosLista) { registro in
+                    RegistroListaDetalheView(registro: registro)
+                }
+                
+                if $viewModel.registrosLista.isEmpty
+                {
+                    Text("").listRowBackground(Color.clear)
+                }
+            }
+        }
+        .background(Color("backGroundColor"))
+        .scrollContentBackground(.hidden)
     }
 }
-
-//#Preview {
-//    LogEntriesView()
-//}

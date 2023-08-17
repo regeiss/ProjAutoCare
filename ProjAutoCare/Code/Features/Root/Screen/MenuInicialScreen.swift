@@ -18,7 +18,8 @@ struct MenuInicialScreen: View
             MenuColecao(id: 1, name: "Serviço", image: "service", menu: .servico),
             MenuColecao(id: 2, name: "Relatórios", image: "report", menu: .relatorio),
             MenuColecao(id: 3, name: "Alertas", image: "alertas", menu: .alerta),
-            MenuColecao(id: 4, name: "Cadastros", image: "config", menu: .cadastro)
+            MenuColecao(id: 4, name: "Cadastros", image: "config", menu: .cadastro),
+            MenuColecao(id: 5, name: "Dashboard", image: "config", menu: .dashboard)
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
@@ -47,6 +48,8 @@ struct MenuInicialScreen: View
                         AlertaListaScreen()
                     case .cadastro:
                         CadastroListaScreen()
+                    case .dashboard:
+                        DashboardScreen()
                     }
                 }
             }

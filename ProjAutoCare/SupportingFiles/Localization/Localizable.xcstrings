@@ -106,9 +106,6 @@
     "email" : {
 
     },
-    "Entradas recentes" : {
-
-    },
     "Error" : {
 
     },
@@ -146,6 +143,9 @@
       "extractionState" : "manual"
     },
     "km" : {
+
+    },
+    "Lembretes" : {
 
     },
     "Limpar seleção" : {

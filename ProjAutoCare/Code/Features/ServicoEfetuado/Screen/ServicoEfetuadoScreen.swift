@@ -70,6 +70,7 @@ struct ServicoEfetuadoScreen: View
     @FocusState private var itemServicoInFocus: ServicoEfetuadoFocusable?
     @StateObject private var viewModelServico = ServicoViewModel()
     @StateObject private var viewModelVeiculo = VeiculoViewModel()
+    @StateObject private var viewModelRegistro = RegistroViewModel()
     
     @State var isSaveDisabled: Bool = true
     @State var servico: Servico?
@@ -175,6 +176,9 @@ struct ServicoEfetuadoScreen: View
                                                          doServico: servico!,
                                                          doVeiculo: appState.veiculoAtivo!)
                 viewModel.add(servicoEfetuado: servicoEfetuado)
+                
+                let registro = RegistroDTO(id: UUID(), data: Date(), tipo: "SE", idTipo: servicoEfetuado.id)
+                viewModelRegistro.add(registro: registro)
             }
         }
     }

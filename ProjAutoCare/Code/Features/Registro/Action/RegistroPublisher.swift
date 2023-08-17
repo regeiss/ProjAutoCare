@@ -28,7 +28,7 @@ class RegistroPublisher: NSObject, ObservableObject
     private override init()
     {
         let fetchRequest: NSFetchRequest<Registro> = Registro.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "nome", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "data", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.returnsDistinctResults = true
@@ -91,11 +91,11 @@ class RegistroPublisher: NSObject, ObservableObject
         }
     }
 
-    func delete(categoria: Registro)
+    func delete(registro: Registro)
     {
         backgroundContext.performAndWait
         {
-            backgroundContext.delete(categoria
+            backgroundContext.delete(registro
             )
             do
             {
@@ -119,4 +119,3 @@ extension RegistroPublisher: NSFetchedResultsControllerDelegate
         self.registroCVS.value = registro
     }
 }
-

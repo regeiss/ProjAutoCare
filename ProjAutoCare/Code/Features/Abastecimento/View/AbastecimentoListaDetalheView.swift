@@ -18,6 +18,7 @@ struct AbastecimentoListaDetalheView: View
             Label("gas", systemImage: "fuelpump.circle")
                 .labelStyle(.iconOnly)
                 .imageScale(.large)
+            
             VStack
             {
                 HStack
@@ -41,13 +42,9 @@ struct AbastecimentoListaDetalheView: View
                     Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
                 }
                 HStack{Text(abastecimento.nomePosto); Spacer()}
-                // HStack{Text(abastecimento.nomeCarro); Spacer()}
             }
             .padding(.all, 2)
-            
         }.padding([.top, .bottom], 2)
-            
-        
     }
 }
 

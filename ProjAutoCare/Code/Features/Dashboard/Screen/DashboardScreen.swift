@@ -22,7 +22,3 @@ struct DashboardScreen: View
         .scrollContentBackground(.hidden)
     }
 }
-
-#Preview {
-    DashboardScreen()
-}

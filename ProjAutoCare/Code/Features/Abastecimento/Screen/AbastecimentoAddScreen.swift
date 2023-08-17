@@ -15,6 +15,7 @@ struct AbastecimentoAddScreen: View
     @StateObject private var viewModel = AbastecimentoViewModel()
     @StateObject private var viewModelPosto = PostoViewModel()
     @StateObject private var viewModelVeiculo = VeiculoViewModel()
+    @StateObject private var viewModelRegistro = RegistroViewModel()
     
     @ObservedObject var formInfo = AbastecimentoFormInfo()
     @State var isSaveDisabled: Bool = true
@@ -136,7 +137,10 @@ struct AbastecimentoAddScreen: View
                        noPosto: postoPicker!,
                        doVeiculo: veiculoAtual!)
          
-             viewModel.add(abastecimento: uab)
+        viewModel.add(abastecimento: uab)
+        
+        let registro = RegistroDTO(id: UUID(), data: Date(), tipo: "AB", idTipo: uab.id)
+        viewModelRegistro.add(registro: registro )
     }
     
     private func gravarAbastecimento()

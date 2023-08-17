@@ -16,7 +16,6 @@ struct ProjAutoCareApp: App
     @Environment(\.managedObjectContext) private var moc: NSManagedObjectContext
     @AppStorage("contextSet") private var contextSet: Bool = false
     
-    
     static let persistenceController = PersistenceController.shared
     
     var body: some Scene

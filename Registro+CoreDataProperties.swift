@@ -23,6 +23,6 @@ extension Registro {
 
 }
 
-extension Registro : Identifiable {
+extension Registro: Identifiable {
 
 }
