@@ -24,7 +24,7 @@ struct ServicoEfetuadoListaDetalheView: View
             edicao = true
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            ServicoEfetuadoScreen(viewModel: viewModel, servicoEfetuado: servicoEfetuado, isEdit: true, isAdd: false)
+            ServicoEfetuadoReadScreen(viewModel: viewModel, servicoEfetuado: servicoEfetuado)
         })
     }
 }

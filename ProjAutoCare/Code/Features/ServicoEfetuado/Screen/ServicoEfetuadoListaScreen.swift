@@ -11,7 +11,6 @@ struct ServicoEfetuadoListaScreen: View
 {
     @StateObject var viewModel = ServicoEfetuadoViewModel()
     @State private var adicao = false
-    @State private var edicao = false
     
     var body: some View
     {
@@ -36,7 +35,7 @@ struct ServicoEfetuadoListaScreen: View
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Serviço Efetuado", displayMode: .automatic)
+        .navigationBarTitle("Serviço Efetuado", displayMode: .large)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true
@@ -44,7 +43,7 @@ struct ServicoEfetuadoListaScreen: View
                 label: { Image(systemName: "plus")}}
         }
         .navigationDestination(isPresented: $adicao, destination: {
-            ServicoEfetuadoScreen(viewModel: viewModel, servicoEfetuado: ServicoEfetuado(), isEdit: false, isAdd: true)
+            ServicoEfetuadoAddScreen(viewModel: viewModel)
         })
     }
 }
