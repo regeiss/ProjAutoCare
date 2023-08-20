@@ -27,7 +27,7 @@ struct AbastecimentoAddScreen: View
     
     let loc = Locale(identifier: "pt_BR")
     
-    private var valorTotal: String
+    var valorTotal: String
     {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

@@ -25,6 +25,11 @@ class AbastecimentoViewModel: ObservableObject
         AbastecimentoPublisher.shared.add(abastecimento: abastecimento)
     }
     
+    func update(abastecimento: Abastecimento)
+    {
+        AbastecimentoPublisher.shared.update(abastecimento: abastecimento)
+    }
+    
     func delete(abastecimento: Abastecimento)
     {
         AbastecimentoPublisher.shared.delete(abastecimento: abastecimento)

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AbastecimentoListaDetalheView: View
 {
+    @ObservedObject var viewModel: AbastecimentoViewModel
+    @State var consulta = false
+    
     var abastecimento: Abastecimento
     
     var body: some View
@@ -44,7 +47,13 @@ struct AbastecimentoListaDetalheView: View
                 HStack{Text(abastecimento.nomePosto); Spacer()}
             }
             .padding(.all, 2)
-        }.padding([.top, .bottom], 2)
+        }
+        .onTapGesture {
+            consulta = true
+        }
+        .navigationDestination(isPresented: $consulta, destination: {
+            AbastecimentoReadScreen(viewModel: viewModel, abastecimento: abastecimento)
+        })
     }
 }
 
