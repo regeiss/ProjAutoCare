@@ -19,7 +19,7 @@ enum AbastecimentoFocusable: Hashable
 
 class AbastecimentoFormInfo: ObservableObject
 {
-    @Published var manager = FormManager(validationType: .immediate)
+    @Published var manager = FormManager(validationType: .deferred)
     @FormField(validator: {
          CompositeValidator(
                  validators: [

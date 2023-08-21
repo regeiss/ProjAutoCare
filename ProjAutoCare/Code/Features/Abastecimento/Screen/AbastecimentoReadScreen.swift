@@ -14,12 +14,11 @@ struct AbastecimentoReadScreen: View
     
     @ObservedObject var viewModel: AbastecimentoViewModel
     @StateObject private var viewModelPosto = PostoViewModel()
-    @StateObject private var viewModelVeiculo = VeiculoViewModel()
+    // @StateObject private var viewModelVeiculo = VeiculoViewModel()
     
     @StateObject var formInfo = AbastecimentoFormInfo()
-    @State var isSaveDisabled: Bool = true
     @State var posto: Posto?
-    @State private var edicao = false
+    @State var edicao = false
     
     var abastecimento: Abastecimento
     var appState = AppState.shared
@@ -51,16 +50,10 @@ struct AbastecimentoReadScreen: View
                     {
                         Text("completo")
                     }
-                    
-                    Picker("Posto:", selection: $posto)
-                    {
-                        Text("Nenhum").tag(Posto?.none)
-                        ForEach(viewModelPosto.postosLista) { (posto: Posto) in
-                            Text(posto.nome!).tag(posto as Posto?)
-                        }
-                    }.pickerStyle(.automatic)
-                }.disabled(true)
-            }
+
+                    Text(abastecimento.nomePosto)
+                }
+            }.disabled(true)
             .scrollContentBackground(.hidden)
             .onAppear
             {
@@ -68,18 +61,13 @@ struct AbastecimentoReadScreen: View
                 formInfo.data = abastecimento.data ?? Date()
                 formInfo.litros = String(abastecimento.litros)
                 formInfo.valorLitro = String(abastecimento.valorLitro)
+                formInfo.completo = abastecimento.completo
             }
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Abastecimento")
         .navigationBarTitleDisplayMode(.large)
-        .navigationBarBackButtonHidden()
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading)
-            { Button {
-                dismiss()
-            }
-                label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 edicao = true
