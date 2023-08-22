@@ -77,7 +77,18 @@ struct AbastecimentoEditScreen: View
                         ForEach(viewModelPosto.postosLista) { (posto: Posto) in
                             Text(posto.nome!).tag(posto as Posto?)
                         }
-                    }.pickerStyle(.automatic)
+                    }
+                    .pickerStyle(.automatic)
+                    .onAppear {
+                        posto = abastecimento.noPosto
+                    }
+                }.onAppear
+                {
+                    formInfo.quilometragem = String(abastecimento.quilometragem)
+                    formInfo.data = abastecimento.data ?? Date()
+                    formInfo.litros = String(abastecimento.litros)
+                    formInfo.valorLitro = String(abastecimento.valorLitro)
+                    formInfo.completo = abastecimento.completo
                 }
             }.scrollContentBackground(.hidden)
         }
@@ -99,7 +110,9 @@ struct AbastecimentoEditScreen: View
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }
-        }
+        }.navigationDestination(isPresented: $lista, destination: {
+            AbastecimentoListaScreen()
+        })
     }
     
     func save()
