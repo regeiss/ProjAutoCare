@@ -24,6 +24,7 @@ struct AbastecimentoEditScreen: View
     
     var abastecimento: Abastecimento
     var viewModel: AbastecimentoViewModel
+    var appState = AppState.shared
     
     var valorTotal: String
     {
@@ -117,11 +118,29 @@ struct AbastecimentoEditScreen: View
     
     func save()
     {
+        var veiculoAtual: Veiculo?
         let valid = formInfo.manager.triggerValidation()
         if valid
         {
-            abastecimento.quilometragem = Int32(formInfo.quilometragem) ?? 0
+            if appState.veiculoAtivo == nil
+            {
+                veiculoAtual = viewModelVeiculo.veiculosLista.first
+            }
+            else
+            {
+                veiculoAtual = appState.veiculoAtivo
+            }
             
+            abastecimento.quilometragem = Int32(formInfo.quilometragem) ?? 0
+        
+            abastecimento.data = formInfo.data
+            abastecimento.litros = (Double(formInfo.litros) ?? 0)
+            abastecimento.valorLitro = (Double(formInfo.valorLitro) ?? 0)
+            abastecimento.valorTotal = ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))
+            abastecimento.completo = Bool(formInfo.completo)
+            abastecimento.media = viewModel.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false)
+            abastecimento.noPosto = posto
+            abastecimento.doVeiculo = veiculoAtual!
             viewModel.update(abastecimento: abastecimento)
         }
     }

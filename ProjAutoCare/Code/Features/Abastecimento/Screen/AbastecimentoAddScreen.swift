@@ -116,14 +116,14 @@ struct AbastecimentoAddScreen: View
             postoPicker = posto
         }
         
-                if appState.veiculoAtivo == nil
-                {
-                    veiculoAtual = viewModelVeiculo.veiculosLista.first
-                }
-                else
-                {
-                    veiculoAtual = appState.veiculoAtivo
-                }
+        if appState.veiculoAtivo == nil
+        {
+            veiculoAtual = viewModelVeiculo.veiculosLista.first
+        }
+        else
+        {
+            veiculoAtual = appState.veiculoAtivo
+        }
         
         let uab = AbastecimentoDTO(id: UUID(),
                        quilometragem: (Int32(formInfo.quilometragem) ?? 0),
@@ -132,8 +132,7 @@ struct AbastecimentoAddScreen: View
                        valorLitro: (Double(formInfo.valorLitro) ?? 0),
                        valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
                        completo: Bool(formInfo.completo),
-                       media: calculaMedia(kmAtual: Int32(formInfo.quilometragem) ?? 0,
-                       litros: Double(formInfo.litros) ?? 0),
+                       media: viewModel.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false),
                        noPosto: postoPicker!,
                        doVeiculo: veiculoAtual!)
          
@@ -157,23 +156,6 @@ struct AbastecimentoAddScreen: View
             {
                 self.errorHandling.handle(error: error)
             }
-        }
-    }
-    
-    private func calculaMedia(kmAtual: Int32, litros: Double) -> Double
-    {
-        var media: Double
-        var kmPercorrida: Int32
-        
-        if viewModel.abastecimentosLista.count == 0
-        {
-            return 0
-        }
-        else
-        {
-            kmPercorrida = kmAtual - appState.ultimaKM
-            media = Double(kmPercorrida) / (Double(formInfo.litros) ?? 0)
-            return media
         }
     }
 }

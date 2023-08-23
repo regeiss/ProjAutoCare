@@ -11,6 +11,7 @@ import CoreData
 
 extension AbastecimentoPublisher
 {
+    
     func getDistanciaPercorrida() -> Int32
     {
         var kmPercorrida: Int32 = 0
@@ -274,5 +275,22 @@ extension AbastecimentoPublisher
         let distanciaPorDia = distancia / Int32(numeroDias)
         
         return distanciaPorDia
+    }
+    
+    func calculaMedia(kmAtual: Int32, litros: Double, appState: AppState, primeiraVez: Bool) -> Double
+    {
+        var media: Double
+        var kmPercorrida: Int32
+        
+        if primeiraVez
+        {
+            return 0
+        }
+        else
+        {
+            kmPercorrida = kmAtual - appState.ultimaKM
+            media = Double(kmPercorrida) / (Double(litros))
+            return media
+        }
     }
 }

@@ -84,4 +84,9 @@ class AbastecimentoViewModel: ObservableObject
     {
         AbastecimentoPublisher.shared.getKMPorDia()
     }
+    
+    func calculaMedia(kmAtual: Int32, litros: Double, appState: AppState, primeiraVez: Bool) -> Double
+    {
+        AbastecimentoPublisher.shared.calculaMedia(kmAtual: kmAtual, litros: litros, appState: appState, primeiraVez: primeiraVez)
+    }
 }
