@@ -12,9 +12,10 @@ struct AbastecimentoEditScreen: View
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var errorHandling: ErrorHandling
     
-    @StateObject private var viewModelPosto = PostoViewModel()
-    @StateObject private var viewModelVeiculo = VeiculoViewModel()
-    @StateObject private var viewModelRegistro = RegistroViewModel()
+    @StateObject var viewModelPosto = PostoViewModel()
+    @StateObject var viewModelVeiculo = VeiculoViewModel()
+    @StateObject var viewModelRegistro = RegistroViewModel()
+    @StateObject var viewModel = AbastecimentoViewModel()
     
     @ObservedObject var formInfo = AbastecimentoFormInfo()
     @State var isSaveDisabled: Bool = true
@@ -23,7 +24,6 @@ struct AbastecimentoEditScreen: View
     @State var lista = false
     
     var abastecimento: Abastecimento
-    var viewModel: AbastecimentoViewModel
     var appState = AppState.shared
     
     var valorTotal: String

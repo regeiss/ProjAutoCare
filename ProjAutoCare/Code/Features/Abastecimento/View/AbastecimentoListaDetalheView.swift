@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AbastecimentoListaDetalheView: View
 {
-    @ObservedObject var viewModel: AbastecimentoViewModel
     @State var consulta = false
     
     var abastecimento: Abastecimento
@@ -52,7 +51,7 @@ struct AbastecimentoListaDetalheView: View
             consulta = true
         }
         .navigationDestination(isPresented: $consulta, destination: {
-            AbastecimentoReadScreen(viewModel: viewModel, abastecimento: abastecimento)
+            AbastecimentoReadScreen(abastecimento: abastecimento)
         })
     }
 }

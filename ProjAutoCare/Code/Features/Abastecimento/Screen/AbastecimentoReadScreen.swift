@@ -12,9 +12,8 @@ struct AbastecimentoReadScreen: View
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var errorHandling: ErrorHandling
     
-    @ObservedObject var viewModel: AbastecimentoViewModel
-    @StateObject private var viewModelPosto = PostoViewModel()
-    // @StateObject private var viewModelVeiculo = VeiculoViewModel()
+    @ObservedObject var viewModel = AbastecimentoViewModel()
+    @StateObject var viewModelPosto = PostoViewModel()
     
     @StateObject var formInfo = AbastecimentoFormInfo()
     @State var posto: Posto?
@@ -76,7 +75,7 @@ struct AbastecimentoReadScreen: View
             }
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            AbastecimentoEditScreen(abastecimento: abastecimento, viewModel: viewModel)
+            AbastecimentoEditScreen(abastecimento: abastecimento)
         })
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CoreData
 
 class RegistroViewModel: ObservableObject
 {
@@ -28,5 +29,10 @@ class RegistroViewModel: ObservableObject
     func delete(registro: Registro)
     {
         RegistroPublisher.shared.delete(registro: registro)
+    }
+    
+    func buscaRegistro(id: NSManagedObjectID) -> NSManagedObject
+    {
+        ServicoPublisher.shared.buscaRegistro(id: id)
     }
 }

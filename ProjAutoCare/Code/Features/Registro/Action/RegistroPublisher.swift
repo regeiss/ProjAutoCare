@@ -107,6 +107,22 @@ class RegistroPublisher: NSObject, ObservableObject
             }
         }
     }
+    
+    func buscaRegistro(id: NSManagedObjectID) -> NSManagedObject
+    {
+        do
+        {
+            let object = try backgroundContext.existingObject(with: id)
+            logger.log("Context has changed, buscando veiculo atual")
+//            object.setValue(true, forKey: "ativo")
+            // update(veiculo: object as! Veiculo)
+            return object
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
 }
 
 extension RegistroPublisher: NSFetchedResultsControllerDelegate
