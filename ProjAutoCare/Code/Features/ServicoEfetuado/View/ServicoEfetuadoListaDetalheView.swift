@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct ServicoEfetuadoListaDetalheView: View
 {
-    @ObservedObject var viewModel: ServicoEfetuadoViewModel
+//    @ObservedObject var viewModel: ServicoEfetuadoViewModel
     @State var edicao: Bool = false
     var servicoEfetuado: ServicoEfetuado
     
@@ -24,7 +24,7 @@ struct ServicoEfetuadoListaDetalheView: View
             edicao = true
         }
         .navigationDestination(isPresented: $edicao, destination: {
-            ServicoEfetuadoReadScreen(viewModel: viewModel, servicoEfetuado: servicoEfetuado)
+            ServicoEfetuadoReadScreen(servicoEfetuado: servicoEfetuado)
         })
     }
 }

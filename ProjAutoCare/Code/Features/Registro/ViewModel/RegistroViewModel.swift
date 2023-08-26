@@ -31,8 +31,13 @@ class RegistroViewModel: ObservableObject
         RegistroPublisher.shared.delete(registro: registro)
     }
     
-    func buscaRegistro(id: NSManagedObjectID) -> NSManagedObject
+    func buscaRegistroAbastecimento(id: UUID) -> Abastecimento
     {
-        ServicoPublisher.shared.buscaRegistro(id: id)
+        RegistroPublisher.shared.buscaRegistroAbastecimento(id: id)
+    }
+    
+    func buscaRegistroServico(id: UUID) -> ServicoEfetuado
+    {
+        RegistroPublisher.shared.buscaRegistroServico(id: id)
     }
 }

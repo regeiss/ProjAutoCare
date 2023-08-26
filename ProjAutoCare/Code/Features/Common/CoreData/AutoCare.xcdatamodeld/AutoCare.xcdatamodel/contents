@@ -35,7 +35,6 @@
     <entity name="Registro" representedClassName="Registro" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="idObjeto" optional="YES" attributeType="URI"/>
         <attribute name="idTipo" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="tipo" optional="YES" attributeType="String"/>
     </entity>

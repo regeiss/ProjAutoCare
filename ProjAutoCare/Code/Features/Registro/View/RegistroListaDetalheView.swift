@@ -18,13 +18,13 @@ struct RegistroListaDetalheView: View
         {
             if registro.tipo == "AB"
             {
-                let abastecimento = viewModel.buscaRegistro(id: registro.idTipo)
+                let abastecimento = viewModel.buscaRegistroAbastecimento(id: registro.idTipo ?? UUID())
                 AbastecimentoListaDetalheView(abastecimento: abastecimento)
             }
             
             else
             {
-                let servicoEfetuado = viewModel.buscaRegistro(id: registro.idTipo)
+                let servicoEfetuado = viewModel.buscaRegistroServico(id: registro.idTipo ?? UUID())
                 ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
             }
         }

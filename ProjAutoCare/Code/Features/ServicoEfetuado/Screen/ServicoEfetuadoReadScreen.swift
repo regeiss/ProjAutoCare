@@ -10,7 +10,7 @@ import SwiftUI
 struct ServicoEfetuadoReadScreen: View 
 {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: ServicoEfetuadoViewModel
+    @ObservedObject var viewModel = ServicoEfetuadoViewModel()
     @ObservedObject var formInfo = ServicoEfetuadoFormInfo()
     @StateObject private var viewModelServico = ServicoViewModel()
     

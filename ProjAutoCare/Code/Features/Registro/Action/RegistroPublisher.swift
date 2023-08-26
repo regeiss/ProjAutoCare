@@ -108,15 +108,37 @@ class RegistroPublisher: NSObject, ObservableObject
         }
     }
     
-    func buscaRegistro(id: NSManagedObjectID) -> NSManagedObject
+    func buscaRegistroAbastecimento(id: UUID) -> Abastecimento
     {
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "(id == id)")
+        fetchRequest.fetchLimit = 1
+
         do
         {
-            let object = try backgroundContext.existingObject(with: id)
-            logger.log("Context has changed, buscando veiculo atual")
-//            object.setValue(true, forKey: "ativo")
-            // update(veiculo: object as! Veiculo)
-            return object
+            guard let abastecimento = try backgroundContext.fetch(fetchRequest).first
+            else { return Abastecimento()}
+            
+            return abastecimento
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+    
+    func buscaRegistroServico(id: UUID) -> ServicoEfetuado
+    {
+        let fetchRequest: NSFetchRequest<ServicoEfetuado> = ServicoEfetuado.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "(id == id)")
+        fetchRequest.fetchLimit = 1
+
+        do
+        {
+            guard let servicoEfetuado = try backgroundContext.fetch(fetchRequest).first
+            else { return ServicoEfetuado()}
+            
+            return servicoEfetuado
         }
         catch
         {

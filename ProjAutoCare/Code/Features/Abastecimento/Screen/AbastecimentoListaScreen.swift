@@ -22,7 +22,7 @@ struct AbastecimentoListaScreen: View
                 ForEach(viewModel.abastecimentosLista) { abastecimento in
                     HStack
                     {
-                        AbastecimentoListaDetalheView(viewModel: viewModel, abastecimento: abastecimento)
+                        AbastecimentoListaDetalheView(abastecimento: abastecimento)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})

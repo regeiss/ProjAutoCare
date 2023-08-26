@@ -21,7 +21,7 @@ struct ServicoEfetuadoListaScreen: View
                 ForEach(viewModel.servicoEfetuadoLista) { servicoEfetuado in
                     HStack
                     {
-                        ServicoEfetuadoListaDetalheView(viewModel: viewModel, servicoEfetuado: servicoEfetuado)
+                        ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
                     }                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
                     }

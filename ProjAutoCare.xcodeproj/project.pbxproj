@@ -781,8 +781,8 @@
 		E1B203D42A8C3C6E008834EE /* Registro */ = {
 			isa = PBXGroup;
 			children = (
-				E1B203D82A8C3DB7008834EE /* Model */,
 				E1B203D52A8C3C80008834EE /* Action */,
+				E1B203D82A8C3DB7008834EE /* Model */,
 				E1B203D72A8C3CC2008834EE /* View */,
 				E1B203D62A8C3CB6008834EE /* ViewModel */,
 			);
