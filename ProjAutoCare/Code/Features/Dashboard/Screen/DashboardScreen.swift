@@ -20,5 +20,6 @@ struct DashboardScreen: View
         .padding()
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
+        .navigationBarTitle("Dashboard", displayMode: .large)
     }
 }

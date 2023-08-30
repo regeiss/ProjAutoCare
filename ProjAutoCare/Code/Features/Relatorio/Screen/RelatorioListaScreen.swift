@@ -29,13 +29,13 @@ struct RelatorioListaScreen: View
         {
             ScrollView(.vertical)
             {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 5)
+                LazyVGrid(columns: columns, alignment: .center, spacing: 2)
                 {
                     ForEach(cadastroMenu) { item in
                         NavigationLink(value: item) {
                             RelatorioListaDetalheView(colecao: item)
                         }
-                    }.padding([.leading, .trailing])
+                    }.padding([.bottom], 2)
                 }.navigationDestination(for: RelatorioColecao.self) { item in
                     switch item.menu {
                     case .combustivel:

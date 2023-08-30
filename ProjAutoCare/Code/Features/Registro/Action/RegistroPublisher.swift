@@ -111,7 +111,7 @@ class RegistroPublisher: NSObject, ObservableObject
     func buscaRegistroAbastecimento(id: UUID) -> Abastecimento
     {
         let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "(id == id)")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
         fetchRequest.fetchLimit = 1
 
         do
@@ -130,7 +130,8 @@ class RegistroPublisher: NSObject, ObservableObject
     func buscaRegistroServico(id: UUID) -> ServicoEfetuado
     {
         let fetchRequest: NSFetchRequest<ServicoEfetuado> = ServicoEfetuado.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "(id == id)")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
+                                 
         fetchRequest.fetchLimit = 1
 
         do

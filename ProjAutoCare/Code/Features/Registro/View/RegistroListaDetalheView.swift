@@ -14,7 +14,7 @@ struct RegistroListaDetalheView: View
     
     var body: some View
     {
-        HStack
+        VStack
         {
             if registro.tipo == "AB"
             {

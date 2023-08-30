@@ -39,7 +39,7 @@ struct CategoriaListaScreen: View
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Categoria", displayMode: .automatic)
+        .navigationBarTitle("Categoria", displayMode: .large)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true

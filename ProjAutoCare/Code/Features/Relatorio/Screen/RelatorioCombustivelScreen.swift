@@ -37,7 +37,7 @@ struct RelatorioCombustivelScreen: View
                             }
                             HStack
                             {
-                                Text(String(abastecimento.litros))
+                                Text(String(format: "%.2f", abastecimento.litros))
                                 Text(" litros")
                                 Spacer()
                                 Text(String(abastecimento.valorTotal).toCurrencyFormat())

@@ -43,7 +43,12 @@ struct AbastecimentoListaDetalheView: View
                     Text(String(abastecimento.quilometragem).toQuilometrosFormat())
                     Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
                 }
-                HStack{Text(abastecimento.nomePosto); Spacer()}
+                HStack
+                {
+                    Text("Posto: ")
+                    Text(abastecimento.nomePosto)
+                    Spacer()
+                }
             }
             .padding(.all, 2)
         }
