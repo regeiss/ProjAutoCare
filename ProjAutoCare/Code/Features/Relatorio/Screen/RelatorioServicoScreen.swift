@@ -31,6 +31,7 @@ struct RelatorioServicoScreen: View
                             {
                                 Text(String(servico.nome ?? ""))
                                 Spacer()
+                                Text(String(servico.quilometragem).toQuilometrosFormat())
                             }
                             HStack
                             {

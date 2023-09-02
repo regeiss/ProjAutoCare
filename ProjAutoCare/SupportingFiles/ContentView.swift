@@ -10,18 +10,18 @@ import WelcomeSheet
 
 struct ContentView: View
 {
+    var appState = AppState.shared
+    var onboardingPages = OnboardingModel()
+    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
+    @State var veiculoAtual: Veiculo?
+    @State var perfilPadrao: Perfil?
+    @State var isShowingSheet = false
+    @State var showSidebar: Bool = false
+    
     init()
     {
        ToolBarTheme.navigationBarColors(background: UIColor(Color("backGroundColor")), titleColor: UIColor(Color("titleForeGroundColor")))
     }
-    
-    var appState = AppState.shared
-    var onboardingPages = OnboardingModel()
-    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
-    @State private var veiculoAtual: Veiculo?
-    @State private var perfilPadrao: Perfil?
-    @State private var isShowingSheet = false
-    @State var showSidebar: Bool = false
     
     var body: some View
     {
@@ -65,7 +65,7 @@ struct ContentView: View
         .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
         .sheet(isPresented: $isShowingSheet)
         {
-            VeiculoBottomView()
+            VeiculoBottomView(veiculoAtual: $veiculoAtual)
         }
     }
      
@@ -74,9 +74,6 @@ struct ContentView: View
          setAppVars()
          veiculoAtual = appState.veiculoAtivo
          perfilPadrao = appState.perfilAtivo
-         print(perfilPadrao?.id?.uuidString as Any)
-         print(veiculoAtual?.nome as Any)
-
      }
     
     // Tratar a insercao dos itens padrao

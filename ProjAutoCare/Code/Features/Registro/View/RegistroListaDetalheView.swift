@@ -14,19 +14,22 @@ struct RegistroListaDetalheView: View
     
     var body: some View
     {
-        VStack
-        {
-            if registro.tipo == "AB"
+        HStack{
+            VStack
             {
-                let abastecimento = viewModel.buscaRegistroAbastecimento(id: registro.idTipo ?? UUID())
-                AbastecimentoListaDetalheView(abastecimento: abastecimento)
-            }
-            
-            else
-            {
-                let servicoEfetuado = viewModel.buscaRegistroServico(id: registro.idTipo ?? UUID())
-                ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
-            }
-        }
+                if registro.tipo == "AB"
+                {
+                    let abastecimento = viewModel.buscaRegistroAbastecimento(id: registro.idTipo ?? UUID())
+                    //AbastecimentoListaDetalheView(abastecimento: abastecimento)
+                    Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
+                }
+                
+                else
+                {
+                    let servicoEfetuado = viewModel.buscaRegistroServico(id: registro.idTipo ?? UUID())
+                    //ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
+                    Text(servicoEfetuado.nome ?? "")
+                }
+            }}
     }
 }

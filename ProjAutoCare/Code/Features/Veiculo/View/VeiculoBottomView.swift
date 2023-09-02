@@ -11,8 +11,8 @@ import SwiftUI
 struct VeiculoBottomView: View
 {
     @Environment(\.dismiss) var dismiss
-    @StateObject private var viewModel = VeiculoViewModel()
-    @State private var veiculoAtual: Veiculo?
+    @StateObject var viewModel = VeiculoViewModel()
+    @Binding var veiculoAtual: Veiculo?
     var appState = AppState.shared
     
     var body: some View
@@ -57,6 +57,6 @@ struct VeiculoBottomView: View
     func marcarVeiculoComoAtivo(ativoID: NSManagedObjectID)
     {
         viewModel.marcarVeiculoAtivo(ativoID: ativoID)
-        veiculoAtual = appState.veiculoAtivo
+        veiculoAtual = appState.veiculoAtivo!
     }
 }
