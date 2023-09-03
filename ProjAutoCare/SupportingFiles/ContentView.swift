@@ -65,7 +65,7 @@ struct ContentView: View
         .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
         .sheet(isPresented: $isShowingSheet)
         {
-            VeiculoBottomView(veiculoAtual: $veiculoAtual)
+            VeiculoBottomSheet(veiculoAtual: $veiculoAtual)
         }
     }
      

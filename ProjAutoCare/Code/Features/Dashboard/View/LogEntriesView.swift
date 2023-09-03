@@ -15,6 +15,7 @@ struct LogEntriesView: View
         List {
             ForEach(viewModel.registrosLista) { registro in
                 RegistroListaDetalheView(registro: registro)
+                
             }
             
             if $viewModel.registrosLista.isEmpty {

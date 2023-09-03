@@ -10,7 +10,7 @@ import SwiftUI
 struct SideBarView: View
 {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var viewModel = PerfilViewModel()
+    @State var perfil: Perfil?
     @State var showMenu = false
     @State var showConfigSheet = false
     @State var showPerfilSheet = false
@@ -123,7 +123,8 @@ struct SideBarView: View
         }
         .sheet(isPresented: $showPerfilSheet)
         {
-            PerfilListaScreen()
+            
+            PerfilBottomSheet()
         }
         .sheet(isPresented: $showMensagemSheet)
         {

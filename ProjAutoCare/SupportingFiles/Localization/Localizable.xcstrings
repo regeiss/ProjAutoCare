@@ -34,6 +34,9 @@
     "AutoCare" : {
 
     },
+    "Avisos" : {
+
+    },
     "Backup" : {
 
     },
@@ -163,7 +166,13 @@
     "Login" : {
 
     },
+    "Manutenção" : {
+
+    },
     "marca" : {
+
+    },
+    "Média" : {
 
     },
     "Média custo litro " : {
@@ -263,6 +272,9 @@
 
     },
     "Selecione as datas" : {
+
+    },
+    "Selecione um perfil" : {
 
     },
     "Selecione um veículo" : {

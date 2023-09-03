@@ -15,11 +15,27 @@ struct GaugesView: View
         
         HStack
         {
-            StyledGauge(current: 10)
+            VStack
+            {
+                StyledGauge(current: 10)
+                Text("Média")
+                
+            }
             Spacer()
-            StyledGauge(current: 40)
+            
+            VStack
+            {
+                StyledGauge(current: 40)
+                Text("Manutenção")
+                 
+            }
             Spacer()
-            StyledGauge(current: 90)
+            
+            VStack
+            {
+                StyledGauge(current: 90)
+                Text("Avisos")
+            }
         }
         .padding()
         .background(Color("formBackgroundColor"))

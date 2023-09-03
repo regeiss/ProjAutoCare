@@ -152,7 +152,47 @@ class PerfilPublisher: NSObject, ObservableObject
 
     func marcarPerfilAtivo(ativoID: NSManagedObjectID)
     {
-//
+        // Desmarcar o ativo
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Perfil", in: publisherContext)
+        let batchUpdateRequest = NSBatchUpdateRequest(entity: entityDescription!)
+        
+        batchUpdateRequest.resultType = .updatedObjectIDsResultType
+        batchUpdateRequest.propertiesToUpdate = ["ativo": NSNumber(value: false)]
+        
+        do
+        {
+            let batchUpdateResult = try publisherContext.execute(batchUpdateRequest) as! NSBatchUpdateResult
+            
+            let objectIDs = batchUpdateResult.result as! [NSManagedObjectID]
+            
+            for objectID in objectIDs
+            {
+                let managedObject = publisherContext.object(with: objectID)
+                publisherContext.refresh(managedObject, mergeChanges: false)
+            }
+
+            try self.perfilFetchController.performFetch()
+            
+        }
+        catch
+        {
+            let updateError = error as NSError
+            print("\(updateError), \(updateError.userInfo)")
+        }
+        //
+        do
+        {
+            let object = try publisherContext.existingObject(with: ativoID)
+            logger.log("Context has changed, perfil atual modificado")
+            object.setValue(true, forKey: "ativo")
+            update(perfil: object as! Perfil)
+
+            appState.perfilAtivo = object as? Perfil
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
         
     }
 }

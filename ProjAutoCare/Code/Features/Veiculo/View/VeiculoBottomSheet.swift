@@ -8,7 +8,7 @@
 import CoreData
 import SwiftUI
 
-struct VeiculoBottomView: View
+struct VeiculoBottomSheet: View
 {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = VeiculoViewModel()
@@ -19,28 +19,26 @@ struct VeiculoBottomView: View
     {
         NavigationView
         {
-            VStack(alignment: .leading)
+            List
             {
                 ForEach(viewModel.veiculosLista) { veiculo in
-                    ZStack(alignment: .top)
+                    HStack
                     {
-                        HStack
-                        {
-                            HStack
-                            {
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.blue)
-                                    .opacity(veiculo.ativo == true ? 100 : 0.0)
-                                Text(String(veiculo.nome ?? ""))
-                                Text(" "); Text(String(veiculo.placa ?? ""))
-                                Text(" "); Text(String(veiculo.ano))
-                            }.padding()
-                        }.onTapGesture { marcarVeiculoComoAtivo(ativoID: veiculo.objectID)}
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.blue)
+                            .opacity(veiculo.ativo == true ? 100 : 0.0)
+                        Text(String(veiculo.nome ?? ""))
+                        Text(" "); Text(String(veiculo.placa ?? ""))
+                        Text(" "); Text(String(veiculo.ano))
+                    }.onTapGesture { marcarVeiculoComoAtivo(ativoID: veiculo.objectID)}
+                    
+                    if viewModel.veiculosLista.isEmpty
+                    {
+                        Text("").listRowBackground(Color.clear)
                     }
                 }
                 Spacer()
             }
-            // .background(Color("backGroundColor"))
             .scrollContentBackground(.hidden)
             .navigationBarTitle("Selecione um veículo", displayMode: .inline )
             .toolbar(content: {
@@ -48,9 +46,7 @@ struct VeiculoBottomView: View
                     Button { dismiss()}
                 label: { Label("Dismiss", systemImage: "xmark.circle.fill")}
                 }
-                
-            }
-            )
+            })
         }.presentationDetents([.medium])
     }
     

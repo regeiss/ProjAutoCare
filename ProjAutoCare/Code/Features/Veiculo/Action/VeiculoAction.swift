@@ -175,7 +175,6 @@ class VeiculoPublisher: NSObject, ObservableObject
             
             for objectID in objectIDs
             {
-                // Turn Managed Objects into Faults
                 let managedObject = publisherContext.object(with: objectID)
                 publisherContext.refresh(managedObject, mergeChanges: false)
             }
