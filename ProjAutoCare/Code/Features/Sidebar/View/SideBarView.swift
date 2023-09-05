@@ -15,6 +15,7 @@ struct SideBarView: View
     @State var showConfigSheet = false
     @State var showPerfilSheet = false
     @State var showMensagemSheet = false
+    @State var showVersoesAnterioresSheet = false
     
     var body: some View
     {
@@ -87,7 +88,7 @@ struct SideBarView: View
             .onTapGesture
             {
                 showMenu = false
-                showMensagemSheet = true
+                showVersoesAnterioresSheet = true
             }
             HStack
             {
@@ -130,10 +131,15 @@ struct SideBarView: View
         {
             MensagemScreen()
         }
+        .sheet(isPresented: $showVersoesAnterioresSheet)
+        {
+            VersaoAnteriorScreen()
+        }
     }
 }
 
-extension Bundle {
+extension Bundle 
+{
     var appName: String? {
         return object(forInfoDictionaryKey: "CFBundleName") as? String
     }

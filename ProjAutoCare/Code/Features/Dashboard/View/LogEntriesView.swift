@@ -11,18 +11,25 @@ struct LogEntriesView: View
 {
     @StateObject var viewModel = RegistroViewModel()
     
-    var body: some View {
-        List {
-            ForEach(viewModel.registrosLista) { registro in
-                RegistroListaDetalheView(registro: registro)
+    var body: some View
+    {
+        HStack
+        {
+            List
+            {
+                ForEach(viewModel.registrosLista) { registro in
+                    RegistroListaDetalheView(registro: registro)
+                }
                 
+                if $viewModel.registrosLista.isEmpty {
+                    Text("").listRowBackground(Color.clear)
+                }
             }
-            
-            if $viewModel.registrosLista.isEmpty {
-                Text("").listRowBackground(Color.clear)
-            }
+            .listStyle(PlainListStyle())
+            .background(Color("backGroundColor"))
+            .scrollContentBackground(.hidden)
         }
-        .background(Color("backGroundColor"))
-        .scrollContentBackground(.hidden)
+        .background(Color("formBackgroundColor"))
+        .cornerRadius(12)
     }
 }

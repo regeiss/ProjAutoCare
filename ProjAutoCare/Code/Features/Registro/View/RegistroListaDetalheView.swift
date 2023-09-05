@@ -19,17 +19,12 @@ struct RegistroListaDetalheView: View
             if registro.tipo == "AB"
             {
                 let abastecimento = viewModel.buscaRegistroAbastecimento(id: registro.idTipo ?? UUID())
-                // AbastecimentoListaDetalheView(abastecimento: abastecimento)
-                Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
-                Spacer()
+                AbastecimentoListaDetalheView(abastecimento: abastecimento)
             }
-            
             else
             {
                 let servicoEfetuado = viewModel.buscaRegistroServico(id: registro.idTipo ?? UUID())
-                // ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
-                Text(servicoEfetuado.nome ?? "")
-                Spacer()
+                ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
             }
         }
     }

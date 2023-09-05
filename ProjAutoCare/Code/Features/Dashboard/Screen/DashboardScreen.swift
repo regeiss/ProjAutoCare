@@ -14,12 +14,12 @@ struct DashboardScreen: View
         VStack
         {
             GaugesView()
-            RemindersView()
+            
             LogEntriesView()
+            RemindersView()
         }
         .padding()
         .background(Color("backGroundColor"))
-        .scrollContentBackground(.hidden)
         .navigationBarTitle("Dashboard", displayMode: .large)
     }
 }
