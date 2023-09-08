@@ -18,6 +18,7 @@ class HTTPClient: NSObject
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
         configuration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
+        // eLp58hAAIjL4MWySCldjSA==oPcmDgyfuMwnM36W
         return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
     
@@ -103,8 +104,7 @@ extension HTTPClient: URLSessionTaskDelegate
 {
     public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
     {
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault ||
-            challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault || challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic
         {
             
             let credential = URLCredential(user: self.basicAuthUserName,

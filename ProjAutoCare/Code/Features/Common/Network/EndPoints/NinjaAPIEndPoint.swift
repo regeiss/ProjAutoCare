@@ -1,13 +1,13 @@
 //
-//  CarEndPoint.swift
+//  NinjaAPIEndPoint.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 06/09/23.
+//  Created by Roberto Edgar Geiss on 07/09/23.
 //
 
 import Foundation
 
-enum CarEndpoint
+enum NinjaAPIEndpoint
 {
     case make
     case lista
@@ -16,7 +16,7 @@ enum CarEndpoint
     case serieHistorica
 }
 
-extension CarEndpoint: Endpoint
+extension NinjaAPIEndpoint: Endpoint
 {
     var host: String
     {

@@ -9,8 +9,8 @@ import Foundation
 
 enum HostEndpoint
 {
-    case estatisticas
-    case artigos
+    case marcas
+    case modelos
 }
 
 protocol Endpoint

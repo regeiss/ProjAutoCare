@@ -18,11 +18,11 @@ protocol NetworkServiceable
 
 class NetworkService: HTTPClient, NetworkServiceable
 {
-//    func getEstatisticas() async -> Result<EstatisticasMundialModel, RequestError>
-//    {
-//        return await sendRequest(endpoint: COVIDEndpoint.estatisticas, responseModel: EstatisticasMundialModel.self)
-//    }
-//    
+    func getAllMarcas() async -> Result<MarcaDTO, RequestError>
+    {
+        return await sendRequest(endpoint: CarEndpoint.make, responseModel: MarcaDTO.self)
+    }
+    
 //    func getListaPaises() async -> Result<PaisModel, RequestError>
 //    {
 //        return await sendRequest(endpoint: COVIDEndpoint.lista, responseModel: PaisModel.self)

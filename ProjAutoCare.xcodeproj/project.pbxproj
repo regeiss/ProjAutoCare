@@ -72,6 +72,11 @@
 		E19B1EFD2AA94E4200DC3D0C /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EFC2AA94E4200DC3D0C /* RequestError.swift */; };
 		E19B1EFF2AA94E9900DC3D0C /* CarEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EFE2AA94E9900DC3D0C /* CarEndPoint.swift */; };
 		E19B1F012AA94FDA00DC3D0C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F002AA94FDA00DC3D0C /* NetworkService.swift */; };
+		E19B1F032AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F022AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift */; };
+		E19B1F062AAA93E000DC3D0C /* Marca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */; };
+		E19B1F072AAA93E000DC3D0C /* Marca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F052AAA93E000DC3D0C /* Marca+CoreDataProperties.swift */; };
+		E19B1F0C2AAA94CF00DC3D0C /* MarcaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */; };
+		E19B1F0E2AAA987100DC3D0C /* MarcaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F0D2AAA987100DC3D0C /* MarcaViewModel.swift */; };
 		E1AC4F122A58E2DF00016186 /* WelcomeSheet in Frameworks */ = {isa = PBXBuildFile; productRef = E1AC4F112A58E2DF00016186 /* WelcomeSheet */; };
 		E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AC4F132A5B07D800016186 /* Categoria+CoreDataClass.swift */; };
 		E1AC4F182A5B07D800016186 /* Categoria+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AC4F142A5B07D800016186 /* Categoria+CoreDataProperties.swift */; };
@@ -221,6 +226,11 @@
 		E19B1EFC2AA94E4200DC3D0C /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		E19B1EFE2AA94E9900DC3D0C /* CarEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEndPoint.swift; sourceTree = "<group>"; };
 		E19B1F002AA94FDA00DC3D0C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E19B1F022AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinjaAPIEndPoint.swift; sourceTree = "<group>"; };
+		E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E19B1F052AAA93E000DC3D0C /* Marca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marca+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaModel.swift; sourceTree = "<group>"; };
+		E19B1F0D2AAA987100DC3D0C /* MarcaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaViewModel.swift; sourceTree = "<group>"; };
 		E1AC4F132A5B07D800016186 /* Categoria+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categoria+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1AC4F142A5B07D800016186 /* Categoria+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categoria+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1AC4F152A5B07D800016186 /* Servico+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Servico+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -720,8 +730,8 @@
 		E19B1EF32AA94D0D00DC3D0C /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */,
 				E19B1EF82AA94D7100DC3D0C /* EndPoint.swift */,
+				E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */,
 				E19B1EFA2AA94E1400DC3D0C /* HTTPMethod.swift */,
 				E19B1EFC2AA94E4200DC3D0C /* RequestError.swift */,
 			);
@@ -732,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				E19B1EFE2AA94E9900DC3D0C /* CarEndPoint.swift */,
+				E19B1F022AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift */,
 			);
 			path = EndPoints;
 			sourceTree = "<group>";
@@ -742,6 +753,31 @@
 				E19B1F002AA94FDA00DC3D0C /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E19B1F082AAA945100DC3D0C /* Marca */ = {
+			isa = PBXGroup;
+			children = (
+				E19B1F0A2AAA946C00DC3D0C /* ViewModel */,
+				E19B1F092AAA946400DC3D0C /* Model */,
+			);
+			path = Marca;
+			sourceTree = "<group>";
+		};
+		E19B1F092AAA946400DC3D0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E19B1F0A2AAA946C00DC3D0C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E19B1F0D2AAA987100DC3D0C /* MarcaViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E1AC4F1B2A5B085000016186 /* Model */ = {
@@ -975,6 +1011,8 @@
 		E1D5F5012A37E4C300F3AFD1 = {
 			isa = PBXGroup;
 			children = (
+				E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */,
+				E19B1F052AAA93E000DC3D0C /* Marca+CoreDataProperties.swift */,
 				E1B203D02A8C399C008834EE /* Registro+CoreDataClass.swift */,
 				E1B203D12A8C399C008834EE /* Registro+CoreDataProperties.swift */,
 				E1D871562A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift */,
@@ -1082,6 +1120,7 @@
 				E1E409C52A52408000034DBA /* Categoria */,
 				E1D5F52E2A3935FB00F3AFD1 /* Common */,
 				E10CE2702A8AE6970022670F /* Dashboard */,
+				E19B1F082AAA945100DC3D0C /* Marca */,
 				E16C14FB2A3DFE6D003EAADA /* Mensagem */,
 				E16C15042A3F7049003EAADA /* Onboarding */,
 				E16C14F82A3D21CD003EAADA /* Perfil */,
@@ -1471,6 +1510,7 @@
 				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
 				E10CE2762A8AE7660022670F /* DashboardScreen.swift in Sources */,
 				E1CD94472A90706F005EF2AC /* AbastecimentoReadScreen.swift in Sources */,
+				E19B1F032AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift in Sources */,
 				E1D871592A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift in Sources */,
 				E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
@@ -1487,8 +1527,10 @@
 				E1F986332A6D70280099C57D /* CategoriaReadScreen.swift in Sources */,
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
 				E1AC4F2F2A5B7D0B00016186 /* CategoriaScreen.swift in Sources */,
+				E19B1F0C2AAA94CF00DC3D0C /* MarcaModel.swift in Sources */,
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
 				E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */,
+				E19B1F062AAA93E000DC3D0C /* Marca+CoreDataClass.swift in Sources */,
 				E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */,
 				E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */,
 				E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */,
@@ -1502,6 +1544,7 @@
 				E1CD94432A8FFCB6005EF2AC /* ServicoEfetuadoReadScreen.swift in Sources */,
 				E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */,
 				E1013FB62A4909910044410F /* Abastecimento+CoreDataProperties.swift in Sources */,
+				E19B1F0E2AAA987100DC3D0C /* MarcaViewModel.swift in Sources */,
 				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
 				E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
@@ -1523,6 +1566,7 @@
 				E1D871582A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift in Sources */,
 				E1CD94452A906FE5005EF2AC /* AbastecimentoEditScreen.swift in Sources */,
 				E1013FCF2A4A5E160044410F /* PostoModel.swift in Sources */,
+				E19B1F072AAA93E000DC3D0C /* Marca+CoreDataProperties.swift in Sources */,
 				E1E409CA2A5256A300034DBA /* PerfilListaScreen.swift in Sources */,
 				E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomSheet.swift in Sources */,
