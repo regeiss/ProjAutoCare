@@ -16,8 +16,8 @@ class HTTPClient: NSObject
 {
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
-        configuration.waitsForConnectivity = true
-        configuration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
+//        configuration.waitsForConnectivity = true
+//        configuration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
         // eLp58hAAIjL4MWySCldjSA==oPcmDgyfuMwnM36W
         return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
@@ -32,24 +32,24 @@ class HTTPClient: NSObject
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
     
-        if endpoint.host == "newsapi.org"
-        {
-            urlComponents.queryItems = [URLQueryItem(name: "q", value: "COVID")]
-        }
+//        if endpoint.host == "newsapi.org"
+//        {
+//            urlComponents.queryItems = [URLQueryItem(name: "q", value: "COVID")]
+//        }
 //        
 //        if endpoint.host == "disease.sh"
 //        {
-//            urlComponents.queryItems = [URLQueryItem(name: "lastdays", value: "90")]
+   //        urlComponents.queryItems = []
 //        }
         
-        print(urlComponents.url as Any)
-        
+//        print(urlComponents.url as Any)
+//        
         guard let url = urlComponents.url
         else
         {
             return .failure(.invalidURL)
         }
-        
+        // let url = URL(string: "https://carapi.app/api/makes")!
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         
@@ -79,9 +79,6 @@ class HTTPClient: NSObject
                     return .failure(.decode)
                 }
 
-//                    print("Decode com sucesso")
-//                    print(decodedResponse)
-                  // session.finishTasksAndInvalidate()
                 return .success(decodedResponse)
 
             case 401:

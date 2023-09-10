@@ -21,6 +21,6 @@ extension Marca {
 
 }
 
-extension Marca : Identifiable {
+extension Marca: Identifiable {
 
 }

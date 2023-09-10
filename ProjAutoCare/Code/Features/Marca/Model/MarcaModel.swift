@@ -7,8 +7,23 @@
 
 import Foundation
 
-struct MarcaDTO: Identifiable, Decodable
+struct MarcaDTO: Codable
 {
-    let id: Int16
-    let nome: String
+    let collection: Collection
+    let data: [Datum]
+}
+
+typealias Marcas = MarcaDTO
+
+// MARK: - Collection
+struct Collection: Codable {
+    let url: String
+    let count, pages, total: Int
+    let next, prev, first, last: String
+}
+
+// MARK: - Datum
+struct Datum: Codable {
+    let id: Int
+    let name: String
 }

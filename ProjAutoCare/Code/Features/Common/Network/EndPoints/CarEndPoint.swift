@@ -23,7 +23,7 @@ extension CarEndpoint: Endpoint
         switch self
         {
         case .make, .lista, .continente, .serieHistorica:
-            return "disease.sh"
+            return "carapi.app/api"
         case .artigos:
             return "newsapi.org"
         }
@@ -34,7 +34,7 @@ extension CarEndpoint: Endpoint
         switch self
         {
         case .make:
-            return "/v3/covid-19/all"
+            return "/makes"
         case .lista:
             return "/v3/covid-19/countries"
         case .continente:

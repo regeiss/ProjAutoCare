@@ -46,7 +46,8 @@ struct MenuInicialScreen: View
                         RelatorioListaScreen()
                     case .alerta:
                         // AlertaListaScreen()
-                        LogEntriesView()
+                        // LogEntriesView()
+                        MarcaScreen()
                     case .cadastro:
                         CadastroListaScreen()
                     case .dashboard:

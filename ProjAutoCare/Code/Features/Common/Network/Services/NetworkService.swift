@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkServiceable
 {
-//    func getEstatisticas() async -> Result<EstatisticasMundialModel, RequestError>
+    func getAllMarcas() async -> Result<Marcas, RequestError>
 //    func getListaPaises() async -> Result<PaisModel, RequestError>
 //    func getInfoContinentes() async -> Result<ContinenteModel, RequestError>
 //    func getAllArtigos() async -> Result<ArtigoModel, RequestError>
@@ -18,9 +18,9 @@ protocol NetworkServiceable
 
 class NetworkService: HTTPClient, NetworkServiceable
 {
-    func getAllMarcas() async -> Result<MarcaDTO, RequestError>
+    func getAllMarcas() async -> Result<Marcas, RequestError>
     {
-        return await sendRequest(endpoint: CarEndpoint.make, responseModel: MarcaDTO.self)
+        return await sendRequest(endpoint: CarEndpoint.make, responseModel: Marcas.self)
     }
     
 //    func getListaPaises() async -> Result<PaisModel, RequestError>

@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import CoreData
 
 protocol MarcaViewModel: ObservableObject
 {
@@ -14,17 +15,16 @@ protocol MarcaViewModel: ObservableObject
 }
 
 @MainActor
-final class ArtigosViewModelImpl: MarcaViewModel
+final class MarcaViewModelImpl: MarcaViewModel
 {
     enum State
     {
         case na
         case loading
-        case success(data: MarcaDTO)
+        case success(data: Marcas)
         case failed(error: Error)
     }
 
-    @Published private(set) var marcas: [MarcaDTO] = []
     @Published private(set) var state: State = .na
     @Published var hasError: Bool = false
     @Published var carregando: Bool = false
@@ -59,5 +59,32 @@ final class ArtigosViewModelImpl: MarcaViewModel
             logger.error("\(error.localizedDescription, privacy: .public)")
         }
         logger.trace("Finalizando fetch")
+    }
+    
+    // TODO: Arrumar
+    private func newBatchInsertRequest(with marcas: [Marcas]) -> NSBatchInsertRequest
+    {
+      // 1
+      var index = 0
+      let total = marcas.count
+
+      // 2
+      let batchInsert = NSBatchInsertRequest(
+        entity: Marca.entity()) { (managedObject: NSManagedObject) -> Bool in
+        // 3
+        guard index < total else { return true }
+
+        if let marca = managedObject as? Marca {
+          // 4
+          let data = marcas[index]
+            marca.id = Int16(index)
+          marca.nome = ""
+        }
+
+        // 5
+        index += 1
+        return false
+      }
+      return batchInsert
     }
 }
