@@ -20,53 +20,5 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3B854BF7-344C-4B2A-93AC-AC75C1CE29BB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjAutoCare/Code/Features/Common/Network/Base/HTTPClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "sendRequest(endpoint:responseModel:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3B854BF7-344C-4B2A-93AC-AC75C1CE29BB - 6f557024f02d3336"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for ProjAutoCare.HTTPClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endpoint: ProjAutoCare.Endpoint, responseModel: &#x3c4;_0_0.Type) async -&gt; Swift.Result&lt;&#x3c4;_0_0, ProjAutoCare.RequestError&gt;"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Common/Network/Base/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "600">
-               </Location>
-               <Location
-                  uuid = "3B854BF7-344C-4B2A-93AC-AC75C1CE29BB - 6f557024f02d3336"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for ProjAutoCare.HTTPClient.sendRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endpoint: ProjAutoCare.Endpoint, responseModel: &#x3c4;_0_0.Type) async -&gt; Swift.Result&lt;&#x3c4;_0_0, ProjAutoCare.RequestError&gt;"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Common/Network/Base/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "596">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

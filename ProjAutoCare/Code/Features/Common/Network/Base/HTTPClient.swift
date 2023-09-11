@@ -19,11 +19,11 @@ class HTTPClient: NSObject
 //        configuration.waitsForConnectivity = true
 //        configuration.httpAdditionalHeaders = ["Authorization": "Bearer 26995ba0201c407da84ab37262254c9b"]
         // eLp58hAAIjL4MWySCldjSA==oPcmDgyfuMwnM36W
-        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        return URLSession(configuration: configuration)
     }()
     
-    var basicAuthUserName: String = "default"
-    var basicAuthPassword: String = "default"
+//    var basicAuthUserName: String = "default"
+//    var basicAuthPassword: String = "default"
     
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
     {
@@ -31,10 +31,7 @@ class HTTPClient: NSObject
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-    
-//        if endpoint.host == "newsapi.org"
-//        {
-//            urlComponents.queryItems = [URLQueryItem(name: "q", value: "COVID")]
+        urlComponents.queryItems = [URLQueryItem(name: "sort", value: "name")]
 //        }
 //        
 //        if endpoint.host == "disease.sh"
@@ -42,14 +39,15 @@ class HTTPClient: NSObject
    //        urlComponents.queryItems = []
 //        }
         
-//        print(urlComponents.url as Any)
+      print(urlComponents.url as Any)
 //        
-        guard let url = urlComponents.url
-        else
-        {
-            return .failure(.invalidURL)
-        }
-        // let url = URL(string: "https://carapi.app/api/makes")!
+//        guard let url = urlComponents.url
+//        else
+//        {
+//            return .failure(.invalidURL)
+//        }
+        
+        let url = URL(string: "https://carapi.app/api/makes")!
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         
@@ -97,22 +95,22 @@ class HTTPClient: NSObject
     }
 }
 
-extension HTTPClient: URLSessionTaskDelegate
-{
-    public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
-    {
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault || challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic
-        {
-            
-            let credential = URLCredential(user: self.basicAuthUserName,
-                                           password: self.basicAuthPassword,
-                                           persistence: .forSession)
-            
-            completionHandler(.useCredential, credential)
-        }
-        else
-        {
-            completionHandler(.performDefaultHandling, nil)
-        }
-    }
-}
+//extension HTTPClient: URLSessionTaskDelegate
+//{
+//    public func urlSession(_ session: URLSession, task: URLSessionTask, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+//    {
+//        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault || challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic
+//        {
+//            
+//            let credential = URLCredential(user: self.basicAuthUserName,
+//                                           password: self.basicAuthPassword,
+//                                           persistence: .forSession)
+//            
+//            completionHandler(.useCredential, credential)
+//        }
+//        else
+//        {
+//            completionHandler(.performDefaultHandling, nil)
+//        }
+//    }
+//}

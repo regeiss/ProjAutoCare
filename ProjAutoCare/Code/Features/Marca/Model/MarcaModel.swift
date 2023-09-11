@@ -13,8 +13,6 @@ struct MarcaDTO: Codable
     let data: [Datum]
 }
 
-typealias Marcas = MarcaDTO
-
 // MARK: - Collection
 struct Collection: Codable {
     let url: String
@@ -27,3 +25,5 @@ struct Datum: Codable {
     let id: Int
     let name: String
 }
+
+typealias Marcas = MarcaDTO

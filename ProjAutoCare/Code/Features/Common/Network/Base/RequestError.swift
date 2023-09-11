@@ -22,6 +22,8 @@ enum RequestError: Error
         {
         case .decode:
             return "Decode error"
+        case .invalidURL:
+            return "URL inválida"
         case .unauthorized:
             return "Session expired"
         default:

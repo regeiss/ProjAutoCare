@@ -32,7 +32,7 @@ struct MarcaScreen: View
                        }.padding()
                        
                    case .failed(let error):
-                       ErrorView()
+                       ErrorView(erro: error)
                        
                    default: EmptyView()
                    }

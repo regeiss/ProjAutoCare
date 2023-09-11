@@ -160,6 +160,7 @@
 		E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */; };
 		E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F512A51D04600776408 /* AlertaListaScreen.swift */; };
 		E1FD053A2A77318000B867B6 /* RelatorioConsumoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD05392A77318000B867B6 /* RelatorioConsumoScreen.swift */; };
+		E1FD64D12AAE93FA0009A258 /* MarcaPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FD64D02AAE93FA0009A258 /* MarcaPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,6 +317,7 @@
 		E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoListaScreen.swift; sourceTree = "<group>"; };
 		E1FB3F512A51D04600776408 /* AlertaListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaListaScreen.swift; sourceTree = "<group>"; };
 		E1FD05392A77318000B867B6 /* RelatorioConsumoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioConsumoScreen.swift; sourceTree = "<group>"; };
+		E1FD64D02AAE93FA0009A258 /* MarcaPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -780,9 +782,10 @@
 		E19B1F082AAA945100DC3D0C /* Marca */ = {
 			isa = PBXGroup;
 			children = (
+				E1FD64CF2AAE93090009A258 /* Action */,
+				E19B1F092AAA946400DC3D0C /* Model */,
 				E19B1F112AABDE1A00DC3D0C /* Screen */,
 				E19B1F0A2AAA946C00DC3D0C /* ViewModel */,
-				E19B1F092AAA946400DC3D0C /* Model */,
 			);
 			path = Marca;
 			sourceTree = "<group>";
@@ -1354,6 +1357,14 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
+		E1FD64CF2AAE93090009A258 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E1FD64D02AAE93FA0009A258 /* MarcaPublisher.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1542,6 +1553,7 @@
 				E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */,
 				E10CE26C2A899C200022670F /* AbastecimentoPublisher+Extension.swift in Sources */,
 				E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */,
+				E1FD64D12AAE93FA0009A258 /* MarcaPublisher.swift in Sources */,
 				E19B1F132AABDEE800DC3D0C /* LoadingView.swift in Sources */,
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
