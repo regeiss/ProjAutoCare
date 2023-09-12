@@ -7,7 +7,9 @@
 
 import Foundation
 import CoreData
+import OSLog
 
+@MainActor
 class MarcasPublisher: NSObject, ObservableObject
 {
     var publisherContext: NSManagedObjectContext = {
@@ -17,43 +19,68 @@ class MarcasPublisher: NSObject, ObservableObject
         return context
     }()
     
-    private func newBatchInsertRequest(with marcas: Marcas) -> NSBatchInsertRequest
+    var viewModel = MarcaViewModelImpl(service: NetworkService())
+    var dados: [Datum]?
+    let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
+    
+    func loadData() async -> [Datum]
     {
-        var index = 0
-        let total = marcas.data.count
-        let batchInsert = NSBatchInsertRequest(
-            entity: Marca.entity()) { (managedObject: NSManagedObject) -> Bool in
+        
+        logger.trace("Iniciando fetch")
+        
+        await viewModel.getAllMarcas()
+        
+        switch viewModel.state
+        {
+        case .loading:
+            logger.trace("Iniciando fetch")
+            
+        case .success(let data):
+            dados = data.data
+            
+        case .failed(let error):
+            logger.trace("Iniciando fetch")
+        case .na:
+            logger.trace("Iniciando fetch")
+        }
+        
+        return dados!
+    }
+    
+    private func createBatchInsertRequest() async -> NSBatchInsertRequest
+    {
+        var jsonData: [Datum] = await loadData()
+        var itemListIterator = jsonData.makeIterator()
+        
+        let batchInsert = NSBatchInsertRequest(entity: Marca.entity()) { (managedObject: NSManagedObject) -> Bool in
                 
-                guard index < total else { return true }
+                guard let item = itemListIterator.next() else { return true }
                 
                 if let marca = managedObject as? Marca 
                 {
-                    let dados = marcas.data[index]
-                    marca.id = Int16(dados.id)
-                    marca.nome = dados.name
+                    marca.id = Int16(item.id)
+                    marca.nome = item.name
                 }
-                
-                index += 1
+               
                 return false
             }
         return batchInsert
     }
     
-    private func batchInsertMarcas(marcas: Marcas)
+    private func batchInsertMarcas(marcas: Marcas) async throws 
     {
         let container = PersistenceController.shared.container
         guard !marcas.data.isEmpty else { return }
         
-        container.performBackgroundTask { publisherContext in
-            
-            let batchInsert = self.newBatchInsertRequest(with: marcas)
+        await container.performBackgroundTask { publisherContext in
             do
             {
-                try publisherContext.execute(batchInsert)
+                Task{ let batchInsert =  await self.createBatchInsertRequest()
+                    try publisherContext.execute(batchInsert)}
             }
             catch
             {
-                
+                self.logger.trace("Iniciando fetch")
             }
         }
     }

@@ -53,7 +53,7 @@ struct ProjAutoCareApp: App
          let viewModelPosto = PostoViewModel()
          let viewModelCategoria = CategoriaViewModel()
          let viewModelServico = ServicoViewModel()
-        
+         
          viewModelPerfil.inserePadrao()
          viewModelVeiculo.inserePadrao()
          viewModelPosto.inserePadrao()

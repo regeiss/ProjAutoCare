@@ -14,14 +14,16 @@ struct MarcaDTO: Codable
 }
 
 // MARK: - Collection
-struct Collection: Codable {
+struct Collection: Codable 
+{
     let url: String
     let count, pages, total: Int
     let next, prev, first, last: String
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct Datum: Codable 
+{
     let id: Int
     let name: String
 }
