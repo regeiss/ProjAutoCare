@@ -20,8 +20,7 @@ struct MarcaScreen: View
             {
                 switch viewModel.state
                 {
-                case .loading:
-                    LoadingView(text: "Buscando")
+               
                     
                 case .success(let data):
                     VStack
