@@ -32,10 +32,7 @@ class HTTPClient: NSObject
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         urlComponents.queryItems = [URLQueryItem(name: "sort", value: "name")]
-        
-        print("ÜRL")
-        print(urlComponents.url as Any)
-
+    
         guard let url = urlComponents.url
         else
         {

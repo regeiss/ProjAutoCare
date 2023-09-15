@@ -23,14 +23,17 @@ class MarcasPublisher: NSObject, ObservableObject
     var dados: [Datum]?
     let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
     
-//    func importaMarcas()
+//    func importaMarcas() async
 //    {
-//        viewModel.getAllMarcas()
+//        await viewModel.getAllMarcas()
 //        switch viewModel.state {
-//        case .success(let products):
-//        self.persistenceController.container.performBackgroundTask { context in
+//        case .na: 
+//            let x = 0
+//        case .success(let data):
+//            
+//            PersistenceController.shared.container.performBackgroundTask { context in
 //                  context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-//        let batchInsert = NSBatchInsertRequest(entityName: "Product", objects: products)
+//        let batchInsert = NSBatchInsertRequest(entityName: "Marca", objects: data)
 //        do {
 //        let result = try context.execute(batchInsert) as! NSBatchInsertResult
 //        print(result)
@@ -45,11 +48,14 @@ class MarcasPublisher: NSObject, ObservableObject
 //                    try? resultsController.performFetch()
 //                  }
 //                }
+//        case .failed(let error):
+//            let x=0
 //              }
-//            }
-//      }
+//        
 //    
-////    
+//      }
+    
+ 
 //    func loadData() async -> [Datum]
 //    {
 //        logger.trace("Iniciando fetch")
