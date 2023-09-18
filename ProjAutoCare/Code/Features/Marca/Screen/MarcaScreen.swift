@@ -9,37 +9,42 @@ import SwiftUI
 
 struct MarcaScreen: View
 {
-    @StateObject private var viewModel = MarcaViewModelImpl(service: NetworkService())
+    @StateObject var viewModel = MarcaViewModel()
     @State var dados: [Datum]?
+    @State private var adicao = false
     
     var body: some View
     {
         VStack
         {
-            ScrollView(.vertical)
+            List
             {
-                switch viewModel.state
-                {
-               
-                    
-                case .success(let data):
-                    VStack
+                ForEach(viewModel.marcaLista) { marca in
+                    HStack
                     {
-                        ForEach(data.data, id: \.id) { marca in
-                            Text(marca.name)
-                        }
-                       
-                    }.padding()
-                    
-                case .failed(let error):
-                    ErrorView(erro: error)
-                    
-                default: EmptyView()
+                        Text(marca.nome ?? "*")
+                    }
+//                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+//                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})
+//                    }
                 }
-            }.task { await viewModel.getAllMarcas() }
-                .alert("Error", isPresented: $viewModel.hasError, presenting: viewModel.state) { detail in Button("Retry", role: .destructive)
-                    { Task { await viewModel.getAllMarcas()}}} message: { detail in if case let .failed(error) = detail { Text(error.localizedDescription)}}
-            
-        }
+                
+                if $viewModel.marcaLista.isEmpty
+                {
+                    Text("").listRowBackground(Color.clear)
+                }
+            }
+        }.background(Color("backGroundColor"))
+            .scrollContentBackground(.hidden)
+            .navigationBarTitle("Marcas", displayMode: .automatic)
+            .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+                { Button {
+                    adicao = true
+                }
+                    label: { Image(systemName: "plus")}}
+            }
+        //            .navigationDestination(isPresented: $adicao, destination: {
+        //                AbastecimentoAddScreen(isEdit: false)
+        //            })
     }
 }

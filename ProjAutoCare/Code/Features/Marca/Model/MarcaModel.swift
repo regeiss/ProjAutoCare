@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import OSLog
 
 struct MarcaDTO: Codable
 {
     let collection: Collection
     let data: [Datum]
+    
+    private enum RootCodingKeys: String, CodingKey {
+            case features
+        }
+        
+        private enum FeatureCodingKeys: String, CodingKey {
+            case properties
+        }
+    private(set) var marcasPropertiesList = [Datum]()
 }
 
 // MARK: - Collection
@@ -26,6 +36,15 @@ struct Datum: Codable
 {
     let id: Int
     let name: String
+    
+    var dictionaryValue: [String: Any] {
+           [
+               "id": id,
+               "name": name
+           ]
+       }
 }
 
 typealias Marcas = MarcaDTO
+
+

@@ -10,9 +10,6 @@ import SwiftUI
 
 enum ValidationError: LocalizedError
 {
-    case missingPosto
-    case missingCarro
-    case missingName
     case wrongDataFormat(error: Error)
     case missingData
     case creationError
@@ -25,12 +22,6 @@ enum ValidationError: LocalizedError
     {
         switch self
         {
-        case .missingPosto:
-            return "Posto is a required field."
-        case .missingCarro:
-            return "Carro is a required field."
-        case .missingName:
-            return "Name is a required field."
         case .wrongDataFormat(let error):
             return NSLocalizedString("Could not digest the fetched data. \(error.localizedDescription)", comment: "")
         case .missingData:
@@ -48,8 +39,6 @@ enum ValidationError: LocalizedError
         }
     }
 }
-
-
 
 class ErrorHandling: ObservableObject
 {

@@ -5,56 +5,30 @@
 //  Created by Roberto Edgar Geiss on 07/09/23.
 //
 
-import Foundation
-import OSLog
+import Combine
 import CoreData
 
-protocol MarcaViewModel: ObservableObject
+class MarcaViewModel: ObservableObject
 {
-    func getAllMarcas() async 
-}
+    @Published var marcaLista: [Marca] = []
 
-final class MarcaViewModelImpl: MarcaViewModel
-{
-    
-    enum State
+    private var bag: AnyCancellable?
+
+    init(marcaPublisher: AnyPublisher<[Marca], Never> = MarcaPublisher.shared.marcaCVS.eraseToAnyPublisher())
     {
-        case na
-        case success(data: Marcas)
-        case failed(error: Error)
-    }
-    
-    @Published var hasError: Bool = false
-    @Published var carregando: Bool = false
-    @Published var state: State = .na
-    
-    private let service: NetworkService
-    
-    init(service: NetworkService)
-    {
-        self.service = service
-    }
-    
-    func getAllMarcas() async
-    {
-        self.hasError = false
-        
-        let logger = Logger.init(subsystem: Bundle.main.bundleIdentifier!, category: "main")
-        logger.trace("Iniciando fetch")
-        
-        let result = await service.getAllMarcas()
-        switch result
-        {
-        
-        case .success(let data):
-            self.state = .success(data: data)
-           
-        case .failure(let error):
-            self.state = .failed(error: error)
-            self.hasError = true
-            print(String(describing: error))
-            logger.error("\(error.localizedDescription, privacy: .public)")
+        bag = marcaPublisher.sink { [unowned self] marcasLista in
+            self.marcaLista = marcasLista
         }
-        logger.trace("Finalizando fetch")
     }
+
+//    func add(marca: MarcaDTO)
+//    {
+//        MarcaPublisher.shared.add(marca: marca)
+//    }
+//
+//    func update(marca: Marca)
+//    {
+//        MarcaPublisher.shared.update(marca: marca)
+//    }
+
 }
