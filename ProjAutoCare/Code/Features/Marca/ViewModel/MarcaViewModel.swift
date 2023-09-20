@@ -19,6 +19,9 @@ class MarcaViewModel: ObservableObject
         bag = marcaPublisher.sink { [unowned self] marcasLista in
             self.marcaLista = marcasLista
         }
+       
+        Task { try await  MarcaPublisher.shared.fetchMarcas() }
+        
     }
 
 //    func add(marca: MarcaDTO)

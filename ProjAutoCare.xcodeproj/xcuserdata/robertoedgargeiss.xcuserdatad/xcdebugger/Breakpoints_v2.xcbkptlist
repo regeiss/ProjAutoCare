@@ -20,5 +20,99 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "558EB8E7-DB67-4178-B54E-7962906372A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Marca/Action/MarcaPublisher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "fetchMarcas()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "558EB8E7-DB67-4178-B54E-7962906372A0 - 6e864df0f8264d7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ProjAutoCare.MarcaPublisher.fetchMarcas() async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaPublisher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  uuid = "558EB8E7-DB67-4178-B54E-7962906372A0 - 6bcb2a0b76fa07b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for ProjAutoCare.MarcaPublisher.fetchMarcas() async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaPublisher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  uuid = "558EB8E7-DB67-4178-B54E-7962906372A0 - 6e864df0f8264d7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ProjAutoCare.MarcaPublisher.fetchMarcas() async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaPublisher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "812">
+               </Location>
+               <Location
+                  uuid = "558EB8E7-DB67-4178-B54E-7962906372A0 - 6bcb2a0b76fa07b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for ProjAutoCare.MarcaPublisher.fetchMarcas() async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaPublisher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "784">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A03222D5-84A9-484E-80F4-9C49AEFC914A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Marca/Model/MarcaModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

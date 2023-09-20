@@ -7,6 +7,47 @@
 
 import Foundation
 import OSLog
+/// A struct for decoding JSON with the following structure:
+///
+/// {
+///    "features": [
+///          {
+///       "properties": {
+///         "mag":1.9,
+///         "place":"21km ENE of Honaunau-Napoopoo, Hawaii",
+///         "time":1539187727610,"updated":1539187924350,
+///         "code":"70643082"
+///       }
+///     }
+///   ]
+/// }
+///
+struct GeoJSON: Decodable {
+    
+    private enum RootCodingKeys: String, CodingKey {
+        case features
+    }
+    
+    private enum FeatureCodingKeys: String, CodingKey {
+        case properties
+    }
+    
+    private(set) var quakePropertiesList = [QuakeProperties]()
+
+    init(from decoder: Decoder) throws {
+        let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
+        var featuresContainer = try rootContainer.nestedUnkeyedContainer(forKey: .features)
+        
+        while !featuresContainer.isAtEnd {
+            let propertiesContainer = try featuresContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
+            
+            // Decodes a single quake from the data, and appends it to the array, ignoring invalid data.
+            if let properties = try? propertiesContainer.decode(QuakeProperties.self, forKey: .properties) {
+                quakePropertiesList.append(properties)
+            }
+        }
+    }
+}
 
 struct QuakeProperties: Decodable {
 
