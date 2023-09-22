@@ -44,6 +44,8 @@
 		E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27D2A8AEC090022670F /* DashBoardModel.swift */; };
 		E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27F2A8AEC180022670F /* DashboardAction.swift */; };
 		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
+		E12C38CC2ABD1E450011268A /* marcas.json in Resources */ = {isa = PBXBuildFile; fileRef = E12C38CB2ABD1E450011268A /* marcas.json */; };
+		E12C38CF2ABD1ECD0011268A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E12C38CE2ABD1ECD0011268A /* SwiftyJSON */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
 		E15DAED02AA38C1B002EE6A6 /* PerfilBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15DAECF2AA38C1B002EE6A6 /* PerfilBottomSheet.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
@@ -201,6 +203,7 @@
 		E10CE27D2A8AEC090022670F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
 		E10CE27F2A8AEC180022670F /* DashboardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAction.swift; sourceTree = "<group>"; };
 		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
+		E12C38CB2ABD1E450011268A /* marcas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = marcas.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E15DAECF2AA38C1B002EE6A6 /* PerfilBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilBottomSheet.swift; sourceTree = "<group>"; };
@@ -327,6 +330,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12C38CF2ABD1ECD0011268A /* SwiftyJSON in Frameworks */,
 				E1013FB92A49148E0044410F /* FormValidator in Frameworks */,
 				E1AC4F122A58E2DF00016186 /* WelcomeSheet in Frameworks */,
 			);
@@ -797,6 +801,7 @@
 			children = (
 				E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */,
 				E18958902AB9104300C211E5 /* File.swift */,
+				E12C38CB2ABD1E450011268A /* marcas.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1388,6 +1393,7 @@
 			packageProductDependencies = (
 				E1013FB82A49148E0044410F /* FormValidator */,
 				E1AC4F112A58E2DF00016186 /* WelcomeSheet */,
+				E12C38CE2ABD1ECD0011268A /* SwiftyJSON */,
 			);
 			productName = ProjAutoCare;
 			productReference = E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */;
@@ -1421,6 +1427,7 @@
 			packageReferences = (
 				E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */,
 				E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */,
+				E12C38CD2ABD1ECD0011268A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = E1D5F50B2A37E4C300F3AFD1 /* Products */;
 			projectDirPath = "";
@@ -1437,6 +1444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */,
+				E12C38CC2ABD1E450011268A /* marcas.json in Resources */,
 				E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */,
 				E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */,
 				E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */,
@@ -1845,6 +1853,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		E12C38CD2ABD1ECD0011268A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MAJKFL/Welcome-Sheet";
@@ -1860,6 +1876,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */;
 			productName = FormValidator;
+		};
+		E12C38CE2ABD1ECD0011268A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12C38CD2ABD1ECD0011268A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		E1AC4F112A58E2DF00016186 /* WelcomeSheet */ = {
 			isa = XCSwiftPackageProductDependency;

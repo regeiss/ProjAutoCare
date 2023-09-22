@@ -65,31 +65,31 @@ struct MarcaProperties: Decodable
     let id: Int
     let name: String
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let rawId = try? values.decode(Int.self, forKey: .id)
-        let rawName = try? values.decode(String.self, forKey: .name)
-       
-        
-        // Ignore earthquakes with missing da0ta.
-//        guard let id = rawId,
-//              let place = rawName
-//        else {
-//            let values = "code = \(rawCode?.description ?? "nil"), "
-//            + "mag = \(rawMagnitude?.description ?? "nil"), "
-//            + "place = \(rawPlace?.description ?? "nil"), "
-//            + "time = \(rawTime?.description ?? "nil")"
-//
-//            let logger = Logger(subsystem: "com.example.apple-samplecode.Earthquakes", category: "parsing")
-//            logger.debug("Ignored: \(values)")
-//
-//            throw ValidationError.missingData
-//        }
-        
-        self.id = rawId ?? 0
-        self.name = rawName ?? ""
-    }
-    
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        let rawId = try? values.decode(Int.self, forKey: .id)
+//        let rawName = try? values.decode(String.self, forKey: .name)
+//       
+//        
+//        // Ignore earthquakes with missing da0ta.
+////        guard let id = rawId,
+////              let place = rawName
+////        else {
+////            let values = "code = \(rawCode?.description ?? "nil"), "
+////            + "mag = \(rawMagnitude?.description ?? "nil"), "
+////            + "place = \(rawPlace?.description ?? "nil"), "
+////            + "time = \(rawTime?.description ?? "nil")"
+////
+////            let logger = Logger(subsystem: "com.example.apple-samplecode.Earthquakes", category: "parsing")
+////            logger.debug("Ignored: \(values)")
+////
+////            throw ValidationError.missingData
+////        }
+//        
+//        self.id = rawId ?? 0
+//        self.name = rawName ?? ""
+//    }
+//    
     var dictionaryValue: [String: Any] {
            [
                "id": id,
@@ -98,20 +98,10 @@ struct MarcaProperties: Decodable
        }
 }
 
-
 struct MarcaDTO: Codable
 {
     let collection: Collection
     let data: [Datum]
-    
-    private enum RootCodingKeys: String, CodingKey {
-            case features
-        }
-        
-        private enum FeatureCodingKeys: String, CodingKey {
-            case properties
-        }
-    private(set) var marcasPropertiesList = [Datum]()
 }
 
 // MARK: - Collection
@@ -128,4 +118,3 @@ struct Datum: Codable
     let id: Int
     let name: String
 }
-
