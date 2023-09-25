@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MarcaScreen: View
+struct MarcaListaScreen: View
 {
     @StateObject var viewModel = MarcaViewModel()
     @State var dados: [Datum]?

@@ -18,11 +18,12 @@ struct CadastroListaScreen: View
     {
         let cadastroMenu = [
             CadastroColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
-            CadastroColecao(id: 1, name: "Serviços", image: "service", menu: .servico),
-            CadastroColecao(id: 2, name: "Veículos", image: "report", menu: .veiculo),
+            CadastroColecao(id: 1, name: "Marcas", image: "config", menu: .marca),
+            CadastroColecao(id: 2, name: "Perfil", image: "perfil", menu: .perfil),
             CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
-            CadastroColecao(id: 4, name: "Perfil", image: "config", menu: .perfil),
-            CadastroColecao(id: 5, name: "Serviço efetuado", image: "config", menu: .servicoEfetuado)
+            CadastroColecao(id: 4, name: "Serviços", image: "service", menu: .servico),
+            CadastroColecao(id: 5, name: "Serviço efetuado", image: "config", menu: .servicoEfetuado),
+            CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo)
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
@@ -39,11 +40,14 @@ struct CadastroListaScreen: View
                         }
                     }.padding([.leading, .trailing])
                 }.navigationDestination(for: CadastroColecao.self) { item in
-                    switch item.menu {
+                    switch item.menu 
+                    {
                     case .categoria:
                         CategoriaListaScreen()
                     case .servico:
                         ServicoListaScreen()
+                    case .marca:
+                        MarcaListaScreen()
                     case .servicoEfetuado:
                         ServicoEfetuadoListaScreen()
                     case .veiculo:

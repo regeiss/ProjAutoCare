@@ -20,7 +20,7 @@ class MarcaViewModel: ObservableObject
             self.marcaLista = marcasLista
         }
        
-        Task { try await  MarcaPublisher.shared.fetchMarcas() }
+        Task { try await  MarcaDecoder.shared.fetchMarcas() }
         
     }
 
