@@ -22,6 +22,7 @@ struct MarcaListaScreen: View
                 ForEach(viewModel.marcaLista) { marca in
                     HStack
                     {
+                        Text(String(marca.id))
                         Text(marca.nome ?? "*")
                     }
 //                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {

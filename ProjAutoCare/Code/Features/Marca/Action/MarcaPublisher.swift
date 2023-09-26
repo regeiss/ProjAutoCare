@@ -28,7 +28,7 @@ class MarcaPublisher: NSObject, ObservableObject
     private override init()
     {
         let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "nome", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "nome", ascending: true)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.returnsDistinctResults = true

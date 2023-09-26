@@ -20,5 +20,83 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C93E1407-89B4-4CEE-B79A-D2EDB792D814"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Marca/Action/MarcaDecoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "batchInsertMarcas(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C93E1407-89B4-4CEE-B79A-D2EDB792D814 - 97988e4d5b771c47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSMutableDictionary) -&gt; Swift.Bool in closure #1 () throws -&gt; () in ProjAutoCare.MarcaDecoder.batchInsertMarcas(from: SwiftyJSON.JSON) async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "972">
+               </Location>
+               <Location
+                  uuid = "C93E1407-89B4-4CEE-B79A-D2EDB792D814 - 97988e4d5b771c47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSMutableDictionary) -&gt; Swift.Bool in closure #1 () throws -&gt; () in ProjAutoCare.MarcaDecoder.batchInsertMarcas(from: SwiftyJSON.JSON) async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "968">
+               </Location>
+               <Location
+                  uuid = "C93E1407-89B4-4CEE-B79A-D2EDB792D814 - 97988e4d5b771c47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSMutableDictionary) -&gt; Swift.Bool in closure #1 () throws -&gt; () in ProjAutoCare.MarcaDecoder.batchInsertMarcas(from: SwiftyJSON.JSON) async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "1284">
+               </Location>
+               <Location
+                  uuid = "C93E1407-89B4-4CEE-B79A-D2EDB792D814 - 97988e4d5b771c47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSMutableDictionary) -&gt; Swift.Bool in closure #1 () throws -&gt; () in ProjAutoCare.MarcaDecoder.batchInsertMarcas(from: SwiftyJSON.JSON) async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Marca/Action/MarcaDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "1276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
