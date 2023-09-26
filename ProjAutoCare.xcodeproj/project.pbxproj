@@ -69,6 +69,11 @@
 		E18958912AB9104300C211E5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18958902AB9104300C211E5 /* File.swift */; };
 		E18FDA702AC265F500FA2602 /* Modelo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA6E2AC265F500FA2602 /* Modelo+CoreDataClass.swift */; };
 		E18FDA712AC265F500FA2602 /* Modelo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA6F2AC265F500FA2602 /* Modelo+CoreDataProperties.swift */; };
+		E18FDA782AC2F77400FA2602 /* ModeloDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */; };
+		E18FDA7A2AC2F78F00FA2602 /* ModeloPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA792AC2F78F00FA2602 /* ModeloPublisher.swift */; };
+		E18FDA7C2AC2F7B200FA2602 /* ModeloViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */; };
+		E18FDA7E2AC2F7C200FA2602 /* ModeoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7D2AC2F7C200FA2602 /* ModeoModel.swift */; };
+		E18FDA802AC2F7DD00FA2602 /* ModeloListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */; };
 		E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */; };
 		E19B1EF12AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */; };
 		E19B1EF72AA94D5A00DC3D0C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */; };
@@ -231,6 +236,11 @@
 		E18958902AB9104300C211E5 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E18FDA6E2AC265F500FA2602 /* Modelo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E18FDA6F2AC265F500FA2602 /* Modelo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloDecoder.swift; sourceTree = "<group>"; };
+		E18FDA792AC2F78F00FA2602 /* ModeloPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloPublisher.swift; sourceTree = "<group>"; };
+		E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloViewModel.swift; sourceTree = "<group>"; };
+		E18FDA7D2AC2F7C200FA2602 /* ModeoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeoModel.swift; sourceTree = "<group>"; };
+		E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloListaScreen.swift; sourceTree = "<group>"; };
 		E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecaoDataView.swift; sourceTree = "<group>"; };
 		E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersaoAnteriorScreen.swift; sourceTree = "<group>"; };
 		E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -739,6 +749,50 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E18FDA722AC2F71F00FA2602 /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDA762AC2F75600FA2602 /* Screen */,
+				E18FDA752AC2F74300FA2602 /* Model */,
+				E18FDA742AC2F73300FA2602 /* ViewModel */,
+				E18FDA732AC2F72A00FA2602 /* Action */,
+			);
+			path = Modelo;
+			sourceTree = "<group>";
+		};
+		E18FDA732AC2F72A00FA2602 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */,
+				E18FDA792AC2F78F00FA2602 /* ModeloPublisher.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		E18FDA742AC2F73300FA2602 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E18FDA752AC2F74300FA2602 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDA7D2AC2F7C200FA2602 /* ModeoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E18FDA762AC2F75600FA2602 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */,
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
 		E19B1EEE2AA6A30900DC3D0C /* VersaoAnterior */ = {
 			isa = PBXGroup;
 			children = (
@@ -1153,6 +1207,7 @@
 		E1D5F52C2A392F5F00F3AFD1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E18FDA722AC2F71F00FA2602 /* Modelo */,
 				E16C15112A410E3B003EAADA /* Abastecimento */,
 				E16C15122A410E47003EAADA /* Alerta */,
 				E16C15142A410E68003EAADA /* Cadastro */,
@@ -1536,6 +1591,7 @@
 				E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */,
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
 				E1AC4F192A5B07D800016186 /* Servico+CoreDataClass.swift in Sources */,
+				E18FDA782AC2F77400FA2602 /* ModeloDecoder.swift in Sources */,
 				E1013FC82A4A57FB0044410F /* PostoScreen.swift in Sources */,
 				E1013FD92A4A650C0044410F /* PostoPublisher.swift in Sources */,
 				E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */,
@@ -1577,11 +1633,13 @@
 				E1FD64D12AAE93FA0009A258 /* MarcaPublisher.swift in Sources */,
 				E19B1F132AABDEE800DC3D0C /* LoadingView.swift in Sources */,
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
+				E18FDA7E2AC2F7C200FA2602 /* ModeoModel.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
 				E1F986312A6D70160099C57D /* CategoriaEditScreen.swift in Sources */,
 				E1E409CE2A52580C00034DBA /* Perfil+CoreDataProperties.swift in Sources */,
 				E1F986332A6D70280099C57D /* CategoriaReadScreen.swift in Sources */,
 				E18FDA712AC265F500FA2602 /* Modelo+CoreDataProperties.swift in Sources */,
+				E18FDA7C2AC2F7B200FA2602 /* ModeloViewModel.swift in Sources */,
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
 				E1AC4F2F2A5B7D0B00016186 /* CategoriaScreen.swift in Sources */,
 				E19B1F0C2AAA94CF00DC3D0C /* MarcaModel.swift in Sources */,
@@ -1599,6 +1657,7 @@
 				E1AC4F202A5B0A4A00016186 /* ServicoModel.swift in Sources */,
 				E1013FA62A48F8B80044410F /* AutoCare.xcdatamodeld in Sources */,
 				E1AC4F312A5B7E3A00016186 /* CategoriaViewModel.swift in Sources */,
+				E18FDA7A2AC2F78F00FA2602 /* ModeloPublisher.swift in Sources */,
 				E1D2E9272A61B1C500551892 /* ServicoEfetuadoViewModel.swift in Sources */,
 				E1CD94432A8FFCB6005EF2AC /* ServicoEfetuadoReadScreen.swift in Sources */,
 				E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */,
@@ -1637,6 +1696,7 @@
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,
 				E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */,
 				E10A77A82A6F4EEB00FF7800 /* VeiculoEditScreen.swift in Sources */,
+				E18FDA802AC2F7DD00FA2602 /* ModeloListaScreen.swift in Sources */,
 				E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */,
 				E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */,
 				E1AC4F1D2A5B086C00016186 /* CategoriaModel.swift in Sources */,
