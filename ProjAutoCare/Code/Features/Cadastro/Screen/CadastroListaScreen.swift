@@ -23,7 +23,8 @@ struct CadastroListaScreen: View
             CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
             CadastroColecao(id: 4, name: "Serviços", image: "service", menu: .servico),
             CadastroColecao(id: 5, name: "Serviço efetuado", image: "config", menu: .servicoEfetuado),
-            CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo)
+            CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo),
+            CadastroColecao(id: 7, name: "Modelos", image: "report", menu: .modelo)
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
@@ -56,6 +57,8 @@ struct CadastroListaScreen: View
                         PostoListaScreen()
                     case .perfil:
                         PerfilListaScreen()
+                    case .modelo:
+                        ModeloListaScreen()
                     }
                 }.padding()
             }.navigationTitle("Cadastros")

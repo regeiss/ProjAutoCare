@@ -10,7 +10,7 @@ import SwiftUI
 struct MarcaListaScreen: View
 {
     @StateObject var viewModel = MarcaViewModel()
-    @State var dados: [Datum]?
+    @State var dados: [DataMarca]?
     @State private var adicao = false
     
     var body: some View
@@ -25,9 +25,9 @@ struct MarcaListaScreen: View
                         Text(String(marca.id))
                         Text(marca.nome ?? "*")
                     }
-//                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-//                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})
-//                    }
+                    //                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    //                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})
+                    //                    }
                 }
                 
                 if $viewModel.marcaLista.isEmpty

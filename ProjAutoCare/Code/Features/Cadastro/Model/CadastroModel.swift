@@ -16,6 +16,7 @@ enum Cadastro: String
     case posto
     case perfil
     case marca
+    case modelo
 }
 
 struct CadastroColecao: Identifiable, Hashable

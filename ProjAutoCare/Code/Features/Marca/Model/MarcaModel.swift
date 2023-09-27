@@ -8,30 +8,12 @@
 import Foundation
 import OSLog
 
-// {
-//  "collection": {
-//    "url": "/collection",
-//    "count": 50,
-//    "pages": 20,
-//    "total": 200,
-//    "next": "/collection?page=:number",
-//    "prev": "/collection?page=:number",
-//    "first": "/collection?page=:number",
-//    "last": "/collection?page=:number"
-//  },
-//  "data": [
-//    {
-//      "id": 0,
-//      "name": "string"
-//    }
-//  ]
-// }
 typealias Marcas = MarcaDTO
 
 struct MarcaDTO: Codable
 {
     let collection: Collection
-    let data: [Datum]
+    let data: [DataMarca]
 }
 
 // MARK: - Collection
@@ -43,7 +25,7 @@ struct Collection: Codable
 }
 
 // MARK: - Datum
-struct Datum: Codable 
+struct DataMarca: Codable 
 {
     let id: Int
     let name: String
