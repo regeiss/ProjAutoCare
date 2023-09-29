@@ -31,5 +31,3 @@ struct DataModelo: Codable
     let makeid: Int
     let name: String
 }
-
-

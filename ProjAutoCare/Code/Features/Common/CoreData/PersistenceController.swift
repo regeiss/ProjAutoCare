@@ -12,8 +12,14 @@ struct PersistenceController
 {
     static let shared = PersistenceController()
     let container: NSPersistentContainer
-        init(inMemory: Bool = false) {
+        init(inMemory: Bool = false) 
+        {
             container = NSPersistentContainer(name: "AutoCare")
+            let description = container.persistentStoreDescriptions.first
+                    description?.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+            let remoteChangeKey = "NSPersistentStoreRemoteChangeNotificationOptionKey"
+                   description?.setOption(true as NSNumber, forKey: remoteChangeKey)
+            
             if inMemory
             {
                 container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")

@@ -20,7 +20,7 @@ class ModeloPublisher: NSObject, ObservableObject
     
     var publisherContext: NSManagedObjectContext = {
         let context = PersistenceController.shared.container.viewContext
-        context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyStoreTrumpMergePolicyType)
         context.automaticallyMergesChangesFromParent = true
         return context
     }()
@@ -62,7 +62,7 @@ extension ModeloPublisher: NSFetchedResultsControllerDelegate
     {
         guard let perfis = controller.fetchedObjects as? [Modelo]
         else { return }
-        logger.log("Context has changed, reloading postos")
+        logger.log("Context has changed, reloading modelos")
         self.modeloCVS.value = perfis
     }
 }

@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ModeloListaScreen: View 
+struct ModeloListaScreen: View
 {
     @StateObject var viewModel = ModeloViewModel()
-    @State var dados: [DataModelo]?
+    // @State var dados: [DataModelo]?
     @State private var adicao = false
     
     var body: some View
@@ -35,15 +35,18 @@ struct ModeloListaScreen: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
-        }.background(Color("backGroundColor"))
-            .scrollContentBackground(.hidden)
-            .navigationBarTitle("Modelos", displayMode: .automatic)
-            .toolbar { ToolbarItem(placement: .navigationBarTrailing)
-                { Button {
-                    adicao = true
-                }
-                    label: { Image(systemName: "plus")}}
+        }
+        .refreshable 
+        { viewModel.objectWillChange.send()  }
+        .background(Color("backGroundColor"))
+        .scrollContentBackground(.hidden)
+        .navigationBarTitle("Modelos", displayMode: .automatic)
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                adicao = true
             }
+                label: { Image(systemName: "plus")}}
+        }
         //            .navigationDestination(isPresented: $adicao, destination: {
         //                AbastecimentoAddScreen(isEdit: false)
         //            })
