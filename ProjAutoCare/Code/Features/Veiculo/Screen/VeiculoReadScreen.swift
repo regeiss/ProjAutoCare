@@ -13,7 +13,7 @@ struct VeiculoReadScreen: View
     @ObservedObject var viewModel: VeiculoViewModel
     @ObservedObject var formInfo = VeiculoFormInfo()
     @State private var edicao = false
-    
+    @State var marca: String = ""
     var veiculo: Veiculo
     
     var body: some View
@@ -25,7 +25,7 @@ struct VeiculoReadScreen: View
                 Section
                 {
                     TextField("nome", text: $formInfo.nome)
-                    TextField("marca", text: $formInfo.marca)
+                    TextField("marca", text: $marca)
                     TextField("modelo", text: $formInfo.modelo)
                     TextField("placa", text: $formInfo.placa)
                     TextField("chassis", text: $formInfo.chassis)
@@ -35,9 +35,9 @@ struct VeiculoReadScreen: View
             .scrollContentBackground(.hidden)
             .onAppear
             {
+                marca = viewModel.buscaMarcaModelo(id: 2)
                 formInfo.nome = veiculo.nome ?? ""
-                formInfo.marca = veiculo.marca ?? ""
-                formInfo.modelo = veiculo.modelo ?? ""
+                formInfo.modelo = veiculo.nomeModelo
                 formInfo.placa = veiculo.placa ?? ""
                 formInfo.chassis = veiculo.chassis ?? ""
                 formInfo.ano = String(veiculo.ano)

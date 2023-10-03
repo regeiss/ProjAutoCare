@@ -37,7 +37,7 @@ struct ModeloListaScreen: View
             }
         }
         .refreshable 
-        { viewModel.objectWillChange.send()  }
+        { viewModel.objectWillChange.send()}
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .navigationBarTitle("Modelos", displayMode: .automatic)

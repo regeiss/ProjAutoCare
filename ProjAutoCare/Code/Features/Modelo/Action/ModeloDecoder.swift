@@ -56,7 +56,8 @@ class ModeloDecoder: ObservableObject
         guard !dados.isEmpty else { return }
         
         let taskContext = publisherContext
-        
+        taskContext.transactionAuthor = PersistenceController.remoteDataImportAuthorName
+
         return try await taskContext.perform {
             
             var index = 0
@@ -65,9 +66,9 @@ class ModeloDecoder: ObservableObject
                     let item = ["id": dados[index]["id"].rawValue, "idmarca": dados[index]["make_id"].rawValue, "nome": dados[index]["name"].rawValue]
                     dict.setDictionary(item)
                     index += 1
-                    return false // Not yet complete, need to continue adding
+                    return false
                 } else {
-                    return true // index == amount, the specified number (amount) of data has been added, end batch insertion operation.
+                    return true
                 }
             })
             batchRequest.resultType = .statusOnly
@@ -80,31 +81,21 @@ class ModeloDecoder: ObservableObject
     
     func batchDeleteModels() async throws
     {
-        // Specify a batch to delete with a fetch request
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "Modelo")
 
-        // Create a batch delete request for the
-        // fetch request
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
-        // Specify the result of the NSBatchDeleteRequest
-        // should be the NSManagedObject IDs for the
-        // deleted objects
         deleteRequest.resultType = .resultTypeObjectIDs
 
-        // Get a reference to a managed object context
         let context = publisherContext
         
         do 
         {
-            // Execute the request.
             let deleteResult = try context.execute(deleteRequest) as? NSBatchDeleteResult
             
-            // Extract the IDs of the deleted managed objectss from the request's result.
-            if let objectIDs = deleteResult?.result as? [NSManagedObjectID] {
-                
-                // Merge the deletions into the app's managed object context.
+            if let objectIDs = deleteResult?.result as? [NSManagedObjectID] 
+            {
                 NSManagedObjectContext.mergeChanges(
                     fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs],
                     into: [context]

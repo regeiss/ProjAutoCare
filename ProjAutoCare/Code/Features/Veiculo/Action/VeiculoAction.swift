@@ -59,8 +59,7 @@ class VeiculoPublisher: NSObject, ObservableObject
         let newVeiculo = Veiculo(context: publisherContext)
         newVeiculo.id = veiculo.id
         newVeiculo.nome = veiculo.nome
-        newVeiculo.marca = veiculo.marca
-        newVeiculo.modelo = veiculo.modelo
+        newVeiculo.veiculomodelo = veiculo.veiculomodelo
         newVeiculo.placa = veiculo.placa
         newVeiculo.chassis = veiculo.chassis
         newVeiculo.ano = veiculo.ano
@@ -115,8 +114,7 @@ class VeiculoPublisher: NSObject, ObservableObject
         let newVeiculo = Veiculo(context: publisherContext)
             newVeiculo.id = UUID()
             newVeiculo.nome = "padrão"
-            newVeiculo.marca = "padrão"
-            newVeiculo.modelo = "padrão"
+            newVeiculo.veiculomodelo = Modelo()
             newVeiculo.placa = "padrão"
             newVeiculo.chassis = "padrão"
             newVeiculo.ano = Int16(0)
@@ -137,6 +135,24 @@ class VeiculoPublisher: NSObject, ObservableObject
         appState.veiculoAtivo = newVeiculo
     }
 
+    func buscaMarcaModelo(id: Int) -> String
+    {
+        let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
+        fetchRequest.fetchLimit = 1
+        
+        do
+        {
+            guard let marca = try publisherContext.fetch(fetchRequest).first
+            else { return "*"}
+            return marca.nome ?? "*"
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+    
     func selecionarVeiculoAtivo()
     {
         let fetchRequest: NSFetchRequest<Veiculo> = Veiculo.fetchRequest()
@@ -145,7 +161,6 @@ class VeiculoPublisher: NSObject, ObservableObject
 
         do
         {
-            logger.log("Context has changed, buscando veiculo atual")
             guard let veiculoAtual = try publisherContext.fetch(fetchRequest).first
             else { return }
             appState.veiculoAtivo = veiculoAtual

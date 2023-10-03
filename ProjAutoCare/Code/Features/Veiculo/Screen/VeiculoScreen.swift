@@ -25,7 +25,7 @@ class VeiculoFormInfo: ObservableObject
     var nome: String = ""
     lazy var nomeVazio = _nome.validation(manager: manager)
     
-    var marca: String = ""
+    // var marca: String = ""
     var modelo: String = ""
     var placa: String = ""
     var chassis: String = ""

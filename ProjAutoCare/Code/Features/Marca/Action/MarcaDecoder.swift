@@ -38,11 +38,10 @@ class MarcaDecoder: ObservableObject
         
         do
         {
-            // Decode the JSON into a data model.
             let json =  try JSON(data: data)
             
             logger.debug("Start importing data to the store...")
-            // try await batchInsertMarcas(from: json["data"])
+            try await batchInsertMarcas(from: json["data"])
             logger.debug("Finished importing data.")
         }
         catch
@@ -59,18 +58,18 @@ class MarcaDecoder: ObservableObject
         let taskContext = publisherContext
         
         return try await taskContext.perform {
-            // Number of records already added
             var index = 0
-            // Create an NSBatchInsertRequest and declare a data processing closure. If dictionaryHandler returns false, Core Data will continue to call the closure to create data until the closure returns true.
             let batchRequest = NSBatchInsertRequest(entityName: "Marca", dictionaryHandler: { dict in
-                if index < dados.count {
-                    // Create data. The current Item has only one property, timestamp, of type Date.
+                if index < dados.count 
+                {
                     let item = ["id": dados[index]["id"].rawValue, "nome": dados[index]["name"].rawValue]
                     dict.setDictionary(item)
                     index += 1
-                    return false // Not yet complete, need to continue adding
-                } else {
-                    return true // index == amount, the specified number (amount) of data has been added, end batch insertion operation.
+                    return false
+                } 
+                else
+                {
+                    return true
                 }
             })
             batchRequest.resultType = .statusOnly
@@ -78,7 +77,34 @@ class MarcaDecoder: ObservableObject
             self.logger.debug("Successfully inserted data.")
             // return result.result as! Bool
         }
+    }
+    
+    func batchDeleteMarcas() async throws
+    {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+        fetchRequest = NSFetchRequest(entityName: "Marca")
+
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        deleteRequest.resultType = .resultTypeObjectIDs
+
+        let context = publisherContext
         
-        
+        do
+        {
+            let deleteResult = try context.execute(deleteRequest) as? NSBatchDeleteResult
+            
+            if let objectIDs = deleteResult?.result as? [NSManagedObjectID]
+            {
+                NSManagedObjectContext.mergeChanges(
+                    fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs],
+                    into: [context]
+                )
+            }
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
     }
 }

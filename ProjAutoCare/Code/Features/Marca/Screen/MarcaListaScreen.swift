@@ -10,7 +10,7 @@ import SwiftUI
 struct MarcaListaScreen: View
 {
     @StateObject var viewModel = MarcaViewModel()
-    @State var dados: [DataMarca]?
+    // @State var dados: [DataMarca]?
     @State private var adicao = false
     
     var body: some View
@@ -35,15 +35,17 @@ struct MarcaListaScreen: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
-        }.background(Color("backGroundColor"))
-            .scrollContentBackground(.hidden)
-            .navigationBarTitle("Marcas", displayMode: .automatic)
-            .toolbar { ToolbarItem(placement: .navigationBarTrailing)
-                { Button {
-                    adicao = true
-                }
-                    label: { Image(systemName: "plus")}}
+        }.refreshable
+        { viewModel.objectWillChange.send()}
+        .background(Color("backGroundColor"))
+        .scrollContentBackground(.hidden)
+        .navigationBarTitle("Marcas", displayMode: .automatic)
+        .toolbar { ToolbarItem(placement: .navigationBarTrailing)
+            { Button {
+                adicao = true
             }
+                label: { Image(systemName: "plus")}}
+        }
         //            .navigationDestination(isPresented: $adicao, destination: {
         //                AbastecimentoAddScreen(isEdit: false)
         //            })

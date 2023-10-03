@@ -30,7 +30,7 @@ struct VeiculoEditScreen: View
                         .validation(formInfo.nomeVazio)
                         .focused($veiculoInFocus, equals: .nome)
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
-                    TextField("marca", text: $formInfo.marca)
+                    //TextField("marca", text: $formInfo.marca)
                     TextField("modelo", text: $formInfo.modelo)
                     TextField("placa", text: $formInfo.placa)
                     TextField("chassis", text: $formInfo.chassis)
@@ -43,8 +43,8 @@ struct VeiculoEditScreen: View
             .onAppear
             {
                 formInfo.nome = veiculo.nome ?? ""
-                formInfo.marca = veiculo.marca ?? ""
-                formInfo.modelo = veiculo.modelo ?? ""
+                //formInfo.marca = veiculo.marca ?? ""
+                //formInfo.modelo = veiculo.modelo ?? ""
                 formInfo.placa = veiculo.placa ?? ""
                 formInfo.chassis = veiculo.chassis ?? ""
                 formInfo.ano = String(veiculo.ano)
@@ -79,8 +79,8 @@ struct VeiculoEditScreen: View
         if valid
         {
                 veiculo.nome = formInfo.nome
-                veiculo.marca = formInfo.marca
-                veiculo.modelo = formInfo.modelo
+                // veiculo.marca = marca.nome
+                // veiculo.veiculomodelo = formInfo.modelo
                 veiculo.placa = formInfo.placa
                 veiculo.chassis = formInfo.chassis
                 veiculo.ano = Int16(formInfo.ano) ?? 1990

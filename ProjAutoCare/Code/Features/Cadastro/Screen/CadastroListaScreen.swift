@@ -19,12 +19,13 @@ struct CadastroListaScreen: View
         let cadastroMenu = [
             CadastroColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
             CadastroColecao(id: 1, name: "Marcas", image: "config", menu: .marca),
+            CadastroColecao(id: 7, name: "Modelos", image: "report", menu: .modelo),
             CadastroColecao(id: 2, name: "Perfil", image: "perfil", menu: .perfil),
             CadastroColecao(id: 3, name: "Postos", image: "alertas", menu: .posto),
             CadastroColecao(id: 4, name: "Serviços", image: "service", menu: .servico),
             CadastroColecao(id: 5, name: "Serviço efetuado", image: "config", menu: .servicoEfetuado),
-            CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo),
-            CadastroColecao(id: 7, name: "Modelos", image: "report", menu: .modelo)
+            CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo)
+            
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]

@@ -16,7 +16,6 @@ struct AbastecimentoReadScreen: View
     @StateObject var viewModelPosto = PostoViewModel()
     
     @StateObject var formInfo = AbastecimentoFormInfo()
-    @State var posto: Posto?
     @State var edicao = false
     
     var abastecimento: Abastecimento

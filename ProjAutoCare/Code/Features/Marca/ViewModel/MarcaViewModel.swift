@@ -20,18 +20,8 @@ class MarcaViewModel: ObservableObject
             self.marcaLista = marcasLista
         }
        
+        Task { try await  MarcaDecoder.shared.batchDeleteMarcas()}
         Task { try await  MarcaDecoder.shared.fetchMarcas() }
         
     }
-
-//    func add(marca: MarcaDTO)
-//    {
-//        MarcaPublisher.shared.add(marca: marca)
-//    }
-//
-//    func update(marca: Marca)
-//    {
-//        MarcaPublisher.shared.update(marca: marca)
-//    }
-
 }

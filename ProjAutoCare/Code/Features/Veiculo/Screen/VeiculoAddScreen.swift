@@ -13,8 +13,13 @@ struct VeiculoAddScreen: View
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: VeiculoViewModel
     @ObservedObject var formInfo = VeiculoFormInfo()
+    @StateObject private var viewModelMarca = MarcaViewModel()
+    @StateObject private var viewModelModelo = ModeloViewModel()
     @FocusState private var veiculoInFocus: VeiculoFocusable?
     @State var isSaveDisabled: Bool = true
+    
+    @State var marca: Marca?
+    @State var modelo: Modelo?
     
     var body: some View
     {
@@ -28,8 +33,23 @@ struct VeiculoAddScreen: View
                         .validation(formInfo.nomeVazio)
                         .focused($veiculoInFocus, equals: .nome)
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
-                    TextField("marca", text: $formInfo.marca)
-                    TextField("modelo", text: $formInfo.modelo)
+                    
+                    Picker("Marca:", selection: $marca)
+                    {
+                        Text("Nenhuma").tag(Marca?.none)
+                        ForEach(viewModelMarca.marcaLista) { (marca: Marca) in
+                            Text(marca.nome!).tag(marca as Marca?)
+                        }
+                    }.pickerStyle(.automatic)
+                     
+                    Picker("Modelo:", selection: $modelo)
+                    {
+                        Text("Nenhuma").tag(Modelo?.none)
+                        ForEach(viewModelModelo.modeloLista) { (modelo: Modelo) in
+                            Text(modelo.nome!).tag(modelo as Modelo?)
+                        }
+                    }.pickerStyle(.automatic)
+
                     TextField("placa", text: $formInfo.placa)
                     TextField("chassis", text: $formInfo.chassis)
                     TextField("ano", text: $formInfo.ano)
@@ -66,8 +86,8 @@ struct VeiculoAddScreen: View
         {
             let veiculo = VeiculoDTO(id: UUID(),
                                      nome: formInfo.nome,
-                                     marca: formInfo.marca,
-                                     modelo: formInfo.modelo,
+//                                     marca: marca?.nome ?? "",
+                                     veiculomodelo: modelo!,
                                      placa: formInfo.placa,
                                      chassis: formInfo.chassis,
                                      ativo: false,

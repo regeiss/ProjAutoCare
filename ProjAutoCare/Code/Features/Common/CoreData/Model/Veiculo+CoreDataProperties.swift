@@ -2,7 +2,7 @@
 //  Veiculo+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 13/07/23.
+//  Created by Roberto Edgar Geiss on 01/10/23.
 //
 //
 
@@ -20,14 +20,13 @@ extension Veiculo {
     @NSManaged public var ativo: Bool
     @NSManaged public var chassis: String?
     @NSManaged public var id: UUID?
-    @NSManaged public var marca: String?
-    @NSManaged public var modelo: String?
     @NSManaged public var nome: String?
     @NSManaged public var padrao: Bool
     @NSManaged public var placa: String?
     @NSManaged public var doAbastecimento: NSSet?
     @NSManaged public var fazManutencao: NSSet?
     @NSManaged public var pertenceA: Perfil?
+    @NSManaged public var veiculomodelo: Modelo?
 
 }
 
