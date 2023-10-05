@@ -12,10 +12,13 @@ struct VeiculoEditScreen: View
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: VeiculoViewModel
     @StateObject var formInfo = VeiculoFormInfo()
+    @StateObject private var viewModelMarca = MarcaViewModel()
+    @StateObject private var viewModelModelo = ModeloViewModel()
     @FocusState private var veiculoInFocus: VeiculoFocusable?
     @State var isSaveDisabled: Bool = true
     @State var lista = false
-    
+    @State var marca: Marca?
+    @State var modelo: Modelo?
     var veiculo: Veiculo
     
     var body: some View
@@ -30,8 +33,29 @@ struct VeiculoEditScreen: View
                         .validation(formInfo.nomeVazio)
                         .focused($veiculoInFocus, equals: .nome)
                         .onAppear{ DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {self.veiculoInFocus = .nome}}
-                    //TextField("marca", text: $formInfo.marca)
-                    TextField("modelo", text: $formInfo.modelo)
+                    
+                    Picker("Marca:", selection: $marca)
+                    {
+                        Text("Nenhuma").tag(Marca?.none)
+                        ForEach(viewModelMarca.marcaLista) { (marca: Marca) in
+                            Text(marca.nome!).tag(marca as Marca?)
+                        }
+                    }.pickerStyle(.automatic)
+//                    .onAppear {
+//                        marca = veiculo.veiculomodelo?.efabricado
+//                    }
+                    
+                    Picker("Modelo:", selection: $modelo)
+                    {
+                        Text("Nenhuma").tag(Modelo?.none)
+                        ForEach(viewModelModelo.modeloLista) { (modelo: Modelo) in
+                            Text(modelo.nome!).tag(modelo as Modelo?)
+                        }
+                    }.pickerStyle(.automatic)
+                    .onAppear {
+                        modelo = veiculo.veiculomodelo
+                    }
+                    
                     TextField("placa", text: $formInfo.placa)
                     TextField("chassis", text: $formInfo.chassis)
                     TextField("ano", text: $formInfo.ano)
@@ -43,8 +67,6 @@ struct VeiculoEditScreen: View
             .onAppear
             {
                 formInfo.nome = veiculo.nome ?? ""
-                //formInfo.marca = veiculo.marca ?? ""
-                //formInfo.modelo = veiculo.modelo ?? ""
                 formInfo.placa = veiculo.placa ?? ""
                 formInfo.chassis = veiculo.chassis ?? ""
                 formInfo.ano = String(veiculo.ano)
@@ -79,8 +101,7 @@ struct VeiculoEditScreen: View
         if valid
         {
                 veiculo.nome = formInfo.nome
-                // veiculo.marca = marca.nome
-                // veiculo.veiculomodelo = formInfo.modelo
+                veiculo.veiculomodelo = modelo!
                 veiculo.placa = formInfo.placa
                 veiculo.chassis = formInfo.chassis
                 veiculo.ano = Int16(formInfo.ano) ?? 1990

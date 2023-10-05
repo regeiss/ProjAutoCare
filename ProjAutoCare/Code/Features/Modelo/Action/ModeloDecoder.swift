@@ -79,16 +79,15 @@ class ModeloDecoder: ObservableObject
         }
     }
     
-    func batchDeleteModels() async throws
+    func batchDeleteModelos() async throws
     {
+        let context = publisherContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "Modelo")
 
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         deleteRequest.resultType = .resultTypeObjectIDs
-
-        let context = publisherContext
         
         do 
         {
@@ -106,5 +105,12 @@ class ModeloDecoder: ObservableObject
         {
             fatalError("Erro moc \(error.localizedDescription)")
         }
+    }
+    
+    func ajustaMarcaModelo()
+    {
+        let context = publisherContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+        fetchRequest = NSFetchRequest(entityName: "Modelo")
     }
 }

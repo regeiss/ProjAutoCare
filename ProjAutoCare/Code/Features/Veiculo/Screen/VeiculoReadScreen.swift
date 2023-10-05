@@ -35,7 +35,7 @@ struct VeiculoReadScreen: View
             .scrollContentBackground(.hidden)
             .onAppear
             {
-                marca = viewModel.buscaMarcaModelo(id: 2)
+                marca = viewModel.buscaMarcaModelo(id: Int(veiculo.veiculomodelo?.idmarca ?? 1))
                 formInfo.nome = veiculo.nome ?? ""
                 formInfo.modelo = veiculo.nomeModelo
                 formInfo.placa = veiculo.placa ?? ""

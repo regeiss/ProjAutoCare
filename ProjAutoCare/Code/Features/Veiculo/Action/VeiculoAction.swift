@@ -21,7 +21,7 @@ class VeiculoPublisher: NSObject, ObservableObject
 
     var publisherContext: NSManagedObjectContext = {
          let context = PersistenceController.shared.container.viewContext
-             context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
+             context.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
              context.automaticallyMergesChangesFromParent = true
          return context
          }()
