@@ -11,7 +11,7 @@ struct VeiculoDTO: Identifiable
 {
     let id: UUID
     let nome: String
-    let veiculomodelo: Modelo
+    let veiculoModelo: Modelo
     let placa: String
     let chassis: String
     let ativo: Bool

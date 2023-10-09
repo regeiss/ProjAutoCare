@@ -86,7 +86,7 @@ struct VeiculoAddScreen: View
         {
             let veiculo = VeiculoDTO(id: UUID(),
                                      nome: formInfo.nome,
-                                     veiculomodelo: modelo!,
+                                     veiculoModelo: modelo!,
                                      placa: formInfo.placa,
                                      chassis: formInfo.chassis,
                                      ativo: false,

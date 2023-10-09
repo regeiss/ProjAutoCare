@@ -22,7 +22,7 @@ struct ModeloListaScreen: View
                 ForEach(viewModel.modeloLista) { modelo in
                     HStack
                     {
-                        Text(String(modelo.id))
+//                        Text(String(modelo.id))
                         Text(modelo.nome ?? "*")
                     }
                     //                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {

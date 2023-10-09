@@ -2,7 +2,7 @@
 //  Modelo+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 01/10/23.
+//  Created by Roberto Edgar Geiss on 08/10/23.
 //
 //
 
@@ -19,7 +19,7 @@ extension Modelo {
     @NSManaged public var id: Int16
     @NSManaged public var idmarca: Int16
     @NSManaged public var nome: String?
-    @NSManaged public var efabricado: Marca?
+    @NSManaged public var eFabricado: Marca?
     @NSManaged public var modeloveiculo: NSSet?
 
 }
@@ -41,6 +41,6 @@ extension Modelo {
 
 }
 
-extension Modelo: Identifiable {
+extension Modelo : Identifiable {
 
 }

@@ -53,7 +53,7 @@ struct VeiculoEditScreen: View
                         }
                     }.pickerStyle(.automatic)
                     .onAppear {
-                        modelo = veiculo.veiculomodelo
+                        modelo = veiculo.veiculoModelo
                     }
                     
                     TextField("placa", text: $formInfo.placa)
@@ -101,7 +101,7 @@ struct VeiculoEditScreen: View
         if valid
         {
                 veiculo.nome = formInfo.nome
-                veiculo.veiculomodelo = modelo!
+                veiculo.veiculoModelo = modelo!
                 veiculo.placa = formInfo.placa
                 veiculo.chassis = formInfo.chassis
                 veiculo.ano = Int16(formInfo.ano) ?? 1990

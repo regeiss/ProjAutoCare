@@ -20,7 +20,8 @@ class ModeloViewModel: ObservableObject
             self.modeloLista = modelosLista
         }
 
-        Task { try await  ModeloDecoder.shared.batchDeleteModelos()}
-        Task { try await  ModeloDecoder.shared.fetchModelos()}
+        Task { try await  ModeloDecoder.shared.batchDeleteModelos()
+               try await  ModeloDecoder.shared.fetchModelos()
+               try await  ModeloDecoder.shared.ajustaMarcaModelo()}
     }
 }

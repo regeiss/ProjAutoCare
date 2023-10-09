@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23B5046f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23B5056e" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Abastecimento" representedClassName=".Abastecimento" syncable="YES">
         <attribute name="completo" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -20,14 +20,14 @@
     <entity name="Marca" representedClassName="Marca" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
-        <relationship name="fabrica" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Modelo" inverseName="efabricado" inverseEntity="Modelo"/>
+        <relationship name="fabrica" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Modelo" inverseName="eFabricado" inverseEntity="Modelo"/>
     </entity>
     <entity name="Modelo" representedClassName="Modelo" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="idmarca" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
-        <relationship name="efabricado" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marca" inverseName="fabrica" inverseEntity="Marca"/>
-        <relationship name="modeloveiculo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Veiculo" inverseName="veiculomodelo" inverseEntity="Veiculo"/>
+        <relationship name="eFabricado" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marca" inverseName="fabrica" inverseEntity="Marca"/>
+        <relationship name="modeloveiculo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Veiculo" inverseName="veiculoModelo" inverseEntity="Veiculo"/>
     </entity>
     <entity name="Perfil" representedClassName=".Perfil" syncable="YES">
         <attribute name="ativo" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -77,6 +77,6 @@
         <relationship name="doAbastecimento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Abastecimento" inverseName="doVeiculo" inverseEntity="Abastecimento"/>
         <relationship name="fazManutencao" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServicoEfetuado" inverseName="doVeiculo" inverseEntity="ServicoEfetuado"/>
         <relationship name="pertenceA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Perfil" inverseName="eProprietario" inverseEntity="Perfil"/>
-        <relationship name="veiculomodelo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Modelo" inverseName="modeloveiculo" inverseEntity="Modelo"/>
+        <relationship name="veiculoModelo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Modelo" inverseName="modeloveiculo" inverseEntity="Modelo"/>
     </entity>
 </model>

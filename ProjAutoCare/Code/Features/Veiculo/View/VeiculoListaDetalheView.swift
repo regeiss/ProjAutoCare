@@ -41,6 +41,6 @@ extension Veiculo
     @objc
     var nomeModelo: String
     {
-        self.veiculomodelo?.nome ?? "não informado"
+        self.veiculoModelo?.nome ?? "não informado"
     }
 }

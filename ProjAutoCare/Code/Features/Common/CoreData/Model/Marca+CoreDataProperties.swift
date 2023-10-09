@@ -2,7 +2,7 @@
 //  Marca+CoreDataProperties.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 01/10/23.
+//  Created by Roberto Edgar Geiss on 08/10/23.
 //
 //
 
@@ -39,6 +39,6 @@ extension Marca {
 
 }
 
-extension Marca: Identifiable {
+extension Marca : Identifiable {
 
 }

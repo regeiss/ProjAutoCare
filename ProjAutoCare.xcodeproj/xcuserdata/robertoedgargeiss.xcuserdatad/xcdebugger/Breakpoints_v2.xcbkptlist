@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0740BF7A-36FE-4ECE-9891-24C551D81282"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjAutoCare/Code/Features/Veiculo/View/VeiculoListaDetalheView.swift"
@@ -50,6 +50,194 @@
             endingLineNumber = "38"
             landmarkName = "VeiculoReadScreen"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1564A080-97FD-4860-8589-132A8345CCA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "ajustaMarcaModelo()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1564A080-97FD-4860-8589-132A8345CCA5 - 1d2974fc0267c1fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjAutoCare.ModeloDecoder.ajustaMarcaModelo() -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "1564A080-97FD-4860-8589-132A8345CCA5 - 342be173020b301a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ProjAutoCare.ModeloDecoder.ajustaMarcaModelo() async throws -&gt; ()"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "440">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28E78CAE-8C05-4F80-A921-8E47DC81508A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "batchInsertModelos(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "init(modeloPublisher:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - 71a703c56a08a321"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - 4c819e6de3cacd29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - 3994ab6db8a1a723"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - 9a731eb9df962524"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - c65a52f5f6faab25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "CA5ED837-B4AA-4BFE-A27A-9509DDD1D9F5 - fda4ee234457bcea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for closure #2 @Sendable () async throws -&gt; () in ProjAutoCare.ModeloViewModel.init(modeloPublisher: Combine.AnyPublisher&lt;Swift.Array&lt;ProjAutoCare.Modelo&gt;, Swift.Never&gt;) -&gt; ProjAutoCare.ModeloViewModel"
+                  moduleName = "ProjAutoCare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/Code/Features/Modelo/ViewModel/ModeloViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "100C547B-74CF-4C46-9377-1A2BCE7B438B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "ajustaMarcaModelo()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

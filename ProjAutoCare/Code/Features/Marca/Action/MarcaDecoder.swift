@@ -51,6 +51,7 @@ class MarcaDecoder: ObservableObject
         }
     }
     
+    // TODO: Avaliar o return
     func batchInsertMarcas(from dados: JSON) async throws
     {
         guard !dados.isEmpty else { return }

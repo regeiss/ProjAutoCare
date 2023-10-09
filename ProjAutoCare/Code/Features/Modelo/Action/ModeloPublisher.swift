@@ -53,7 +53,6 @@ class ModeloPublisher: NSObject, ObservableObject
             NSLog("Erro: could not fetch objects")
         }
     }
-    
 }
 
 extension ModeloPublisher: NSFetchedResultsControllerDelegate

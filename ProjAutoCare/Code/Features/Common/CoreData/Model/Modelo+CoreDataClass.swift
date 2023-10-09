@@ -2,7 +2,7 @@
 //  Modelo+CoreDataClass.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 25/09/23.
+//  Created by Roberto Edgar Geiss on 08/10/23.
 //
 //
 

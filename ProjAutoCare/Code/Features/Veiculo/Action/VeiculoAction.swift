@@ -59,7 +59,7 @@ class VeiculoPublisher: NSObject, ObservableObject
         let newVeiculo = Veiculo(context: publisherContext)
         newVeiculo.id = veiculo.id
         newVeiculo.nome = veiculo.nome
-        newVeiculo.veiculomodelo = veiculo.veiculomodelo
+        newVeiculo.veiculoModelo = veiculo.veiculoModelo
         newVeiculo.placa = veiculo.placa
         newVeiculo.chassis = veiculo.chassis
         newVeiculo.ano = veiculo.ano
@@ -114,7 +114,7 @@ class VeiculoPublisher: NSObject, ObservableObject
         let newVeiculo = Veiculo(context: publisherContext)
             newVeiculo.id = UUID()
             newVeiculo.nome = "padrão"
-            newVeiculo.veiculomodelo = Modelo()
+            newVeiculo.veiculoModelo = Modelo()
             newVeiculo.placa = "padrão"
             newVeiculo.chassis = "padrão"
             newVeiculo.ano = Int16(0)
@@ -135,6 +135,7 @@ class VeiculoPublisher: NSObject, ObservableObject
         appState.veiculoAtivo = newVeiculo
     }
 
+    // TODO: Remover
     func buscaMarcaModelo(id: Int) -> String
     {
         let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()

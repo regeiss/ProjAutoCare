@@ -66,7 +66,6 @@
 		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
 		E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */; };
 		E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */; };
-		E18FDA702AC265F500FA2602 /* Modelo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA6E2AC265F500FA2602 /* Modelo+CoreDataClass.swift */; };
 		E18FDA782AC2F77400FA2602 /* ModeloDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */; };
 		E18FDA7A2AC2F78F00FA2602 /* ModeloPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA792AC2F78F00FA2602 /* ModeloPublisher.swift */; };
 		E18FDA7C2AC2F7B200FA2602 /* ModeloViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */; };
@@ -81,7 +80,6 @@
 		E19B1EFF2AA94E9900DC3D0C /* CarEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EFE2AA94E9900DC3D0C /* CarEndPoint.swift */; };
 		E19B1F012AA94FDA00DC3D0C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F002AA94FDA00DC3D0C /* NetworkService.swift */; };
 		E19B1F032AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F022AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift */; };
-		E19B1F062AAA93E000DC3D0C /* Marca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */; };
 		E19B1F0C2AAA94CF00DC3D0C /* MarcaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */; };
 		E19B1F0E2AAA987100DC3D0C /* MarcaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F0D2AAA987100DC3D0C /* MarcaViewModel.swift */; };
 		E19B1F102AABDDCF00DC3D0C /* MarcaListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1F0F2AABDDCF00DC3D0C /* MarcaListaScreen.swift */; };
@@ -152,9 +150,13 @@
 		E1E409CA2A5256A300034DBA /* PerfilListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E409C92A5256A300034DBA /* PerfilListaScreen.swift */; };
 		E1E409CD2A52580C00034DBA /* Perfil+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E409CB2A52580C00034DBA /* Perfil+CoreDataClass.swift */; };
 		E1E409CE2A52580C00034DBA /* Perfil+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E409CC2A52580C00034DBA /* Perfil+CoreDataProperties.swift */; };
-		E1E760452ACA434B00DFF2FC /* Modelo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7603F2ACA434B00DFF2FC /* Modelo+CoreDataProperties.swift */; };
-		E1E760472ACA434B00DFF2FC /* Marca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E760412ACA434B00DFF2FC /* Marca+CoreDataProperties.swift */; };
-		E1E7604D2ACA49A400DFF2FC /* Veiculo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7604B2ACA49A300DFF2FC /* Veiculo+CoreDataProperties.swift */; };
+		E1F1D3B42AD37402000C0EEA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F1D3B32AD37402000C0EEA /* Launch Screen.storyboard */; };
+		E1F1D3C72AD37D13000C0EEA /* Modelo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C12AD37D13000C0EEA /* Modelo+CoreDataClass.swift */; };
+		E1F1D3C82AD37D13000C0EEA /* Modelo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C22AD37D13000C0EEA /* Modelo+CoreDataProperties.swift */; };
+		E1F1D3C92AD37D13000C0EEA /* Marca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C32AD37D13000C0EEA /* Marca+CoreDataClass.swift */; };
+		E1F1D3CA2AD37D13000C0EEA /* Marca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C42AD37D13000C0EEA /* Marca+CoreDataProperties.swift */; };
+		E1F1D3CB2AD37D13000C0EEA /* Veiculo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C52AD37D13000C0EEA /* Veiculo+CoreDataClass.swift */; };
+		E1F1D3CC2AD37D13000C0EEA /* Veiculo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F1D3C62AD37D13000C0EEA /* Veiculo+CoreDataProperties.swift */; };
 		E1F9862F2A6D70040099C57D /* CategoriaAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F9862E2A6D70040099C57D /* CategoriaAddScreen.swift */; };
 		E1F986312A6D70160099C57D /* CategoriaEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F986302A6D70160099C57D /* CategoriaEditScreen.swift */; };
 		E1F986332A6D70280099C57D /* CategoriaReadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F986322A6D70280099C57D /* CategoriaReadScreen.swift */; };
@@ -164,7 +166,6 @@
 		E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F3E2A507D4C00776408 /* VeiculoAction.swift */; };
 		E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */; };
 		E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */; };
-		E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F442A50F24B00776408 /* Veiculo+CoreDataClass.swift */; };
 		E1FB3F492A50F5DF00776408 /* VeiculoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F482A50F5DF00776408 /* VeiculoListaDetalheView.swift */; };
 		E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */; };
 		E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */; };
@@ -232,7 +233,6 @@
 		E16C15242A412424003EAADA /* AbastecimentoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoScreen.swift; sourceTree = "<group>"; };
 		E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaDetalheView.swift; sourceTree = "<group>"; };
 		E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoPublisher.swift; sourceTree = "<group>"; };
-		E18FDA6E2AC265F500FA2602 /* Modelo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloDecoder.swift; sourceTree = "<group>"; };
 		E18FDA792AC2F78F00FA2602 /* ModeloPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloPublisher.swift; sourceTree = "<group>"; };
 		E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloViewModel.swift; sourceTree = "<group>"; };
@@ -247,7 +247,6 @@
 		E19B1EFE2AA94E9900DC3D0C /* CarEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEndPoint.swift; sourceTree = "<group>"; };
 		E19B1F002AA94FDA00DC3D0C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E19B1F022AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinjaAPIEndPoint.swift; sourceTree = "<group>"; };
-		E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marca+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E19B1F0B2AAA94CF00DC3D0C /* MarcaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaModel.swift; sourceTree = "<group>"; };
 		E19B1F0D2AAA987100DC3D0C /* MarcaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaViewModel.swift; sourceTree = "<group>"; };
 		E19B1F0F2AABDDCF00DC3D0C /* MarcaListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcaListaScreen.swift; sourceTree = "<group>"; };
@@ -318,9 +317,14 @@
 		E1E409C92A5256A300034DBA /* PerfilListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilListaScreen.swift; sourceTree = "<group>"; };
 		E1E409CB2A52580C00034DBA /* Perfil+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Perfil+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1E409CC2A52580C00034DBA /* Perfil+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Perfil+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E1E7603F2ACA434B00DFF2FC /* Modelo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Modelo+CoreDataProperties.swift"; path = "../../../../../../Modelo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E1E760412ACA434B00DFF2FC /* Marca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Marca+CoreDataProperties.swift"; path = "../../../../../../Marca+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E1E7604B2ACA49A300DFF2FC /* Veiculo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1F1D3B22AD371EB000C0EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E1F1D3B32AD37402000C0EEA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E1F1D3C12AD37D13000C0EEA /* Modelo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1F1D3C22AD37D13000C0EEA /* Modelo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modelo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1F1D3C32AD37D13000C0EEA /* Marca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1F1D3C42AD37D13000C0EEA /* Marca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Marca+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1F1D3C52AD37D13000C0EEA /* Veiculo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1F1D3C62AD37D13000C0EEA /* Veiculo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1F9862E2A6D70040099C57D /* CategoriaAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaAddScreen.swift; sourceTree = "<group>"; };
 		E1F986302A6D70160099C57D /* CategoriaEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaEditScreen.swift; sourceTree = "<group>"; };
 		E1F986322A6D70280099C57D /* CategoriaReadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaReadScreen.swift; sourceTree = "<group>"; };
@@ -330,7 +334,6 @@
 		E1FB3F3E2A507D4C00776408 /* VeiculoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoAction.swift; sourceTree = "<group>"; };
 		E1FB3F402A507DCC00776408 /* VeiculoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoScreen.swift; sourceTree = "<group>"; };
 		E1FB3F422A507DEB00776408 /* VeiculoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoListaScreen.swift; sourceTree = "<group>"; };
-		E1FB3F442A50F24B00776408 /* Veiculo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Veiculo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1FB3F482A50F5DF00776408 /* VeiculoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoListaDetalheView.swift; sourceTree = "<group>"; };
 		E1FB3F4C2A51CE9300776408 /* ServicoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoScreen.swift; sourceTree = "<group>"; };
 		E1FB3F4E2A51CF2500776408 /* ServicoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoListaScreen.swift; sourceTree = "<group>"; };
@@ -731,10 +734,10 @@
 		E18FDA722AC2F71F00FA2602 /* Modelo */ = {
 			isa = PBXGroup;
 			children = (
-				E18FDA762AC2F75600FA2602 /* Screen */,
-				E18FDA752AC2F74300FA2602 /* Model */,
-				E18FDA742AC2F73300FA2602 /* ViewModel */,
 				E18FDA732AC2F72A00FA2602 /* Action */,
+				E18FDA752AC2F74300FA2602 /* Model */,
+				E18FDA762AC2F75600FA2602 /* Screen */,
+				E18FDA742AC2F73300FA2602 /* ViewModel */,
 			);
 			path = Modelo;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 		E1D5F50C2A37E4C300F3AFD1 /* ProjAutoCare */ = {
 			isa = PBXGroup;
 			children = (
+				E1F1D3B22AD371EB000C0EEA /* Info.plist */,
 				E1D5F5272A37F64200F3AFD1 /* Code */,
 				E1D5F5132A37E4C400F3AFD1 /* Preview Content */,
 				E1D5F5232A37F28400F3AFD1 /* SupportingFiles */,
@@ -1133,6 +1137,7 @@
 				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
 				E1D5F5242A37F2F000F3AFD1 /* Localization */,
 				E12B2CCC2A71FB04007ED15B /* Todos.md */,
+				E1F1D3B32AD37402000C0EEA /* Launch Screen.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -1341,10 +1346,10 @@
 				E1013FB42A4909910044410F /* Abastecimento+CoreDataProperties.swift */,
 				E1AC4F132A5B07D800016186 /* Categoria+CoreDataClass.swift */,
 				E1AC4F142A5B07D800016186 /* Categoria+CoreDataProperties.swift */,
-				E19B1F042AAA93E000DC3D0C /* Marca+CoreDataClass.swift */,
-				E1E760412ACA434B00DFF2FC /* Marca+CoreDataProperties.swift */,
-				E18FDA6E2AC265F500FA2602 /* Modelo+CoreDataClass.swift */,
-				E1E7603F2ACA434B00DFF2FC /* Modelo+CoreDataProperties.swift */,
+				E1F1D3C32AD37D13000C0EEA /* Marca+CoreDataClass.swift */,
+				E1F1D3C42AD37D13000C0EEA /* Marca+CoreDataProperties.swift */,
+				E1F1D3C12AD37D13000C0EEA /* Modelo+CoreDataClass.swift */,
+				E1F1D3C22AD37D13000C0EEA /* Modelo+CoreDataProperties.swift */,
 				E1E409CB2A52580C00034DBA /* Perfil+CoreDataClass.swift */,
 				E1E409CC2A52580C00034DBA /* Perfil+CoreDataProperties.swift */,
 				E1013FD22A4A60E40044410F /* Posto+CoreDataClass.swift */,
@@ -1355,8 +1360,8 @@
 				E1AC4F162A5B07D800016186 /* Servico+CoreDataProperties.swift */,
 				E1D871562A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift */,
 				E1D871572A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift */,
-				E1FB3F442A50F24B00776408 /* Veiculo+CoreDataClass.swift */,
-				E1E7604B2ACA49A300DFF2FC /* Veiculo+CoreDataProperties.swift */,
+				E1F1D3C52AD37D13000C0EEA /* Veiculo+CoreDataClass.swift */,
+				E1F1D3C62AD37D13000C0EEA /* Veiculo+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1506,6 +1511,7 @@
 			files = (
 				E1D5F5322A3938B100F3AFD1 /* Colors.xcassets in Resources */,
 				E12C38CC2ABD1E450011268A /* marcas.json in Resources */,
+				E1F1D3B42AD37402000C0EEA /* Launch Screen.storyboard in Resources */,
 				E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */,
 				E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */,
 				E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */,
@@ -1561,6 +1567,7 @@
 				E1CFD7BA2A86B19B0098AFC0 /* AbastecimentoAddScreen.swift in Sources */,
 				E19B1EF72AA94D5A00DC3D0C /* HTTPClient.swift in Sources */,
 				E19B1EF12AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift in Sources */,
+				E1F1D3CB2AD37D13000C0EEA /* Veiculo+CoreDataClass.swift in Sources */,
 				E1AC4F332A5B808900016186 /* CategoriaListaDetalheView.swift in Sources */,
 				E1FB3F4F2A51CF2500776408 /* ServicoListaScreen.swift in Sources */,
 				E1FB3F412A507DCC00776408 /* VeiculoScreen.swift in Sources */,
@@ -1633,7 +1640,9 @@
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
 				E1F986312A6D70160099C57D /* CategoriaEditScreen.swift in Sources */,
 				E1E409CE2A52580C00034DBA /* Perfil+CoreDataProperties.swift in Sources */,
+				E1F1D3C82AD37D13000C0EEA /* Modelo+CoreDataProperties.swift in Sources */,
 				E1F986332A6D70280099C57D /* CategoriaReadScreen.swift in Sources */,
+				E1F1D3CC2AD37D13000C0EEA /* Veiculo+CoreDataProperties.swift in Sources */,
 				E18FDA7C2AC2F7B200FA2602 /* ModeloViewModel.swift in Sources */,
 				E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */,
 				E1AC4F2F2A5B7D0B00016186 /* CategoriaScreen.swift in Sources */,
@@ -1641,15 +1650,16 @@
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
 				E1FA73382AC08595000A37EA /* MarcaDecoder.swift in Sources */,
 				E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */,
-				E19B1F062AAA93E000DC3D0C /* Marca+CoreDataClass.swift in Sources */,
 				E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */,
+				E1F1D3C72AD37D13000C0EEA /* Modelo+CoreDataClass.swift in Sources */,
 				E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */,
-				E18FDA702AC265F500FA2602 /* Modelo+CoreDataClass.swift in Sources */,
 				E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */,
+				E1F1D3CA2AD37D13000C0EEA /* Marca+CoreDataProperties.swift in Sources */,
 				E19B1F012AA94FDA00DC3D0C /* NetworkService.swift in Sources */,
 				E1AD0CD42A4CFF13006D64D8 /* DateExtensions.swift in Sources */,
 				E1AC4F202A5B0A4A00016186 /* ServicoModel.swift in Sources */,
 				E1013FA62A48F8B80044410F /* AutoCare.xcdatamodeld in Sources */,
+				E1F1D3C92AD37D13000C0EEA /* Marca+CoreDataClass.swift in Sources */,
 				E1AC4F312A5B7E3A00016186 /* CategoriaViewModel.swift in Sources */,
 				E18FDA7A2AC2F78F00FA2602 /* ModeloPublisher.swift in Sources */,
 				E1D2E9272A61B1C500551892 /* ServicoEfetuadoViewModel.swift in Sources */,
@@ -1657,9 +1667,7 @@
 				E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */,
 				E1013FB62A4909910044410F /* Abastecimento+CoreDataProperties.swift in Sources */,
 				E19B1F0E2AAA987100DC3D0C /* MarcaViewModel.swift in Sources */,
-				E1E760472ACA434B00DFF2FC /* Marca+CoreDataProperties.swift in Sources */,
 				E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */,
-				E1FB3F462A50F24B00776408 /* Veiculo+CoreDataClass.swift in Sources */,
 				E1013FA32A473B430044410F /* AbastecimentoViewModel.swift in Sources */,
 				E1D2E9162A607D6E00551892 /* ServicoEfetuadoModel.swift in Sources */,
 				E10CE27C2A8AEB340022670F /* LogEntriesView.swift in Sources */,
@@ -1689,8 +1697,6 @@
 				E1AC4F262A5B66BC00016186 /* ServicoViewModel.swift in Sources */,
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,
 				E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */,
-				E1E760452ACA434B00DFF2FC /* Modelo+CoreDataProperties.swift in Sources */,
-				E1E7604D2ACA49A400DFF2FC /* Veiculo+CoreDataProperties.swift in Sources */,
 				E10A77A82A6F4EEB00FF7800 /* VeiculoEditScreen.swift in Sources */,
 				E18FDA802AC2F7DD00FA2602 /* ModeloListaScreen.swift in Sources */,
 				E1AD0CE02A4DD57C006D64D8 /* PerfilAction.swift in Sources */,
@@ -1833,9 +1839,10 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjAutoCare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1867,9 +1874,10 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjAutoCare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

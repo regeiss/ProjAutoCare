@@ -58,7 +58,7 @@ class ModeloDecoder: ObservableObject
         let taskContext = publisherContext
         taskContext.transactionAuthor = PersistenceController.remoteDataImportAuthorName
 
-        return try await taskContext.perform {
+        return try await taskContext.perform { [self] in
             
             var index = 0
             let batchRequest = NSBatchInsertRequest(entityName: "Modelo", dictionaryHandler: { dict in
@@ -75,6 +75,7 @@ class ModeloDecoder: ObservableObject
             let result = try taskContext.execute(batchRequest) as! NSBatchInsertResult
             self.logger.debug("Successfully inserted data.")
             
+            // ajustaMarcaModelo()
             // return result.result as! Bool
         }
     }
@@ -107,10 +108,45 @@ class ModeloDecoder: ObservableObject
         }
     }
     
-    func ajustaMarcaModelo()
+    func ajustaMarcaModelo() async throws
     {
         let context = publisherContext
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
-        fetchRequest = NSFetchRequest(entityName: "Modelo")
+        let fetchRequest: NSFetchRequest<Modelo>
+        fetchRequest = Modelo.fetchRequest()
+        
+        do
+        {
+            let modelos = try context.fetch(fetchRequest)
+            
+            for modelo in modelos {
+               
+                modelo.eFabricado = buscaMarcaModelo(id: Int(modelo.idmarca))
+            }
+            
+            try context.save()
+        }
+        catch
+        {
+            NSLog("Erro: could not fetch objects")
+        }
+    }
+    
+    func buscaMarcaModelo(id: Int) -> Marca
+    {
+        let context = publisherContext
+        let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
+        fetchRequest.fetchLimit = 1
+        
+        do
+        {
+            guard let marca = try context.fetch(fetchRequest).first
+            else { return Marca()}
+            return marca
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
     }
 }

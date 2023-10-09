@@ -60,6 +60,8 @@ struct ProjAutoCareApp: App
          viewModelCategoria.inserePadrao()
          viewModelServico.inserePadrao()
          
+         
+         
          contextSet = true
      }
 

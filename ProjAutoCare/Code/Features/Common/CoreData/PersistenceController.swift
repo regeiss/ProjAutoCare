@@ -19,13 +19,16 @@ class PersistenceController: ObservableObject
     private lazy var tokenFileURL: URL = {
         let url = NSPersistentContainer.defaultDirectoryURL()
             .appendingPathComponent("ProjAutoCare", isDirectory: true)
-        do {
+        do
+        {
             try FileManager.default
                 .createDirectory(
                     at: url,
                     withIntermediateDirectories: true,
                     attributes: nil)
-        } catch {
+        }
+        catch
+        {
             // log any errors
         }
         return url.appendingPathComponent("token.data", isDirectory: false)
@@ -61,10 +64,14 @@ class PersistenceController: ObservableObject
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.transactionAuthor = PersistenceController.authorName
         
-        if !inMemory {
-            do {
+        if !inMemory
+        {
+            do
+            {
                 try container.viewContext.setQueryGenerationFrom(.current)
-            } catch {
+            }
+            catch
+            {
                 // log any errors
             }
         }
@@ -81,57 +88,66 @@ class PersistenceController: ObservableObject
     
     func processRemoteStoreChange(_ notification: Notification)
     {
-        historyRequestQueue.async {
-            // 2
+        historyRequestQueue.async
+        {
             let backgroundContext = self.container.newBackgroundContext()
-            backgroundContext.performAndWait {
-                // 3
+            backgroundContext.performAndWait
+            {
                 let request = NSPersistentHistoryChangeRequest
                     .fetchHistory(after: self.lastHistoryToken)
                 
-                if let historyFetchRequest = NSPersistentHistoryTransaction.fetchRequest {
+                if let historyFetchRequest = NSPersistentHistoryTransaction.fetchRequest
+                {
                     historyFetchRequest.predicate = NSPredicate(format: "%K != %@", "author", PersistenceController.authorName)
                     request.fetchRequest = historyFetchRequest
                 }
                 
-                do {
-                    // 4
+                do
+                {
                     let result = try backgroundContext.execute(request) as?
                     NSPersistentHistoryResult
-                    guard
-                        let transactions = result?.result as? [NSPersistentHistoryTransaction],
-                        !transactions.isEmpty
-                    else {
-                        return
-                    }
+                    guard let transactions = result?.result as? [NSPersistentHistoryTransaction],
+                          !transactions.isEmpty
+                    else { return }
                     
                     self.mergeChanges(from: transactions)
-                    if let newToken = transactions.last?.token {
+                    if let newToken = transactions.last?.token
+                    {
                         self.storeHistoryToken(newToken)
                     }
-                } catch {
+                }
+                catch
+                {
                     // log any errors
                 }
             }
         }
     }
     
-    private func loadHistoryToken() {
-        do {
+    private func loadHistoryToken()
+    {
+        do
+        {
             let tokenData = try Data(contentsOf: tokenFileURL)
             lastHistoryToken = try NSKeyedUnarchiver
                 .unarchivedObject(ofClass: NSPersistentHistoryToken.self, from: tokenData)
-        } catch {
+        }
+        catch
+        {
         }
     }
     
-    private func storeHistoryToken(_ token: NSPersistentHistoryToken) {
-        do {
+    private func storeHistoryToken(_ token: NSPersistentHistoryToken)
+    {
+        do
+        {
             let data = try NSKeyedArchiver
                 .archivedData(withRootObject: token, requiringSecureCoding: true)
             try data.write(to: tokenFileURL)
             lastHistoryToken = token
-        } catch {
+        }
+        catch
+        {
         }
     }
     
@@ -139,9 +155,12 @@ class PersistenceController: ObservableObject
     {
         let context = container.viewContext
         
-        context.perform {
+        context.perform
+        {
             transactions.forEach { transaction in
-                guard let userInfo = transaction.objectIDNotification().userInfo else {
+                guard let userInfo = transaction.objectIDNotification().userInfo
+                else
+                {
                     return
                 }
                 NSManagedObjectContext
