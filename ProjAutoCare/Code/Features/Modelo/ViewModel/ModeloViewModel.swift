@@ -19,9 +19,5 @@ class ModeloViewModel: ObservableObject
         bag = modeloPublisher.sink { [unowned self] modelosLista in
             self.modeloLista = modelosLista
         }
-
-        Task { try await  ModeloDecoder.shared.batchDeleteModelos()
-               try await  ModeloDecoder.shared.fetchModelos()
-               try await  ModeloDecoder.shared.ajustaMarcaModelo()}
     }
 }

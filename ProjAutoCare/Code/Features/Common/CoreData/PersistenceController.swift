@@ -7,7 +7,8 @@
 
 import Combine
 import CoreData
-
+import OSLog
+   
 class PersistenceController: ObservableObject
 {
     static let authorName = "AutoCare"
@@ -15,6 +16,7 @@ class PersistenceController: ObservableObject
     var lastHistoryToken: NSPersistentHistoryToken?
     private lazy var historyRequestQueue = DispatchQueue(label: "history")
     var subscriptions: Set<AnyCancellable> = []
+    var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Persistence")
     
     private lazy var tokenFileURL: URL = {
         let url = NSPersistentContainer.defaultDirectoryURL()
@@ -29,7 +31,7 @@ class PersistenceController: ObservableObject
         }
         catch
         {
-            // log any errors
+            logger.log("Erro gerando tokenfile")
         }
         return url.appendingPathComponent("token.data", isDirectory: false)
     }()
@@ -57,6 +59,7 @@ class PersistenceController: ObservableObject
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError?
             {
+                self.logger.log("Erro abrindo store")
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -72,7 +75,7 @@ class PersistenceController: ObservableObject
             }
             catch
             {
-                // log any errors
+                self.logger.log("Erro setando query format")
             }
         }
         
@@ -118,7 +121,7 @@ class PersistenceController: ObservableObject
                 }
                 catch
                 {
-                    // log any errors
+                    self.logger.log("Erro abrindo history queue")
                 }
             }
         }
@@ -134,6 +137,7 @@ class PersistenceController: ObservableObject
         }
         catch
         {
+            self.logger.log("Erro carregando token history")
         }
     }
     
@@ -148,6 +152,7 @@ class PersistenceController: ObservableObject
         }
         catch
         {
+            self.logger.log("Erro persistent history token")
         }
     }
     
