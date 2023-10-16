@@ -44,33 +44,33 @@ struct ProjAutoCareApp: App
     }
     
     func prepareAppContext()
-     {
-//         guard contextSet == false
-//         else { return }
-         
-         Task { try await  MarcaDecoder.shared.batchDeleteMarcas()}
-         Task { try await  MarcaDecoder.shared.fetchMarcas()}
-         
-         // Task { try await  ModeloDecoder.shared.batchDeleteModelos()}
-         // Task { try await  ModeloDecoder.shared.fetchModelos()}
-         
-         let viewModelPerfil = PerfilViewModel()
-         let viewModelVeiculo = VeiculoViewModel()
-         let viewModelPosto = PostoViewModel()
-         let viewModelCategoria = CategoriaViewModel()
-         let viewModelServico = ServicoViewModel()
-         
-         viewModelPerfil.inserePadrao()
-         viewModelVeiculo.inserePadrao()
-         viewModelPosto.inserePadrao()
-         viewModelCategoria.inserePadrao()
-         viewModelServico.inserePadrao()
-         
-
-         
-         contextSet = true
-     }
-
+    {
+        // TODO: Semaforos
+//        Task { try await  MarcaDecoder.shared.batchDeleteMarcas()}
+//        Task { try await  MarcaDecoder.shared.fetchMarcas()}
+        
+//        Task { try await  ModeloDecoder.shared.batchDeleteModelos()}
+//        Task { try await  ModeloDecoder.shared.fetchModelos()}
+//        Task { try await  ModeloDecoder.shared.ajustaMarcaModelo()}
+        
+        guard contextSet == false
+        else { return }
+        
+        let viewModelPerfil = PerfilViewModel()
+        let viewModelVeiculo = VeiculoViewModel()
+        let viewModelPosto = PostoViewModel()
+        let viewModelCategoria = CategoriaViewModel()
+        let viewModelServico = ServicoViewModel()
+        
+        viewModelPerfil.inserePadrao()
+        viewModelVeiculo.inserePadrao()
+        viewModelPosto.inserePadrao()
+        viewModelCategoria.inserePadrao()
+        viewModelServico.inserePadrao()
+        
+        contextSet = true
+    }
+    
     func saveContext()
     {
         let context = moc

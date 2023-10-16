@@ -10,7 +10,6 @@ import SwiftUI
 struct ModeloListaScreen: View
 {
     @StateObject var viewModel = ModeloViewModel()
-    // @State var dados: [DataModelo]?
     @State private var adicao = false
     
     var body: some View
@@ -22,8 +21,8 @@ struct ModeloListaScreen: View
                 ForEach(viewModel.modeloLista) { modelo in
                     HStack
                     {
-//                        Text(String(modelo.id))
                         Text(modelo.nome ?? "*")
+                        Text(modelo.eFabricado?.nome ?? "*")
                     }
                     //                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     //                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})

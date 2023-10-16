@@ -107,8 +107,7 @@ class PersistenceController: ObservableObject
                 
                 do
                 {
-                    let result = try backgroundContext.execute(request) as?
-                    NSPersistentHistoryResult
+                    let result = try backgroundContext.execute(request) as? NSPersistentHistoryResult
                     guard let transactions = result?.result as? [NSPersistentHistoryTransaction],
                           !transactions.isEmpty
                     else { return }

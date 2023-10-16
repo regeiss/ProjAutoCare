@@ -16,7 +16,7 @@ class MarcaDecoder: ObservableObject
     
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
     var publisherContext: NSManagedObjectContext = {
-        let context = PersistenceController.shared.container.viewContext
+        let context = PersistenceController.shared.container.newBackgroundContext()
         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
         context.automaticallyMergesChangesFromParent = true
         return context

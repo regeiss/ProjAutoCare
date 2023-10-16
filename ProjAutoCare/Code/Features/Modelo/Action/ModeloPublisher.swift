@@ -59,9 +59,9 @@ extension ModeloPublisher: NSFetchedResultsControllerDelegate
 {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>)
     {
-        guard let perfis = controller.fetchedObjects as? [Modelo]
+        guard let modelos = controller.fetchedObjects as? [Modelo]
         else { return }
         logger.log("Context has changed, reloading modelos")
-        self.modeloCVS.value = perfis
+        self.modeloCVS.value = modelos
     }
 }

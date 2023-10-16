@@ -16,7 +16,7 @@ class ModeloDecoder: ObservableObject
     
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
     var publisherContext: NSManagedObjectContext = {
-        let context = PersistenceController.shared.container.viewContext
+        let context = PersistenceController.shared.container.newBackgroundContext()
         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
         context.automaticallyMergesChangesFromParent = true
         return context
@@ -40,9 +40,9 @@ class ModeloDecoder: ObservableObject
         {
             let json =  try JSON(data: data)
             
-            logger.debug("Start importing data to the store...")
+            logger.debug("*** Start importing modelo data to the store")
             try await batchInsertModelos(from: json["data"])
-            logger.debug("Finished importing data.")
+            logger.debug("*** Finished importing modelo data.")
         }
         catch
         {
@@ -62,7 +62,8 @@ class ModeloDecoder: ObservableObject
             
             var index = 0
             let batchRequest = NSBatchInsertRequest(entityName: "Modelo", dictionaryHandler: { dict in
-                if index < dados.count {
+                if index < dados.count 
+                {
                     let item = ["id": dados[index]["id"].rawValue, "idmarca": dados[index]["make_id"].rawValue, "nome": dados[index]["name"].rawValue]
                     dict.setDictionary(item)
                     index += 1
@@ -73,7 +74,7 @@ class ModeloDecoder: ObservableObject
             })
             batchRequest.resultType = .statusOnly
             let result = try taskContext.execute(batchRequest) as! NSBatchInsertResult
-            self.logger.debug("Successfully inserted data.")
+            self.logger.debug("*** Successfully inserted modelo data.")
             
             // ajustaMarcaModelo()
             // return result.result as! Bool
@@ -113,7 +114,7 @@ class ModeloDecoder: ObservableObject
         let context = publisherContext
         let fetchRequest: NSFetchRequest<Modelo>
         fetchRequest = Modelo.fetchRequest()
-        
+        self.logger.debug("Iniciando ajuste modelos.")
         do
         {
             let modelos = try context.fetch(fetchRequest)
@@ -123,6 +124,7 @@ class ModeloDecoder: ObservableObject
                 modelo.eFabricado = buscaMarcaModelo(id: Int(modelo.idmarca))
             }
             
+            self.logger.debug("Finalizando ajuste modelos.")
             try context.save()
         }
         catch

@@ -41,14 +41,15 @@ struct VeiculoEditScreen: View
                             Text(marca.nome!).tag(marca as Marca?)
                         }
                     }.pickerStyle(.automatic)
-//                    .onAppear {
-//                        marca = veiculo.veiculomodelo?.efabricado
-//                    }
+                    .onAppear {
+                        marca = veiculo.veiculoModelo?.eFabricado
+                    }
                     
                     Picker("Modelo:", selection: $modelo)
                     {
+                        let filteredArray = viewModelModelo.modeloLista.filter { $0.idmarca == marca?.id }
                         Text("Nenhuma").tag(Modelo?.none)
-                        ForEach(viewModelModelo.modeloLista) { (modelo: Modelo) in
+                        ForEach(filteredArray) { (modelo: Modelo) in
                             Text(modelo.nome!).tag(modelo as Modelo?)
                         }
                     }.pickerStyle(.automatic)
