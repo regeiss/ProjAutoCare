@@ -41,6 +41,6 @@ extension Modelo {
 
 }
 
-extension Modelo : Identifiable {
+extension Modelo: Identifiable {
 
 }

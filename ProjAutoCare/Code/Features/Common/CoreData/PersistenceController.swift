@@ -8,7 +8,7 @@
 import Combine
 import CoreData
 import OSLog
-   
+
 class PersistenceController: ObservableObject
 {
     static let authorName = "AutoCare"
@@ -16,6 +16,7 @@ class PersistenceController: ObservableObject
     var lastHistoryToken: NSPersistentHistoryToken?
     private lazy var historyRequestQueue = DispatchQueue(label: "history")
     var subscriptions: Set<AnyCancellable> = []
+    private let modelName: String
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Persistence")
     
     private lazy var tokenFileURL: URL = {
@@ -40,6 +41,7 @@ class PersistenceController: ObservableObject
     let container: NSPersistentContainer
     init(inMemory: Bool = false)
     {
+        self.modelName = "AutoCare"
         container = NSPersistentContainer(name: "AutoCare")
         let persistentStoreDescription = container.persistentStoreDescriptions.first
         
@@ -170,6 +172,65 @@ class PersistenceController: ObservableObject
                 NSManagedObjectContext
                     .mergeChanges(fromRemoteContextSave: userInfo, into: [context])
             }
+        }
+    }
+}
+
+private extension PersistenceController
+{
+    func seedCoreDataContainerIfFirstLaunch()
+    {
+        let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
+        if !previouslyLaunched
+        {
+            UserDefaults.standard.set(true, forKey: "previouslyLaunched")
+            
+            // Default directory where the CoreDataStack will store its files
+            let directory = NSPersistentContainer.defaultDirectoryURL()
+            let url = directory.appendingPathComponent(modelName + ".sqlite")
+            
+            // 2: Copying the SQLite file
+            let seededDatabaseURL = Bundle.main.url(forResource: modelName, withExtension: "sqlite")!
+            _ = try? FileManager.default.removeItem(at: url)
+            
+            do
+            {
+                try FileManager.default.copyItem(at: seededDatabaseURL, to: url)
+            }
+            catch let nserror as NSError
+            {
+                fatalError("Error: \(nserror.localizedDescription)")
+            }
+            
+            // 3: Copying the SHM file
+            let seededSHMURL = Bundle.main.url(forResource: modelName, withExtension: "sqlite-shm")!
+            let shmURL = directory.appendingPathComponent(modelName + ".sqlite-shm")
+            _ = try? FileManager.default.removeItem(at: shmURL)
+            
+            do
+            {
+                try FileManager.default.copyItem(at: seededSHMURL, to: shmURL)
+            }
+            catch let nserror as NSError
+            {
+                fatalError("Error: \(nserror.localizedDescription)")
+            }
+            
+            // 4: Copying the WAL file
+            let seededWALURL = Bundle.main.url(forResource: modelName, withExtension: "sqlite-wal")!
+            let walURL = directory.appendingPathComponent(modelName + ".sqlite-wal")
+            _ = try? FileManager.default.removeItem(at: walURL)
+            
+            do
+            {
+                try FileManager.default.copyItem(at: seededWALURL, to: walURL)
+            }
+            catch let nserror as NSError
+            {
+                fatalError("Error: \(nserror.localizedDescription)")
+            }
+            
+            print("Seeded Core Data")
         }
     }
 }

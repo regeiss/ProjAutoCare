@@ -511,6 +511,7 @@
 		E1432DE52A43CF420025504D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E1BF0F2C2ADE002D006E2901 /* CoreDataSeed */,
 				E1E7603B2AC8760200DFF2FC /* Model */,
 				E1432DE62A43CF580025504D /* PersistenceController.swift */,
 				E1013FA42A48F8B80044410F /* AutoCare.xcdatamodeld */,
@@ -1010,6 +1011,13 @@
 				E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E1BF0F2C2ADE002D006E2901 /* CoreDataSeed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataSeed;
 			sourceTree = "<group>";
 		};
 		E1CE3C452A547AF500B2C51D /* Model */ = {
