@@ -20,8 +20,7 @@ class MarcaViewModel: ObservableObject
             self.marcaLista = marcasLista
         }
        
-//        Task { try await  MarcaDecoder.shared.batchDeleteMarcas()}
-//        Task { try await  MarcaDecoder.shared.fetchMarcas() }
-        
+        MarcaDecoder.shared.batchDeleteMarcas()
+        Task { try await MarcaDecoder.shared.fetchMarcas()}
     }
 }

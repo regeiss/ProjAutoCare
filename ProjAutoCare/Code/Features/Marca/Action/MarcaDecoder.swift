@@ -15,7 +15,7 @@ class MarcaDecoder: ObservableObject
     static let shared = MarcaDecoder()
     
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
-    var publisherContext: NSManagedObjectContext = {
+    var backGroundContext: NSManagedObjectContext = {
         let context = PersistenceController.shared.container.newBackgroundContext()
         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
         context.automaticallyMergesChangesFromParent = true
@@ -41,7 +41,7 @@ class MarcaDecoder: ObservableObject
             let json =  try JSON(data: data)
             
             logger.debug("Start importing data to the store...")
-            try await batchInsertMarcas(from: json["data"])
+            batchInsertMarcas(from: json["data"])
             logger.debug("Finished importing data.")
         }
         catch
@@ -51,61 +51,67 @@ class MarcaDecoder: ObservableObject
         }
     }
     
-    // TODO: Avaliar o return
-    func batchInsertMarcas(from dados: JSON) async throws
+    func batchInsertMarcas(from dados: JSON)
     {
         guard !dados.isEmpty else { return }
         
-        let taskContext = publisherContext
-        
-        return try await taskContext.perform {
-            var index = 0
-            let batchRequest = NSBatchInsertRequest(entityName: "Marca", dictionaryHandler: { dict in
-                if index < dados.count 
-                {
-                    let item = ["id": dados[index]["id"].rawValue, "nome": dados[index]["name"].rawValue]
-                    dict.setDictionary(item)
-                    index += 1
-                    return false
-                } 
-                else
-                {
-                    return true
-                }
-            })
-            batchRequest.resultType = .statusOnly
-            let result = try taskContext.execute(batchRequest) as! NSBatchInsertResult
-            self.logger.debug("Successfully inserted data.")
-            // return result.result as! Bool
+        do
+        {
+            try backGroundContext.performAndWait
+            {
+                var index = 0
+                let batchRequest = NSBatchInsertRequest(entityName: "Marca", dictionaryHandler: { dict in
+                    if index < dados.count
+                    {
+                        let item = ["id": dados[index]["id"].rawValue, "nome": dados[index]["name"].rawValue]
+                        dict.setDictionary(item)
+                        index += 1
+                        return false
+                    }
+                    else
+                    {
+                        return true
+                    }
+                })
+                batchRequest.resultType = .statusOnly
+                let result = try backGroundContext.execute(batchRequest) as! NSBatchInsertResult
+                self.logger.debug("Successfully inserted Marca data.")
+            }
+        }
+        catch
+        {
+            self.logger.debug("Error inserting Marca data.")
         }
     }
     
-    func batchDeleteMarcas() async throws
+    func batchDeleteMarcas()
     {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "Marca")
-
+        
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
+        
         deleteRequest.resultType = .resultTypeObjectIDs
-
-        let context = publisherContext
         
         do
         {
-            let deleteResult = try context.execute(deleteRequest) as? NSBatchDeleteResult
             
-            if let objectIDs = deleteResult?.result as? [NSManagedObjectID]
+            try backGroundContext.performAndWait
             {
-                NSManagedObjectContext.mergeChanges(
-                    fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs],
-                    into: [context]
-                )
+                let deleteResult = try backGroundContext.execute(deleteRequest) as? NSBatchDeleteResult
+                
+                if let objectIDs = deleteResult?.result as? [NSManagedObjectID]
+                {
+                    NSManagedObjectContext.mergeChanges(
+                        fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs], into: [backGroundContext])
+                }
             }
+            
         }
         catch
         {
             fatalError("Erro moc \(error.localizedDescription)")
         }
     }
+    
 }
