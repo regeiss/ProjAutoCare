@@ -134,25 +134,6 @@ class VeiculoPublisher: NSObject, ObservableObject
 
         appState.veiculoAtivo = newVeiculo
     }
-
-    // TODO: Remover
-    func buscaMarcaModelo(id: Int) -> String
-    {
-        let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
-        fetchRequest.fetchLimit = 1
-        
-        do
-        {
-            guard let marca = try publisherContext.fetch(fetchRequest).first
-            else { return "*"}
-            return marca.nome ?? "*"
-        }
-        catch
-        {
-            fatalError("Erro moc \(error.localizedDescription)")
-        }
-    }
     
     func selecionarVeiculoAtivo()
     {
@@ -212,6 +193,24 @@ class VeiculoPublisher: NSObject, ObservableObject
             update(veiculo: object as! Veiculo)
 
             appState.veiculoAtivo = object as? Veiculo
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+    
+    func buscaMarcaModelo(id: Int) -> String
+    {
+        let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %i", id)
+        fetchRequest.fetchLimit = 1
+        
+        do
+        {
+            guard let marca = try publisherContext.fetch(fetchRequest).first
+            else { return "*"}
+            return marca.nome ?? "*"
         }
         catch
         {

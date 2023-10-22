@@ -15,7 +15,7 @@ class ModeloDecoder: ObservableObject
     static let shared = ModeloDecoder()
     
     var logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Publisher")
-    var publisherContext: NSManagedObjectContext = {
+    var backGroundContext: NSManagedObjectContext = {
         let context = PersistenceController.shared.container.newBackgroundContext()
         context.mergePolicy = NSMergePolicy( merge: .mergeByPropertyObjectTrumpMergePolicyType)
         context.automaticallyMergesChangesFromParent = true
@@ -24,7 +24,7 @@ class ModeloDecoder: ObservableObject
     
     func fetchModelos() async throws
     {
-        let url = URL(string: "https://carapi.app/api/models?year=2020")!
+        let url = URL(string: "https://carapi.app/api/models")!
         
         let session = URLSession.shared
         guard let (data, response) = try? await session.data(from: url),
@@ -41,7 +41,7 @@ class ModeloDecoder: ObservableObject
             let json =  try JSON(data: data)
             
             logger.debug("*** Start importing modelo data to the store")
-            try await batchInsertModelos(from: json["data"])
+            batchInsertModelos(from: json["data"])
             logger.debug("*** Finished importing modelo data.")
         }
         catch
@@ -51,56 +51,60 @@ class ModeloDecoder: ObservableObject
         }
     }
     
-    func batchInsertModelos(from dados: JSON) async throws
+    func batchInsertModelos(from dados: JSON)
     {
         guard !dados.isEmpty else { return }
         
-        let taskContext = publisherContext
-        taskContext.transactionAuthor = PersistenceController.remoteDataImportAuthorName
-
-        return try await taskContext.perform { [self] in
+        do
+        {
+            backGroundContext.transactionAuthor = PersistenceController.remoteDataImportAuthorName
             
-            var index = 0
-            let batchRequest = NSBatchInsertRequest(entityName: "Modelo", dictionaryHandler: { dict in
-                if index < dados.count 
-                {
-                    let item = ["id": dados[index]["id"].rawValue, "idmarca": dados[index]["make_id"].rawValue, "nome": dados[index]["name"].rawValue]
-                    dict.setDictionary(item)
-                    index += 1
-                    return false
-                } else {
-                    return true
-                }
-            })
-            batchRequest.resultType = .statusOnly
-            let result = try taskContext.execute(batchRequest) as! NSBatchInsertResult
-            self.logger.debug("*** Successfully inserted modelo data.")
-            
-            // ajustaMarcaModelo()
-            // return result.result as! Bool
+            try backGroundContext.performAndWait
+            {
+                var index = 0
+                let batchRequest = NSBatchInsertRequest(entityName: "Modelo", dictionaryHandler: { dict in
+                    if index < dados.count
+                    {
+                        let item = ["id": dados[index]["id"].rawValue, "idmarca": dados[index]["make_id"].rawValue, "nome": dados[index]["name"].rawValue]
+                        dict.setDictionary(item)
+                        index += 1
+                        return false
+                    } 
+                    else
+                    {
+                        return true
+                    }
+                })
+                batchRequest.resultType = .statusOnly
+                try backGroundContext.execute(batchRequest)
+                self.logger.debug("*** Successfully inserted modelo data.")
+            }
+        }
+        catch
+        {
+            self.logger.debug("Error inserting Modelo data.")
         }
     }
     
     func batchDeleteModelos() async throws
     {
-        let context = publisherContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "Modelo")
-
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
+        
         deleteRequest.resultType = .resultTypeObjectIDs
         
-        do 
+        do
         {
-            let deleteResult = try context.execute(deleteRequest) as? NSBatchDeleteResult
-            
-            if let objectIDs = deleteResult?.result as? [NSManagedObjectID] 
+            try backGroundContext.performAndWait
             {
-                NSManagedObjectContext.mergeChanges(
-                    fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs],
-                    into: [context]
-                )
+                let deleteResult = try backGroundContext.execute(deleteRequest) as? NSBatchDeleteResult
+                
+                if let objectIDs = deleteResult?.result as? [NSManagedObjectID]
+                {
+                    NSManagedObjectContext.mergeChanges(
+                        fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs], into: [backGroundContext])
+                }
             }
         }
         catch
@@ -111,13 +115,12 @@ class ModeloDecoder: ObservableObject
     
     func ajustaMarcaModelo() async throws
     {
-        let context = publisherContext
         let fetchRequest: NSFetchRequest<Modelo>
         fetchRequest = Modelo.fetchRequest()
         self.logger.debug("Iniciando ajuste modelos.")
         do
         {
-            let modelos = try context.fetch(fetchRequest)
+            let modelos = try backGroundContext.fetch(fetchRequest)
             
             for modelo in modelos {
                
@@ -125,7 +128,7 @@ class ModeloDecoder: ObservableObject
             }
             
             self.logger.debug("Finalizando ajuste modelos.")
-            try context.save()
+            try backGroundContext.save()
         }
         catch
         {
@@ -135,14 +138,13 @@ class ModeloDecoder: ObservableObject
     
     func buscaMarcaModelo(id: Int) -> Marca
     {
-        let context = publisherContext
         let fetchRequest: NSFetchRequest<Marca> = Marca.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %i", id)
         fetchRequest.fetchLimit = 1
         
         do
         {
-            guard let marca = try context.fetch(fetchRequest).first
+            guard let marca = try backGroundContext.fetch(fetchRequest).first
             else { return Marca()}
             return marca
         }

@@ -39,10 +39,7 @@ class MarcaDecoder: ObservableObject
         do
         {
             let json =  try JSON(data: data)
-            
-            logger.debug("Start importing data to the store...")
-            batchInsertMarcas(from: json["data"])
-            logger.debug("Finished importing data.")
+            try await batchInsertMarcas(from: json["data"])
         }
         catch
         {
@@ -51,12 +48,14 @@ class MarcaDecoder: ObservableObject
         }
     }
     
-    func batchInsertMarcas(from dados: JSON)
+    func batchInsertMarcas(from dados: JSON) async throws
     {
         guard !dados.isEmpty else { return }
         
         do
         {
+            backGroundContext.transactionAuthor = PersistenceController.remoteDataImportAuthorName
+            
             try backGroundContext.performAndWait
             {
                 var index = 0
@@ -74,7 +73,8 @@ class MarcaDecoder: ObservableObject
                     }
                 })
                 batchRequest.resultType = .statusOnly
-                let result = try backGroundContext.execute(batchRequest) as! NSBatchInsertResult
+                
+                try backGroundContext.execute(batchRequest)
                 self.logger.debug("Successfully inserted Marca data.")
             }
         }
@@ -84,11 +84,10 @@ class MarcaDecoder: ObservableObject
         }
     }
     
-    func batchDeleteMarcas()
+    func batchDeleteMarcas() async throws
     {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "Marca")
-        
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         deleteRequest.resultType = .resultTypeObjectIDs
@@ -106,12 +105,10 @@ class MarcaDecoder: ObservableObject
                         fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs], into: [backGroundContext])
                 }
             }
-            
         }
         catch
         {
             fatalError("Erro moc \(error.localizedDescription)")
         }
     }
-    
 }

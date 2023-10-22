@@ -19,8 +19,5 @@ class MarcaViewModel: ObservableObject
         bag = marcaPublisher.sink { [unowned self] marcasLista in
             self.marcaLista = marcasLista
         }
-       
-        MarcaDecoder.shared.batchDeleteMarcas()
-        Task { try await MarcaDecoder.shared.fetchMarcas()}
     }
 }

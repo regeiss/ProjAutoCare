@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0740BF7A-36FE-4ECE-9891-24C551D81282"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjAutoCare/Code/Features/Veiculo/View/VeiculoListaDetalheView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "VeiculoListaDetalheView"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "74367DA4-D14C-44F1-ADAF-95320051DC12"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -62,134 +46,10 @@
             filePath = "ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "ajustaMarcaModelo()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E38DE2A8-78F5-46A2-8BFB-D861B6DE6228"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjAutoCare/Code/Features/Modelo/Action/ModeloDecoder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "buscaMarcaModelo(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "prepareAppContext()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - ddadc52f439e5171"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - cc8bb8161d456dca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 @Sendable () async throws -&gt; () in ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - ba7ac18e3f77b3c4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #3 @Sendable () async throws -&gt; () in ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - 68389ecaaae40091"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #3 @Sendable () async throws -&gt; () in ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - e2779053f9116fca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #3 @Sendable () async throws -&gt; () in ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "B640DE62-4D80-4D8F-889A-732862C77E1A - 8e6d3736961df9cb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #3 @Sendable () async throws -&gt; () in ProjAutoCare.ProjAutoCareApp.prepareAppContext() -&gt; ()"
-                  moduleName = "ProjAutoCare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/robertoedgargeiss/Projetos/ProjAutoCare/ProjAutoCare/SupportingFiles/ProjAutoCareApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -45,13 +45,14 @@ struct ProjAutoCareApp: App
     
     func prepareAppContext()
     {
-        // TODO: Semaforos
-//        Task { try await  MarcaDecoder.shared.batchDeleteMarcas()}
-//        Task { try await  MarcaDecoder.shared.fetchMarcas()}
-        
-//        Task { try await  ModeloDecoder.shared.batchDeleteModelos()}
-//        Task { try await  ModeloDecoder.shared.fetchModelos()}
-//        Task { try await  ModeloDecoder.shared.ajustaMarcaModelo()}
+        Task 
+        {
+            try await MarcaDecoder.shared.batchDeleteMarcas()
+            try await MarcaDecoder.shared.fetchMarcas()
+            try await ModeloDecoder.shared.batchDeleteModelos()
+            try await ModeloDecoder.shared.fetchModelos()
+            try await ModeloDecoder.shared.ajustaMarcaModelo()
+        }
         
         guard contextSet == false
         else { return }

@@ -111,6 +111,9 @@
 		E1B203DA2A8C3DCD008834EE /* RegistroDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */; };
 		E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */; };
 		E1B203DE2A8D3C96008834EE /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203DD2A8D3C96008834EE /* RegistroViewModel.swift */; };
+		E1B889C52AE55E1F00024663 /* AutoCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */; };
+		E1B889C62AE55E1F00024663 /* AutoCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C32AE55E1F00024663 /* AutoCare.sqlite */; };
+		E1B889C72AE55E1F00024663 /* AutoCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */; };
 		E1BCC85E2A8DA155003C77CA /* RegistroListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */; };
 		E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38272A830F4E00272059 /* CalendarExtensions.swift */; };
 		E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */; };
@@ -277,6 +280,9 @@
 		E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroDTO.swift; sourceTree = "<group>"; };
 		E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroPublisher.swift; sourceTree = "<group>"; };
 		E1B203DD2A8D3C96008834EE /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-shm"; sourceTree = "<group>"; };
+		E1B889C32AE55E1F00024663 /* AutoCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AutoCare.sqlite; sourceTree = "<group>"; };
+		E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-wal"; sourceTree = "<group>"; };
 		E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroListaDetalheView.swift; sourceTree = "<group>"; };
 		E1CC38272A830F4E00272059 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoAddScreen.swift; sourceTree = "<group>"; };
@@ -1016,6 +1022,9 @@
 		E1BF0F2C2ADE002D006E2901 /* CoreDataSeed */ = {
 			isa = PBXGroup;
 			children = (
+				E1B889C32AE55E1F00024663 /* AutoCare.sqlite */,
+				E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */,
+				E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */,
 			);
 			path = CoreDataSeed;
 			sourceTree = "<group>";
@@ -1523,8 +1532,11 @@
 				E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */,
 				E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */,
 				E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */,
+				E1B889C52AE55E1F00024663 /* AutoCare.sqlite-shm in Resources */,
+				E1B889C62AE55E1F00024663 /* AutoCare.sqlite in Resources */,
 				E1D5F5262A37F3B900F3AFD1 /* Localizable.xcstrings in Resources */,
 				E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */,
+				E1B889C72AE55E1F00024663 /* AutoCare.sqlite-wal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
