@@ -45,7 +45,10 @@ struct ProjAutoCareApp: App
     
     func prepareAppContext()
     {
-        Task 
+        guard contextSet == false
+        else { return }
+        
+        Task
         {
             try await MarcaDecoder.shared.batchDeleteMarcas()
             try await MarcaDecoder.shared.fetchMarcas()
@@ -53,9 +56,6 @@ struct ProjAutoCareApp: App
             try await ModeloDecoder.shared.fetchModelos()
             try await ModeloDecoder.shared.ajustaMarcaModelo()
         }
-        
-        guard contextSet == false
-        else { return }
         
         let viewModelPerfil = PerfilViewModel()
         let viewModelVeiculo = VeiculoViewModel()

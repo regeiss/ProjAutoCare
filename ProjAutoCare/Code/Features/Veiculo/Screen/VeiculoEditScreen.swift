@@ -15,6 +15,7 @@ struct VeiculoEditScreen: View
     @StateObject private var viewModelMarca = MarcaViewModel()
     @StateObject private var viewModelModelo = ModeloViewModel()
     @FocusState private var veiculoInFocus: VeiculoFocusable?
+    
     @State var isSaveDisabled: Bool = true
     @State var lista = false
     @State var marca: Marca?

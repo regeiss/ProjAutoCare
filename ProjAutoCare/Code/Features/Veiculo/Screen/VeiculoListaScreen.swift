@@ -25,7 +25,8 @@ struct VeiculoListaScreen: View
                     {
                         VeiculoListaDetalheView(viewModel: viewModel, veiculo: veiculo)
                     }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) 
+                    {
                         Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
                     }
                 }

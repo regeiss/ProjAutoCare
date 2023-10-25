@@ -34,7 +34,7 @@ struct SelecaoDataView: View
             calendar.date(from: components)?.formatted(date: .long, time: .omitted)
         }.formatted()
     }
-    // TODO: Ver porque nao passa aqui no dismiss da sheet
+    
     func didDismiss()
     {
         print(summary)

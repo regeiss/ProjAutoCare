@@ -40,9 +40,7 @@ class ModeloDecoder: ObservableObject
         {
             let json =  try JSON(data: data)
             
-            logger.debug("*** Start importing modelo data to the store")
             batchInsertModelos(from: json["data"])
-            logger.debug("*** Finished importing modelo data.")
         }
         catch
         {

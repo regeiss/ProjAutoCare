@@ -28,12 +28,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="abW-eE-Dr4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.rear.road.lane.dashed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hE3-lc-7eQ">
                                 <rect key="frame" x="76" y="329" width="241" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133.66666666666669" id="uvF-KP-z6h"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -44,13 +47,12 @@
                             <constraint firstItem="wgc-Rc-G4e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BGb-WJ-8hf"/>
                             <constraint firstItem="wgc-Rc-G4e" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="JTf-Ob-wYH"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="267" id="Sy3-8H-0E1"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="76" id="arm-v6-WZw"/>
-                            <constraint firstItem="wgc-Rc-G4e" firstAttribute="top" secondItem="hE3-lc-7eQ" secondAttribute="bottom" constant="260.32999999999998" id="bEs-n1-pCx"/>
+                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="76" id="eK6-uV-RME"/>
+                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="267" id="f45-oI-Sxo"/>
                             <constraint firstItem="wgc-Rc-G4e" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="175" id="jKg-8m-UZd"/>
-                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="centerX" secondItem="wgc-Rc-G4e" secondAttribute="centerX" id="jRQ-Xt-BSz"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="wgc-Rc-G4e" secondAttribute="bottom" constant="77" id="l73-3b-moz"/>
+                            <constraint firstItem="hE3-lc-7eQ" firstAttribute="centerX" secondItem="wgc-Rc-G4e" secondAttribute="centerX" id="sSf-x4-xA0"/>
                         </constraints>
                     </view>
                 </viewController>

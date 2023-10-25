@@ -65,8 +65,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         novoAbastecimento.noPosto = abastecimento.noPosto
         novoAbastecimento.doVeiculo = abastecimento.doVeiculo
         
-        
-        
         publisherContext.performAndWait
         {
             do
@@ -144,7 +142,6 @@ class AbastecimentoPublisher: NSObject, ObservableObject
             fetchRequest.predicate = mesAtualPredicate
         }
         
-        // TODO: verificar quebras de secao
         let abastecimentoFilteredFC = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: publisherContext,
