@@ -114,6 +114,12 @@
 		E1B889C52AE55E1F00024663 /* AutoCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */; };
 		E1B889C62AE55E1F00024663 /* AutoCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C32AE55E1F00024663 /* AutoCare.sqlite */; };
 		E1B889C72AE55E1F00024663 /* AutoCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */; };
+		E1B889CA2AE9DF5E00024663 /* SwiftUICoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = E1B889C92AE9DF5E00024663 /* SwiftUICoordinator */; };
+		E1B889CE2AE9E0F800024663 /* DependecyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889CD2AE9E0F800024663 /* DependecyContainer.swift */; };
+		E1B889D02AE9E5A900024663 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889CF2AE9E5A900024663 /* CoordinatorFactory.swift */; };
+		E1B889D22AE9EAD700024663 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889D12AE9EAD700024663 /* DeepLinkHandler.swift */; };
+		E1B889D42AE9EB5B00024663 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */; };
+		E1B889D62AE9EC6A00024663 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889D52AE9EC6A00024663 /* FadeTransition.swift */; };
 		E1BCC85E2A8DA155003C77CA /* RegistroListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */; };
 		E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38272A830F4E00272059 /* CalendarExtensions.swift */; };
 		E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */; };
@@ -283,6 +289,11 @@
 		E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-shm"; sourceTree = "<group>"; };
 		E1B889C32AE55E1F00024663 /* AutoCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AutoCare.sqlite; sourceTree = "<group>"; };
 		E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-wal"; sourceTree = "<group>"; };
+		E1B889CD2AE9E0F800024663 /* DependecyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyContainer.swift; sourceTree = "<group>"; };
+		E1B889CF2AE9E5A900024663 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		E1B889D12AE9EAD700024663 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		E1B889D52AE9EC6A00024663 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroListaDetalheView.swift; sourceTree = "<group>"; };
 		E1CC38272A830F4E00272059 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoAddScreen.swift; sourceTree = "<group>"; };
@@ -354,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12C38CF2ABD1ECD0011268A /* SwiftyJSON in Frameworks */,
+				E1B889CA2AE9DF5E00024663 /* SwiftUICoordinator in Frameworks */,
 				E1013FB92A49148E0044410F /* FormValidator in Frameworks */,
 				E1AC4F122A58E2DF00016186 /* WelcomeSheet in Frameworks */,
 			);
@@ -1019,6 +1031,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E1B889CB2AE9E0C900024663 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1B889CC2AE9E0D800024663 /* Dependencies */,
+				E1B889CD2AE9E0F800024663 /* DependecyContainer.swift */,
+				E1B889CF2AE9E5A900024663 /* CoordinatorFactory.swift */,
+				E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */,
+				E1B889D52AE9EC6A00024663 /* FadeTransition.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E1B889CC2AE9E0D800024663 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E1B889D12AE9EAD700024663 /* DeepLinkHandler.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
 		E1BF0F2C2ADE002D006E2901 /* CoreDataSeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -1251,6 +1283,7 @@
 		E1D5F52F2A39370B00F3AFD1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E1B889CB2AE9E0C900024663 /* Coordinator */,
 				E1D5F5392A39481500F3AFD1 /* ViewModifier */,
 				E1D5F5382A39480700F3AFD1 /* Theme */,
 			);
@@ -1477,6 +1510,7 @@
 				E1013FB82A49148E0044410F /* FormValidator */,
 				E1AC4F112A58E2DF00016186 /* WelcomeSheet */,
 				E12C38CE2ABD1ECD0011268A /* SwiftyJSON */,
+				E1B889C92AE9DF5E00024663 /* SwiftUICoordinator */,
 			);
 			productName = ProjAutoCare;
 			productReference = E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */;
@@ -1511,6 +1545,7 @@
 				E1013FB72A49148E0044410F /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */,
 				E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */,
 				E12C38CD2ABD1ECD0011268A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				E1B889C82AE9DF5E00024663 /* XCRemoteSwiftPackageReference "SwiftUICoordinator" */,
 			);
 			productRefGroup = E1D5F50B2A37E4C300F3AFD1 /* Products */;
 			projectDirPath = "";
@@ -1596,6 +1631,7 @@
 				E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */,
 				E1AD0CDC2A4DD56A006D64D8 /* PerfilListaDetalheView.swift in Sources */,
 				E10A77A42A6F4E1E00FF7800 /* PerfilReadScreen.swift in Sources */,
+				E1B889D42AE9EB5B00024663 /* AppCoordinator.swift in Sources */,
 				E1AC4F282A5B6E8900016186 /* ServicoListaDetalheView.swift in Sources */,
 				E1D5F53B2A39482700F3AFD1 /* AppTheme.swift in Sources */,
 				E1013FBB2A4A518A0044410F /* AppState.swift in Sources */,
@@ -1607,6 +1643,7 @@
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
 				E1CD94412A8FFC4C005EF2AC /* ServicoEfetuadoEditScreen.swift in Sources */,
 				E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */,
+				E1B889D62AE9EC6A00024663 /* FadeTransition.swift in Sources */,
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
 				E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */,
 				E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */,
@@ -1618,6 +1655,8 @@
 				E1013FC82A4A57FB0044410F /* PostoScreen.swift in Sources */,
 				E1013FD92A4A650C0044410F /* PostoPublisher.swift in Sources */,
 				E1CE3C492A548E3700B2C51D /* ViewModifierConfig.swift in Sources */,
+				E1B889CE2AE9E0F800024663 /* DependecyContainer.swift in Sources */,
+				E1B889D02AE9E5A900024663 /* CoordinatorFactory.swift in Sources */,
 				E1D5F5432A3A757D00F3AFD1 /* SideBarView.swift in Sources */,
 				E10A779C2A6F379900FF7800 /* PostoEditScreen.swift in Sources */,
 				E16C14FA2A3D21E1003EAADA /* PerfilScreen.swift in Sources */,
@@ -1668,6 +1707,7 @@
 				E1AC4F2F2A5B7D0B00016186 /* CategoriaScreen.swift in Sources */,
 				E19B1F0C2AAA94CF00DC3D0C /* MarcaModel.swift in Sources */,
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
+				E1B889D22AE9EAD700024663 /* DeepLinkHandler.swift in Sources */,
 				E1FA73382AC08595000A37EA /* MarcaDecoder.swift in Sources */,
 				E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */,
 				E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */,
@@ -1965,6 +2005,14 @@
 				kind = branch;
 			};
 		};
+		E1B889C82AE9DF5E00024663 /* XCRemoteSwiftPackageReference "SwiftUICoordinator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/erikdrobne/SwiftUICoordinator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1982,6 +2030,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1AC4F102A58E2DF00016186 /* XCRemoteSwiftPackageReference "Welcome-Sheet" */;
 			productName = WelcomeSheet;
+		};
+		E1B889C92AE9DF5E00024663 /* SwiftUICoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1B889C82AE9DF5E00024663 /* XCRemoteSwiftPackageReference "SwiftUICoordinator" */;
+			productName = SwiftUICoordinator;
 		};
 /* End XCSwiftPackageProductDependency section */
 

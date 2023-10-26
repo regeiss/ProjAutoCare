@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "swiftuicoordinator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/erikdrobne/SwiftUICoordinator",
+      "state" : {
+        "revision" : "456ec4389d86732ebc7b941cc130e84d34fa28e3",
+        "version" : "2.2.0"
+      }
+    },
+    {
       "identity" : "swiftuiformvalidator",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Open-Bytes/SwiftUIFormValidator.git",
