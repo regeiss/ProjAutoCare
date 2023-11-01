@@ -8,14 +8,17 @@
 import Foundation
 import SwiftUICoordinator
 
-final class AppCoordinator: RootCoordinator {
+final class AppCoordinator: RootCoordinator 
+{
     
-    func start(with coordinator: any Routing) {
+    func start(with coordinator: any Routing) 
+    {
         self.add(child: coordinator)
         try? coordinator.start()
     }
     
-    override func handle(_ action: CoordinatorAction) {
+    override func handle(_ action: CoordinatorAction) 
+    {
         fatalError("Unhadled coordinator action.")
     }
 }

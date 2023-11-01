@@ -8,17 +8,23 @@
 import UIKit
 import SwiftUICoordinator
 
-class FadeTransition: NSObject, Transition {
-    func isEligible(from fromRoute: NavigationRoute, to toRoute: NavigationRoute, operation: NavigationOperation) -> Bool {
+class FadeTransition: NSObject, Transition 
+{
+    func isEligible(from fromRoute: NavigationRoute, to toRoute: NavigationRoute, operation: NavigationOperation) -> Bool 
+    {
         return (fromRoute as? CustomShapesRoute == .customShapes && toRoute as? CustomShapesRoute == .star)
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval 
+    {
         return 0.3
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let toView = transitionContext.view(forKey: .to) else {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) 
+    {
+        guard let toView = transitionContext.view(forKey: .to) 
+        else
+        {
             transitionContext.completeTransition(false)
             return
         }
@@ -28,9 +34,8 @@ class FadeTransition: NSObject, Transition {
         
         containerView.addSubview(toView)
         
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            toView.alpha = 1.0
-        }) { _ in
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { toView.alpha = 1.0})
+        { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
