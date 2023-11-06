@@ -10,7 +10,10 @@ import SwiftUICoordinator
 
 enum MenuPrincipalAction: CoordinatorAction
 {
-    case simpleShapes
-    case customShapes
-    case featuredShape(NavigationRoute)
+    case abastecimento
+    case servico
+    case relatorios
+    case alertas
+    case cadastros
+    case dashboard
 }

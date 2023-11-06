@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftUICoordinator
 
 @MainActor
-protocol CoordinatorFactory {
-//    func makeShapesCoordinator(parent: Coordinator) -> ShapesCoordinator
+protocol CoordinatorFactory 
+{
+//    func makeMenuPrincipalCoordinator(parent: Coordinator) -> MenuPrincipalCoordinator
 //    func makeSimpleShapesCoordinator(parent: Coordinator) -> SimpleShapesCoordinator
 //    func makeCustomShapesCoordinator(parent: Coordinator) -> CustomShapesCoordinator
 }

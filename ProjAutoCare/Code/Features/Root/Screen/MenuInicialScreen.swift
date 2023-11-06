@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import WelcomeSheet
 
 struct MenuInicialScreen: View
 {
-    @Binding var showSidebar: Bool
+    var appState = AppState.shared
+    var onboardingPages = OnboardingModel()
+    @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
+    @State var veiculoAtual: Veiculo?
+    @State var perfilPadrao: Perfil?
+    @State var isShowingSheet = false
+    @State var showSidebar: Bool = false
+    
+    init()
+    {
+        ToolBarTheme.navigationBarColors(background: UIColor(Color("backGroundColor")), titleColor: UIColor(Color("titleForeGroundColor")))
+    }
     
     var body: some View
     {
@@ -24,36 +36,93 @@ struct MenuInicialScreen: View
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
         
-        VStack
+        ZStack
         {
-            ScrollView(.vertical)
+            Color("sidebar").ignoresSafeArea()
+            SideBarStack(sidebarWidth: 200, showSidebar: $showSidebar)
             {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 5)
+                SideBarView()
+            }
+            
+            content:
+            {
+                NavigationStack
                 {
-                    ForEach(colecaoMenu) { item in
-                        NavigationLink(value: item) {
-                            ItemMenuInicialView(colecao: item)
+                    ZStack
+                    {
+                        Color("backGroundColor").ignoresSafeArea()
+                        ScrollView(.vertical)
+                        {
+                            LazyVGrid(columns: columns, alignment: .center, spacing: 5)
+                            {
+                                ForEach(colecaoMenu) { item in
+                                    NavigationLink(value: item) {
+                                        ItemMenuInicialView(colecao: item)
+                                    }
+                                }.padding([.leading, .trailing])
+                            }
+                            .navigationDestination(for: MenuColecao.self) { item in
+                                switch item.menu {
+                                case .abastecimento:
+                                    AbastecimentoListaScreen()
+                                case .servico:
+                                    ServicoListaScreen()
+                                case .relatorio:
+                                    RelatorioListaScreen()
+                                case .alerta:
+                                    AlertaListaScreen()
+                                    // LogEntriesView()
+                                case .cadastro:
+                                    CadastroListaScreen()
+                                case .dashboard:
+                                    DashboardScreen()
+                                }
+                            }
                         }
-                    }.padding([.leading, .trailing])
-                }
-                .navigationDestination(for: MenuColecao.self) { item in
-                    switch item.menu {
-                    case .abastecimento:
-                        AbastecimentoListaScreen()
-                    case .servico:
-                        ServicoListaScreen()
-                    case .relatorio:
-                        RelatorioListaScreen()
-                    case .alerta:
-                        AlertaListaScreen()
-                        // LogEntriesView()
-                    case .cadastro:
-                        CadastroListaScreen()
-                    case .dashboard:
-                        DashboardScreen()
+                    }
+                    .navigationTitle("AutoCare").foregroundColor(Color("titleForeGroundColor"))
+                    .navigationBarTitleDisplayMode(.large)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading)
+                        { Button { showSidebar.toggle()}
+                            label: { Image(systemName: "line.3.horizontal")}}
+                        ToolbarItem(placement: .navigation)
+                        { Text(veiculoAtual?.nome ?? "N/A")
+                        }
+                        ToolbarItem(placement: .navigation)
+                        {Text(perfilPadrao?.nome ?? "N/S")}
+                        ToolbarItem(placement: .navigationBarTrailing)
+                        { Button { isShowingSheet.toggle()}
+                            label: { Image(systemName: "car.2")}}
                     }
                 }
             }
         }
+        .environment(\.locale, Locale(identifier: "pt_BR"))
+        .onAppear { loadViewData()}
+        .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
+        .sheet(isPresented: $isShowingSheet)
+        {
+            VeiculoBottomSheet(veiculoAtual: $veiculoAtual)
+        }
+    }
+    
+    func loadViewData()
+    {
+        setAppVars()
+        veiculoAtual = appState.veiculoAtivo
+        perfilPadrao = appState.perfilAtivo
+    }
+    
+    // Tratar a insercao dos itens padrao
+    func setAppVars()
+    {
+        let viewModelPerfil = PerfilViewModel()
+        let viewModelVeiculo = VeiculoViewModel()
+        let viewModelPosto = PostoViewModel()
+        
+        viewModelVeiculo.selecionarVeiculoAtivo()
+        viewModelPosto.selecionarPostoPadrao()
+        viewModelPerfil.selecionarPerfilAtivo()
     }
 }

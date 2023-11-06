@@ -141,7 +141,6 @@
 		E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */; };
 		E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
-		E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
 		E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */; };
 		E1D5F5222A37F19500F3AFD1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */; };
@@ -319,7 +318,6 @@
 		E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaDetalheView.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
-		E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E1D5F5212A37F19500F3AFD1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
@@ -1189,7 +1187,6 @@
 		E1D5F5232A37F28400F3AFD1 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				E1D5F50F2A37E4C300F3AFD1 /* ContentView.swift */,
 				E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */,
 				E1D5F5242A37F2F000F3AFD1 /* Localization */,
 				E12B2CCC2A71FB04007ED15B /* Todos.md */,
@@ -1635,7 +1632,6 @@
 				E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */,
 				E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */,
 				E1013FD42A4A60E40044410F /* Posto+CoreDataClass.swift in Sources */,
-				E1D5F5102A37E4C300F3AFD1 /* ContentView.swift in Sources */,
 				E1AC4F2D2A5B761B00016186 /* CategoriaPublisher.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E1FB3F382A5078C600776408 /* AlertaModel.swift in Sources */,
