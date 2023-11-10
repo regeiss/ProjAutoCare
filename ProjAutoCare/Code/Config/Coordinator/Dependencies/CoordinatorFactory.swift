@@ -11,7 +11,7 @@ import SwiftUICoordinator
 @MainActor
 protocol CoordinatorFactory 
 {
-//    func makeMenuPrincipalCoordinator(parent: Coordinator) -> MenuPrincipalCoordinator
-//    func makeSimpleShapesCoordinator(parent: Coordinator) -> SimpleShapesCoordinator
+    func makeMenuPrincipalCoordinator(parent: Coordinator) -> MenuPrincipalCoordinator
+    func makeAbastecimentoCoordinator(parent: Coordinator) -> AbastecimentoCoordinator
 //    func makeCustomShapesCoordinator(parent: Coordinator) -> CustomShapesCoordinator
 }

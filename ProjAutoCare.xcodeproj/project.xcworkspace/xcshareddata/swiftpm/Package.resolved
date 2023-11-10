@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/erikdrobne/SwiftUICoordinator",
       "state" : {
-        "revision" : "456ec4389d86732ebc7b941cc130e84d34fa28e3",
-        "version" : "2.2.0"
+        "revision" : "43373e382108e63f14a559034590bc907aa46c3a",
+        "version" : "2.3.1"
       }
     },
     {

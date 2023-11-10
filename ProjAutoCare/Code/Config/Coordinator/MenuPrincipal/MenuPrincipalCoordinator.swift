@@ -1,39 +1,39 @@
-////
-////  MenuPrincipalCoordinator.swift
-////  ProjAutoCare
-////
-////  Created by Roberto Edgar Geiss on 31/10/23.
-////
 //
-//import SwiftUI
-//import SwiftUICoordinator
+//  MenuPrincipalCoordinator.swift
+//  ProjAutoCare
 //
-//class MenuPrincipalCoordinator: Routing 
-//{
+//  Created by Roberto Edgar Geiss on 31/10/23.
 //
-//    // MARK: - Internal properties
-//    
-//    weak var parent: Coordinator?
-//    var childCoordinators = [WeakCoordinator]()
-//    let navigationController: NavigationController
-//    let startRoute: MenuPrincipalRoute
-//    let factory: CoordinatorFactory
-//
-//    // MARK: - Initialization
-//
-//    init(
-//        parent: Coordinator?,
-//        navigationController: NavigationController,
-//        startRoute: MenuPrincipalRoute = .menuPrincipal,
-//        factory: CoordinatorFactory
-//    ) {
-//        self.parent = parent
-//        self.navigationController = navigationController
-//        self.startRoute = startRoute
-//        self.factory = factory
-//    }
-//    
-//    func handle(_ action: CoordinatorAction) {
+
+import SwiftUI
+import SwiftUICoordinator
+
+class MenuPrincipalCoordinator: Routing
+{
+    // MARK: - Internal properties
+    
+    weak var parent: Coordinator?
+    // var childCoordinators = [WeakCoordinator]()
+    let navigationController: NavigationController
+    let startRoute: MenuPrincipalRoute
+    let factory: CoordinatorFactory
+
+    // MARK: - Initialization
+
+    init(
+        parent: Coordinator?,
+        navigationController: NavigationController,
+        startRoute: MenuPrincipalRoute = .menuPrincipal,
+        factory: CoordinatorFactory
+    ) {
+        self.parent = parent
+        self.navigationController = navigationController
+        self.startRoute = startRoute
+        self.factory = factory
+    }
+    
+    func handle(_ action: CoordinatorAction) 
+    {
 //        switch action {
 //        case MenuPrincipalAction.abastecimento:
 //            let coordinator = factory.makeMenuPrincipalCoordinator(parent: self)
@@ -58,36 +58,47 @@
 //        default:
 //            parent?.handle(action)
 //        }
-//    }
-//    
-//    func handle(_ deepLink: DeepLink, with params: [String: String]) {
-//        switch deepLink.route {
-//        case ShapesRoute.customShapes:
-//            let coordinator = factory.makeCustomShapesCoordinator(parent: self)
+    }
+    
+//    func handle(_ deepLink: DeepLink, with params: [String: String]) 
+//    {
+//        switch deepLink.route 
+//        {
+//        case MenuPrincipalRoute.abastecimento:
+//            let coordinator = factory.makeAbastecimentoCoordinator(parent: self)
 //            try? coordinator.start()
 //        default:
 //            break
 //        }
 //    }
-//}
-//
-//// MARK: - RouterViewFactory
-//
-//extension MenuPrincipalCoordinator: RouterViewFactory
-//{    
-//    @ViewBuilder
-//    public func view(for route: MenuPrincipalRoute) -> some View {
-//        switch route {
-//        case .shapes:
-//            ShapeListView<ShapesCoordinator>()
-//        case .simpleShapes:
-//            /// We are returning an empty view for the route presenting a child coordinator.
-//            EmptyView()
-//        case .customShapes:
-//            CustomShapesView<CustomShapesCoordinator>()
-//        case .featuredShape:
-//            /// We are returning an empty view for the route presenting a child coordinator.
-//            EmptyView()
-//        }
-//    }
-//}
+}
+
+// MARK: - RouterViewFactory
+
+extension MenuPrincipalCoordinator: RouterViewFactory
+{    
+    @ViewBuilder
+    public func view(for route: MenuPrincipalRoute) -> some View 
+    {
+        switch route
+        {
+        case .menuPrincipal:
+            EmptyView()
+            // ShapeListView<ShapesCoordinator>()
+        case .abastecimento:
+            /// We are returning an empty view for the route presenting a child coordinator.
+            EmptyView()
+        case .dashboard:
+            EmptyView()
+        case .cadastros:
+            /// We are returning an empty view for the route presenting a child coordinator.
+            EmptyView()
+        case .servico:
+            EmptyView()
+        case .relatorios:
+            EmptyView()
+        case .alertas:
+            EmptyView()
+        }
+    }
+}

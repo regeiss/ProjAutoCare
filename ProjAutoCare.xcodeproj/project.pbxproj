@@ -71,6 +71,8 @@
 		E18FDA7C2AC2F7B200FA2602 /* ModeloViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */; };
 		E18FDA7E2AC2F7C200FA2602 /* ModeloModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7D2AC2F7C200FA2602 /* ModeloModel.swift */; };
 		E18FDA802AC2F7DD00FA2602 /* ModeloListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */; };
+		E19057192AFC55B200227049 /* AbastecimentoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */; };
+		E190571B2AFC563D00227049 /* AbastecimentoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */; };
 		E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */; };
 		E19B1EF12AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */; };
 		E19B1EF72AA94D5A00DC3D0C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */; };
@@ -132,6 +134,7 @@
 		E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */; };
 		E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */; };
 		E1CFD7BA2A86B19B0098AFC0 /* AbastecimentoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CFD7B92A86B19B0098AFC0 /* AbastecimentoAddScreen.swift */; };
+		E1D17D3F2AFDA07D00EBEA2B /* AbastecimentoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D17D3E2AFDA07D00EBEA2B /* AbastecimentoAction.swift */; };
 		E1D2E90F2A60747000551892 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E90E2A60747000551892 /* Sizes.swift */; };
 		E1D2E9112A60748900551892 /* CommonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9102A60748900551892 /* CommonAction.swift */; };
 		E1D2E9162A607D6E00551892 /* ServicoEfetuadoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9152A607D6E00551892 /* ServicoEfetuadoModel.swift */; };
@@ -249,6 +252,8 @@
 		E18FDA7B2AC2F7B200FA2602 /* ModeloViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloViewModel.swift; sourceTree = "<group>"; };
 		E18FDA7D2AC2F7C200FA2602 /* ModeloModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloModel.swift; sourceTree = "<group>"; };
 		E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloListaScreen.swift; sourceTree = "<group>"; };
+		E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoCoordinator.swift; sourceTree = "<group>"; };
+		E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoRoute.swift; sourceTree = "<group>"; };
 		E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecaoDataView.swift; sourceTree = "<group>"; };
 		E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersaoAnteriorScreen.swift; sourceTree = "<group>"; };
 		E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -308,6 +313,7 @@
 		E1CE3C4B2A5C953800B2C51D /* RelatorioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioModel.swift; sourceTree = "<group>"; };
 		E1CE3C502A5C96D100B2C51D /* RelatorioListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaDetalheView.swift; sourceTree = "<group>"; };
 		E1CFD7B92A86B19B0098AFC0 /* AbastecimentoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAddScreen.swift; sourceTree = "<group>"; };
+		E1D17D3E2AFDA07D00EBEA2B /* AbastecimentoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAction.swift; sourceTree = "<group>"; };
 		E1D2E90E2A60747000551892 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sizes.swift; path = ProjAutoCare/Code/Features/Relatorio/View/Sizes.swift; sourceTree = SOURCE_ROOT; };
 		E1D2E9102A60748900551892 /* CommonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonAction.swift; path = ProjAutoCare/Code/Features/Relatorio/View/CommonAction.swift; sourceTree = SOURCE_ROOT; };
 		E1D2E9152A607D6E00551892 /* ServicoEfetuadoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoModel.swift; sourceTree = "<group>"; };
@@ -798,6 +804,16 @@
 			name = Screen;
 			sourceTree = "<group>";
 		};
+		E19057172AFC559500227049 /* Abastecimento */ = {
+			isa = PBXGroup;
+			children = (
+				E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */,
+				E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */,
+				E1D17D3E2AFDA07D00EBEA2B /* AbastecimentoAction.swift */,
+			);
+			path = Abastecimento;
+			sourceTree = "<group>";
+		};
 		E19B1EEE2AA6A30900DC3D0C /* VersaoAnterior */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,12 +1054,11 @@
 		E1B889CB2AE9E0C900024663 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				E19057172AFC559500227049 /* Abastecimento */,
 				E1FC0D6E2AF1D9C4009F0964 /* MenuPrincipal */,
 				E1FC0D6D2AF1CFFE009F0964 /* Transitions */,
 				E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */,
 				E1B889CC2AE9E0D800024663 /* Dependencies */,
-				E1B889CD2AE9E0F800024663 /* DependecyContainer.swift */,
-				E1B889CF2AE9E5A900024663 /* CoordinatorFactory.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1051,6 +1066,8 @@
 		E1B889CC2AE9E0D800024663 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E1B889CF2AE9E5A900024663 /* CoordinatorFactory.swift */,
+				E1B889CD2AE9E0F800024663 /* DependecyContainer.swift */,
 				E1B889D12AE9EAD700024663 /* DeepLinkHandler.swift */,
 			);
 			path = Dependencies;
@@ -1695,6 +1712,7 @@
 				E1013FB52A4909910044410F /* Abastecimento+CoreDataClass.swift in Sources */,
 				E19B1EF92AA94D7100DC3D0C /* EndPoint.swift in Sources */,
 				E1D2E90F2A60747000551892 /* Sizes.swift in Sources */,
+				E19057192AFC55B200227049 /* AbastecimentoCoordinator.swift in Sources */,
 				E169CDEE2A78766E00157E93 /* RelatorioGraficosScreen.swift in Sources */,
 				E1013FBE2A4A55230044410F /* ErrorHandler.swift in Sources */,
 				E10CE2782A8AE9300022670F /* GaugesView.swift in Sources */,
@@ -1733,6 +1751,8 @@
 				E1013FD12A4A5EEA0044410F /* PostoViewModel.swift in Sources */,
 				E1B889D22AE9EAD700024663 /* DeepLinkHandler.swift in Sources */,
 				E1FA73382AC08595000A37EA /* MarcaDecoder.swift in Sources */,
+				E1D17D3F2AFDA07D00EBEA2B /* AbastecimentoAction.swift in Sources */,
+				E190571B2AFC563D00227049 /* AbastecimentoRoute.swift in Sources */,
 				E1D2E9182A607EEA00551892 /* ServicoEfetuadoAction.swift in Sources */,
 				E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */,
 				E1F1D3C72AD37D13000C0EEA /* Modelo+CoreDataClass.swift in Sources */,
