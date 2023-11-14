@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
 @available(iOS 16.0, *)
-struct AbastecimentoListaScreen: View
+struct AbastecimentoListaScreen<Coordinator: Routing>: View
 {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewRouteModel = ViewModel<Coordinator>()
+    
     @StateObject var viewModel = AbastecimentoViewModel()
     @State private var adicao = false
     
@@ -46,5 +50,36 @@ struct AbastecimentoListaScreen: View
         .navigationDestination(isPresented: $adicao, destination: {
             AbastecimentoAddScreen(isEdit: false)
         })
+    }
+}
+
+extension AbastecimentoListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject 
+    {
+        
+        var coordinator: R?
+
+        func didTapBuiltIn() {
+            //  coordinator?.handle(ShapesAction.simpleShapes)
+        }
+
+        func didTapCustom() {
+           // coordinator?.handle(ShapesAction.customShapes)
+        }
+
+        func didTapFeatured() {
+//            let routes: [NavigationRoute] = [
+//                SimpleShapesRoute.circle,
+//                CustomShapesRoute.tower,
+//                SimpleShapesRoute.capsule
+//            ]
+//
+//            guard let route = routes.randomElement() else {
+//                return
+//            }
+
+            // coordinator?.handle(ShapesAction.featuredShape(route))
+        }
     }
 }

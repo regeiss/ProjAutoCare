@@ -111,9 +111,10 @@ struct AbastecimentoEditScreen: View
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }
-        }.navigationDestination(isPresented: $lista, destination: {
-            AbastecimentoListaScreen()
-        })
+        }
+//            .navigationDestination(isPresented: $lista, destination: {
+//            AbastecimentoListaScreen()
+//        })
     }
     
     func save()

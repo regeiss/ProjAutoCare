@@ -23,9 +23,7 @@ struct ProjAutoCareApp: App
     {
         WindowGroup
         {
-            MenuInicialScreen()
-                .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
-                .modifier(DarkModeViewModifier())
+ 
         }
         .onChange(of: scenePhase)
         {
@@ -44,14 +42,14 @@ struct ProjAutoCareApp: App
         }
     }
     
-    final class SceneDelegate: NSObject, UIWindowSceneDelegate {
-
+    final class SceneDelegate: NSObject, UIWindowSceneDelegate 
+    {
         var dependencyContainer = DependencyContainer()
         
-        func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-            guard let window = (scene as? UIWindowScene)?.windows.first else {
-                return
-            }
+        func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) 
+        {
+            guard let window = (scene as? UIWindowScene)?.windows.first 
+            else { return }
             
             let appCoordinator = dependencyContainer.makeAppCoordinator(window: window)
             dependencyContainer.set(appCoordinator)
@@ -60,20 +58,20 @@ struct ProjAutoCareApp: App
             appCoordinator.start(with: coordinator)
         }
         
-        func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) 
+        {
             guard
                 let url = URLContexts.first?.url,
                 let deepLink = try? dependencyContainer.deepLinkHandler.link(for: url),
                 let params = try? dependencyContainer.deepLinkHandler.params(for: url, and: deepLink.params)
-            else {
-                return
-            }
+            else { return }
             
             dependencyContainer.appCoordinator?.handle(deepLink, with: params)
         }
     }
 
-    class AppDelegate: NSObject, UIApplicationDelegate {
+    class AppDelegate: NSObject, UIApplicationDelegate 
+    {
         func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
             let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
             sceneConfig.delegateClass = SceneDelegate.self

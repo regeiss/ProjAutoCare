@@ -7,8 +7,9 @@
 
 import SwiftUI
 import WelcomeSheet
+import SwiftUICoordinator
 
-struct MenuInicialScreen: View
+struct MenuInicialScreen<Coordinator: Routing>: View
 {
     var appState = AppState.shared
     var onboardingPages = OnboardingModel()
@@ -17,6 +18,9 @@ struct MenuInicialScreen: View
     @State var perfilPadrao: Perfil?
     @State var isShowingSheet = false
     @State var showSidebar: Bool = false
+    
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
     
     init()
     {
@@ -46,8 +50,8 @@ struct MenuInicialScreen: View
             
             content:
             {
-                NavigationStack
-                {
+//                NavigationStack
+//                {
                     ZStack
                     {
                         Color("backGroundColor").ignoresSafeArea()
@@ -64,7 +68,8 @@ struct MenuInicialScreen: View
                             .navigationDestination(for: MenuColecao.self) { item in
                                 switch item.menu {
                                 case .abastecimento:
-                                    AbastecimentoListaScreen()
+                                    ServicoListaScreen()
+                                    // AbastecimentoListaScreen<<#Coordinator: Coordinator & Navigator#>>()
                                 case .servico:
                                     ServicoListaScreen()
                                 case .relatorio:
@@ -95,9 +100,11 @@ struct MenuInicialScreen: View
                         { Button { isShowingSheet.toggle()}
                             label: { Image(systemName: "car.2")}}
                     }
-                }
+               // }
             }
         }
+        .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
+        .modifier(DarkModeViewModifier())
         .environment(\.locale, Locale(identifier: "pt_BR"))
         .onAppear { loadViewData()}
         .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
@@ -124,5 +131,36 @@ struct MenuInicialScreen: View
         viewModelVeiculo.selecionarVeiculoAtivo()
         viewModelPosto.selecionarPostoPadrao()
         viewModelPerfil.selecionarPerfilAtivo()
+    }
+}
+
+extension MenuInicialScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        
+        var coordinator: R?
+
+        func didTapBuiltIn() {
+            // coordinator?.handle(ShapesAction.simpleShapes)
+        }
+
+        func didTapCustom() {
+           // coordinator?.handle(ShapesAction.customShapes)
+        }
+
+        func didTapFeatured() {
+//            let routes: [NavigationRoute] = [
+//                SimpleShapesRoute.circle,
+//                CustomShapesRoute.tower,
+//                SimpleShapesRoute.capsule
+//            ]
+//
+//            guard let route = routes.randomElement() else {
+//                return
+//            }
+
+            // coordinator?.handle(ShapesAction.featuredShape(route))
+        }
     }
 }

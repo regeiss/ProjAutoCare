@@ -13,11 +13,11 @@ class MenuPrincipalCoordinator: Routing
     // MARK: - Internal properties
     
     weak var parent: Coordinator?
-    // var childCoordinators = [WeakCoordinator]()
+    var childCoordinators = [WeakCoordinator]()
     let navigationController: NavigationController
     let startRoute: MenuPrincipalRoute
     let factory: CoordinatorFactory
-
+    
     // MARK: - Initialization
 
     init(
@@ -60,8 +60,8 @@ class MenuPrincipalCoordinator: Routing
 //        }
     }
     
-//    func handle(_ deepLink: DeepLink, with params: [String: String]) 
-//    {
+    func handle(_ deepLink: DeepLink, with params: [String: String]) 
+    {
 //        switch deepLink.route 
 //        {
 //        case MenuPrincipalRoute.abastecimento:
@@ -70,7 +70,7 @@ class MenuPrincipalCoordinator: Routing
 //        default:
 //            break
 //        }
-//    }
+    }
 }
 
 // MARK: - RouterViewFactory

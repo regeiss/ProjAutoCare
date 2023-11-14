@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
-enum AbastecimentoRouter: NavigationRoute
+enum AbastecimentoRoute: NavigationRoute
 {
     case leitura
     case lista

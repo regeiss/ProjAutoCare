@@ -8,41 +8,41 @@
 import SwiftUI
 import SwiftUICoordinator
 
-class AbastecimentoCoordinator: Routing 
+class AbastecimentoCoordinator: Routing
 {
-
     // MARK: - Internal properties
-
     weak var parent: Coordinator?
     var childCoordinators = [WeakCoordinator]()
     var navigationController: NavigationController
-    let startRoute: AbastecimentoRouter
+    let startRoute: AbastecimentoRoute
     let factory: CoordinatorFactory
+    
     // MARK: - Initialization
 
     init(
         parent: Coordinator?,
         navigationController: NavigationController,
-        startRoute: AbastecimentoRouter = .leitura,
+        startRoute: AbastecimentoRoute = .leitura,
         factory: CoordinatorFactory
     ) {
         self.parent = parent
         self.navigationController = navigationController
         self.startRoute = startRoute
+        self.factory = factory
     }
     
     func handle(_ action: CoordinatorAction) 
     {
 //        switch action {
-//        case SimpleShapesAction.rect:
+//        case AbastecimentoAction.rect:
 //            try? show(route: .rect)
-//        case SimpleShapesAction.roundedRect:
+//        case AbastecimentoAction.roundedRect:
 //            try? show(route: .roundedRect)
-//        case SimpleShapesAction.capsule:
+//        case AbastecimentoAction.capsule:
 //            try? show(route: .capsule)
-//        case SimpleShapesAction.ellipse:
+//        case AbastecimentoAction.ellipse:
 //            try? show(route: .ellipse)
-//        case SimpleShapesAction.circle:
+//        case AbastecimentoAction.circle:
 //            try? show(route: .circle)
 //        default:
 //            parent?.handle(action)
@@ -54,45 +54,19 @@ class AbastecimentoCoordinator: Routing
 
 extension AbastecimentoCoordinator: RouterViewFactory 
 {
-    
     @ViewBuilder
-    public func view(for route: AbastecimentoRouter) -> some View 
+    public func view(for route: AbastecimentoRoute) -> some View
     {
         switch route 
         {
-        case .simpleShapes:
-            SimpleShapesView<SimpleShapesCoordinator>()
-        case .rect:
-            Rectangle()
-                .fill(.yellow)
-                .frame(width: 200, height: 200)
-        case .roundedRect:
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(.red)
-                .frame(width: 200, height: 200)
-        case .capsule:
-            Capsule()
-                .fill(.pink)
-                .frame(width: 200, height: 50)
-        case .ellipse:
-            Ellipse()
-                .fill(.gray)
-                .frame(width: 200, height: 100)
-        case .circle:
-            VStack {
-                Spacer()
-                Circle()
-                    .fill(.blue)
-                    .frame(width: 200, height: 200)
-                Spacer()
-                Button {
-                    self.handle(Action.done(self))
-                } label: {
-                    Text("Done")
-                }
-                .buttonStyle(.borderedProminent)
-            }
-
+        case .lista:
+            AbastecimentoListaScreen<AbastecimentoCoordinator>()
+        case .leitura:
+            AbastecimentoListaScreen<AbastecimentoCoordinator>()
+        case .inclusao:
+            AbastecimentoListaScreen<AbastecimentoCoordinator>()
+        case .edicao:
+            AbastecimentoListaScreen<AbastecimentoCoordinator>()
         }
     }
 }
