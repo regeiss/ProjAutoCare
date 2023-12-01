@@ -43,10 +43,12 @@
 		E10CE27C2A8AEB340022670F /* LogEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27B2A8AEB340022670F /* LogEntriesView.swift */; };
 		E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27D2A8AEC090022670F /* DashBoardModel.swift */; };
 		E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27F2A8AEC180022670F /* DashboardAction.swift */; };
+		E1123BEC2B0C1F3300DF687B /* ServicoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */; };
 		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
 		E12C38CC2ABD1E450011268A /* marcas.json in Resources */ = {isa = PBXBuildFile; fileRef = E12C38CB2ABD1E450011268A /* marcas.json */; };
 		E12C38CF2ABD1ECD0011268A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E12C38CE2ABD1ECD0011268A /* SwiftyJSON */; };
 		E1432DE72A43CF580025504D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432DE62A43CF580025504D /* PersistenceController.swift */; };
+		E15D35362B117416004068FF /* SlideTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D35352B117416004068FF /* SlideTransitions.swift */; };
 		E15DAED02AA38C1B002EE6A6 /* PerfilBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15DAECF2AA38C1B002EE6A6 /* PerfilBottomSheet.swift */; };
 		E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */; };
 		E169CDEE2A78766E00157E93 /* RelatorioGraficosScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169CDED2A78766E00157E93 /* RelatorioGraficosScreen.swift */; };
@@ -57,7 +59,7 @@
 		E16C15032A3E091C003EAADA /* VeiculoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15022A3E091C003EAADA /* VeiculoBottomSheet.swift */; };
 		E16C15082A3F70B9003EAADA /* MenuInicialScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */; };
 		E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150A2A3FC733003EAADA /* MenuColecao.swift */; };
-		E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */; };
+		E16C150D2A3FC8E9003EAADA /* MenuInicialItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150C2A3FC8E9003EAADA /* MenuInicialItemView.swift */; };
 		E16C15102A410ADA003EAADA /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */; };
 		E16C15182A410F35003EAADA /* AbastecimentoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */; };
 		E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */; };
@@ -73,6 +75,8 @@
 		E18FDA802AC2F7DD00FA2602 /* ModeloListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */; };
 		E19057192AFC55B200227049 /* AbastecimentoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */; };
 		E190571B2AFC563D00227049 /* AbastecimentoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */; };
+		E1981EFC2B196C3A003D2E3F /* ServicoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */; };
+		E1981EFE2B196C4D003D2E3F /* ServicoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */; };
 		E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */; };
 		E19B1EF12AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */; };
 		E19B1EF72AA94D5A00DC3D0C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */; };
@@ -225,10 +229,12 @@
 		E10CE27B2A8AEB340022670F /* LogEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntriesView.swift; sourceTree = "<group>"; };
 		E10CE27D2A8AEC090022670F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
 		E10CE27F2A8AEC180022670F /* DashboardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAction.swift; sourceTree = "<group>"; };
+		E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoCoordinator.swift; sourceTree = "<group>"; };
 		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
 		E12C38CB2ABD1E450011268A /* marcas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = marcas.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E15380CF2A43AE3B0017BC51 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		E15D35352B117416004068FF /* SlideTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransitions.swift; sourceTree = "<group>"; };
 		E15DAECF2AA38C1B002EE6A6 /* PerfilBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilBottomSheet.swift; sourceTree = "<group>"; };
 		E15F7FCB2A3BC8C8001DAF34 /* SizesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesStruct.swift; sourceTree = "<group>"; };
 		E169CDED2A78766E00157E93 /* RelatorioGraficosScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioGraficosScreen.swift; sourceTree = "<group>"; };
@@ -239,7 +245,7 @@
 		E16C15022A3E091C003EAADA /* VeiculoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoBottomSheet.swift; sourceTree = "<group>"; };
 		E16C15072A3F70B9003EAADA /* MenuInicialScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInicialScreen.swift; sourceTree = "<group>"; };
 		E16C150A2A3FC733003EAADA /* MenuColecao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuColecao.swift; sourceTree = "<group>"; };
-		E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenuInicialView.swift; sourceTree = "<group>"; };
+		E16C150C2A3FC8E9003EAADA /* MenuInicialItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInicialItemView.swift; sourceTree = "<group>"; };
 		E16C150F2A410ADA003EAADA /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaScreen.swift; sourceTree = "<group>"; };
 		E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroListaScreen.swift; sourceTree = "<group>"; };
@@ -255,6 +261,8 @@
 		E18FDA7F2AC2F7DD00FA2602 /* ModeloListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloListaScreen.swift; sourceTree = "<group>"; };
 		E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoCoordinator.swift; sourceTree = "<group>"; };
 		E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoRoute.swift; sourceTree = "<group>"; };
+		E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoAction.swift; sourceTree = "<group>"; };
+		E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoRoute.swift; sourceTree = "<group>"; };
 		E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecaoDataView.swift; sourceTree = "<group>"; };
 		E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersaoAnteriorScreen.swift; sourceTree = "<group>"; };
 		E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -631,7 +639,7 @@
 		E16C15062A3F7098003EAADA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E16C150C2A3FC8E9003EAADA /* ItemMenuInicialView.swift */,
+				E16C150C2A3FC8E9003EAADA /* MenuInicialItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				E16C15202A411AAB003EAADA /* Action */,
+				E1981EF92B196185003D2E3F /* Coordinator */,
 				E16C151F2A411AA0003EAADA /* Model */,
 				E16C15162A410F24003EAADA /* Screen */,
 				E16C15212A411AB6003EAADA /* View */,
@@ -697,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				E1AC4F212A5B0BF600016186 /* Action */,
+				E1981EFA2B19667C003D2E3F /* Coordinator */,
 				E1AC4F1E2A5B0A3C00016186 /* Model */,
 				E1FB3F4A2A51CA4D00776408 /* Screen */,
 				E1FB3F4B2A51CA5B00776408 /* View */,
@@ -806,14 +816,24 @@
 			name = Screen;
 			sourceTree = "<group>";
 		};
-		E19057172AFC559500227049 /* Abastecimento */ = {
+		E1981EF92B196185003D2E3F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				E1D17D3E2AFDA07D00EBEA2B /* AbastecimentoAction.swift */,
 				E19057182AFC55B200227049 /* AbastecimentoCoordinator.swift */,
 				E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */,
 			);
-			path = Abastecimento;
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E1981EFA2B19667C003D2E3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */,
+				E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */,
+				E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E19B1EEE2AA6A30900DC3D0C /* VersaoAnterior */ = {
@@ -1056,7 +1076,6 @@
 		E1B889CB2AE9E0C900024663 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				E19057172AFC559500227049 /* Abastecimento */,
 				E1FC0D6E2AF1D9C4009F0964 /* MenuPrincipal */,
 				E1FC0D6D2AF1CFFE009F0964 /* Transitions */,
 				E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */,
@@ -1508,6 +1527,7 @@
 			isa = PBXGroup;
 			children = (
 				E1B889D52AE9EC6A00024663 /* FadeTransition.swift */,
+				E15D35352B117416004068FF /* SlideTransitions.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -1691,6 +1711,7 @@
 				E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */,
 				E1FC0D742AF1DBA2009F0964 /* MenuPrincipalRoute.swift in Sources */,
 				E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */,
+				E1981EFE2B196C4D003D2E3F /* ServicoRoute.swift in Sources */,
 				E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */,
 				E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */,
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
@@ -1725,13 +1746,14 @@
 				E1FB3F522A51D04600776408 /* AlertaListaScreen.swift in Sources */,
 				E1D17D412B01996900EBEA2B /* TesteCoordinator.swift in Sources */,
 				E10A77A02A6F4DF500FF7800 /* PerfilAddScreen.swift in Sources */,
-				E16C150D2A3FC8E9003EAADA /* ItemMenuInicialView.swift in Sources */,
+				E16C150D2A3FC8E9003EAADA /* MenuInicialItemView.swift in Sources */,
 				E10CE2762A8AE7660022670F /* DashboardScreen.swift in Sources */,
 				E1CD94472A90706F005EF2AC /* AbastecimentoReadScreen.swift in Sources */,
 				E19B1F032AAA91DA00DC3D0C /* NinjaAPIEndPoint.swift in Sources */,
 				E1D871592A60CFDF0032431A /* ServicoEfetuado+CoreDataProperties.swift in Sources */,
 				E10A77B02A6F4F8000FF7800 /* ServicoReadScreen.swift in Sources */,
 				E16C150B2A3FC733003EAADA /* MenuColecao.swift in Sources */,
+				E1981EFC2B196C3A003D2E3F /* ServicoAction.swift in Sources */,
 				E16C14FF2A3DFF21003EAADA /* MensagemScreen.swift in Sources */,
 				E1D2E9112A60748900551892 /* CommonAction.swift in Sources */,
 				E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */,
@@ -1791,6 +1813,7 @@
 				E169CDF02A78774000157E93 /* RelatorioCombustivelScreen.swift in Sources */,
 				E15F7FCC2A3BC8C8001DAF34 /* SizesStruct.swift in Sources */,
 				E1D2E9252A61AB9100551892 /* ServicoEfetuadoScreen.swift in Sources */,
+				E1123BEC2B0C1F3300DF687B /* ServicoCoordinator.swift in Sources */,
 				E1AD0CE82A4E52D6006D64D8 /* PostoListaScreen.swift in Sources */,
 				E1D871582A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift in Sources */,
 				E1CD94452A906FE5005EF2AC /* AbastecimentoEditScreen.swift in Sources */,
@@ -1801,6 +1824,7 @@
 				E16C15032A3E091C003EAADA /* VeiculoBottomSheet.swift in Sources */,
 				E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */,
 				E10A77AC2A6F4F5E00FF7800 /* ServicoAddScreen.swift in Sources */,
+				E15D35362B117416004068FF /* SlideTransitions.swift in Sources */,
 				E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */,
 				E1AC4F262A5B66BC00016186 /* ServicoViewModel.swift in Sources */,
 				E1013FC52A4A57910044410F /* VeiculoViewModel.swift in Sources */,

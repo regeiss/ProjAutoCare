@@ -15,38 +15,35 @@ class AbastecimentoCoordinator: Routing
     var childCoordinators = [WeakCoordinator]()
     var navigationController: NavigationController
     let startRoute: AbastecimentoRoute
-    let factory: CoordinatorFactory
     
     // MARK: - Initialization
 
     init(
         parent: Coordinator?,
         navigationController: NavigationController,
-        startRoute: AbastecimentoRoute = .leitura,
-        factory: CoordinatorFactory
+        startRoute: AbastecimentoRoute = .leitura
     ) {
         self.parent = parent
         self.navigationController = navigationController
         self.startRoute = startRoute
-        self.factory = factory
     }
     
     func handle(_ action: CoordinatorAction) 
     {
-//        switch action {
-//        case AbastecimentoAction.rect:
-//            try? show(route: .rect)
-//        case AbastecimentoAction.roundedRect:
-//            try? show(route: .roundedRect)
-//        case AbastecimentoAction.capsule:
-//            try? show(route: .capsule)
-//        case AbastecimentoAction.ellipse:
-//            try? show(route: .ellipse)
-//        case AbastecimentoAction.circle:
-//            try? show(route: .circle)
-//        default:
-//            parent?.handle(action)
-//        }
+        switch action 
+        {
+        case AbastecimentoAction.lista:
+            try? show(route: .lista)
+        case AbastecimentoAction.leitura:
+            try? show(route: .leitura)
+        case AbastecimentoAction.inclusao:
+            try? show(route: .inclusao)
+        case AbastecimentoAction.edicao:
+            try? show(route: .edicao)
+
+        default:
+            parent?.handle(action)
+        }
     }
 }
 

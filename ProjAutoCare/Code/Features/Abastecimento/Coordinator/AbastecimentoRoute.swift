@@ -19,8 +19,8 @@ enum AbastecimentoRoute: NavigationRoute
     {
         switch self
         {
-        case .lista:
-            return "Auto Care"
+        case .lista, .leitura:
+            return "Abastecimento"
         default:
             return nil
         }
@@ -32,7 +32,8 @@ enum AbastecimentoRoute: NavigationRoute
         {
         case .leitura:
             // We have to pass nil for the route presenting a child coordinator.
-            return nil
+            // return nil
+            return .push(animated: true)
         default:
             return .push(animated: true)
         }

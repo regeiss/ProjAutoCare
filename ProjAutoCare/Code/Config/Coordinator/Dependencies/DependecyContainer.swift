@@ -14,7 +14,6 @@ final class DependencyContainer
     let factory = NavigationControllerFactory()
     lazy var delegate = factory.makeNavigationDelegate( [FadeTransition()])
     lazy var navigationController = factory.makeNavigationController(delegate: delegate)
-    
     let deepLinkHandler = DeepLinkHandler.shared
     
     private(set) var appCoordinator: AppCoordinator?
@@ -30,15 +29,6 @@ final class DependencyContainer
 
 extension DependencyContainer: CoordinatorFactory 
 {
-    func makeAbastecimentoCoordinator(parent: Coordinator) -> AbastecimentoCoordinator 
-    {
-        return AbastecimentoCoordinator(
-            parent: parent,
-            navigationController: self.navigationController,
-            factory: self
-        )
-    }
-    
     func makeAppCoordinator(window: UIWindow) -> AppCoordinator 
     {
         return AppCoordinator(
@@ -53,6 +43,14 @@ extension DependencyContainer: CoordinatorFactory
             parent: parent,
             navigationController: self.navigationController,
             factory: self
+        )
+    }
+    
+    func makeAbastecimentoCoordinator(parent: Coordinator) -> AbastecimentoCoordinator
+    {
+        return AbastecimentoCoordinator(
+            parent: parent,
+            navigationController: self.navigationController
         )
     }
 }

@@ -31,7 +31,6 @@ struct ProjAutoCareApp: App
             {
             case .active:
                 prepareAppContext()
-                getCoreDataDBPath()
             case .inactive:
                 print("inactive")
             case .background:
@@ -123,18 +122,5 @@ struct ProjAutoCareApp: App
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
-    }
-    
-    func getCoreDataDBPath()
-    {
-        let path = FileManager
-            .default
-            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
-            .last?
-            .absoluteString
-            .replacingOccurrences(of: "file://", with: "")
-            .removingPercentEncoding
-        
-        print("Core Data DB Path :: \(path ?? "Not found")")
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ItemMenuView.swift
+//  MenuInicialItemView.swift
 //  ProjAutoCare
 //
 //  Created by Roberto Edgar Geiss on 18/06/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemMenuInicialView: View
+struct MenuInicialItemView: View
 {
     var colecao: MenuColecao
     let height: CGFloat = 110

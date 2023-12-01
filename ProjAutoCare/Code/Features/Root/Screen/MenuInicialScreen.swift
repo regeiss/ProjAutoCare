@@ -11,8 +11,6 @@ import SwiftUICoordinator
 
 struct MenuInicialScreen<Coordinator: Routing>: View
 {
-    var appState = AppState.shared
-    var onboardingPages = OnboardingModel()
     @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
     @State var veiculoAtual: Veiculo?
     @State var perfilPadrao: Perfil?
@@ -21,6 +19,9 @@ struct MenuInicialScreen<Coordinator: Routing>: View
     
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel<Coordinator>()
+    
+    var appState = AppState.shared
+    var onboardingPages = OnboardingModel()
     
     init()
     {
@@ -37,9 +38,7 @@ struct MenuInicialScreen<Coordinator: Routing>: View
             MenuColecao(id: 4, name: "Cadastros", image: "config", menu: .cadastro),
             MenuColecao(id: 5, name: "Dashboard", image: "config", menu: .dashboard)
         ]
-        
-        let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
-        
+                
         ZStack
         {
             Color("sidebar").ignoresSafeArea()
@@ -48,59 +47,36 @@ struct MenuInicialScreen<Coordinator: Routing>: View
                 SideBarView()
             }
             
-            content:
+        content:
             {
-//                NavigationStack
-//                {
-                    ZStack
+                ZStack
+                {
+                    Color("backGroundColor").ignoresSafeArea()
+                    List
                     {
-                        Color("backGroundColor").ignoresSafeArea()
-                        ScrollView(.vertical)
-                        {
-                            LazyVGrid(columns: columns, alignment: .center, spacing: 5)
-                            {
-                                ForEach(colecaoMenu) { item in
-                                    NavigationLink(value: item) {
-                                        ItemMenuInicialView(colecao: item)
-                                    }
-                                }.padding([.leading, .trailing])
-                            }
-                            .navigationDestination(for: MenuColecao.self) { item in
-                                switch item.menu {
-                                case .abastecimento:
-                                    ServicoListaScreen()
-                                    // AbastecimentoListaScreen<<#Coordinator: Coordinator & Navigator#>>()
-                                case .servico:
-                                    ServicoListaScreen()
-                                case .relatorio:
-                                    RelatorioListaScreen()
-                                case .alerta:
-                                    AlertaListaScreen()
-                                    // LogEntriesView()
-                                case .cadastro:
-                                    CadastroListaScreen()
-                                case .dashboard:
-                                    DashboardScreen()
+                        ForEach(colecaoMenu) { item in
+                            
+                            MenuInicialItemView(colecao: item)
+                                .onTapGesture {
+                                    viewModel.didTapBuiltIn(id: item.id)
                                 }
-                            }
-                        }
-                    }
-                    .navigationTitle("AutoCare").foregroundColor(Color("titleForeGroundColor"))
-                    .navigationBarTitleDisplayMode(.large)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading)
-                        { Button { showSidebar.toggle()}
-                            label: { Image(systemName: "line.3.horizontal")}}
-                        ToolbarItem(placement: .navigation)
-                        { Text(veiculoAtual?.nome ?? "N/A")
-                        }
-                        ToolbarItem(placement: .navigation)
-                        {Text(perfilPadrao?.nome ?? "N/S")}
-                        ToolbarItem(placement: .navigationBarTrailing)
-                        { Button { isShowingSheet.toggle()}
-                            label: { Image(systemName: "car.2")}}
-                    }
-               // }
+                            
+                        }.padding([.leading, .trailing])
+                        
+                    }.onAppear { viewModel.coordinator = coordinator }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading)
+                    { Button { showSidebar.toggle()}
+                        label: { Image(systemName: "line.3.horizontal")}}
+                    ToolbarItem(placement: .navigation)
+                    { Text(veiculoAtual?.nome ?? "N/A")}
+                    ToolbarItem(placement: .navigation)
+                    {Text(perfilPadrao?.nome ?? "N/S")}
+                    ToolbarItem(placement: .navigationBarTrailing)
+                    { Button { isShowingSheet.toggle()}
+                        label: { Image(systemName: "car.2")}}
+                }
             }
         }
         .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
@@ -138,28 +114,45 @@ extension MenuInicialScreen
 {
     @MainActor class ViewModel<R: Routing>: ObservableObject
     {
-        
         var coordinator: R?
-
-        func didTapBuiltIn() {
+        
+        func didTapBuiltIn(id: Int) 
+        {
+            switch id
+            {
+            case 0:
+                coordinator?.handle(MenuPrincipalAction.abastecimento)
+            case 1:
+                coordinator?.handle(MenuPrincipalAction.servico)
+            case 2:
+                coordinator?.handle(MenuPrincipalAction.relatorios)
+            case 3:
+                coordinator?.handle(MenuPrincipalAction.alertas)
+            case 4:
+                coordinator?.handle(MenuPrincipalAction.cadastros)
+            case 5:
+                coordinator?.handle(MenuPrincipalAction.dashboard)
+            default:
+                coordinator?.handle(MenuPrincipalAction.abastecimento)
+            }
             // coordinator?.handle(ShapesAction.simpleShapes)
         }
-
+        
         func didTapCustom() {
-           // coordinator?.handle(ShapesAction.customShapes)
+            // coordinator?.handle(ShapesAction.customShapes)
         }
-
+        
         func didTapFeatured() {
-//            let routes: [NavigationRoute] = [
-//                SimpleShapesRoute.circle,
-//                CustomShapesRoute.tower,
-//                SimpleShapesRoute.capsule
-//            ]
-//
-//            guard let route = routes.randomElement() else {
-//                return
-//            }
-
+            //            let routes: [NavigationRoute] = [
+            //                SimpleShapesRoute.circle,
+            //                CustomShapesRoute.tower,
+            //                SimpleShapesRoute.capsule
+            //            ]
+            //
+            //            guard let route = routes.randomElement() else {
+            //                return
+            //            }
+            
             // coordinator?.handle(ShapesAction.featuredShape(route))
         }
     }

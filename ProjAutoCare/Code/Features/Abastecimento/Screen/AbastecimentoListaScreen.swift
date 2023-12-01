@@ -12,9 +12,9 @@ import SwiftUICoordinator
 struct AbastecimentoListaScreen<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
-    @StateObject var viewRouteModel = ViewModel<Coordinator>()
+    @StateObject var viewModel = ViewModel<Coordinator>()
     
-    @StateObject var viewModel = AbastecimentoViewModel()
+    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     @State private var adicao = false
     
     var body: some View
@@ -23,17 +23,17 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
         {
             List
             {
-                ForEach(viewModel.abastecimentosLista) { abastecimento in
+                ForEach(viewModelAbastecimento.abastecimentosLista) { abastecimento in
                     HStack
                     {
                         AbastecimentoListaDetalheView(abastecimento: abastecimento)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(abastecimento: abastecimento)})
+                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModelAbastecimento.delete(abastecimento: abastecimento)})
                     }
                 }
                 
-                if $viewModel.abastecimentosLista.isEmpty
+                if $viewModelAbastecimento.abastecimentosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }

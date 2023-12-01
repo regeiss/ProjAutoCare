@@ -34,30 +34,21 @@ class MenuPrincipalCoordinator: Routing
     
     func handle(_ action: CoordinatorAction) 
     {
-//        switch action {
-//        case MenuPrincipalAction.abastecimento:
-//            let coordinator = factory.makeMenuPrincipalCoordinator(parent: self)
-//            try? coordinator.start()
-//        case ShapesAction.customShapes:
-//            let coordinator = factory.makeCustomShapesCoordinator(parent: self)
-//            try? coordinator.start()
-//        case let ShapesAction.featuredShape(route):
-//            switch route {
-//            case let shapeRoute as SimpleShapesRoute where shapeRoute != .simpleShapes:
-//                let coordinator = factory.makeSimpleShapesCoordinator(parent: self)
-//                coordinator.append(routes: [.simpleShapes, shapeRoute])
-//            case let shapeRoute as CustomShapesRoute where shapeRoute != .customShapes:
-//                let coordinator = factory.makeCustomShapesCoordinator(parent: self)
-//                coordinator.append(routes: [.customShapes, shapeRoute])
-//            default:
-//                return
-//            }
-//        case Action.done(_):
-//            popToRoot()
-//            childCoordinators.removeAll()
-//        default:
-//            parent?.handle(action)
-//        }
+        switch action {
+        case MenuPrincipalAction.abastecimento:
+            let coordinator = factory.makeAbastecimentoCoordinator(parent: self)
+            try? coordinator.start()
+            
+        case MenuPrincipalAction.servico:
+            let coordinator = factory.makeAbastecimentoCoordinator(parent: self)
+            try? coordinator.start()
+            
+        case Action.done(_):
+            popToRoot()
+            childCoordinators.removeAll()
+        default:
+            parent?.handle(action)
+        }
     }
     
     func handle(_ deepLink: DeepLink, with params: [String: String]) 
@@ -83,11 +74,10 @@ extension MenuPrincipalCoordinator: RouterViewFactory
         switch route
         {
         case .menuPrincipal:
-            EmptyView()
-            // ShapeListView<ShapesCoordinator>()
+            MenuInicialScreen<MenuPrincipalCoordinator>()
         case .abastecimento:
             /// We are returning an empty view for the route presenting a child coordinator.
-            EmptyView()
+            AbastecimentoListaScreen<AbastecimentoCoordinator>()
         case .dashboard:
             EmptyView()
         case .cadastros:
