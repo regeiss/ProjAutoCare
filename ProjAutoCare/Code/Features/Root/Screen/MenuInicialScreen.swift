@@ -135,25 +135,7 @@ extension MenuInicialScreen
             default:
                 coordinator?.handle(MenuPrincipalAction.abastecimento)
             }
-            // coordinator?.handle(ShapesAction.simpleShapes)
-        }
-        
-        func didTapCustom() {
-            // coordinator?.handle(ShapesAction.customShapes)
-        }
-        
-        func didTapFeatured() {
-            //            let routes: [NavigationRoute] = [
-            //                SimpleShapesRoute.circle,
-            //                CustomShapesRoute.tower,
-            //                SimpleShapesRoute.capsule
-            //            ]
-            //
-            //            guard let route = routes.randomElement() else {
-            //                return
-            //            }
             
-            // coordinator?.handle(ShapesAction.featuredShape(route))
         }
     }
 }

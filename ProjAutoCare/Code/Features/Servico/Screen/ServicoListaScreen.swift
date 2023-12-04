@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct ServicoListaScreen: View
+struct ServicoListaScreen<Coordinator: Routing>: View
 {
-    @StateObject var viewModel = ServicoViewModel()
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    
+    @StateObject var viewModelServico = ServicoViewModel()
     @State private var adicao = false
-    @State private var edicao = false
     
     var body: some View
     {
@@ -19,17 +22,17 @@ struct ServicoListaScreen: View
         {
             List
             {
-                ForEach(viewModel.servicoLista) { servico in
+                ForEach(viewModelServico.servicoLista) { servico in
                     HStack
                     {
-                        ServicoListaDetalheView(viewModel: viewModel, servico: servico)
+                        ServicoListaDetalheView(viewModel: viewModelServico, servico: servico)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(servico: servico)})
+                        Button("Excluir", systemImage: "trash", role: .destructive, action: { viewModelServico.delete(servico: servico)})
                     }
                 }
                 
-                if viewModel.servicoLista.isEmpty
+                if viewModelServico.servicoLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }
@@ -37,15 +40,46 @@ struct ServicoListaScreen: View
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Serviço", displayMode: .large)
+        //.navigationBarTitle("Serviço", displayMode: .large)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true
             }
                 label: { Image(systemName: "plus")}}
         }
-        .navigationDestination(isPresented: $adicao, destination: {
-            ServicoAddScreen(viewModel: viewModel)
-        })
+//        .navigationDestination(isPresented: $adicao, destination: {
+//            ServicoAddScreen(viewModel: viewModel)
+//        })
+    }
+}
+
+extension ServicoListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        
+        var coordinator: R?
+
+        func didTapBuiltIn() {
+            //  coordinator?.handle(ShapesAction.simpleShapes)
+        }
+
+        func didTapCustom() {
+           // coordinator?.handle(ShapesAction.customShapes)
+        }
+
+        func didTapFeatured() {
+//            let routes: [NavigationRoute] = [
+//                SimpleShapesRoute.circle,
+//                CustomShapesRoute.tower,
+//                SimpleShapesRoute.capsule
+//            ]
+//
+//            guard let route = routes.randomElement() else {
+//                return
+//            }
+
+            // coordinator?.handle(ShapesAction.featuredShape(route))
+        }
     }
 }

@@ -13,5 +13,7 @@ protocol CoordinatorFactory
 {
     func makeMenuPrincipalCoordinator(parent: Coordinator) -> MenuPrincipalCoordinator
     func makeAbastecimentoCoordinator(parent: Coordinator) -> AbastecimentoCoordinator
-//    func makeServicoCoordinator(parent: Coordinator) -> ServicoCoordinator
+    func makeServicoCoordinator(parent: Coordinator) -> ServicoCoordinator
+    func makeRelatorioCoordinator(parent: Coordinator) -> RelatorioCoordinator
+    func makeCadastroCoordinator(parent: Coordinator) -> CadastroCoordinator
 }

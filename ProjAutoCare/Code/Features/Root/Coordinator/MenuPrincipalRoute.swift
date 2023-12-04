@@ -1,26 +1,29 @@
 //
-//  ServicoRoute.swift
+//  MenuPrincipalRoute.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 30/11/23.
+//  Created by Roberto Edgar Geiss on 31/10/23.
 //
 
-import SwiftUI
+import Foundation
 import SwiftUICoordinator
 
-enum ServicoRoute: NavigationRoute
+enum MenuPrincipalRoute: NavigationRoute
 {
-    case leitura
-    case lista
-    case inclusao
-    case edicao
+    case menuPrincipal
+    case abastecimento
+    case servico
+    case relatorios
+    case alertas
+    case cadastros
+    case dashboard
     
     var title: String?
     {
         switch self
         {
-        case .lista, .leitura:
-            return "Serviço"
+        case .menuPrincipal:
+            return "Auto Care"
         default:
             return nil
         }
@@ -30,10 +33,9 @@ enum ServicoRoute: NavigationRoute
     {
         switch self
         {
-        case .leitura:
+        case .abastecimento, .servico:
             // We have to pass nil for the route presenting a child coordinator.
-            // return nil
-            return .push(animated: true)
+            return nil
         default:
             return .push(animated: true)
         }

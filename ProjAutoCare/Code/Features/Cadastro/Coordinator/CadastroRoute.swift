@@ -1,26 +1,30 @@
 //
-//  AbastecimentoRoute.swift
+//  CadastroRoute.swift
 //  ProjAutoCare
 //
-//  Created by Roberto Edgar Geiss on 08/11/23.
+//  Created by Roberto Edgar Geiss on 03/12/23.
 //
 
-import SwiftUI
+import Foundation
 import SwiftUICoordinator
 
-enum AbastecimentoRoute: NavigationRoute
+enum CadastroRoute: NavigationRoute
 {
-    case leitura
     case lista
-    case inclusao
-    case edicao
+    case categoria
+    case marca
+    case modelo
+    case perfil
+    case posto
+    case servico
+    case veiculo
     
     var title: String?
     {
         switch self
         {
         case .lista:
-            return "Abastecimento"
+            return "Cadastros"
         default:
             return nil
         }
@@ -30,7 +34,7 @@ enum AbastecimentoRoute: NavigationRoute
     {
         switch self
         {
-        case .leitura:
+        case .lista:
             // We have to pass nil for the route presenting a child coordinator. ??????????????????????
             // return nil
             return .push(animated: true)

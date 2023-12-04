@@ -53,6 +53,30 @@ extension DependencyContainer: CoordinatorFactory
             navigationController: self.navigationController
         )
     }
+    
+    func makeServicoCoordinator(parent: Coordinator) -> ServicoCoordinator
+    {
+        return ServicoCoordinator(
+            parent: parent,
+            navigationController: self.navigationController
+        )
+    }
+    
+    func makeRelatorioCoordinator(parent: Coordinator) -> RelatorioCoordinator 
+    {
+        return RelatorioCoordinator(
+            parent: parent,
+            navigationController: self.navigationController
+        )
+    }
+    
+    func makeCadastroCoordinator(parent: Coordinator) -> CadastroCoordinator
+    {
+        return CadastroCoordinator(
+            parent: parent,
+            navigationController: self.navigationController
+        )
+    }
 }
 
 extension DependencyContainer 

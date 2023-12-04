@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct RelatorioListaScreen: View
+struct RelatorioListaScreen<Coordinator: Routing>: View
 {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+
     @State var categoria = false
     @State var servico = false
     @State var veiculo = false
@@ -51,5 +55,14 @@ struct RelatorioListaScreen: View
             }.navigationTitle("Relatórios")
             .background(Color("backGroundColor"))
         }
+    }
+}
+
+extension RelatorioListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
     }
 }

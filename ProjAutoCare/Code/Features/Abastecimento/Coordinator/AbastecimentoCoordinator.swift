@@ -21,7 +21,7 @@ class AbastecimentoCoordinator: Routing
     init(
         parent: Coordinator?,
         navigationController: NavigationController,
-        startRoute: AbastecimentoRoute = .leitura
+        startRoute: AbastecimentoRoute = .lista
     ) {
         self.parent = parent
         self.navigationController = navigationController

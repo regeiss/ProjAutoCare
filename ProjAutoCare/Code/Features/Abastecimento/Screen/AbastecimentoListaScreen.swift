@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftUICoordinator
 
-@available(iOS 16.0, *)
 struct AbastecimentoListaScreen<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
@@ -40,16 +39,16 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
             }
         }.background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Abastecimento", displayMode: .automatic)
+        // .navigationBarTitle("Abastecimento", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true
             }
                 label: { Image(systemName: "plus")}}
         }
-        .navigationDestination(isPresented: $adicao, destination: {
-            AbastecimentoAddScreen(isEdit: false)
-        })
+//        .navigationDestination(isPresented: $adicao, destination: {
+//            AbastecimentoAddScreen(isEdit: false)
+//        })
     }
 }
 

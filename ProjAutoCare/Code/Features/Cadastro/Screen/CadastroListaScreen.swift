@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct CadastroListaScreen: View 
+struct CadastroListaScreen<Coordinator: Routing>: View
 {
-    @State var categoria = false 
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    
+    @State var categoria = false
     @State var servico = false
     @State var veiculo = false
     @State var posto = false 
@@ -41,30 +45,23 @@ struct CadastroListaScreen: View
                             CadastroDetalheView(colecao: item)
                         }
                     }.padding([.leading, .trailing])
-                }.navigationDestination(for: CadastroColecao.self) { item in
-                    switch item.menu 
-                    {
-                    case .categoria:
-                        CategoriaListaScreen()
-                    case .servico:
-                        ServicoListaScreen()
-                    case .marca:
-                        MarcaListaScreen()
-                    case .servicoEfetuado:
-                        ServicoEfetuadoListaScreen()
-                    case .veiculo:
-                        VeiculoListaScreen()
-                    case .posto:
-                        PostoListaScreen()
-                    case .perfil:
-                        PerfilListaScreen()
-                    case .modelo:
-                        ModeloListaScreen()
-                    }
                 }.padding()
             }.navigationTitle("Cadastros")
             .navigationBarTitleDisplayMode(.large)
             .background(Color("backGroundColor"))
+        }
+    }
+}
+
+extension CadastroListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        
+        var coordinator: R?
+        
+        func didTapBuiltIn() {
+            //  coordinator?.handle(ShapesAction.simpleShapes)
         }
     }
 }

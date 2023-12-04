@@ -44,6 +44,9 @@
 		E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27D2A8AEC090022670F /* DashBoardModel.swift */; };
 		E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE27F2A8AEC180022670F /* DashboardAction.swift */; };
 		E1123BEC2B0C1F3300DF687B /* ServicoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */; };
+		E1299AC22B1D65270059F49B /* CadastroAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1299AC12B1D65270059F49B /* CadastroAction.swift */; };
+		E1299AC42B1D65330059F49B /* CadastroRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1299AC32B1D65330059F49B /* CadastroRoute.swift */; };
+		E1299AC62B1D65450059F49B /* CadastroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1299AC52B1D65450059F49B /* CadastroCoordinator.swift */; };
 		E12B2CCD2A71FB04007ED15B /* Todos.md in Resources */ = {isa = PBXBuildFile; fileRef = E12B2CCC2A71FB04007ED15B /* Todos.md */; };
 		E12C38CC2ABD1E450011268A /* marcas.json in Resources */ = {isa = PBXBuildFile; fileRef = E12C38CB2ABD1E450011268A /* marcas.json */; };
 		E12C38CF2ABD1ECD0011268A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E12C38CE2ABD1ECD0011268A /* SwiftyJSON */; };
@@ -77,6 +80,9 @@
 		E190571B2AFC563D00227049 /* AbastecimentoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */; };
 		E1981EFC2B196C3A003D2E3F /* ServicoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */; };
 		E1981EFE2B196C4D003D2E3F /* ServicoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */; };
+		E1981F032B1B7FAE003D2E3F /* RelatorioAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981F022B1B7FAE003D2E3F /* RelatorioAction.swift */; };
+		E1981F052B1B7FBF003D2E3F /* RelatorioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981F042B1B7FBF003D2E3F /* RelatorioCoordinator.swift */; };
+		E1981F072B1B7FCA003D2E3F /* RelatorioRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1981F062B1B7FCA003D2E3F /* RelatorioRoute.swift */; };
 		E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */; };
 		E19B1EF12AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */; };
 		E19B1EF72AA94D5A00DC3D0C /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */; };
@@ -230,6 +236,9 @@
 		E10CE27D2A8AEC090022670F /* DashBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardModel.swift; sourceTree = "<group>"; };
 		E10CE27F2A8AEC180022670F /* DashboardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAction.swift; sourceTree = "<group>"; };
 		E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoCoordinator.swift; sourceTree = "<group>"; };
+		E1299AC12B1D65270059F49B /* CadastroAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroAction.swift; sourceTree = "<group>"; };
+		E1299AC32B1D65330059F49B /* CadastroRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroRoute.swift; sourceTree = "<group>"; };
+		E1299AC52B1D65450059F49B /* CadastroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroCoordinator.swift; sourceTree = "<group>"; };
 		E12B2CCC2A71FB04007ED15B /* Todos.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Todos.md; sourceTree = "<group>"; };
 		E12C38CB2ABD1E450011268A /* marcas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = marcas.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		E1432DE62A43CF580025504D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -263,6 +272,9 @@
 		E190571A2AFC563D00227049 /* AbastecimentoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoRoute.swift; sourceTree = "<group>"; };
 		E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoAction.swift; sourceTree = "<group>"; };
 		E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoRoute.swift; sourceTree = "<group>"; };
+		E1981F022B1B7FAE003D2E3F /* RelatorioAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioAction.swift; sourceTree = "<group>"; };
+		E1981F042B1B7FBF003D2E3F /* RelatorioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioCoordinator.swift; sourceTree = "<group>"; };
+		E1981F062B1B7FCA003D2E3F /* RelatorioRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioRoute.swift; sourceTree = "<group>"; };
 		E198C2C42A7D6EC20023B472 /* SelecaoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelecaoDataView.swift; sourceTree = "<group>"; };
 		E19B1EF02AA6A32A00DC3D0C /* VersaoAnteriorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersaoAnteriorScreen.swift; sourceTree = "<group>"; };
 		E19B1EF62AA94D5A00DC3D0C /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -505,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				E10CE2742A8AE6C00022670F /* Action */,
+				E1981F002B1B7DDA003D2E3F /* Coordinator */,
 				E10CE2732A8AE6B70022670F /* Model */,
 				E10CE2722A8AE6AB0022670F /* Screen */,
 				E10CE2712A8AE6A20022670F /* View */,
@@ -544,6 +557,16 @@
 				E10CE27F2A8AEC180022670F /* DashboardAction.swift */,
 			);
 			path = Action;
+			sourceTree = "<group>";
+		};
+		E1299AC02B1D65100059F49B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1299AC12B1D65270059F49B /* CadastroAction.swift */,
+				E1299AC52B1D65450059F49B /* CadastroCoordinator.swift */,
+				E1299AC32B1D65330059F49B /* CadastroRoute.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E1432DE52A43CF420025504D /* CoreData */ = {
@@ -685,6 +708,7 @@
 		E16C15132A410E52003EAADA /* Relatorio */ = {
 			isa = PBXGroup;
 			children = (
+				E1981F012B1B7F9C003D2E3F /* Coordinator */,
 				E1CE3C4A2A5C952100B2C51D /* Model */,
 				E16C151C2A4115A2003EAADA /* Screen */,
 				E1CE3C4D2A5C954300B2C51D /* View */,
@@ -695,6 +719,7 @@
 		E16C15142A410E68003EAADA /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
+				E1299AC02B1D65100059F49B /* Coordinator */,
 				E1AD0CE42A4E464A006D64D8 /* Model */,
 				E1AD0CE12A4DD598006D64D8 /* View */,
 				E16C15192A4114E9003EAADA /* Screen */,
@@ -832,6 +857,33 @@
 				E1981EFB2B196C3A003D2E3F /* ServicoAction.swift */,
 				E1123BEB2B0C1F3300DF687B /* ServicoCoordinator.swift */,
 				E1981EFD2B196C4D003D2E3F /* ServicoRoute.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E1981EFF2B1B7A83003D2E3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC0D6F2AF1DB0E009F0964 /* MenuPrincipalAction.swift */,
+				E1FC0D712AF1DB22009F0964 /* MenuPrincipalCoordinator.swift */,
+				E1FC0D732AF1DBA2009F0964 /* MenuPrincipalRoute.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E1981F002B1B7DDA003D2E3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E1981F012B1B7F9C003D2E3F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1981F022B1B7FAE003D2E3F /* RelatorioAction.swift */,
+				E1981F042B1B7FBF003D2E3F /* RelatorioCoordinator.swift */,
+				E1981F062B1B7FCA003D2E3F /* RelatorioRoute.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1076,7 +1128,6 @@
 		E1B889CB2AE9E0C900024663 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				E1FC0D6E2AF1D9C4009F0964 /* MenuPrincipal */,
 				E1FC0D6D2AF1CFFE009F0964 /* Transitions */,
 				E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */,
 				E1B889CC2AE9E0D800024663 /* Dependencies */,
@@ -1361,6 +1412,7 @@
 		E1D5F5372A3947BA00F3AFD1 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				E1981EFF2B1B7A83003D2E3F /* Coordinator */,
 				E16C15092A3FC71C003EAADA /* Model */,
 				E16C15052A3F708E003EAADA /* Screen */,
 				E16C15062A3F7098003EAADA /* View */,
@@ -1532,16 +1584,6 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
-		E1FC0D6E2AF1D9C4009F0964 /* MenuPrincipal */ = {
-			isa = PBXGroup;
-			children = (
-				E1FC0D6F2AF1DB0E009F0964 /* MenuPrincipalAction.swift */,
-				E1FC0D712AF1DB22009F0964 /* MenuPrincipalCoordinator.swift */,
-				E1FC0D732AF1DBA2009F0964 /* MenuPrincipalRoute.swift */,
-			);
-			path = MenuPrincipal;
-			sourceTree = "<group>";
-		};
 		E1FD64CF2AAE93090009A258 /* Action */ = {
 			isa = PBXGroup;
 			children = (
@@ -1667,6 +1709,7 @@
 			files = (
 				E1D5F52B2A37F68700F3AFD1 /* StringExtensions.swift in Sources */,
 				E1FB3F3D2A507B9900776408 /* VeiculoModel.swift in Sources */,
+				E1299AC22B1D65270059F49B /* CadastroAction.swift in Sources */,
 				E1B203D22A8C399C008834EE /* Registro+CoreDataClass.swift in Sources */,
 				E10CE27A2A8AEAA00022670F /* RemindersView.swift in Sources */,
 				E1013FD72A4A61AD0044410F /* PostoListaDetalheView.swift in Sources */,
@@ -1690,6 +1733,7 @@
 				E1FC0D722AF1DB22009F0964 /* MenuPrincipalCoordinator.swift in Sources */,
 				E1AC4F1A2A5B07D800016186 /* Servico+CoreDataProperties.swift in Sources */,
 				E19B1EFB2AA94E1400DC3D0C /* HTTPMethod.swift in Sources */,
+				E1299AC62B1D65450059F49B /* CadastroCoordinator.swift in Sources */,
 				E1AD0CE32A4DD5AA006D64D8 /* CadastroDetalheView.swift in Sources */,
 				E1AD0CDC2A4DD56A006D64D8 /* PerfilListaDetalheView.swift in Sources */,
 				E10A77A42A6F4E1E00FF7800 /* PerfilReadScreen.swift in Sources */,
@@ -1700,6 +1744,7 @@
 				E1FD053A2A77318000B867B6 /* RelatorioConsumoScreen.swift in Sources */,
 				E1B203DA2A8C3DCD008834EE /* RegistroDTO.swift in Sources */,
 				E19B1EFD2AA94E4200DC3D0C /* RequestError.swift in Sources */,
+				E1981F072B1B7FCA003D2E3F /* RelatorioRoute.swift in Sources */,
 				E169CDF22A7877F400157E93 /* RelatorioServicoScreen.swift in Sources */,
 				E1AC4F232A5B0C0B00016186 /* ServicoPublisher.swift in Sources */,
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
@@ -1710,11 +1755,13 @@
 				E1D5F5452A3A779000F3AFD1 /* Snippets.swift in Sources */,
 				E10CE27E2A8AEC090022670F /* DashBoardModel.swift in Sources */,
 				E1FC0D742AF1DBA2009F0964 /* MenuPrincipalRoute.swift in Sources */,
+				E1981F032B1B7FAE003D2E3F /* RelatorioAction.swift in Sources */,
 				E10A779A2A6F377500FF7800 /* PostoReadScreen.swift in Sources */,
 				E1981EFE2B196C4D003D2E3F /* ServicoRoute.swift in Sources */,
 				E10CE2802A8AEC180022670F /* DashboardAction.swift in Sources */,
 				E198C2C52A7D6EC20023B472 /* SelecaoDataView.swift in Sources */,
 				E1013FC02A4A55810044410F /* ErrorWrapper.swift in Sources */,
+				E1981F052B1B7FBF003D2E3F /* RelatorioCoordinator.swift in Sources */,
 				E1AC4F192A5B07D800016186 /* Servico+CoreDataClass.swift in Sources */,
 				E18FDA782AC2F77400FA2602 /* ModeloDecoder.swift in Sources */,
 				E1013FC82A4A57FB0044410F /* PostoScreen.swift in Sources */,
@@ -1818,6 +1865,7 @@
 				E1D871582A60CFDF0032431A /* ServicoEfetuado+CoreDataClass.swift in Sources */,
 				E1CD94452A906FE5005EF2AC /* AbastecimentoEditScreen.swift in Sources */,
 				E19B1F102AABDDCF00DC3D0C /* MarcaListaScreen.swift in Sources */,
+				E1299AC42B1D65330059F49B /* CadastroRoute.swift in Sources */,
 				E1013FCF2A4A5E160044410F /* PostoModel.swift in Sources */,
 				E1E409CA2A5256A300034DBA /* PerfilListaScreen.swift in Sources */,
 				E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */,

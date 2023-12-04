@@ -40,7 +40,15 @@ class MenuPrincipalCoordinator: Routing
             try? coordinator.start()
             
         case MenuPrincipalAction.servico:
-            let coordinator = factory.makeAbastecimentoCoordinator(parent: self)
+            let coordinator = factory.makeServicoCoordinator(parent: self)
+            try? coordinator.start()
+            
+        case MenuPrincipalAction.relatorios:
+            let coordinator = factory.makeRelatorioCoordinator(parent: self)
+            try? coordinator.start()
+            
+        case MenuPrincipalAction.cadastros:
+            let coordinator = factory.makeCadastroCoordinator(parent: self)
             try? coordinator.start()
             
         case Action.done(_):
@@ -81,12 +89,11 @@ extension MenuPrincipalCoordinator: RouterViewFactory
         case .dashboard:
             EmptyView()
         case .cadastros:
-            /// We are returning an empty view for the route presenting a child coordinator.
-            EmptyView()
+            CadastroListaScreen<CadastroCoordinator>()
         case .servico:
-            EmptyView()
+            ServicoListaScreen<ServicoCoordinator>()
         case .relatorios:
-            EmptyView()
+            RelatorioListaScreen<RelatorioCoordinator>()
         case .alertas:
             EmptyView()
         }

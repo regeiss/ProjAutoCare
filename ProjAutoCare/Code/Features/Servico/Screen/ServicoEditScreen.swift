@@ -69,8 +69,8 @@ struct ServicoEditScreen: View
                 label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
-        .navigationDestination(isPresented: $lista, destination: {
-            ServicoListaScreen()})
+//        .navigationDestination(isPresented: $lista, destination: {
+//            ServicoListaScreen()})
     }
     
     func save()
