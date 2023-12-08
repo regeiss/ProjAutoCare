@@ -123,6 +123,9 @@
 		E1B203DA2A8C3DCD008834EE /* RegistroDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */; };
 		E1B203DC2A8C42CA008834EE /* RegistroPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */; };
 		E1B203DE2A8D3C96008834EE /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B203DD2A8D3C96008834EE /* RegistroViewModel.swift */; };
+		E1B709522B22923E0001F881 /* AlertaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B709512B22923E0001F881 /* AlertaCoordinator.swift */; };
+		E1B709542B2293D20001F881 /* AlertaRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B709532B2293D20001F881 /* AlertaRoute.swift */; };
+		E1B709562B2293E40001F881 /* AlertaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B709552B2293E40001F881 /* AlertaAction.swift */; };
 		E1B889C52AE55E1F00024663 /* AutoCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */; };
 		E1B889C62AE55E1F00024663 /* AutoCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C32AE55E1F00024663 /* AutoCare.sqlite */; };
 		E1B889C72AE55E1F00024663 /* AutoCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */; };
@@ -314,6 +317,9 @@
 		E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroDTO.swift; sourceTree = "<group>"; };
 		E1B203DB2A8C42CA008834EE /* RegistroPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroPublisher.swift; sourceTree = "<group>"; };
 		E1B203DD2A8D3C96008834EE /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		E1B709512B22923E0001F881 /* AlertaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaCoordinator.swift; sourceTree = "<group>"; };
+		E1B709532B2293D20001F881 /* AlertaRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaRoute.swift; sourceTree = "<group>"; };
+		E1B709552B2293E40001F881 /* AlertaAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertaAction.swift; sourceTree = "<group>"; };
 		E1B889C22AE55E1F00024663 /* AutoCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-shm"; sourceTree = "<group>"; };
 		E1B889C32AE55E1F00024663 /* AutoCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AutoCare.sqlite; sourceTree = "<group>"; };
 		E1B889C42AE55E1F00024663 /* AutoCare.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AutoCare.sqlite-wal"; sourceTree = "<group>"; };
@@ -699,6 +705,7 @@
 		E16C15122A410E47003EAADA /* Alerta */ = {
 			isa = PBXGroup;
 			children = (
+				E1B709502B2292290001F881 /* Coordinator */,
 				E1FB3F502A51D03800776408 /* Screen */,
 				E1FB3F362A5078A800776408 /* Model */,
 			);
@@ -1123,6 +1130,16 @@
 				E1B203D92A8C3DCD008834EE /* RegistroDTO.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E1B709502B2292290001F881 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1B709552B2293E40001F881 /* AlertaAction.swift */,
+				E1B709512B22923E0001F881 /* AlertaCoordinator.swift */,
+				E1B709532B2293D20001F881 /* AlertaRoute.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E1B889CB2AE9E0C900024663 /* Coordinator */ = {
@@ -1777,6 +1794,7 @@
 				E1B203D32A8C399C008834EE /* Registro+CoreDataProperties.swift in Sources */,
 				E1B203DE2A8D3C96008834EE /* RegistroViewModel.swift in Sources */,
 				E1CE3C4C2A5C953800B2C51D /* RelatorioModel.swift in Sources */,
+				E1B709562B2293E40001F881 /* AlertaAction.swift in Sources */,
 				E1AD0CDA2A4DD556006D64D8 /* PerfilViewModel.swift in Sources */,
 				E1D5F5342A39391300F3AFD1 /* SettingsScreen.swift in Sources */,
 				E1AD0CDE2A4DD573006D64D8 /* PerfilModel.swift in Sources */,
@@ -1850,6 +1868,7 @@
 				E10CE27C2A8AEB340022670F /* LogEntriesView.swift in Sources */,
 				E10A77AA2A6F4F3900FF7800 /* VeiculoReadScreen.swift in Sources */,
 				E10A77A22A6F4E0500FF7800 /* PerfilEditScreen.swift in Sources */,
+				E1B709522B22923E0001F881 /* AlertaCoordinator.swift in Sources */,
 				E1FB3F3F2A507D4C00776408 /* VeiculoAction.swift in Sources */,
 				E15DAED02AA38C1B002EE6A6 /* PerfilBottomSheet.swift in Sources */,
 				E1AD0CE62A4E4660006D64D8 /* CadastroModel.swift in Sources */,
@@ -1868,6 +1887,7 @@
 				E1299AC42B1D65330059F49B /* CadastroRoute.swift in Sources */,
 				E1013FCF2A4A5E160044410F /* PostoModel.swift in Sources */,
 				E1E409CA2A5256A300034DBA /* PerfilListaScreen.swift in Sources */,
+				E1B709542B2293D20001F881 /* AlertaRoute.swift in Sources */,
 				E1FB3F4D2A51CE9300776408 /* ServicoScreen.swift in Sources */,
 				E16C15032A3E091C003EAADA /* VeiculoBottomSheet.swift in Sources */,
 				E1FB3F432A507DEB00776408 /* VeiculoListaScreen.swift in Sources */,

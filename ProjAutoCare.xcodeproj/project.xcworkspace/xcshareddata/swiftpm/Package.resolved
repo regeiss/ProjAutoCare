@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/erikdrobne/SwiftUICoordinator",
       "state" : {
-        "revision" : "43373e382108e63f14a559034590bc907aa46c3a",
-        "version" : "2.3.1"
+        "revision" : "48afedfa2b74247898f328547aad0ad2d67d98ca",
+        "version" : "2.3.2"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Open-Bytes/SwiftUIFormValidator.git",
       "state" : {
-        "revision" : "9124905d89239861261ea6f62c07db43e400f8d1",
-        "version" : "1.0.2"
+        "revision" : "b1cbab3515f65ca998164acbe1057e136d147960",
+        "version" : "1.0.3"
       }
     },
     {

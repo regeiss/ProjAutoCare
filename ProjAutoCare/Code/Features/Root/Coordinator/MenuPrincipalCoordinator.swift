@@ -51,6 +51,10 @@ class MenuPrincipalCoordinator: Routing
             let coordinator = factory.makeCadastroCoordinator(parent: self)
             try? coordinator.start()
             
+        case MenuPrincipalAction.alertas:
+            let coordinator = factory.makeAlertaCoordinator(parent: self)
+            try? coordinator.start()
+            
         case Action.done(_):
             popToRoot()
             childCoordinators.removeAll()
@@ -95,7 +99,7 @@ extension MenuPrincipalCoordinator: RouterViewFactory
         case .relatorios:
             RelatorioListaScreen<RelatorioCoordinator>()
         case .alertas:
-            EmptyView()
+            AlertaListaScreen<AlertaCoordinator>()
         }
     }
 }

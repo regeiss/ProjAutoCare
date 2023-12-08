@@ -77,6 +77,14 @@ extension DependencyContainer: CoordinatorFactory
             navigationController: self.navigationController
         )
     }
+    
+    func makeAlertaCoordinator(parent: Coordinator) -> AlertaCoordinator
+    {
+        return AlertaCoordinator(
+            parent: parent,
+            navigationController: self.navigationController
+        )
+    }
 }
 
 extension DependencyContainer 

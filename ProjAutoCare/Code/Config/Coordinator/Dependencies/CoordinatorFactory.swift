@@ -16,4 +16,5 @@ protocol CoordinatorFactory
     func makeServicoCoordinator(parent: Coordinator) -> ServicoCoordinator
     func makeRelatorioCoordinator(parent: Coordinator) -> RelatorioCoordinator
     func makeCadastroCoordinator(parent: Coordinator) -> CadastroCoordinator
+    func makeAlertaCoordinator(parent: Coordinator) -> AlertaCoordinator
 }

@@ -39,16 +39,13 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
             }
         }.background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        // .navigationBarTitle("Abastecimento", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
-                adicao = true
+                viewModel.didTapAdd()
+                print("Add")
             }
                 label: { Image(systemName: "plus")}}
         }
-//        .navigationDestination(isPresented: $adicao, destination: {
-//            AbastecimentoAddScreen(isEdit: false)
-//        })
     }
 }
 
@@ -59,26 +56,12 @@ extension AbastecimentoListaScreen
         
         var coordinator: R?
 
-        func didTapBuiltIn() {
-            //  coordinator?.handle(ShapesAction.simpleShapes)
+        func didTapAdd() {
+            coordinator?.handle(AbastecimentoAction.inclusao)
         }
 
         func didTapCustom() {
            // coordinator?.handle(ShapesAction.customShapes)
-        }
-
-        func didTapFeatured() {
-//            let routes: [NavigationRoute] = [
-//                SimpleShapesRoute.circle,
-//                CustomShapesRoute.tower,
-//                SimpleShapesRoute.capsule
-//            ]
-//
-//            guard let route = routes.randomElement() else {
-//                return
-//            }
-
-            // coordinator?.handle(ShapesAction.featuredShape(route))
         }
     }
 }

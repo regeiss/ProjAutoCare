@@ -19,10 +19,8 @@ enum AbastecimentoRoute: NavigationRoute
     {
         switch self
         {
-        case .lista:
+        case .lista, .inclusao, .leitura, .edicao:
             return "Abastecimento"
-        default:
-            return nil
         }
     }
     
@@ -30,10 +28,9 @@ enum AbastecimentoRoute: NavigationRoute
     {
         switch self
         {
-        case .leitura:
-            // We have to pass nil for the route presenting a child coordinator. ??????????????????????
-            // return nil
-            return .push(animated: true)
+        case .inclusao:
+            return .present(delegate: SlideTransitionDelegate())
+
         default:
             return .push(animated: true)
         }

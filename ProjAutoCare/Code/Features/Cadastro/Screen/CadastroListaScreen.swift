@@ -29,7 +29,6 @@ struct CadastroListaScreen<Coordinator: Routing>: View
             CadastroColecao(id: 4, name: "Serviços", image: "service", menu: .servico),
             CadastroColecao(id: 5, name: "Serviço efetuado", image: "config", menu: .servicoEfetuado),
             CadastroColecao(id: 6, name: "Veículos", image: "report", menu: .veiculo)
-            
         ]
         
         let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
@@ -46,9 +45,7 @@ struct CadastroListaScreen<Coordinator: Routing>: View
                         }
                     }.padding([.leading, .trailing])
                 }.padding()
-            }.navigationTitle("Cadastros")
-            .navigationBarTitleDisplayMode(.large)
-            .background(Color("backGroundColor"))
+            }.background(Color("backGroundColor"))
         }
     }
 }
@@ -57,7 +54,6 @@ extension CadastroListaScreen
 {
     @MainActor class ViewModel<R: Routing>: ObservableObject
     {
-        
         var coordinator: R?
         
         func didTapBuiltIn() {

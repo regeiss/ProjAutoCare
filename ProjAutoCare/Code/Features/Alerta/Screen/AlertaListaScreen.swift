@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct AlertaListaScreen: View
+struct AlertaListaScreen<Coordinator: Routing>: View
 {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
     @State var favoriteColor: Int = 0
+    
     var body: some View
     {
         VStack
@@ -46,7 +50,18 @@ struct AlertaListaScreen: View
                 // add our notification request
                 UNUserNotificationCenter.current().add(request)
             }
-        }.navigationTitle("Alertas")
-            .background(Color("backGroundColor"))
+        }.background(Color("backGroundColor"))
+    }
+}
+
+extension AlertaListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func didTapAlert() {
+            coordinator?.handle(AlertaAction.alerta)
+        }
     }
 }
