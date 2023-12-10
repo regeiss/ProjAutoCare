@@ -11,12 +11,13 @@ import SwiftUICoordinator
 enum AlertaRoute: NavigationRoute
 {
     case alerta
+    case ok
     
     var title: String?
     {
         switch self
         {
-        case .alerta:
+        case .alerta, .ok:
             return "Alertas"
         }
     }
@@ -28,6 +29,8 @@ enum AlertaRoute: NavigationRoute
         case .alerta:
             return .push(animated: true)
             // return .present(delegate: SlideTransitionDelegate())
+        case .ok:
+            return nil
         }
     }
 }

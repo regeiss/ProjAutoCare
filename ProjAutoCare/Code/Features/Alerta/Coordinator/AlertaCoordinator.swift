@@ -46,6 +46,7 @@ class AlertaCoordinator: Routing
 
 extension AlertaCoordinator: RouterViewFactory
 {
+    
     @ViewBuilder
     public func view(for route: AlertaRoute) -> some View
     {
@@ -53,6 +54,8 @@ extension AlertaCoordinator: RouterViewFactory
         {
         case .alerta:
             AlertaListaScreen<AlertaCoordinator>()
+        case .ok:
+            EmptyView()
         }
     }
 }

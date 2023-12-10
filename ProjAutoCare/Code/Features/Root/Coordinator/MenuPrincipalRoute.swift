@@ -33,7 +33,7 @@ enum MenuPrincipalRoute: NavigationRoute
     {
         switch self
         {
-        case .abastecimento, .servico:
+        case .servico:
             // We have to pass nil for the route presenting a child coordinator.
             return nil
         default:

@@ -53,14 +53,15 @@ extension AbastecimentoListaScreen
 {
     @MainActor class ViewModel<R: Routing>: ObservableObject 
     {
-        
         var coordinator: R?
 
-        func didTapAdd() {
+        func didTapAdd() 
+        {
             coordinator?.handle(AbastecimentoAction.inclusao)
         }
 
-        func didTapCustom() {
+        func didTapCustom() 
+        {
            // coordinator?.handle(ShapesAction.customShapes)
         }
     }

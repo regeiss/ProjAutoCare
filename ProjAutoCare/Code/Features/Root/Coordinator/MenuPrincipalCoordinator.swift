@@ -88,7 +88,6 @@ extension MenuPrincipalCoordinator: RouterViewFactory
         case .menuPrincipal:
             MenuInicialScreen<MenuPrincipalCoordinator>()
         case .abastecimento:
-            /// We are returning an empty view for the route presenting a child coordinator.
             AbastecimentoListaScreen<AbastecimentoCoordinator>()
         case .dashboard:
             EmptyView()

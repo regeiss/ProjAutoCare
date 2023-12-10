@@ -18,24 +18,30 @@ struct AlertaListaScreen<Coordinator: Routing>: View
     {
         VStack
         {
-            Picker("What is your favorite color?", selection: $favoriteColor) {
+            Picker("What is your favorite color?", selection: $favoriteColor)
+            {
                 Text("Red").tag(0)
                 Text("Green").tag(1)
             }
             .pickerStyle(.segmented)
             Spacer()
             
-            Button("Request Permission") {
+            Button("Request Permission") 
+            {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
+                    if success 
+                    {
                         print("All set!")
-                    } else if let error = error {
+                    } 
+                    else if let error = error
+                    {
                         print(error.localizedDescription)
                     }
                 }
             }
             
-            Button("Schedule Notification") {
+            Button("Schedule Notification") 
+            {
                 let content = UNMutableNotificationContent()
                 content.title = "Feed the cat"
                 content.subtitle = "It looks hungry"
@@ -50,7 +56,13 @@ struct AlertaListaScreen<Coordinator: Routing>: View
                 // add our notification request
                 UNUserNotificationCenter.current().add(request)
             }
-        }.background(Color("backGroundColor"))
+        }
+        .background(Color("backGroundColor"))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing)
+            { Button { viewModel.didTapAlert()}
+                label: { Text("OK") }}
+        }
     }
 }
 
@@ -60,8 +72,14 @@ extension AlertaListaScreen
     {
         var coordinator: R?
         
-        func didTapAlert() {
+        func didTapAlert() 
+        {
             coordinator?.handle(AlertaAction.alerta)
+        }
+        
+        func didTapClose()
+        {
+            coordinator?.handle(AlertaAction.ok)
         }
     }
 }

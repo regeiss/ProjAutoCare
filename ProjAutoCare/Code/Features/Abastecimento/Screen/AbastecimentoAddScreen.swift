@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct AbastecimentoAddScreen: View 
+struct AbastecimentoAddScreen<Coordinator: Routing>: View
 {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var errorHandling: ErrorHandling
     
-    @StateObject private var viewModel = AbastecimentoViewModel()
+    @StateObject private var viewModelAbastecimento = AbastecimentoViewModel()
     @StateObject private var viewModelPosto = PostoViewModel()
     @StateObject private var viewModelVeiculo = VeiculoViewModel()
     @StateObject private var viewModelRegistro = RegistroViewModel()
@@ -84,9 +88,9 @@ struct AbastecimentoAddScreen: View
             }.scrollContentBackground(.hidden)
         }.onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
-        .navigationTitle("Abastecimento")
-        .navigationBarTitleDisplayMode(.large)
-        .navigationBarBackButtonHidden()
+//        .navigationTitle("Abastecimento")
+//        .navigationBarTitleDisplayMode(.large)
+//        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
             { Button("Cancelar") {
@@ -132,11 +136,11 @@ struct AbastecimentoAddScreen: View
                        valorLitro: (Double(formInfo.valorLitro) ?? 0),
                        valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
                        completo: Bool(formInfo.completo),
-                       media: viewModel.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false),
+                       media: viewModelAbastecimento.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false),
                        noPosto: postoPicker!,
                        doVeiculo: veiculoAtual!)
          
-        viewModel.add(abastecimento: uab)
+        viewModelAbastecimento.add(abastecimento: uab)
         
         let registro = RegistroDTO(id: UUID(), data: Date(), tipo: "AB", idTipo: uab.id)
         viewModelRegistro.add(registro: registro )
@@ -156,6 +160,24 @@ struct AbastecimentoAddScreen: View
             {
                 self.errorHandling.handle(error: error)
             }
+        }
+    }
+}
+
+extension AbastecimentoAddScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func didTapCancel()
+        {
+            
+        }
+        
+        func didTapOK()
+        {
+            
         }
     }
 }

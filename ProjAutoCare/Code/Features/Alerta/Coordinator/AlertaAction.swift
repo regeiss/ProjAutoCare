@@ -11,4 +11,5 @@ import SwiftUICoordinator
 enum AlertaAction: CoordinatorAction
 {
     case alerta
+    case ok 
 }

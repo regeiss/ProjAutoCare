@@ -28,7 +28,7 @@ enum AbastecimentoRoute: NavigationRoute
     {
         switch self
         {
-        case .inclusao:
+        case .leitura:
             return .present(delegate: SlideTransitionDelegate())
 
         default:
