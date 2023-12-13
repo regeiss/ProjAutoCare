@@ -40,7 +40,8 @@ class AbastecimentoCoordinator: Routing
             try? show(route: .inclusao)
         case AbastecimentoAction.edicao:
             try? show(route: .edicao)
-
+        case Action.done(_):
+            self.navigationController.dismiss(animated: true)
         default:
             parent?.handle(action)
         }

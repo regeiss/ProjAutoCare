@@ -37,12 +37,14 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
                     Text("").listRowBackground(Color.clear)
                 }
             }
-        }.background(Color("backGroundColor"))
+        }
+        .onAppear {
+            viewModel.coordinator = coordinator }
+        .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 viewModel.didTapAdd()
-                print("Add")
             }
                 label: { Image(systemName: "plus")}}
         }

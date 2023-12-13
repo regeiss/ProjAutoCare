@@ -12,8 +12,6 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel<Coordinator>()
-    
-    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var errorHandling: ErrorHandling
     
     @StateObject private var viewModelAbastecimento = AbastecimentoViewModel()
@@ -76,7 +74,6 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
                         Text("completo")
                     }.focused($abastecimentoInFocus, equals: .completo)
                     
-                    
                     Picker("Posto:", selection: $posto)
                     {
                         Text("Nenhum").tag(Posto?.none)
@@ -86,21 +83,24 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
                     }.pickerStyle(.automatic)
                 }
             }.scrollContentBackground(.hidden)
-        }.onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
+        }
+        .onAppear { viewModel.coordinator = coordinator }
+        .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
-//        .navigationTitle("Abastecimento")
-//        .navigationBarTitleDisplayMode(.large)
-//        .navigationBarBackButtonHidden()
+        .navigationTitle("Abastecimento")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
             { Button("Cancelar") {
-                dismiss()}
-                }
+                viewModel.popView()
+            }}
             ToolbarItem(placement: .navigationBarTrailing)
             { 
                 Button("OK") {
                     gravarAbastecimento()
-                    dismiss()}.disabled(isSaveDisabled)
+                    viewModel.popView()
+                }.disabled(isSaveDisabled)
             }
         }
     }
@@ -146,7 +146,7 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
         viewModelRegistro.add(registro: registro )
     }
     
-    private func gravarAbastecimento()
+    func gravarAbastecimento()
     {
         let valid = formInfo.manager.triggerValidation()
         if valid
@@ -170,14 +170,9 @@ extension AbastecimentoAddScreen
     {
         var coordinator: R?
         
-        func didTapCancel()
+        func popView()
         {
-            
-        }
-        
-        func didTapOK()
-        {
-            
+            coordinator?.pop(animated: true)
         }
     }
 }
