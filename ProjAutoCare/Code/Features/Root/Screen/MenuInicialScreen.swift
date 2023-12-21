@@ -77,7 +77,7 @@ struct MenuInicialScreen<Coordinator: Routing>: View
                     { Button { isShowingSheet.toggle()}
                         label: { Image(systemName: "car.2")}}
                 }
-            }
+            }.background(Color("backGroundColor"))
         }
         .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
         .modifier(DarkModeViewModifier())

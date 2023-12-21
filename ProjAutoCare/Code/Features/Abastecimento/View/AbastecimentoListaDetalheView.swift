@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct AbastecimentoListaDetalheView: View
+struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
 {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
     @State var consulta = false
+    var appState = AppState.shared
     
-    var abastecimento: Abastecimento
+    @State var abastecimento: Abastecimento
     
     var body: some View
     {
@@ -52,12 +56,15 @@ struct AbastecimentoListaDetalheView: View
             }
             .padding(.all, 2)
         }
-        .onTapGesture {
-            consulta = true
+        .onAppear 
+        {
+             viewModel.coordinator = coordinator
+         }
+        .onTapGesture 
+        {
+            appState.abastecimentoItemLista = abastecimento
+            viewModel.didTapList()
         }
-        .navigationDestination(isPresented: $consulta, destination: {
-            AbastecimentoReadScreen(abastecimento: abastecimento)
-        })
     }
 }
 
@@ -74,5 +81,19 @@ extension Abastecimento
     {
         self.doVeiculo?.nome ?? "não informado"
     }
-    
+}
+
+extension AbastecimentoListaDetalheView
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+
+        func didTapList()
+        {
+            coordinator?.handle(AbastecimentoAction.leitura)
+        }
+
+
+    }
 }

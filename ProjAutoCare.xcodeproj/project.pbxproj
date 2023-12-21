@@ -68,7 +68,7 @@
 		E16C151B2A41151A003EAADA /* CadastroListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */; };
 		E16C151E2A4115BD003EAADA /* RelatorioListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */; };
 		E16C15232A411DED003EAADA /* AbastecimentoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15222A411DED003EAADA /* AbastecimentoDTO.swift */; };
-		E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoScreen.swift */; };
+		E16C15252A412424003EAADA /* AbastecimentoFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15242A412424003EAADA /* AbastecimentoFormInfo.swift */; };
 		E16C15272A4126D5003EAADA /* AbastecimentoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */; };
 		E16C15292A4127EB003EAADA /* AbastecimentoPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */; };
 		E18FDA782AC2F77400FA2602 /* ModeloDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */; };
@@ -263,7 +263,7 @@
 		E16C151A2A41151A003EAADA /* CadastroListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroListaScreen.swift; sourceTree = "<group>"; };
 		E16C151D2A4115BD003EAADA /* RelatorioListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatorioListaScreen.swift; sourceTree = "<group>"; };
 		E16C15222A411DED003EAADA /* AbastecimentoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoDTO.swift; sourceTree = "<group>"; };
-		E16C15242A412424003EAADA /* AbastecimentoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoScreen.swift; sourceTree = "<group>"; };
+		E16C15242A412424003EAADA /* AbastecimentoFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoFormInfo.swift; sourceTree = "<group>"; };
 		E16C15262A4126D5003EAADA /* AbastecimentoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoListaDetalheView.swift; sourceTree = "<group>"; };
 		E16C15282A4127EB003EAADA /* AbastecimentoPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoPublisher.swift; sourceTree = "<group>"; };
 		E18FDA772AC2F77400FA2602 /* ModeloDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloDecoder.swift; sourceTree = "<group>"; };
@@ -754,7 +754,7 @@
 				E1CD94442A906FE5005EF2AC /* AbastecimentoEditScreen.swift */,
 				E16C15172A410F35003EAADA /* AbastecimentoListaScreen.swift */,
 				E1CD94462A90706F005EF2AC /* AbastecimentoReadScreen.swift */,
-				E16C15242A412424003EAADA /* AbastecimentoScreen.swift */,
+				E16C15242A412424003EAADA /* AbastecimentoFormInfo.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1735,7 +1735,7 @@
 				E1AC4F2D2A5B761B00016186 /* CategoriaPublisher.swift in Sources */,
 				E1D5F5402A3A1B3100F3AFD1 /* SidebarStack.swift in Sources */,
 				E1FB3F382A5078C600776408 /* AlertaModel.swift in Sources */,
-				E16C15252A412424003EAADA /* AbastecimentoScreen.swift in Sources */,
+				E16C15252A412424003EAADA /* AbastecimentoFormInfo.swift in Sources */,
 				E1F9862F2A6D70040099C57D /* CategoriaAddScreen.swift in Sources */,
 				E1E409C82A5240B600034DBA /* CategoriaListaScreen.swift in Sources */,
 				E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */,

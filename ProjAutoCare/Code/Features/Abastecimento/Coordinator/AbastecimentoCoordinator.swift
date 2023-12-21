@@ -60,11 +60,11 @@ extension AbastecimentoCoordinator: RouterViewFactory
         case .lista:
             AbastecimentoListaScreen<AbastecimentoCoordinator>()
         case .leitura:
-            AbastecimentoListaScreen<AbastecimentoCoordinator>()
+            AbastecimentoReadScreen<AbastecimentoCoordinator>()
         case .inclusao:
             AbastecimentoAddScreen<AbastecimentoCoordinator>(isEdit: false)
         case .edicao:
-            AbastecimentoListaScreen<AbastecimentoCoordinator>()
+            AbastecimentoEditScreen<AbastecimentoCoordinator>()
         }
     }
 }

@@ -26,10 +26,10 @@ struct MenuInicialItemView: View
                 .offset(x: 1.0, y: 10)
                 .padding()
             
-            //                if collection.name == "Abastecimento"
-            //                {
-            //                    UltimoAbastecimentoView().offset(x: -10, y: -50)
-            //                }
+//                            if collection.name == "Abastecimento"
+//                            {
+//                                UltimoAbastecimentoView().offset(x: -10, y: -50)
+//                            }
         }.frame(minWidth: 230, maxWidth: .infinity, minHeight: height, maxHeight: 150)
     }
 }

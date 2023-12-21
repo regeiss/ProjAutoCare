@@ -14,6 +14,7 @@ class AppState
     var veiculoAtivo: Veiculo?
     var perfilAtivo: Perfil?
     var postoPadrao: Posto?
+    var abastecimentoItemLista: Abastecimento?
     
     static var shared = AppState()
     

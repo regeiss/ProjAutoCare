@@ -25,7 +25,7 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
                 ForEach(viewModelAbastecimento.abastecimentosLista) { abastecimento in
                     HStack
                     {
-                        AbastecimentoListaDetalheView(abastecimento: abastecimento)
+                        AbastecimentoListaDetalheView<AbastecimentoCoordinator>(abastecimento: abastecimento)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModelAbastecimento.delete(abastecimento: abastecimento)})
@@ -60,11 +60,6 @@ extension AbastecimentoListaScreen
         func didTapAdd() 
         {
             coordinator?.handle(AbastecimentoAction.inclusao)
-        }
-
-        func didTapCustom() 
-        {
-           // coordinator?.handle(ShapesAction.customShapes)
         }
     }
 }

@@ -6,20 +6,21 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
+import CoreData
 
-struct AbastecimentoReadScreen: View 
+struct AbastecimentoReadScreen<Coordinator: Routing>: View
 {
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var coordinator: Coordinator
     @EnvironmentObject var errorHandling: ErrorHandling
-    
-    @ObservedObject var viewModel = AbastecimentoViewModel()
+    @StateObject var viewModel = ViewModel<Coordinator>()
     @StateObject var viewModelPosto = PostoViewModel()
-    
     @StateObject var formInfo = AbastecimentoFormInfo()
     @State var edicao = false
+    @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
     
-    var abastecimento: Abastecimento
     var appState = AppState.shared
+    
     var valorTotal: String
     {
         let formatter = NumberFormatter()
@@ -48,13 +49,15 @@ struct AbastecimentoReadScreen: View
                     {
                         Text("completo")
                     }
-
+                    
                     Text(abastecimento.nomePosto)
                 }
-            }.disabled(true)
+            }
+            .disabled(true)
             .scrollContentBackground(.hidden)
             .onAppear
             {
+                abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
                 formInfo.quilometragem = String(abastecimento.quilometragem)
                 formInfo.data = abastecimento.data ?? Date()
                 formInfo.litros = String(abastecimento.litros)
@@ -62,19 +65,31 @@ struct AbastecimentoReadScreen: View
                 formInfo.completo = abastecimento.completo
             }
         }
+        .onAppear {
+            viewModel.coordinator = coordinator
+            
+        }
         .background(Color("backGroundColor"))
-        .navigationTitle("Abastecimento")
-        .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
-                edicao = true
+                viewModel.didTapEdit()
             }
             label: { Text("Editar")}
             }
         }
-        .navigationDestination(isPresented: $edicao, destination: {
-            AbastecimentoEditScreen(abastecimento: abastecimento)
-        })
+    }
+}
+
+extension AbastecimentoReadScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func didTapEdit()
+        {
+            coordinator?.handle(AbastecimentoAction.edicao)
+        }
     }
 }

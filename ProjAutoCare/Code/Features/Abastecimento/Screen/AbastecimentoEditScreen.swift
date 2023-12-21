@@ -6,24 +6,26 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct AbastecimentoEditScreen: View
+struct AbastecimentoEditScreen<Coordinator: Routing>: View
 {
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    
     @EnvironmentObject var errorHandling: ErrorHandling
     
     @StateObject var viewModelPosto = PostoViewModel()
     @StateObject var viewModelVeiculo = VeiculoViewModel()
     @StateObject var viewModelRegistro = RegistroViewModel()
-    @StateObject var viewModel = AbastecimentoViewModel()
+    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     
     @ObservedObject var formInfo = AbastecimentoFormInfo()
     @State var isSaveDisabled: Bool = true
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     @State var posto: Posto?
-    @State var lista = false
     
-    var abastecimento: Abastecimento
+    @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
     var appState = AppState.shared
     
     var valorTotal: String
@@ -85,6 +87,7 @@ struct AbastecimentoEditScreen: View
                     }
                 }.onAppear
                 {
+                    abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
                     formInfo.quilometragem = String(abastecimento.quilometragem)
                     formInfo.data = abastecimento.data ?? Date()
                     formInfo.litros = String(abastecimento.litros)
@@ -93,6 +96,7 @@ struct AbastecimentoEditScreen: View
                 }
             }.scrollContentBackground(.hidden)
         }
+        .onAppear { viewModel.coordinator = coordinator }
         .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
         .navigationTitle("Abastecimento")
@@ -101,20 +105,17 @@ struct AbastecimentoEditScreen: View
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
             { Button {
-                dismiss()
+                viewModel.popView()
             }
                 label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                lista = true
+                viewModel.popView()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
-//            .navigationDestination(isPresented: $lista, destination: {
-//            AbastecimentoListaScreen()
-//        })
     }
     
     func save()
@@ -139,10 +140,23 @@ struct AbastecimentoEditScreen: View
             abastecimento.valorLitro = (Double(formInfo.valorLitro) ?? 0)
             abastecimento.valorTotal = ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))
             abastecimento.completo = Bool(formInfo.completo)
-            abastecimento.media = viewModel.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false)
+            abastecimento.media = viewModelAbastecimento.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false)
             abastecimento.noPosto = posto
             abastecimento.doVeiculo = veiculoAtual!
-            viewModel.update(abastecimento: abastecimento)
+            viewModelAbastecimento.update(abastecimento: abastecimento)
+        }
+    }
+}
+
+extension AbastecimentoEditScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func popView()
+        {
+            coordinator?.pop(animated: true)
         }
     }
 }

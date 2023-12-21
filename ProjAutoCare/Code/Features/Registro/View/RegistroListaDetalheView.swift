@@ -19,7 +19,7 @@ struct RegistroListaDetalheView: View
             if registro.tipo == "AB"
             {
                 let abastecimento = viewModel.buscaRegistroAbastecimento(id: registro.idTipo ?? UUID())
-                AbastecimentoListaDetalheView(abastecimento: abastecimento)
+                AbastecimentoListaDetalheView<AbastecimentoCoordinator>(abastecimento: abastecimento)
             }
             else
             {
