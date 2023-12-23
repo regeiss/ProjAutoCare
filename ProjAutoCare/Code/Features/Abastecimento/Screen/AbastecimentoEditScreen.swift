@@ -26,7 +26,7 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
     @State var posto: Posto?
     
     @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
-    var appState = AppState.shared
+    @State var appState = AppState.shared
     
     var valorTotal: String
     {
@@ -99,8 +99,6 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
         .onAppear { viewModel.coordinator = coordinator }
         .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
-        .navigationTitle("Abastecimento")
-        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
@@ -111,6 +109,7 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
+                appState.abastecimentoItemLista = abastecimento
                 viewModel.popView()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
@@ -157,6 +156,11 @@ extension AbastecimentoEditScreen
         func popView()
         {
             coordinator?.pop(animated: true)
+        }
+        
+        func returnToList()
+        {
+            coordinator?.handle(AbastecimentoAction.lista)
         }
     }
 }

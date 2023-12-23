@@ -40,16 +40,12 @@ struct ServicoListaScreen<Coordinator: Routing>: View
         }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        //.navigationBarTitle("Serviço", displayMode: .large)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 adicao = true
             }
                 label: { Image(systemName: "plus")}}
         }
-//        .navigationDestination(isPresented: $adicao, destination: {
-//            ServicoAddScreen(viewModel: viewModel)
-//        })
     }
 }
 

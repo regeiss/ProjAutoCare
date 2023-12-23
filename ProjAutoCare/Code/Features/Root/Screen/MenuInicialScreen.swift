@@ -38,7 +38,7 @@ struct MenuInicialScreen<Coordinator: Routing>: View
             MenuColecao(id: 4, name: "Cadastros", image: "config", menu: .cadastro),
             MenuColecao(id: 5, name: "Dashboard", image: "config", menu: .dashboard)
         ]
-                
+        
         ZStack
         {
             Color("sidebar").ignoresSafeArea()
@@ -49,93 +49,98 @@ struct MenuInicialScreen<Coordinator: Routing>: View
             
         content:
             {
-                ZStack
+                let columns = [ GridItem(.flexible(minimum: 230, maximum: .infinity))]
+                
+                VStack(alignment: .leading)
                 {
-                    Color("backGroundColor").ignoresSafeArea()
-                    List
+                    ScrollView(.vertical)
                     {
-                        ForEach(colecaoMenu) { item in
+                        LazyVGrid(columns: columns, alignment: .center, spacing: 5)
+                        {
+                            ForEach(colecaoMenu) { item in
+                                
+                                MenuInicialItemView(colecao: item)
+                                    .onTapGesture {
+                                        viewModel.didTapBuiltIn(id: item.id)
+                                    }
+                                
+                            }.padding([.leading, .trailing])
                             
-                            MenuInicialItemView(colecao: item)
-                                .onTapGesture {
-                                    viewModel.didTapBuiltIn(id: item.id)
-                                }
-                            
-                        }.padding([.leading, .trailing])
-                        
-                    }.onAppear { viewModel.coordinator = coordinator }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading)
-                    { Button { showSidebar.toggle()}
-                        label: { Image(systemName: "line.3.horizontal")}}
-                    ToolbarItem(placement: .navigation)
-                    { Text(veiculoAtual?.nome ?? "N/A")}
-                    ToolbarItem(placement: .navigation)
-                    {Text(perfilPadrao?.nome ?? "N/S")}
-                    ToolbarItem(placement: .navigationBarTrailing)
-                    { Button { isShowingSheet.toggle()}
-                        label: { Image(systemName: "car.2")}}
-                }
-            }.background(Color("backGroundColor"))
-        }
-        .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
-        .modifier(DarkModeViewModifier())
-        .environment(\.locale, Locale(identifier: "pt_BR"))
-        .onAppear { loadViewData()}
-        .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
-        .sheet(isPresented: $isShowingSheet)
-        {
-            VeiculoBottomSheet(veiculoAtual: $veiculoAtual)
-        }
-    }
-    
-    func loadViewData()
-    {
-        setAppVars()
-        veiculoAtual = appState.veiculoAtivo
-        perfilPadrao = appState.perfilAtivo
-    }
-    
-    // Tratar a insercao dos itens padrao
-    func setAppVars()
-    {
-        let viewModelPerfil = PerfilViewModel()
-        let viewModelVeiculo = VeiculoViewModel()
-        let viewModelPosto = PostoViewModel()
-        
-        viewModelVeiculo.selecionarVeiculoAtivo()
-        viewModelPosto.selecionarPostoPadrao()
-        viewModelPerfil.selecionarPerfilAtivo()
-    }
-}
-
-extension MenuInicialScreen
-{
-    @MainActor class ViewModel<R: Routing>: ObservableObject
-    {
-        var coordinator: R?
-        
-        func didTapBuiltIn(id: Int) 
-        {
-            switch id
-            {
-            case 0:
-                coordinator?.handle(MenuPrincipalAction.abastecimento)
-            case 1:
-                coordinator?.handle(MenuPrincipalAction.servico)
-            case 2:
-                coordinator?.handle(MenuPrincipalAction.relatorios)
-            case 3:
-                coordinator?.handle(MenuPrincipalAction.alertas)
-            case 4:
-                coordinator?.handle(MenuPrincipalAction.cadastros)
-            case 5:
-                coordinator?.handle(MenuPrincipalAction.dashboard)
-            default:
-                coordinator?.handle(MenuPrincipalAction.abastecimento)
+                        }
+                        .padding()
+                        .onAppear { viewModel.coordinator = coordinator }
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading)
+                        { Button { showSidebar.toggle()}
+                            label: { Image(systemName: "line.3.horizontal")}}
+                        ToolbarItem(placement: .navigation)
+                        { Text(veiculoAtual?.nome ?? "N/A")}
+                        ToolbarItem(placement: .navigation)
+                        {Text(perfilPadrao?.nome ?? "N/S")}
+                        ToolbarItem(placement: .navigationBarTrailing)
+                        { Button { isShowingSheet.toggle()}
+                            label: { Image(systemName: "car.2")}}
+                    }
+                }.background(Color("backGroundColor"))
             }
-            
+            .environment(\.managedObjectContext, ProjAutoCareApp.persistenceController.container.viewContext)
+            .modifier(DarkModeViewModifier())
+            .environment(\.locale, Locale(identifier: "pt_BR"))
+            .onAppear { loadViewData()}
+            .welcomeSheet(isPresented: $needsAppOnboarding, pages: onboardingPages.pages)
+            .sheet(isPresented: $isShowingSheet)
+            {
+                VeiculoBottomSheet(veiculoAtual: $veiculoAtual)
+            }
         }
     }
-}
+        func loadViewData()
+        {
+            setAppVars()
+            veiculoAtual = appState.veiculoAtivo
+            perfilPadrao = appState.perfilAtivo
+        }
+        
+        // Tratar a insercao dos itens padrao
+        func setAppVars()
+        {
+            let viewModelPerfil = PerfilViewModel()
+            let viewModelVeiculo = VeiculoViewModel()
+            let viewModelPosto = PostoViewModel()
+            
+            viewModelVeiculo.selecionarVeiculoAtivo()
+            viewModelPosto.selecionarPostoPadrao()
+            viewModelPerfil.selecionarPerfilAtivo()
+        }
+    }
+    
+    extension MenuInicialScreen
+    {
+        @MainActor class ViewModel<R: Routing>: ObservableObject
+        {
+            var coordinator: R?
+            
+            func didTapBuiltIn(id: Int)
+            {
+                switch id
+                {
+                case 0:
+                    coordinator?.handle(MenuPrincipalAction.abastecimento)
+                case 1:
+                    coordinator?.handle(MenuPrincipalAction.servico)
+                case 2:
+                    coordinator?.handle(MenuPrincipalAction.relatorios)
+                case 3:
+                    coordinator?.handle(MenuPrincipalAction.alertas)
+                case 4:
+                    coordinator?.handle(MenuPrincipalAction.cadastros)
+                case 5:
+                    coordinator?.handle(MenuPrincipalAction.dashboard)
+                default:
+                    coordinator?.handle(MenuPrincipalAction.abastecimento)
+                }
+                
+            }
+        }
+    }

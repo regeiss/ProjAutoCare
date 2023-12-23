@@ -19,7 +19,7 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
     @State var edicao = false
     @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
     
-    var appState = AppState.shared
+    @State var appState = AppState.shared
     
     var valorTotal: String
     {
@@ -66,8 +66,8 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
             }
         }
         .onAppear {
+            abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
             viewModel.coordinator = coordinator
-            
         }
         .background(Color("backGroundColor"))
         .toolbar {
