@@ -17,7 +17,6 @@ struct ProjAutoCareApp: App
     @AppStorage("contextSet") private var contextSet: Bool = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    
     static let persistenceController = PersistenceController.shared
     
     var body: some Scene

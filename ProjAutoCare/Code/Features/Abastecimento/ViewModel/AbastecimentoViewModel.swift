@@ -36,9 +36,9 @@ class AbastecimentoViewModel: ObservableObject
         AbastecimentoPublisher.shared.delete(abastecimento: abastecimento)
     }
     
-    func fetchByID(abastecimentoID: NSManagedObjectID) -> Abastecimento
+    func fetchByID(abastecimentoID: UUID)
     {
-        AbastecimentoPublisher.shared.fetchByID(abastecimentoID: NSManagedObjectID())
+        AbastecimentoPublisher.shared.fetchByID(abastecimentoID: UUID())
     }
     
     func filter(tipo: String)

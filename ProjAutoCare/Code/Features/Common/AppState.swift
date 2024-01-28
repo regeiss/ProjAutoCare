@@ -8,14 +8,14 @@
 import Foundation
 import CoreData
 
-class AppState
+class AppState: ObservableObject
 {
     var regexNumerico: NSRegularExpression
     var ultimaKM: Int32
     var veiculoAtivo: Veiculo?
     var perfilAtivo: Perfil?
     var postoPadrao: Posto?
-    var abastecimentoSelecionado: NSManagedObjectID?
+    var abastecimentoSelecionadoID: UUID
     
     static var shared = AppState()
     
@@ -23,5 +23,6 @@ class AppState
     {
         regexNumerico = try! NSRegularExpression(pattern: "[0-9[\\b]]+")
         ultimaKM = 1
+        abastecimentoSelecionadoID = UUID()
     }
 }

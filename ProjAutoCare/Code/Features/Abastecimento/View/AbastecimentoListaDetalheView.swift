@@ -15,6 +15,7 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
     @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     
     var abastecimento: Abastecimento
+    var appState = AppState.shared
     
     var body: some View
     {
@@ -61,6 +62,7 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
         }
         .onTapGesture
         {
+            appState.abastecimentoSelecionadoID = abastecimento.id ?? UUID()
             viewModel.didTapList()
         }
     }

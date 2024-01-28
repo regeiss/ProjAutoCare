@@ -78,17 +78,35 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         }
     }
     
-    func fetchByID(abastecimentoID: NSManagedObjectID) -> Abastecimento
+    func fetchByID(abastecimentoID: UUID)
     {
+        let fetchRequest: NSFetchRequest<Abastecimento> = Abastecimento.fetchRequest()
+        let idPredicate = NSPredicate(format: "id == %@", abastecimentoID as CVarArg)
+                                             
+        fetchRequest.predicate = idPredicate
+        fetchRequest.fetchLimit = 1
+        
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let abastecimentoFilteredFC = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: publisherContext,
+            sectionNameKeyPath: nil, cacheName: nil)
+        
+        abastecimentoFilteredFC.delegate = self
+        
         do
         {
-            let object = try publisherContext.existingObject(with: abastecimentoID)
-            return object as? Abastecimento ?? Abastecimento()
+            try abastecimentoFilteredFC.performFetch()
+            abastecimentoCVS.value = abastecimentoFilteredFC.fetchedObjects ?? []
         }
         catch
         {
             fatalError("Erro moc \(error.localizedDescription)")
         }
+        
     }
     
     func update(abastecimento: Abastecimento)

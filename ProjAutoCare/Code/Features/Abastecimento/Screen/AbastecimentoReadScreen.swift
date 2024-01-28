@@ -15,8 +15,11 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
     @EnvironmentObject var coordinator: Coordinator
     
     @StateObject var viewModel = ViewModel<Coordinator>()
+    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     @StateObject var viewModelPosto = PostoViewModel()
-    @State var abastecimento: Abastecimento = Abastecimento()
+    @StateObject var appState = AppState.shared
+    @State var abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
+    @State var abastecimentoID: UUID?
     
     var valorTotal: String
     {
@@ -40,10 +43,10 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
                     Text(String(abastecimento.litros))
                     Text(String(abastecimento.valorLitro))
                     Text("Valor total \(valorTotal)")
-//                    Toggle(isOn: $abastecimento.completo)
-//                    {
-//                        Text("completo")
-//                    }
+                    Toggle(isOn: $abastecimento.completo)
+                    {
+                        Text("completo")
+                    }
                     
                     Text(abastecimento.self.nomePosto)
                 }
@@ -54,6 +57,9 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         .onAppear
         {
             print("onAppear")
+            abastecimentoID = appState.abastecimentoSelecionadoID
+            viewModelAbastecimento.fetchByID(abastecimentoID: abastecimentoID!)
+            abastecimento = viewModelAbastecimento.abastecimentosLista.first ?? Abastecimento()
             viewModel.coordinator = coordinator
         }
         .onDisappear{
