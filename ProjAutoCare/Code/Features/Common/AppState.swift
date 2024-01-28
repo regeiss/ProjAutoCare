@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class AppState
 {
@@ -14,7 +15,7 @@ class AppState
     var veiculoAtivo: Veiculo?
     var perfilAtivo: Perfil?
     var postoPadrao: Posto?
-    var abastecimentoItemLista: Abastecimento?
+    var abastecimentoSelecionado: NSManagedObjectID?
     
     static var shared = AppState()
     

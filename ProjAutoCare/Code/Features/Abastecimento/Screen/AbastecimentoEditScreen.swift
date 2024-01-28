@@ -25,8 +25,8 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     @State var posto: Posto?
     
-    @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
-    @State var appState = AppState.shared
+    var abastecimento: Abastecimento?
+    var appState = AppState.shared
     
     var valorTotal: String
     {
@@ -73,7 +73,6 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
                         Text("completo")
                     }.focused($abastecimentoInFocus, equals: .completo)
                     
-                    
                     Picker("Posto:", selection: $posto)
                     {
                         Text("Nenhum").tag(Posto?.none)
@@ -83,16 +82,15 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
                     }
                     .pickerStyle(.automatic)
                     .onAppear {
-                        posto = abastecimento.noPosto
+                        posto = abastecimento?.noPosto
                     }
                 }.onAppear
                 {
-                    abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
-                    formInfo.quilometragem = String(abastecimento.quilometragem)
-                    formInfo.data = abastecimento.data ?? Date()
-                    formInfo.litros = String(abastecimento.litros)
-                    formInfo.valorLitro = String(abastecimento.valorLitro)
-                    formInfo.completo = abastecimento.completo
+                    formInfo.quilometragem = String(abastecimento?.quilometragem ?? 0)
+                    formInfo.data = abastecimento?.data ?? Date()
+                    formInfo.litros = String(abastecimento?.litros ?? 0)
+                    formInfo.valorLitro = String(abastecimento?.valorLitro ?? 0)
+                    formInfo.completo = abastecimento?.completo ?? false
                 }
             }.scrollContentBackground(.hidden)
         }
@@ -109,7 +107,6 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                appState.abastecimentoItemLista = abastecimento
                 viewModel.popView()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
@@ -132,17 +129,16 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
                 veiculoAtual = appState.veiculoAtivo
             }
             
-            abastecimento.quilometragem = Int32(formInfo.quilometragem) ?? 0
-        
-            abastecimento.data = formInfo.data
-            abastecimento.litros = (Double(formInfo.litros) ?? 0)
-            abastecimento.valorLitro = (Double(formInfo.valorLitro) ?? 0)
-            abastecimento.valorTotal = ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))
-            abastecimento.completo = Bool(formInfo.completo)
-            abastecimento.media = viewModelAbastecimento.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false)
-            abastecimento.noPosto = posto
-            abastecimento.doVeiculo = veiculoAtual!
-            viewModelAbastecimento.update(abastecimento: abastecimento)
+            abastecimento?.quilometragem = Int32(formInfo.quilometragem) ?? 0
+            abastecimento?.data = formInfo.data
+            abastecimento?.litros = (Double(formInfo.litros) ?? 0)
+            abastecimento?.valorLitro = (Double(formInfo.valorLitro) ?? 0)
+            abastecimento?.valorTotal = ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0))
+            abastecimento?.completo = Bool(formInfo.completo)
+            abastecimento?.media = viewModelAbastecimento.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false)
+            abastecimento?.noPosto = posto
+            abastecimento?.doVeiculo = veiculoAtual!
+            viewModelAbastecimento.update(abastecimento: abastecimento ?? Abastecimento())
         }
     }
 }
@@ -160,7 +156,7 @@ extension AbastecimentoEditScreen
         
         func returnToList()
         {
-            coordinator?.handle(AbastecimentoAction.lista)
+            coordinator?.popToRoot(animated: true) // handle(AbastecimentoAction.lista)
         }
     }
 }

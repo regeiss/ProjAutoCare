@@ -25,7 +25,6 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
     @State var posto: Posto?
 
     var appState = AppState.shared
-    var isEdit: Bool
     
     let loc = Locale(identifier: "pt_BR")
     

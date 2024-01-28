@@ -4,7 +4,7 @@
 //
 //  Created by Roberto Edgar Geiss on 19/06/23.
 //
-
+import CoreData
 import SwiftUI
 import SwiftUICoordinator
 
@@ -12,10 +12,9 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel<Coordinator>()
-    @State var consulta = false
-    var appState = AppState.shared
+    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     
-    @State var abastecimento: Abastecimento
+    var abastecimento: Abastecimento
     
     var body: some View
     {
@@ -30,7 +29,7 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
                 HStack
                 {
                     Text("Data: ")
-                    Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
+                    // Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
                     Spacer()
                 }
                 
@@ -56,14 +55,27 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
             }
             .padding(.all, 2)
         }
-        .onAppear 
+        .onAppear
         {
-             viewModel.coordinator = coordinator
-         }
-        .onTapGesture 
+            viewModel.coordinator = coordinator
+        }
+        .onTapGesture
         {
-            appState.abastecimentoItemLista = abastecimento
             viewModel.didTapList()
+        }
+    }
+}
+
+extension AbastecimentoListaDetalheView
+{
+    @MainActor
+    class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func didTapList()
+        {
+            coordinator?.handle(AbastecimentoAction.leitura)
         }
     }
 }
@@ -80,20 +92,5 @@ extension Abastecimento
     var nomeCarro: String
     {
         self.doVeiculo?.nome ?? "não informado"
-    }
-}
-
-extension AbastecimentoListaDetalheView
-{
-    @MainActor class ViewModel<R: Routing>: ObservableObject
-    {
-        var coordinator: R?
-
-        func didTapList()
-        {
-            coordinator?.handle(AbastecimentoAction.leitura)
-        }
-
-
     }
 }

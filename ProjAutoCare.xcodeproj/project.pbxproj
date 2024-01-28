@@ -157,6 +157,7 @@
 		E1D2E9272A61B1C500551892 /* ServicoEfetuadoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9262A61B1C500551892 /* ServicoEfetuadoViewModel.swift */; };
 		E1D2E9292A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */; };
 		E1D2E92B2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */; };
+		E1D34CD02B3B3029004552C4 /* AbastecimentoAmbiente.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D34CCF2B3B3029004552C4 /* AbastecimentoAmbiente.swift */; };
 		E1D5F50E2A37E4C300F3AFD1 /* ProjAutoCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */; };
 		E1D5F5122A37E4C400F3AFD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */; };
 		E1D5F5152A37E4C400F3AFD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D5F5142A37E4C400F3AFD1 /* Preview Assets.xcassets */; };
@@ -350,6 +351,7 @@
 		E1D2E9262A61B1C500551892 /* ServicoEfetuadoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoViewModel.swift; sourceTree = "<group>"; };
 		E1D2E9282A61BC7B00551892 /* ServicoEfetuadoListaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaScreen.swift; sourceTree = "<group>"; };
 		E1D2E92A2A61BED500551892 /* ServicoEfetuadoListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoListaDetalheView.swift; sourceTree = "<group>"; };
+		E1D34CCF2B3B3029004552C4 /* AbastecimentoAmbiente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbastecimentoAmbiente.swift; sourceTree = "<group>"; };
 		E1D5F50A2A37E4C300F3AFD1 /* ProjAutoCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjAutoCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D5F50D2A37E4C300F3AFD1 /* ProjAutoCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjAutoCareApp.swift; sourceTree = "<group>"; };
 		E1D5F5112A37E4C400F3AFD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				E16C15222A411DED003EAADA /* AbastecimentoDTO.swift */,
+				E1D34CCF2B3B3029004552C4 /* AbastecimentoAmbiente.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1620,7 +1623,7 @@
 				E1D5F5062A37E4C300F3AFD1 /* Sources */,
 				E1D5F5072A37E4C300F3AFD1 /* Frameworks */,
 				E1D5F5082A37E4C300F3AFD1 /* Resources */,
-				E1D5F5202A37ECD100F3AFD1 /* ShellScript */,
+				E1D5F5202A37ECD100F3AFD1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1699,7 +1702,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E1D5F5202A37ECD100F3AFD1 /* ShellScript */ = {
+		E1D5F5202A37ECD100F3AFD1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -1709,6 +1712,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1738,6 +1742,7 @@
 				E16C15252A412424003EAADA /* AbastecimentoFormInfo.swift in Sources */,
 				E1F9862F2A6D70040099C57D /* CategoriaAddScreen.swift in Sources */,
 				E1E409C82A5240B600034DBA /* CategoriaListaScreen.swift in Sources */,
+				E1D34CD02B3B3029004552C4 /* AbastecimentoAmbiente.swift in Sources */,
 				E1CE3C512A5C96D100B2C51D /* RelatorioListaDetalheView.swift in Sources */,
 				E1AC4F182A5B07D800016186 /* Categoria+CoreDataProperties.swift in Sources */,
 				E1CFD7BA2A86B19B0098AFC0 /* AbastecimentoAddScreen.swift in Sources */,

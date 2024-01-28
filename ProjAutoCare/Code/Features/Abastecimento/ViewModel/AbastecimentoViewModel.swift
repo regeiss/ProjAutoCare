@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CoreData
 
 class AbastecimentoViewModel: ObservableObject
 {
@@ -33,6 +34,11 @@ class AbastecimentoViewModel: ObservableObject
     func delete(abastecimento: Abastecimento)
     {
         AbastecimentoPublisher.shared.delete(abastecimento: abastecimento)
+    }
+    
+    func fetchByID(abastecimentoID: NSManagedObjectID) -> Abastecimento
+    {
+        AbastecimentoPublisher.shared.fetchByID(abastecimentoID: NSManagedObjectID())
     }
     
     func filter(tipo: String)

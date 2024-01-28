@@ -78,6 +78,19 @@ class AbastecimentoPublisher: NSObject, ObservableObject
         }
     }
     
+    func fetchByID(abastecimentoID: NSManagedObjectID) -> Abastecimento
+    {
+        do
+        {
+            let object = try publisherContext.existingObject(with: abastecimentoID)
+            return object as? Abastecimento ?? Abastecimento()
+        }
+        catch
+        {
+            fatalError("Erro moc \(error.localizedDescription)")
+        }
+    }
+    
     func update(abastecimento: Abastecimento)
     {
         publisherContext.performAndWait

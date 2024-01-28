@@ -5,27 +5,24 @@
 //  Created by Roberto Edgar Geiss on 19/08/23.
 //
 
+import CoreData
 import SwiftUI
 import SwiftUICoordinator
-import CoreData
 
 struct AbastecimentoReadScreen<Coordinator: Routing>: View
 {
-    @EnvironmentObject var coordinator: Coordinator
     @EnvironmentObject var errorHandling: ErrorHandling
+    @EnvironmentObject var coordinator: Coordinator
+    
     @StateObject var viewModel = ViewModel<Coordinator>()
     @StateObject var viewModelPosto = PostoViewModel()
-    @StateObject var formInfo = AbastecimentoFormInfo()
-    @State var edicao = false
-    @State var abastecimento: Abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
-    
-    @State var appState = AppState.shared
+    @State var abastecimento: Abastecimento = Abastecimento()
     
     var valorTotal: String
     {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        let total = (Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)
+        let total = (Double(abastecimento.litros) * Double(abastecimento.valorLitro))
         
         return formatter.string(from: NSNumber(value: total)) ?? "$0"
     }
@@ -38,37 +35,31 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
             {
                 Section
                 {
-                    TextField("km", text: $formInfo.quilometragem)
-                    DatePicker("data", selection: $formInfo.data)
-                        .frame(maxHeight: 400)
-                        .environment(\.locale, Locale.init(identifier: "pt-BR"))
-                    TextField("litros", text: $formInfo.litros)
-                    TextField("valorLitro", text: $formInfo.valorLitro)
+                    Text(String(abastecimento.quilometragem))
+                    // Text(String(abastecimento.data))
+                    Text(String(abastecimento.litros))
+                    Text(String(abastecimento.valorLitro))
                     Text("Valor total \(valorTotal)")
-                    Toggle(isOn: $formInfo.completo)
-                    {
-                        Text("completo")
-                    }
+//                    Toggle(isOn: $abastecimento.completo)
+//                    {
+//                        Text("completo")
+//                    }
                     
-                    Text(abastecimento.nomePosto)
+                    Text(abastecimento.self.nomePosto)
                 }
             }
             .disabled(true)
             .scrollContentBackground(.hidden)
-            .onAppear
-            {
-                abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
-                formInfo.quilometragem = String(abastecimento.quilometragem)
-                formInfo.data = abastecimento.data ?? Date()
-                formInfo.litros = String(abastecimento.litros)
-                formInfo.valorLitro = String(abastecimento.valorLitro)
-                formInfo.completo = abastecimento.completo
-            }
         }
-        .onAppear {
-            abastecimento = appState.abastecimentoItemLista ?? Abastecimento()
+        .onAppear
+        {
+            print("onAppear")
             viewModel.coordinator = coordinator
         }
+        .onDisappear{
+            print("onDisapear")
+        }
+        
         .background(Color("backGroundColor"))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing)
@@ -90,6 +81,11 @@ extension AbastecimentoReadScreen
         func didTapEdit()
         {
             coordinator?.handle(AbastecimentoAction.edicao)
+        }
+        
+        func returnToList()
+        {
+            coordinator?.handle(AbastecimentoAction.lista)
         }
     }
 }

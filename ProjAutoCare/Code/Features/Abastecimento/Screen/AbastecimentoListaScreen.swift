@@ -12,9 +12,7 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel<Coordinator>()
-    
     @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
-    @State private var adicao = false
     
     var body: some View
     {
@@ -38,8 +36,7 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
                 }
             }
         }
-        .onAppear {
-            viewModel.coordinator = coordinator }
+        .onAppear { viewModel.coordinator = coordinator }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)

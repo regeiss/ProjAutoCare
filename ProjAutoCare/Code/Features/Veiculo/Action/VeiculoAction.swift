@@ -184,7 +184,7 @@ class VeiculoPublisher: NSObject, ObservableObject
             let updateError = error as NSError
             print("\(updateError), \(updateError.userInfo)")
         }
-        //
+        
         do
         {
             let object = try publisherContext.existingObject(with: ativoID)

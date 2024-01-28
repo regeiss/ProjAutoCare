@@ -10,9 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Abastecimento {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Abastecimento> {
+extension Abastecimento 
+{
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Abastecimento> 
+    {
         return NSFetchRequest<Abastecimento>(entityName: "Abastecimento")
     }
 
@@ -26,9 +27,9 @@ extension Abastecimento {
     @NSManaged public var valorTotal: Double
     @NSManaged public var noPosto: Posto?
     @NSManaged public var doVeiculo: Veiculo?
-
 }
 
-extension Abastecimento: Identifiable {
+extension Abastecimento: Identifiable 
+{
 
 }
