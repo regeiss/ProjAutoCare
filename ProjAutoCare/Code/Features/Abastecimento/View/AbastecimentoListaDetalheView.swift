@@ -62,7 +62,7 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
         }
         .onTapGesture
         {
-            appState.abastecimentoSelecionadoID = abastecimento.id ?? UUID()
+            appState.abastecimentoSelecionado = abastecimento
             viewModel.didTapList()
         }
     }

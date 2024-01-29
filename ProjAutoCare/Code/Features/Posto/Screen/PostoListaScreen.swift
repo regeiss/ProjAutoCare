@@ -26,7 +26,7 @@ struct PostoListaScreen: View
                         PostoListaDetalheView(viewModel: viewModel, posto: posto)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(posto: posto)})
+                        Button("Exluir", role: .destructive, action: { viewModel.delete(posto: posto)})
                     }
                 }
                 

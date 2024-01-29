@@ -25,20 +25,20 @@ struct ProjAutoCareApp: App
         {
             
         }
-        .onChange(of: scenePhase)
-        {
-            switch scenePhase
-            {
-            case .active:
-                prepareAppContext()
-            case .inactive:
-                print("inactive")
-            case .background:
-                saveContext()
-            @unknown default:
-                fatalError()
-            }
-        }
+//        .onChange(of: scenePhase)
+//        {
+//            switch scenePhase
+//            {
+//            case .active:
+//                prepareAppContext()
+//            case .inactive:
+//                print("inactive")
+//            case .background:
+//                saveContext()
+//            @unknown default:
+//                fatalError()
+//            }
+//        }
     }
     
     final class SceneDelegate: NSObject, UIWindowSceneDelegate 

@@ -26,7 +26,7 @@ struct AbastecimentoListaScreen<Coordinator: Routing>: View
                         AbastecimentoListaDetalheView<AbastecimentoCoordinator>(abastecimento: abastecimento)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModelAbastecimento.delete(abastecimento: abastecimento)})
+                        Button("Exluir", role: .destructive, action: { viewModelAbastecimento.delete(abastecimento: abastecimento)})
                     }
                 }
                 

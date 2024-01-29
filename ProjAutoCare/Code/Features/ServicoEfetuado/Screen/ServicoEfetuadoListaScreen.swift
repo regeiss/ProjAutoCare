@@ -23,7 +23,7 @@ struct ServicoEfetuadoListaScreen: View
                     {
                         ServicoEfetuadoListaDetalheView(servicoEfetuado: servicoEfetuado)
                     }                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
+                        Button("Exluir", role: .destructive, action: { viewModel.delete(servicoEfetuado: servicoEfetuado)})
                     }
                 }
             }

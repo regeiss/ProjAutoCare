@@ -28,7 +28,7 @@ struct ServicoListaScreen<Coordinator: Routing>: View
                         ServicoListaDetalheView(viewModel: viewModelServico, servico: servico)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Excluir", systemImage: "trash", role: .destructive, action: { viewModelServico.delete(servico: servico)})
+                        Button("Excluir", role: .destructive, action: { viewModelServico.delete(servico: servico)})
                     }
                 }
                 

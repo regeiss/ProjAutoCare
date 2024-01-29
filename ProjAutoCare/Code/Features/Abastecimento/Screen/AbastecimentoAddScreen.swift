@@ -77,7 +77,7 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
                     {
                         Text("Nenhum").tag(Posto?.none)
                         ForEach(viewModelPosto.postosLista) { (posto: Posto) in
-                            Text(posto.nome!).tag(posto as Posto?)
+                            Text(posto.nome ?? "").tag(posto as Posto?)
                         }
                     }.pickerStyle(.automatic)
                 }
@@ -136,8 +136,8 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
                        valorTotal: ((Double(formInfo.litros) ?? 0) * (Double(formInfo.valorLitro) ?? 0)),
                        completo: Bool(formInfo.completo),
                        media: viewModelAbastecimento.calculaMedia(kmAtual: (Int32(formInfo.quilometragem) ?? 0), litros: (Double(formInfo.litros) ?? 0), appState: appState, primeiraVez: false),
-                       noPosto: postoPicker!,
-                       doVeiculo: veiculoAtual!)
+                       noPosto: postoPicker ?? Posto(context: PersistenceController.shared.container.viewContext),
+                       doVeiculo: veiculoAtual ?? Veiculo(context: PersistenceController.shared.container.viewContext))
          
         viewModelAbastecimento.add(abastecimento: uab)
         

@@ -15,7 +15,7 @@ class AppState: ObservableObject
     var veiculoAtivo: Veiculo?
     var perfilAtivo: Perfil?
     var postoPadrao: Posto?
-    var abastecimentoSelecionadoID: UUID
+    var abastecimentoSelecionado: Abastecimento?
     
     static var shared = AppState()
     
@@ -23,6 +23,5 @@ class AppState: ObservableObject
     {
         regexNumerico = try! NSRegularExpression(pattern: "[0-9[\\b]]+")
         ultimaKM = 1
-        abastecimentoSelecionadoID = UUID()
     }
 }

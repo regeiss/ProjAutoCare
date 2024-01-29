@@ -27,7 +27,7 @@ struct CategoriaListaScreen: View
                         CategoriaListaDetalheView(viewModel: viewModel, categoria: categoria)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(categoria: categoria)})
+                        Button("Exluir", role: .destructive, action: { viewModel.delete(categoria: categoria)})
                     }
                 }
             

@@ -15,17 +15,15 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
     @EnvironmentObject var coordinator: Coordinator
     
     @StateObject var viewModel = ViewModel<Coordinator>()
-    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     @StateObject var viewModelPosto = PostoViewModel()
     @StateObject var appState = AppState.shared
-    @State var abastecimento = Abastecimento(context: PersistenceController.shared.container.viewContext)
-    @State var abastecimentoID: UUID?
+    @State var abastecimento: Abastecimento?
     
     var valorTotal: String
     {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        let total = (Double(abastecimento.litros) * Double(abastecimento.valorLitro))
+        let total = (Double(abastecimento?.litros ?? 0) * Double(abastecimento?.valorLitro ?? 0))
         
         return formatter.string(from: NSNumber(value: total)) ?? "$0"
     }
@@ -38,17 +36,17 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
             {
                 Section
                 {
-                    Text(String(abastecimento.quilometragem))
+                    Text(String(abastecimento?.quilometragem ?? 0))
                     // Text(String(abastecimento.data))
-                    Text(String(abastecimento.litros))
-                    Text(String(abastecimento.valorLitro))
+                    Text(String(abastecimento?.litros ?? 0))
+                    Text(String(abastecimento?.valorLitro ?? 0))
                     Text("Valor total \(valorTotal)")
-                    Toggle(isOn: $abastecimento.completo)
-                    {
-                        Text("completo")
-                    }
+//                    Toggle(isOn: $abastecimento?.completo ?? false)
+//                    {
+//                        Text("completo")
+//                    }
                     
-                    Text(abastecimento.self.nomePosto)
+                    Text(abastecimento?.self.nomePosto ?? "")
                 }
             }
             .disabled(true)
@@ -57,9 +55,7 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         .onAppear
         {
             print("onAppear")
-            abastecimentoID = appState.abastecimentoSelecionadoID
-            viewModelAbastecimento.fetchByID(abastecimentoID: abastecimentoID!)
-            abastecimento = viewModelAbastecimento.abastecimentosLista.first ?? Abastecimento()
+            abastecimento = appState.abastecimentoSelecionado!
             viewModel.coordinator = coordinator
         }
         .onDisappear{

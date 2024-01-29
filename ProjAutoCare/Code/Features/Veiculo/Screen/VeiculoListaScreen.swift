@@ -27,7 +27,7 @@ struct VeiculoListaScreen: View
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) 
                     {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
+                        Button("Exluir", role: .destructive, action: { viewModel.delete(veiculo: veiculo)})
                     }
                 }
                 

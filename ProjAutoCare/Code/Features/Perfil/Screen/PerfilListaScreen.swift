@@ -25,7 +25,7 @@ struct PerfilListaScreen: View
                         PerfilListaDetalheView(viewModel: viewModel, perfil: perfil)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", systemImage: "trash", role: .destructive, action: { viewModel.delete(perfil: perfil)})
+                        Button("Exluir", role: .destructive, action: { viewModel.delete(perfil: perfil)})
                         
                     }
                 }
