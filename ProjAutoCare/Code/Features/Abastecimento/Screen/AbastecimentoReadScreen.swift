@@ -19,6 +19,9 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
     @StateObject var appState = AppState.shared
     @State var abastecimento: Abastecimento?
     
+    @State var completo: Bool = false
+    @State var dataAbastecimento: Date = Date()
+    
     var valorTotal: String
     {
         let formatter = NumberFormatter()
@@ -36,15 +39,16 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
             {
                 Section
                 {
-                    Text(String(abastecimento?.quilometragem ?? 0))
-                    // Text(String(abastecimento.data))
-                    Text(String(abastecimento?.litros ?? 0))
-                    Text(String(abastecimento?.valorLitro ?? 0))
+                    Text(String(abastecimento?.quilometragem ?? 0).toQuilometrosFormat())
+                    DatePicker("data", selection: $dataAbastecimento)
+                        .environment(\.locale, Locale.init(identifier: "pt-BR"))
+                    Text(String(abastecimento?.litros ?? 0).toMediaConsumoFormat())
+                    Text(String(abastecimento?.valorLitro ?? 0).toCurrencyFormat())
                     Text("Valor total \(valorTotal)")
-//                    Toggle(isOn: $abastecimento?.completo ?? false)
-//                    {
-//                        Text("completo")
-//                    }
+                    Toggle(isOn: $completo)
+                    {
+                        Text("completo")
+                    }
                     
                     Text(abastecimento?.self.nomePosto ?? "")
                 }
@@ -54,8 +58,9 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         }
         .onAppear
         {
-            print("onAppear")
             abastecimento = appState.abastecimentoSelecionado!
+            dataAbastecimento = abastecimento?.data ?? Date()
+            completo = abastecimento?.completo ?? false
             viewModel.coordinator = coordinator
         }
         .onDisappear{
@@ -66,6 +71,7 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
+                appState.abastecimentoSelecionado = abastecimento
                 viewModel.didTapEdit()
             }
             label: { Text("Editar")}

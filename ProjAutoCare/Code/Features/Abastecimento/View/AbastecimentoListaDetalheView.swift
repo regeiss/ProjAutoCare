@@ -30,7 +30,7 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
                 HStack
                 {
                     Text("Data: ")
-                    // Text(abastecimento.data!, format: Date.FormatStyle().year().month().day())
+                    Text(abastecimento.data ?? Date(), format: Date.FormatStyle().year().month().day())
                     Spacer()
                 }
                 

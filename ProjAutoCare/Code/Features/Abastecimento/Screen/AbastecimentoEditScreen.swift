@@ -25,7 +25,7 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
     @FocusState private var abastecimentoInFocus: AbastecimentoFocusable?
     @State var posto: Posto?
     
-    var abastecimento: Abastecimento?
+    @State var abastecimento: Abastecimento?
     var appState = AppState.shared
     
     var valorTotal: String
@@ -94,7 +94,10 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
                 }
             }.scrollContentBackground(.hidden)
         }
-        .onAppear { viewModel.coordinator = coordinator }
+        .onAppear {
+            abastecimento = appState.abastecimentoSelecionado
+            viewModel.coordinator = coordinator
+        }
         .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
         .navigationBarBackButtonHidden()
