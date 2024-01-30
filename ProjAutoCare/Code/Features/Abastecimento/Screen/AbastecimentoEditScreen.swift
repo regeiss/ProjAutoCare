@@ -77,7 +77,7 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
                     {
                         Text("Nenhum").tag(Posto?.none)
                         ForEach(viewModelPosto.postosLista) { (posto: Posto) in
-                            Text(posto.nome!).tag(posto as Posto?)
+                            Text(posto.nome ?? "n/a").tag(posto as Posto?)
                         }
                     }
                     .pickerStyle(.automatic)
@@ -98,6 +98,7 @@ struct AbastecimentoEditScreen<Coordinator: Routing>: View
             abastecimento = appState.abastecimentoSelecionado
             viewModel.coordinator = coordinator
         }
+        .onDisappear {appState.abastecimentoSelecionado = abastecimento }
         .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
         .navigationBarBackButtonHidden()

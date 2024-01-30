@@ -39,13 +39,13 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
                     Text("Total: "); Text(String(format: "%.2f", abastecimento.valorTotal).toCurrencyFormat())
                     Spacer()
                     if abastecimento.media > 0 {
-                        Text(String(format: "%.3f", abastecimento.media)); Text(" km/l")}
+                        Text(String(format: "%.2f", abastecimento.media)); Text(" km/l")}
                 }
                 HStack
                 {
                     Text("Odômetro: ")
                     Text(String(abastecimento.quilometragem).toQuilometrosFormat())
-                    Spacer(); Text("Litros: "); Text(String(format: "%.3f", abastecimento.litros))
+                    Spacer(); Text("Litros: "); Text(String(format: "%.2f", abastecimento.litros))
                 }
                 HStack
                 {

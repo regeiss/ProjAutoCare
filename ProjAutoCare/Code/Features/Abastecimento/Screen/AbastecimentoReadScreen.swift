@@ -17,8 +17,11 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
     @StateObject var viewModel = ViewModel<Coordinator>()
     @StateObject var viewModelPosto = PostoViewModel()
     @StateObject var appState = AppState.shared
-    @State var abastecimento: Abastecimento?
     
+    @State var abastecimento: Abastecimento?
+    @State var quilometragem: Int32 = 0
+    @State var litros: Double = 0
+    @State var valorLitro: Double = 0
     @State var completo: Bool = false
     @State var dataAbastecimento: Date = Date()
     
@@ -39,11 +42,11 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
             {
                 Section
                 {
-                    Text(String(abastecimento?.quilometragem ?? 0).toQuilometrosFormat())
+                    Text(String(quilometragem).toQuilometrosFormat())
                     DatePicker("data", selection: $dataAbastecimento)
                         .environment(\.locale, Locale.init(identifier: "pt-BR"))
-                    Text(String(abastecimento?.litros ?? 0).toMediaConsumoFormat())
-                    Text(String(abastecimento?.valorLitro ?? 0).toCurrencyFormat())
+                    Text(String(litros).toMediaConsumoFormat())
+                    Text(String(valorLitro).toCurrencyFormat())
                     Text("Valor total \(valorTotal)")
                     Toggle(isOn: $completo)
                     {
@@ -59,6 +62,9 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         .onAppear
         {
             abastecimento = appState.abastecimentoSelecionado!
+            quilometragem = abastecimento?.quilometragem ?? 0
+            litros = abastecimento?.litros ?? 0
+            valorLitro = abastecimento?.valorLitro ?? 0
             dataAbastecimento = abastecimento?.data ?? Date()
             completo = abastecimento?.completo ?? false
             viewModel.coordinator = coordinator
@@ -66,7 +72,6 @@ struct AbastecimentoReadScreen<Coordinator: Routing>: View
         .onDisappear{
             print("onDisapear")
         }
-        
         .background(Color("backGroundColor"))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing)

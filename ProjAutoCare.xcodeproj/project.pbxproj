@@ -136,6 +136,9 @@
 		E1B889D42AE9EB5B00024663 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */; };
 		E1B889D62AE9EC6A00024663 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B889D52AE9EC6A00024663 /* FadeTransition.swift */; };
 		E1BCC85E2A8DA155003C77CA /* RegistroListaDetalheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */; };
+		E1C3C4232B69928900B284FB /* PostoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C4222B69928900B284FB /* PostoAction.swift */; };
+		E1C3C4252B69929700B284FB /* PostoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C4242B69929700B284FB /* PostoCoordinator.swift */; };
+		E1C3C4272B6992AD00B284FB /* PostoRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C4262B6992AD00B284FB /* PostoRoute.swift */; };
 		E1CC38282A830F4E00272059 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC38272A830F4E00272059 /* CalendarExtensions.swift */; };
 		E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */; };
 		E1CD94412A8FFC4C005EF2AC /* ServicoEfetuadoEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CD94402A8FFC4C005EF2AC /* ServicoEfetuadoEditScreen.swift */; };
@@ -330,6 +333,9 @@
 		E1B889D32AE9EB5B00024663 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		E1B889D52AE9EC6A00024663 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		E1BCC85D2A8DA155003C77CA /* RegistroListaDetalheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroListaDetalheView.swift; sourceTree = "<group>"; };
+		E1C3C4222B69928900B284FB /* PostoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoAction.swift; sourceTree = "<group>"; };
+		E1C3C4242B69929700B284FB /* PostoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoCoordinator.swift; sourceTree = "<group>"; };
+		E1C3C4262B6992AD00B284FB /* PostoRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoRoute.swift; sourceTree = "<group>"; };
 		E1CC38272A830F4E00272059 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		E1CD943E2A8FFC36005EF2AC /* ServicoEfetuadoAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoAddScreen.swift; sourceTree = "<group>"; };
 		E1CD94402A8FFC4C005EF2AC /* ServicoEfetuadoEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicoEfetuadoEditScreen.swift; sourceTree = "<group>"; };
@@ -443,6 +449,7 @@
 		E1013FC62A4A57ED0044410F /* Posto */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3C4212B69926600B284FB /* Coordinator */,
 				E1013FCD2A4A5BED0044410F /* Action */,
 				E1013FCC2A4A5BD50044410F /* Model */,
 				E1013FC92A4A5BBA0044410F /* Screen */,
@@ -1176,6 +1183,16 @@
 			path = CoreDataSeed;
 			sourceTree = "<group>";
 		};
+		E1C3C4212B69926600B284FB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3C4222B69928900B284FB /* PostoAction.swift */,
+				E1C3C4242B69929700B284FB /* PostoCoordinator.swift */,
+				E1C3C4262B6992AD00B284FB /* PostoRoute.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		E1CE3C452A547AF500B2C51D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1770,6 +1787,7 @@
 				E169CDF22A7877F400157E93 /* RelatorioServicoScreen.swift in Sources */,
 				E1AC4F232A5B0C0B00016186 /* ServicoPublisher.swift in Sources */,
 				E1013FC22A4A559D0044410F /* ErrorView.swift in Sources */,
+				E1C3C4272B6992AD00B284FB /* PostoRoute.swift in Sources */,
 				E1CD94412A8FFC4C005EF2AC /* ServicoEfetuadoEditScreen.swift in Sources */,
 				E1013FD52A4A60E40044410F /* Posto+CoreDataProperties.swift in Sources */,
 				E1B889D62AE9EC6A00024663 /* FadeTransition.swift in Sources */,
@@ -1835,6 +1853,7 @@
 				E1AC4F172A5B07D800016186 /* Categoria+CoreDataClass.swift in Sources */,
 				E18FDA7E2AC2F7C200FA2602 /* ModeloModel.swift in Sources */,
 				E1CE3C472A547C7E00B2C51D /* OnboardingModel.swift in Sources */,
+				E1C3C4232B69928900B284FB /* PostoAction.swift in Sources */,
 				E1F986312A6D70160099C57D /* CategoriaEditScreen.swift in Sources */,
 				E1E409CE2A52580C00034DBA /* Perfil+CoreDataProperties.swift in Sources */,
 				E1F1D3C82AD37D13000C0EEA /* Modelo+CoreDataProperties.swift in Sources */,
@@ -1855,6 +1874,7 @@
 				E10A77AE2A6F4F6C00FF7800 /* ServicoEditScreen.swift in Sources */,
 				E1CD943F2A8FFC37005EF2AC /* ServicoEfetuadoAddScreen.swift in Sources */,
 				E1F1D3CA2AD37D13000C0EEA /* Marca+CoreDataProperties.swift in Sources */,
+				E1C3C4252B69929700B284FB /* PostoCoordinator.swift in Sources */,
 				E19B1F012AA94FDA00DC3D0C /* NetworkService.swift in Sources */,
 				E1AD0CD42A4CFF13006D64D8 /* DateExtensions.swift in Sources */,
 				E1AC4F202A5B0A4A00016186 /* ServicoModel.swift in Sources */,
