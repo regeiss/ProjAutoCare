@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 @MainActor
 final class DependencyContainer 
 {
@@ -27,6 +28,7 @@ final class DependencyContainer
     }
 }
 
+@available(iOS 17.0, *)
 extension DependencyContainer: CoordinatorFactory 
 {
     func makeAppCoordinator(window: UIWindow) -> AppCoordinator 
@@ -87,6 +89,7 @@ extension DependencyContainer: CoordinatorFactory
     }
 }
 
+@available(iOS 17.0, *)
 extension DependencyContainer 
 {
     static let mock = DependencyContainer()

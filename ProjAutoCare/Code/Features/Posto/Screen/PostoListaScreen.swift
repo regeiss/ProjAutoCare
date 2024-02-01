@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-@available(iOS 16.0, *)
-struct PostoListaScreen: View
+@available(iOS 17.0, *)
+struct PostoListaScreen<Coordinator: Routing>: View
 {
-    @StateObject var viewModel = PostoViewModel()
-    @State private var adicao = false
-    @State private var edicao = false
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    @StateObject var viewModelPosto = PostoViewModel()
     
     var body: some View
     {
@@ -20,33 +21,44 @@ struct PostoListaScreen: View
         {
             List
             {
-                ForEach(viewModel.postosLista) { posto in
+                ForEach(viewModelPosto.postosLista) { posto in
                     HStack
                     {
-                        PostoListaDetalheView(viewModel: viewModel, posto: posto)
+                        PostoListaDetalheView<PostoCoordinator>(posto: posto)
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button("Exluir", role: .destructive, action: { viewModel.delete(posto: posto)})
+                        Button("Exluir", role: .destructive, action: { viewModelPosto.delete(posto: posto)})
                     }
                 }
                 
-                if viewModel.postosLista.isEmpty
+                if viewModelPosto.postosLista.isEmpty
                 {
                     Text("").listRowBackground(Color.clear)
                 }
             }
         }
+        .onAppear { viewModel.coordinator = coordinator }
         .background(Color("backGroundColor"))
         .scrollContentBackground(.hidden)
-        .navigationBarTitle("Postos", displayMode: .automatic)
         .toolbar { ToolbarItem(placement: .navigationBarTrailing)
             { Button {
-                adicao = true
+                viewModel.didTapAdd()
             }
                 label: { Image(systemName: "plus")}}
         }
-        .navigationDestination(isPresented: $adicao, destination: {
-            PostoAddScreen(viewModel: viewModel)
-        })
+    }
+}
+
+@available(iOS 17.0, *)
+extension PostoListaScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+
+        func didTapAdd()
+        {
+            coordinator?.handle(AbastecimentoAction.inclusao)
+        }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-@available(iOS 16.0, *)
+@available(iOS 17.0, *)
 @main
 struct ProjAutoCareApp: App
 {
@@ -25,20 +25,20 @@ struct ProjAutoCareApp: App
         {
             
         }
-//        .onChange(of: scenePhase)
-//        {
-//            switch scenePhase
-//            {
-//            case .active:
-//                prepareAppContext()
-//            case .inactive:
-//                print("inactive")
-//            case .background:
-//                saveContext()
-//            @unknown default:
-//                fatalError()
-//            }
-//        }
+        .onChange(of: scenePhase)
+        {
+            switch scenePhase
+            {
+            case .active:
+                prepareAppContext()
+            case .inactive:
+                print("inactive")
+            case .background:
+                saveContext()
+            @unknown default:
+                fatalError()
+            }
+        }
     }
     
     final class SceneDelegate: NSObject, UIWindowSceneDelegate 

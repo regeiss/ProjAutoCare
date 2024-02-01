@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct PostoReadScreen: View
+struct PostoReadScreen<Coordinator: Routing>: View
 {
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: PostoViewModel
+    @EnvironmentObject var errorHandling: ErrorHandling
+    @EnvironmentObject var coordinator: Coordinator
     @ObservedObject var formInfo = PostoFormInfo()
-    @State private var edicao = false
-    
-    var posto: Posto
+    @StateObject var viewModel = ViewModel<Coordinator>()
+
+    @State var posto: Posto?
     
     var body: some View
     {
@@ -31,29 +32,35 @@ struct PostoReadScreen: View
             .scrollContentBackground(.hidden)
         }.onAppear
         {
-            formInfo.nome = posto.nome ?? ""
-            formInfo.bandeira = posto.bandeira ?? ""
+            formInfo.nome = posto?.nome ?? ""
+            formInfo.bandeira = posto?.bandeira ?? ""
+            viewModel.coordinator = coordinator
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Postos")
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading)
-            { Button {
-                dismiss()
-            }
-                label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
-                
-                edicao = true
+                // appState.abastecimentoSelecionado = abastecimento
+                viewModel.didTapEdit()
             }
             label: { Text("Editar")}
             }
         }
-        .navigationDestination(isPresented: $edicao, destination: {
-            PostoEditScreen(viewModel: viewModel, posto: posto)
-        })
+    }
+}
+
+extension PostoReadScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func didTapEdit()
+        {
+            coordinator?.handle(PostoAction.edicao)
+        }
     }
 }

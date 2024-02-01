@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 class MenuPrincipalCoordinator: Routing
 {
     // MARK: - Internal properties
@@ -78,6 +79,7 @@ class MenuPrincipalCoordinator: Routing
 
 // MARK: - RouterViewFactory
 
+@available(iOS 17.0, *)
 extension MenuPrincipalCoordinator: RouterViewFactory
 {    
     @ViewBuilder

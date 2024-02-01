@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 struct CadastroListaScreen<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
@@ -16,9 +17,9 @@ struct CadastroListaScreen<Coordinator: Routing>: View
     @State var categoria = false
     @State var servico = false
     @State var veiculo = false
-    @State var posto = false 
+    @State var posto = false
     
-    var body: some View 
+    var body: some View
     {
         let cadastroMenu = [
             CadastroColecao(id: 0, name: "Categorias", image: "gasStation", menu: .categoria),
@@ -40,24 +41,48 @@ struct CadastroListaScreen<Coordinator: Routing>: View
                 LazyVGrid(columns: columns, alignment: .center, spacing: 5)
                 {
                     ForEach(cadastroMenu) { item in
-                        NavigationLink(value: item) {
-                            CadastroDetalheView(colecao: item)
-                        }
-                    }.padding([.leading, .trailing])
-                }.padding()
-            }.background(Color("backGroundColor"))
-        }
+                        CadastroDetalheView(colecao: item)
+                            .onTapGesture {
+                                viewModel.didTapBuiltIn(id: item.id)
+                            }
+                    }
+                    
+                }.padding([.leading, .trailing])
+            }.padding()
+        }.background(Color("backGroundColor"))
     }
 }
 
+@available(iOS 17.0, *)
 extension CadastroListaScreen
 {
     @MainActor class ViewModel<R: Routing>: ObservableObject
     {
         var coordinator: R?
         
-        func didTapBuiltIn() {
-            //  coordinator?.handle(ShapesAction.simpleShapes)
+        func didTapBuiltIn(id: Int)
+        {
+            switch id
+            {
+            case 0:
+                coordinator?.handle(CadastroAction.categoria)
+            case 1:
+                coordinator?.handle(CadastroAction.marca)
+            case 2:
+                coordinator?.handle(CadastroAction.modelo)
+            case 3:
+                coordinator?.handle(CadastroAction.perfil)
+            case 4:
+                coordinator?.handle(CadastroAction.posto)
+            case 5:
+                coordinator?.handle(CadastroAction.servico)
+            case 6:
+                coordinator?.handle(CadastroAction.veiculo)
+            case 7:
+                coordinator?.handle(CadastroAction.servicoEfetuado)
+            default:
+                coordinator?.handle(CadastroAction.categoria)
+            }
         }
     }
 }

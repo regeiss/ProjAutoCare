@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUICoordinator
+
+enum PostoAction: CoordinatorAction
+{
+    case leitura
+    case lista
+    case inclusao
+    case edicao
+}

@@ -86,8 +86,6 @@ struct AbastecimentoAddScreen<Coordinator: Routing>: View
         .onAppear { viewModel.coordinator = coordinator }
         .onReceive(formInfo.manager.$allValid) { isValid in self.isSaveDisabled = !isValid}
         .background(Color("backGroundColor"))
-        .navigationTitle("Abastecimento")
-        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)

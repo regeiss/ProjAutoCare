@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
-import FormValidator
+import SwiftUICoordinator
 
-struct PostoAddScreen: View
+struct PostoAddScreen<Coordinator: Routing>: View
 {
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: PostoViewModel
+    @EnvironmentObject var coordinator: Coordinator
+    @ObservedObject var viewModelPosto = PostoViewModel()
     @ObservedObject var formInfo = PostoFormInfo()
     @FocusState private var postoInFocus: PostoFocusable?
+    @StateObject var viewModel = ViewModel<Coordinator>()
     @State var isSaveDisabled: Bool = true
     
     var body: some View
@@ -38,33 +39,45 @@ struct PostoAddScreen: View
             .onReceive(formInfo.manager.$allValid) { isValid in
                 self.isSaveDisabled = !isValid}
         }
+        .onAppear { viewModel.coordinator = coordinator }
         .background(Color("backGroundColor"))
-        .navigationTitle("Postos")
-        .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
-            { Button {
-                dismiss()
-            }
-                label: { Text("Cancelar")}}
+            { Button("Cancelar") {
+                viewModel.popView()
+            }}
             ToolbarItem(placement: .navigationBarTrailing)
-            { Button {
-                save()
-                dismiss()
-            }
-            label: { Text("OK").disabled(isSaveDisabled)}
+            {
+                Button("OK") {
+                    //gravarAbastecimento()
+                    viewModel.popView()
+                }.disabled(isSaveDisabled)
             }
         }
     }
     
-    func save()
+    func savePosto()
     {
         let valid = formInfo.manager.triggerValidation()
         if valid
         {
             let postoNovo = PostoDTO(id: UUID(), nome: formInfo.nome, bandeira: formInfo.bandeira, padrao: false)
-            viewModel.add(posto: postoNovo)
+            viewModelPosto.add(posto: postoNovo)
         }
+    }
+}
+
+extension PostoAddScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func popView()
+        {
+            coordinator?.pop(animated: true)
+        }
+        
     }
 }

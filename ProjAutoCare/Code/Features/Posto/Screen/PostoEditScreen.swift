@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
+import SwiftUICoordinator
 
-struct PostoEditScreen: View
+struct PostoEditScreen<Coordinator: Routing>: View
 {
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: PostoViewModel
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var viewModel = ViewModel<Coordinator>()
+    @ObservedObject var viewModelPosto = PostoViewModel()
     @StateObject var formInfo = PostoFormInfo()
     @FocusState private var postoInFocus: PostoFocusable?
     @State var isSaveDisabled: Bool = true
-    @State var lista = false
-    
-    var posto: Posto
+    @State var posto: Posto?
     
     var body: some View
     {
@@ -41,8 +41,9 @@ struct PostoEditScreen: View
                 self.isSaveDisabled = !isValid}
         }.onAppear
         {
-            formInfo.nome = posto.nome ?? ""
-            formInfo.bandeira = posto.bandeira ?? ""
+            formInfo.nome = posto?.nome ?? ""
+            formInfo.bandeira = posto?.bandeira ?? ""
+            viewModel.coordinator = coordinator
         }
         .background(Color("backGroundColor"))
         .navigationTitle("Postos")
@@ -51,19 +52,17 @@ struct PostoEditScreen: View
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading)
             { Button {
-                dismiss()
+                viewModel.popView()
             }
                 label: { Text("Cancelar")}}
             ToolbarItem(placement: .navigationBarTrailing)
             { Button {
                 save()
-                lista = true
+                viewModel.popView()
             }
             label: { Text("OK").disabled(isSaveDisabled)}
             }
         }
-        .navigationDestination(isPresented: $lista, destination: {
-            PostoListaScreen()})
     }
     
     func save()
@@ -71,9 +70,22 @@ struct PostoEditScreen: View
         let valid = formInfo.manager.triggerValidation()
         if valid
         {
-            posto.nome = formInfo.nome
-            posto.bandeira = formInfo.bandeira
-            viewModel.update(posto: posto)
+            posto?.nome = formInfo.nome ?? ""
+            posto?.bandeira = formInfo.bandeira ?? ""
+            viewModelPosto.update(posto: posto ?? Posto())
+        }
+    }
+}
+
+extension PostoEditScreen
+{
+    @MainActor class ViewModel<R: Routing>: ObservableObject
+    {
+        var coordinator: R?
+        
+        func popView()
+        {
+            coordinator?.pop(animated: true)
         }
     }
 }

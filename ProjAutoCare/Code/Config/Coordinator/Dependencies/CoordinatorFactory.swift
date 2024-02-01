@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 @MainActor
 protocol CoordinatorFactory 
 {

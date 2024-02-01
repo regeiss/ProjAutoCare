@@ -9,6 +9,7 @@ import SwiftUI
 import WelcomeSheet
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 struct MenuInicialScreen<Coordinator: Routing>: View
 {
     @AppStorage("needsAppOnboarding") private var needsAppOnboarding: Bool = true
@@ -58,12 +59,10 @@ struct MenuInicialScreen<Coordinator: Routing>: View
                         LazyVGrid(columns: columns, alignment: .center, spacing: 5)
                         {
                             ForEach(colecaoMenu) { item in
-                                
                                 MenuInicialItemView(colecao: item)
                                     .onTapGesture {
                                         viewModel.didTapBuiltIn(id: item.id)
                                     }
-                                
                             }.padding([.leading, .trailing])
                             
                         }
@@ -115,7 +114,8 @@ struct MenuInicialScreen<Coordinator: Routing>: View
         }
     }
     
-    extension MenuInicialScreen
+@available(iOS 17.0, *)
+extension MenuInicialScreen
     {
         @MainActor class ViewModel<R: Routing>: ObservableObject
         {

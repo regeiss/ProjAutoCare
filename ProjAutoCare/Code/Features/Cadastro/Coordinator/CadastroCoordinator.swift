@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUICoordinator
 
+@available(iOS 17.0, *)
 class CadastroCoordinator: Routing
 {
     // MARK: - Internal properties
@@ -53,7 +54,8 @@ class CadastroCoordinator: Routing
         }
     }
 }
-
+    // MARK: - Extension
+@available(iOS 17.0, *)
 extension CadastroCoordinator: RouterViewFactory
 {
     @ViewBuilder
@@ -72,7 +74,7 @@ extension CadastroCoordinator: RouterViewFactory
         case .perfil:
             CadastroListaScreen<CadastroCoordinator>()
         case .posto:
-            CadastroListaScreen<CadastroCoordinator>()
+            PostoListaScreen<PostoCoordinator>()
         case .servico:
             CadastroListaScreen<CadastroCoordinator>()
         case .veiculo:

@@ -17,5 +17,6 @@ enum CadastroAction: CoordinatorAction
     case perfil
     case posto
     case servico
+    case servicoEfetuado
     case veiculo
 }

@@ -12,7 +12,6 @@ struct AbastecimentoListaDetalheView<Coordinator: Routing>: View
 {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel<Coordinator>()
-    @StateObject var viewModelAbastecimento = AbastecimentoViewModel()
     
     var abastecimento: Abastecimento
     var appState = AppState.shared
